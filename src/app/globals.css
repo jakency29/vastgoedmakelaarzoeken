@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* Merkkleuren uit het logo: navy (brand) + amber (accent). Vastgoedportaal-stijl. */
+@theme {
+  --color-brand-50: #eef1fb;
+  --color-brand-100: #dbe1f5;
+  --color-brand-200: #b8c4ec;
+  --color-brand-300: #8ba0dd;
+  --color-brand-400: #5670c7;
+  --color-brand-500: #3350ab;
+  --color-brand-600: #223a89;
+  --color-brand-700: #182c6f;
+  --color-brand-800: #0b1e5b;
+  --color-brand-900: #081543;
+  --color-brand-950: #050d2b;
+
+  --color-accent-300: #ffd47a;
+  --color-accent-400: #ffc043;
+  --color-accent-500: #f9a41a;
+  --color-accent-600: #e08c00;
+  --color-accent-700: #b86f00;
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-brand-900);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Focus-stijl consistent met het merk. */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
