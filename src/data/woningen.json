@@ -19,7 +19,103 @@
   "gevels": 4,
   "bouwjaar": "1964",
   "staat": "Te renoveren",
-  "beschrijving": "Aan de Deurnestraat 84 bevindt zich deze ruime woning uit 1964, gelegen op een prachtig perceel van 12a 35ca . Een eigendom met heel wat potentieel, ideaal voor wie op zoek is naar een woning die volledig naar eigen smaak kan worden vernieuwd, op een toplocatie in Paal. Met een bewoonbare oppervlakte van 210 m² biedt de woning alle ruimte voor een gezin. Ze beschikt over 3 slaapkamers , een inpandige garage en een praktische indeling die een uitstekende basis vormt voor een hedendaagse renovatie. We gaan het niet verbloemen: deze woning vraagt een grondige opfrissing. Dankzij het EPC-label F geldt er een renovatieverplichting, maar dat biedt meteen ook de kans om de woning volledig toekomstgericht en energiezuinig in te richten. De ligging is zonder twijfel één van de grootste troeven. De woning bevindt zich in een rustige, landelijke omgeving en toch op korte afstand van het centrum van Paal. Daarnaast liggen de Paalse Plas , wandel- en fietsroutes en de op- en afritten van de autosnelweg vlakbij, waardoor u hier geniet van een ideale combinatie van natuur en bereikbaarheid. Bent u op zoek naar een renovatieproject met een ruim perceel op een gegeerde locatie? Dan is deze eigendom zeker een bezoek waard. Deurnestraat 84 — 3583 Paal-Beringen Interesse of een bezoek plannen? Contacteer ons kantoor. We Invest Demervallei - Vastgoed Anders Bekeken",
+  "parkeerplaatsen": 0,
+  "epcLabel": "F",
+  "epcVerbruik": 555,
+  "epcCode": "0260703-0003910396-RES-1",
+  "renovatieplicht": true,
+  "kadastraalInkomen": 860,
+  "bestemming": "Woongebied met landelijk karakter",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 48
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": 11
+   },
+   {
+    "label": "Toilet",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 12
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 16
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 8
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 16
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Individueel verwarming",
+   "Dubbele beglazing",
+   "Voorzieningen gehand.",
+   "Open haard",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Olieketel (L)",
+   "Aansluiting op water",
+   "Watertank (L)",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "PVC raamwerk",
+   "Gedeeltelijk geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "Ruim perceel van 1235 m2",
+   "Tuin",
+   "Terras",
+   "Open haard",
+   "Dubbele beglazing"
+  ],
+  "geoLat": 51.0472,
+  "geoLng": 5.13871,
+  "beschrijving": "Aan de Deurnestraat 84 bevindt zich deze ruime woning uit 1964, gelegen op een prachtig perceel van 12a 35ca . Een eigendom met heel wat potentieel, ideaal voor wie op zoek is naar een woning die volledig naar eigen smaak kan worden vernieuwd, op een toplocatie in Paal. Met een bewoonbare oppervlakte van 210 m² biedt de woning alle ruimte voor een gezin. Ze beschikt over 3 slaapkamers , een inpandige garage en een praktische indeling die een uitstekende basis vormt voor een hedendaagse renovatie. We gaan het niet verbloemen: deze woning vraagt een grondige opfrissing. Dankzij het EPC-label F geldt er een renovatieverplichting, maar dat biedt meteen ook de kans om de woning volledig toekomstgericht en energiezuinig in te richten. De ligging is zonder twijfel één van de grootste troeven. De woning bevindt zich in een rustige, landelijke omgeving en toch op korte afstand van het centrum van Paal. Daarnaast liggen de Paalse Plas , wandel- en fietsroutes en de op- en afritten van de autosnelweg vlakbij, waardoor u hier geniet van een ideale combinatie van natuur en bereikbaarheid. Bent u op zoek naar een renovatieproject met een ruim perceel op een gegeerde locatie? Dan is deze eigendom zeker een bezoek waard. Deurnestraat 84 3583 Paal-Beringen Interesse of een bezoek plannen? Contacteer ons kantoor. We Invest Demervallei - Vastgoed Anders Bekeken",
   "fotos": [
    "/afbeeldingen/woningen/166222/1.jpg",
    "/afbeeldingen/woningen/166222/2.jpg",
@@ -57,7 +153,104 @@
   "gevels": 4,
   "bouwjaar": "1983",
   "staat": "Goede staat",
-  "beschrijving": "Op zoek naar ruimte, rust en een prachtig groen uitzicht? Dan is deze uitstekend onderhouden woning aan de Korpse straat 59 in Donk (Herk-de-Stad) absoluut een bezoek waard. Gelegen in een rustige straat geniet u hier van een unieke combinatie van privacy, natuur en een vlot wooncomfort. Verrassend ruim met 4 slaapkamers gelegen in landelijke omgeving De woning verkeert in zeer goede staat, heeft een bewoonbare opp. van 217 m² en beschikt over een uiterst praktische indeling: Gelijkvloers: Een inkomhal met gastentoilet en vestiaire biedt toegang tot de lichtrijke leefruimtes met een eethoek en een sfeervolle zithoek met gezellige speksteenkachel. Achter een hoekje maar nog steeds deel van de leefruimte bevindt zich een bureel. Koken gebeurt in de kwalitatieve SieMatic-keuken. Een wasplaats en inpandige garage (mogelijkheid tot ombouwen naar kantoor) maken dit niveau compleet. Verdieping: De nachthal leidt naar 4 ruime slaapkamers en een volledig uitgeruste badkamer met toilet, dubbele wastafel, ligbad en douche. Kelder: De woning is voor de helft onderkelderd, perfect voor extra praktische opslagruimte. Een groen paradijs van 30 are met achteraan een bos en perenbomen Het royale perceel van 3.005 m² is ca. 150 meter diep en biedt een ongezien buitenleven: Zon & privacy: Het deels overdekte terras (40 m²) is ideaal westgericht. De tuin is prachtig aangelegd met fruitbomen, leilindes en knotwilgen. Uniek uitzicht: De achterste perceelsgrens wordt gevormd door de kabbelende Melsterbeek, met daarachter blijvend groene weilanden. Er is tevens een carport met extra berging. Technisch up-to-date & duurzaam Ook op praktisch vlak scoort deze woning uitstekend: Geen renovatieverplichting: De woning behaalt een comfortabel EPC-label D. Energie & Veiligheid: Het dak werd in 2023 volledig vernieuwd en uitgerust met 18 zonnepanelen (groenestroomcertificaten tot 2029). Tevens voorzien van een alarmsysteem en camerabewaking. Toplocatie in de Demervallei U geniet hier van een rustige, landelijke setting vlak bij het Schulensmeer. Tegelijkertijd zijn het gezellige centrum van Herk-de-Stad, lokale scholen en winkels zeer vlot bereikbaar. Kortom, een instapklare gezinswoning waar comfort, privacy en het buitenleven harmonieus samenkomen. Korpse straat 59 — 3540 Donk (Herk-de-Stad) Interesse of een bezoek plannen? Contacteer ons kantoor. We Invest Demervallei - Vastgoed Anders Bekeken",
+  "parkeerplaatsen": 0,
+  "epcLabel": "D",
+  "epcVerbruik": 332,
+  "epcCode": "20260407-0003832462-RES-1",
+  "renovatieplicht": null,
+  "kadastraalInkomen": 974,
+  "bestemming": "",
+  "overstroming": "",
+  "vergunning": false,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 4,
+    "opp": 44
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Bureau",
+    "aantal": 1,
+    "opp": 9
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": 33
+   },
+   {
+    "label": "Toilet",
+    "aantal": 3,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 14
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 27
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 26
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": 2400
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": 30
+   }
+  ],
+  "eigenschappen": [
+   "Zonnepanelen",
+   "Individueel verwarming",
+   "Dubbele beglazing",
+   "Alarm",
+   "Open haard",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op gas",
+   "Aansluiting op water",
+   "Brandmelder",
+   "Aluminium raamwerk",
+   "Gasverwarming",
+   "VS geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "Ruim perceel van 2985 m2",
+   "Tuin",
+   "Terras",
+   "Open haard",
+   "4 slaapkamers",
+   "Dubbele beglazing"
+  ],
+  "geoLat": 50.92657,
+  "geoLng": 5.14591,
+  "beschrijving": "Op zoek naar ruimte, rust en een prachtig groen uitzicht? Dan is deze uitstekend onderhouden woning aan de Korpse straat 59 in Donk (Herk-de-Stad) absoluut een bezoek waard. Gelegen in een rustige straat geniet u hier van een unieke combinatie van privacy, natuur en een vlot wooncomfort. Verrassend ruim met 4 slaapkamers gelegen in landelijke omgeving De woning verkeert in zeer goede staat, heeft een bewoonbare opp. van 217 m² en beschikt over een uiterst praktische indeling: Gelijkvloers: Een inkomhal met gastentoilet en vestiaire biedt toegang tot de lichtrijke leefruimtes met een eethoek en een sfeervolle zithoek met gezellige speksteenkachel. Achter een hoekje maar nog steeds deel van de leefruimte bevindt zich een bureel. Koken gebeurt in de kwalitatieve SieMatic-keuken. Een wasplaats en inpandige garage (mogelijkheid tot ombouwen naar kantoor) maken dit niveau compleet. Verdieping: De nachthal leidt naar 4 ruime slaapkamers en een volledig uitgeruste badkamer met toilet, dubbele wastafel, ligbad en douche. Kelder: De woning is voor de helft onderkelderd, perfect voor extra praktische opslagruimte. Een groen paradijs van 30 are met achteraan een bos en perenbomen Het royale perceel van 3.005 m² is ca. 150 meter diep en biedt een ongezien buitenleven: Zon & privacy: Het deels overdekte terras (40 m²) is ideaal westgericht. De tuin is prachtig aangelegd met fruitbomen, leilindes en knotwilgen. Uniek uitzicht: De achterste perceelsgrens wordt gevormd door de kabbelende Melsterbeek, met daarachter blijvend groene weilanden. Er is tevens een carport met extra berging. Technisch up-to-date & duurzaam Ook op praktisch vlak scoort deze woning uitstekend: Geen renovatieverplichting: De woning behaalt een comfortabel EPC-label D. Energie & Veiligheid: Het dak werd in 2023 volledig vernieuwd en uitgerust met 18 zonnepanelen (groenestroomcertificaten tot 2029). Tevens voorzien van een alarmsysteem en camerabewaking. Toplocatie in de Demervallei U geniet hier van een rustige, landelijke setting vlak bij het Schulensmeer. Tegelijkertijd zijn het gezellige centrum van Herk-de-Stad, lokale scholen en winkels zeer vlot bereikbaar. Kortom, een instapklare gezinswoning waar comfort, privacy en het buitenleven harmonieus samenkomen. Korpse straat 59 3540 Donk (Herk-de-Stad) Interesse of een bezoek plannen? Contacteer ons kantoor. We Invest Demervallei - Vastgoed Anders Bekeken",
   "fotos": [
    "/afbeeldingen/woningen/164431/1.jpg",
    "/afbeeldingen/woningen/164431/2.jpg",
@@ -95,7 +288,108 @@
   "gevels": 4,
   "bouwjaar": "1956",
   "staat": "Te renoveren",
-  "beschrijving": "In de geliefde Pastorijstraat, één van de mooiste locaties van Meldert, vinden we deze woning uit 1956 op een perceel van 7a 84ca . Een eigendom met karakter, ruimte en vooral veel potentieel voor wie zijn woning volledig naar eigen smaak wil uitwerken. Met een bewoonbare oppervlakte van 152 m² beschikt de woning vandaag over 4 slaapkamers en een badkamer op het gelijkvloers. De aanwezige ruimtes vormen een uitstekende basis voor een grondige renovatie waarbij u de woning volledig kunt aanpassen aan de hedendaagse woonnormen. We gaan het niet verbloemen: deze woning vraagt een stevige aanpak. Dankzij het EPC-label F geldt er een renovatieverplichting, maar dit biedt meteen ook de kans om alles doordacht en toekomstgericht te vernieuwen. Zo creëert u een woning die volledig aansluit bij uw eigen wensen en behoeften. De ligging vormt zonder twijfel één van de grootste troeven. Meldert staat bekend om zijn landelijke karakter, groene omgeving en rustige woonkwaliteit. Hier geniet u dagelijks van het buitenleven, terwijl scholen, winkels en verbindingswegen vlot bereikbaar blijven. Bovendien bestaat de mogelijkheid om deze woning samen aan te kopen met de naastgelegen bouwgrond met weide aan nummer 84. Hierdoor ontstaan interessante perspectieven voor wie op zoek is naar extra ruimte, een groot woonproject of een investering op lange termijn. Een unieke kans voor handige renovatoren, investeerders of gezinnen die hun droomwoning willen creëren op een uitzonderlijke locatie. Dewelke trouwens samen kan gekocht worden met de naastgelegen bouwgrond. Locatie: Pastorijstraat 66 — 3560 Meldert Interesse of meer informatie? Contacteer ons kantoor. We Invest Demervallei - Vastgoed Anders Bekeken",
+  "parkeerplaatsen": 0,
+  "epcLabel": "F",
+  "epcVerbruik": 702,
+  "epcCode": "20260616-0003894761-RES-1",
+  "renovatieplicht": true,
+  "kadastraalInkomen": 647,
+  "bestemming": "Woongebied met landelijk karakter",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 40
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Bureau",
+    "aantal": 1,
+    "opp": 12
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Toilet",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 12
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 8
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 9
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 12
+   },
+   {
+    "label": "Veranda",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Individueel verwarming",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Olieketel (L)",
+   "Aansluiting op water",
+   "Watertank (L)",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "Aluminium raamwerk",
+   "Gedeeltelijk geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "Ruim perceel van 784 m2",
+   "Tuin",
+   "Terras"
+  ],
+  "geoLat": 51.00196,
+  "geoLng": 5.14805,
+  "beschrijving": "In de geliefde Pastorijstraat, één van de mooiste locaties van Meldert, vinden we deze woning uit 1956 op een perceel van 7a 84ca . Een eigendom met karakter, ruimte en vooral veel potentieel voor wie zijn woning volledig naar eigen smaak wil uitwerken. Met een bewoonbare oppervlakte van 152 m² beschikt de woning vandaag over 4 slaapkamers en een badkamer op het gelijkvloers. De aanwezige ruimtes vormen een uitstekende basis voor een grondige renovatie waarbij u de woning volledig kunt aanpassen aan de hedendaagse woonnormen. We gaan het niet verbloemen: deze woning vraagt een stevige aanpak. Dankzij het EPC-label F geldt er een renovatieverplichting, maar dit biedt meteen ook de kans om alles doordacht en toekomstgericht te vernieuwen. Zo creëert u een woning die volledig aansluit bij uw eigen wensen en behoeften. De ligging vormt zonder twijfel één van de grootste troeven. Meldert staat bekend om zijn landelijke karakter, groene omgeving en rustige woonkwaliteit. Hier geniet u dagelijks van het buitenleven, terwijl scholen, winkels en verbindingswegen vlot bereikbaar blijven. Bovendien bestaat de mogelijkheid om deze woning samen aan te kopen met de naastgelegen bouwgrond met weide aan nummer 84. Hierdoor ontstaan interessante perspectieven voor wie op zoek is naar extra ruimte, een groot woonproject of een investering op lange termijn. Een unieke kans voor handige renovatoren, investeerders of gezinnen die hun droomwoning willen creëren op een uitzonderlijke locatie. Dewelke trouwens samen kan gekocht worden met de naastgelegen bouwgrond. Locatie: Pastorijstraat 66 3560 Meldert Interesse of meer informatie? Contacteer ons kantoor. We Invest Demervallei - Vastgoed Anders Bekeken",
   "fotos": [
    "/afbeeldingen/woningen/165685/1.jpg",
    "/afbeeldingen/woningen/165685/2.jpg",
