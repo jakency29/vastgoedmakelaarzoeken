@@ -19,6 +19,7 @@ export type Kantoor = {
   website?: string;
   bivNummer?: string; // BIV-erkenningsnummer
   foto?: string; // lokaal pad onder /afbeeldingen/kantoren/
+  googlePlaceId?: string; // Google Place ID voor het ophalen van reviews
 };
 
 export const kantoren: Kantoor[] = [

@@ -1,13 +1,16 @@
-// Detailpagina van een vastgoedkantoor (/kantoor/<slug>). Foto, diensten, werkingsgebied,
-// contact, FAQ en gerelateerde kantoren. RealEstateAgent + BreadcrumbList + FAQPage schema.
-// Leadformulier centraal via Elfsight.
+// Detailpagina van een vastgoedkantoor (/kantoor/<slug>) in Zillow-stijl: profielhoofding met
+// foto, rating en makelaar, daarna diensten, werkingsgebied, contact, Google-reviews, FAQ en
+// gerelateerde kantoren. RealEstateAgent (met aggregateRating) + BreadcrumbList + FAQPage schema.
 
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getKantoor, getKantoorSlugs, kantoren, type Kantoor } from "@/lib/kantoren";
+import { getPlaceReviews } from "@/lib/reviews";
 import { ElfsightForm } from "@/components/ElfsightForm";
 import { Faq } from "@/components/Faq";
+import { Rating } from "@/components/Rating";
+import { Reviews } from "@/components/Reviews";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbListSchema, faqPageSchema } from "@/lib/jsonld";
@@ -28,22 +31,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: { absolute: `${k.naam} | Vastgoedkantoor ${k.gemeente}` },
     description:
-      `${k.naam} is een erkend vastgoedkantoor in ${k.gemeente} (${k.provincie}). Bekijk de diensten en het werkingsgebied en vraag vrijblijvend een offerte.`.slice(0, 155),
+      `${k.naam} is een erkend vastgoedkantoor in ${k.gemeente} (${k.provincie}). Bekijk diensten, werkingsgebied en reviews en vraag vrijblijvend een offerte.`.slice(0, 155),
     alternates: { canonical: `/kantoor/${k.slug}` },
   };
 }
 
-// Feitelijke FAQ, afgeleid uit de kantoorgegevens (voedt de zichtbare FAQ + FAQPage).
 function buildFaq(k: Kantoor) {
   const faq = [
     {
       q: `Welke diensten biedt ${k.naam} aan?`,
       a: `${k.naam} biedt onder meer ${k.diensten.slice(0, 5).join(", ")}. Vraag een offerte aan om aanbod en tarief te vergelijken met andere kantoren.`,
     },
-    {
-      q: `In welke regio is ${k.naam} actief?`,
-      a: `${k.naam} is actief in ${k.regios.join(", ")}.`,
-    },
+    { q: `In welke regio is ${k.naam} actief?`, a: `${k.naam} is actief in ${k.regios.join(", ")}.` },
   ];
   if (k.adres) {
     faq.push({
@@ -76,6 +75,7 @@ export default async function KantoorPage({ params }: Props) {
   const url = absoluteUrl(`/kantoor/${k.slug}`);
   const faq = buildFaq(k);
   const related = buildRelated(k);
+  const reviews = await getPlaceReviews(k.googlePlaceId);
 
   const agentSchema = {
     "@context": "https://schema.org",
@@ -96,10 +96,26 @@ export default async function KantoorPage({ params }: Props) {
       addressCountry: "BE",
     },
     areaServed: k.regios.map((r) => ({ "@type": "Place", name: r })),
+    ...(reviews && reviews.total
+      ? {
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: reviews.rating,
+            reviewCount: reviews.total,
+          },
+          review: reviews.reviews.slice(0, 5).map((r) => ({
+            "@type": "Review",
+            author: { "@type": "Person", name: r.author },
+            reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 },
+            reviewBody: r.text,
+          })),
+        }
+      : {}),
   };
 
   return (
     <main>
+      {/* Profielhoofding (Zillow-stijl) */}
       <section className="border-b border-slate-200 bg-brand-50/60">
         <div className="mx-auto max-w-6xl px-4 py-8 lg:py-10">
           <nav aria-label="Broodkruimel" className="text-sm text-slate-500">
@@ -111,24 +127,43 @@ export default async function KantoorPage({ params }: Props) {
               <li className="font-medium text-brand-800">{k.naam}</li>
             </ol>
           </nav>
-          <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">{k.naam}</h1>
-          <p className="mt-2 text-lg text-slate-600">
-            Vastgoedkantoor in {k.gemeente}, {k.provincie}
-            {k.makelaar ? <> | Makelaar: {k.makelaar}</> : null}
-          </p>
+
+          <div className="mt-5 flex flex-col gap-5 sm:flex-row sm:items-center">
+            {k.foto && (
+              <div className="flex h-28 w-28 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={k.foto}
+                  alt={k.makelaar ? `${k.makelaar}, makelaar bij ${k.naam}` : `${k.naam} logo`}
+                  width={112}
+                  height={112}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+            )}
+            <div>
+              <h1 className="text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">{k.naam}</h1>
+              <p className="mt-1 text-lg text-slate-600">
+                Vastgoedkantoor in {k.gemeente}, {k.provincie}
+                {k.makelaar ? <> | Makelaar: {k.makelaar}</> : null}
+              </p>
+              {reviews && reviews.total ? (
+                <div className="mt-2 flex items-center gap-2">
+                  <Rating rating={reviews.rating} />
+                  <span className="text-sm font-semibold text-brand-900">{reviews.rating.toFixed(1)}</span>
+                  <a href="#reviews" className="text-sm text-slate-500 hover:text-brand-700">
+                    ({reviews.total} Google-reviews)
+                  </a>
+                </div>
+              ) : null}
+            </div>
+          </div>
         </div>
       </section>
 
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="grid gap-10 lg:grid-cols-[1fr_360px]">
           <div className="min-w-0">
-            {k.foto && (
-              <div className="mb-6 flex items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={k.foto} alt={k.makelaar ? `${k.makelaar}, makelaar bij ${k.naam}` : `${k.naam} vastgoedkantoor ${k.gemeente}`} width={900} height={600} className="max-h-64 w-auto rounded-xl object-contain" />
-              </div>
-            )}
-
             <p className="leading-relaxed text-slate-700">{k.intro}</p>
 
             <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Welke diensten biedt {k.naam}?</h2>
@@ -175,6 +210,8 @@ export default async function KantoorPage({ params }: Props) {
               )}
               {k.bivNummer && <li className="text-sm text-slate-500">BIV-erkenning {k.bivNummer}</li>}
             </ul>
+
+            {reviews ? <Reviews data={reviews} placeId={k.googlePlaceId} naam={k.naam} /> : null}
 
             <Faq items={faq} />
             <RelatedLinks items={related} />

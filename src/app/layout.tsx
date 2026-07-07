@@ -14,7 +14,6 @@ import { globalGraph } from "@/lib/jsonld";
 import { JsonLd } from "@/components/JsonLd";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { GoogleReviews } from "@/components/GoogleReviews";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.domain),
@@ -40,7 +39,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={globalGraph()} />
         <Header />
         <div className="flex-1">{children}</div>
-        <GoogleReviews />
         <Footer />
         {/* Elfsight-platform voor het leadformulier (site-breed) */}
         <Script src="https://elfsightcdn.com/platform.js" strategy="afterInteractive" />

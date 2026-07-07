@@ -4,8 +4,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { kantoren } from "@/lib/kantoren";
+import { getPlaceReviews } from "@/lib/reviews";
 import { ElfsightForm } from "@/components/ElfsightForm";
 import { Faq } from "@/components/Faq";
+import { Rating } from "@/components/Rating";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbListSchema, faqPageSchema } from "@/lib/jsonld";
 
@@ -40,7 +42,10 @@ const FAQ = [
   },
 ];
 
-export default function KantorenPage() {
+export default async function KantorenPage() {
+  const ratingList = await Promise.all(kantoren.map((k) => getPlaceReviews(k.googlePlaceId)));
+  const ratingBySlug = new Map(kantoren.map((k, i) => [k.slug, ratingList[i]]));
+
   return (
     <main>
       <section className="border-b border-slate-200 bg-brand-50/60">
@@ -83,6 +88,16 @@ export default function KantorenPage() {
                   <div className="flex flex-1 flex-col p-5">
                     <p className="text-lg font-bold text-brand-900 group-hover:text-brand-700">{k.naam}</p>
                     <p className="mt-0.5 text-sm text-slate-500">{k.gemeente}, {k.provincie}</p>
+                    {(() => {
+                      const rev = ratingBySlug.get(k.slug);
+                      return rev && rev.total ? (
+                        <span className="mt-1.5 flex items-center gap-1.5">
+                          <Rating rating={rev.rating} />
+                          <span className="text-sm font-semibold text-brand-900">{rev.rating.toFixed(1)}</span>
+                          <span className="text-xs text-slate-400">({rev.total})</span>
+                        </span>
+                      ) : null;
+                    })()}
                     <p className="mt-2 line-clamp-2 text-sm text-slate-600">{k.diensten.slice(0, 3).join(" | ")}</p>
                     <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
                       Bekijk kantoor
