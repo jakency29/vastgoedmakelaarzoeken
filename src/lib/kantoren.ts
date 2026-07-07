@@ -5,6 +5,7 @@
 export type Kantoor = {
   slug: string; // voor /kantoor/<slug>
   naam: string;
+  makelaar?: string; // naam van de verantwoordelijke makelaar
   gemeente: string;
   provincie: string;
   provincieSlug?: string; // koppelt naar /vastgoedkantoren/<provincie> indien die pagina bestaat
@@ -21,6 +22,25 @@ export type Kantoor = {
 };
 
 export const kantoren: Kantoor[] = [
+  {
+    slug: "we-invest-demervallei",
+    naam: "We Invest Demervallei",
+    makelaar: "Niels Wouters",
+    gemeente: "Lummen",
+    provincie: "Limburg",
+    provincieSlug: "limburg",
+    intro:
+      "We Invest Demervallei is een vastgoedkantoor in Meldert (Lummen) in de provincie Limburg, onder leiding van makelaar Niels Wouters. Het kantoor begeleidt eigenaars en kopers bij de verkoop, verhuur en schatting van vastgoed in de regio Halen, Herk-de-Stad, Lummen, Beringen en Diest.",
+    diensten: ["Woning verkopen", "Verhuur", "Gratis schatting", "Aankoopbegeleiding"],
+    regios: ["Halen", "Herk-de-Stad", "Lummen", "Beringen", "Diest"],
+    adres: "Geenmeerstraat 20",
+    postcode: "3560",
+    telefoon: "0488 33 81 47",
+    email: "demervallei@weinvest.be",
+    website: "https://weinvest.be/nl-BE/agencies/demervallei/62",
+    bivNummer: "514218",
+    foto: "/afbeeldingen/kantoren/we-invest-demervallei.jpg",
+  },
   {
     slug: "hillewaere-vastgoed",
     naam: "Hillewaere Vastgoed",

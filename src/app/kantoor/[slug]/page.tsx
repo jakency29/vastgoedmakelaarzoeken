@@ -86,6 +86,7 @@ export default async function KantoorPage({ params }: Props) {
     ...(k.telefoon ? { telephone: k.telefoon } : {}),
     ...(k.email ? { email: k.email } : {}),
     ...(k.website ? { sameAs: [k.website] } : {}),
+    ...(k.makelaar ? { employee: { "@type": "Person", name: k.makelaar } } : {}),
     address: {
       "@type": "PostalAddress",
       ...(k.adres ? { streetAddress: k.adres } : {}),
@@ -111,7 +112,10 @@ export default async function KantoorPage({ params }: Props) {
             </ol>
           </nav>
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">{k.naam}</h1>
-          <p className="mt-2 text-lg text-slate-600">Vastgoedkantoor in {k.gemeente}, {k.provincie}</p>
+          <p className="mt-2 text-lg text-slate-600">
+            Vastgoedkantoor in {k.gemeente}, {k.provincie}
+            {k.makelaar ? <> | Makelaar: {k.makelaar}</> : null}
+          </p>
         </div>
       </section>
 
@@ -121,7 +125,7 @@ export default async function KantoorPage({ params }: Props) {
             {k.foto && (
               <div className="mb-6 flex items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 p-6">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={k.foto} alt={`${k.naam} vastgoedkantoor ${k.gemeente}`} width={900} height={600} className="max-h-64 w-auto object-contain" />
+                <img src={k.foto} alt={k.makelaar ? `${k.makelaar}, makelaar bij ${k.naam}` : `${k.naam} vastgoedkantoor ${k.gemeente}`} width={900} height={600} className="max-h-64 w-auto rounded-xl object-contain" />
               </div>
             )}
 
