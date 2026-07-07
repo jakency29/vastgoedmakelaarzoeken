@@ -1,7 +1,7 @@
 import { getCategorie } from "@/lib/woningen";
 import { OverviewView, overviewMetadata } from "@/components/listing-pages";
 
-const cat = getCategorie("huis-te-koop")!;
+const cat = getCategorie("appartement-te-koop")!;
 export const metadata = overviewMetadata(cat);
 
 export default function Page() {

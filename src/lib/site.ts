@@ -12,8 +12,9 @@ export const site = {
     "Vergelijk BIV-erkende vastgoedmakelaars in jouw gemeente. Vul je postcode in en vraag vrijblijvend offertes op.",
   tagline: "Vergelijk vastgoedmakelaars in jouw gemeente",
   // Hoofdnavigatie (desktop + hamburger op mobiel).
+  // Basis-navigatie. De listing-links (Huis/Appartement te koop) worden dynamisch vooraan
+  // toegevoegd in de layout, enkel voor categorieen die effectief panden bevatten.
   nav: [
-    { label: "Te koop", href: "/huis-te-koop" },
     { label: "Woning schatten", href: "/huis-laten-schatten" },
     { label: "Asbestattest", href: "/asbestattest" },
     { label: "Kantoren", href: "/kantoor" },

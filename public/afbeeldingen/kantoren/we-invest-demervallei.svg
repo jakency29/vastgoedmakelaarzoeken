@@ -1,0 +1,10 @@
+<svg viewBox="0 0 300 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="We Invest">
+  <g fill="none" stroke="#2ED9DE" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M64 48 L20 20 Q6 48 20 76 Z" />
+    <path d="M64 48 L108 20 Q122 48 108 76 Z" />
+  </g>
+  <g fill="#16253B" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="40">
+    <text x="138" y="42">We</text>
+    <text x="138" y="84">Invest</text>
+  </g>
+</svg>

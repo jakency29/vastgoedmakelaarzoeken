@@ -4,7 +4,7 @@ import type { MetadataRoute } from "next";
 import { getAllPages } from "@/lib/content";
 import { kantoren } from "@/lib/kantoren";
 import { makelaars } from "@/lib/makelaars";
-import { woningen, provincies, gemeenten } from "@/lib/woningen";
+import { woningen, actieveCategorieen, provinciesVoor, gemeentenVoor } from "@/lib/woningen";
 import { absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -38,13 +38,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  // Woningen: overzicht + provincie- + gemeentepagina's + detailpagina's.
+  // Woningen: per categorie (huis/appartement) het overzicht + provincie- + gemeentepagina's,
+  // plus de detailpagina's. Enkel categorieen/locaties met panden.
   const woningPages = [
-    { url: absoluteUrl("/huis-te-koop"), changeFrequency: "daily" as const, priority: 0.8 },
-    ...provincies().map((p) => ({ url: absoluteUrl(`/huis-te-koop/${p.slug}`), changeFrequency: "daily" as const, priority: 0.7 })),
-    ...provincies().flatMap((p) =>
-      gemeenten(p.slug).map((g) => ({ url: absoluteUrl(`/huis-te-koop/${p.slug}/${g.slug}`), changeFrequency: "daily" as const, priority: 0.7 })),
-    ),
+    ...actieveCategorieen().flatMap((cat) => [
+      { url: absoluteUrl(`/${cat.prefix}`), changeFrequency: "daily" as const, priority: 0.8 },
+      ...provinciesVoor(cat).map((p) => ({ url: absoluteUrl(`/${cat.prefix}/${p.slug}`), changeFrequency: "daily" as const, priority: 0.7 })),
+      ...provinciesVoor(cat).flatMap((p) =>
+        gemeentenVoor(cat, p.slug).map((g) => ({ url: absoluteUrl(`/${cat.prefix}/${p.slug}/${g.slug}`), changeFrequency: "daily" as const, priority: 0.7 })),
+      ),
+    ]),
     ...woningen.map((w) => ({ url: absoluteUrl(`/woning/${w.slug}`), changeFrequency: "weekly" as const, priority: 0.6 })),
   ];
 

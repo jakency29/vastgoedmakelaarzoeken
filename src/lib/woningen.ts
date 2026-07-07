@@ -65,6 +65,42 @@ export function gemeenten(provincieSlug: string): Telling[] {
   return [...m.values()].sort((a, b) => a.naam.localeCompare(b.naam));
 }
 
+// Categorieen: elk een eigen URL-tak (/huis-te-koop, /appartement-te-koop).
+export const CATEGORIES = [
+  { key: "huis", prefix: "huis-te-koop", label: "Huis te koop", meervoud: "Huizen", types: ["house"] as string[] },
+  { key: "appartement", prefix: "appartement-te-koop", label: "Appartement te koop", meervoud: "Appartementen", types: ["apartment", "flat_studio"] as string[] },
+] as const;
+export type Categorie = (typeof CATEGORIES)[number];
+
+export function getCategorie(prefix: string): Categorie | undefined {
+  return CATEGORIES.find((c) => c.prefix === prefix);
+}
+export function woningenVoor(cat: Categorie): Woning[] {
+  return woningen.filter((w) => cat.types.includes(w.typeUID));
+}
+// Categorieen die effectief panden bevatten (voor de dynamische navigatie).
+export function actieveCategorieen(): Categorie[] {
+  return CATEGORIES.filter((c) => woningenVoor(c).length > 0);
+}
+function tellingenVan(list: Woning[], slugKey: "provincieSlug" | "gemeenteSlug", naamKey: "provincie" | "gemeente"): Telling[] {
+  const m = new Map<string, Telling>();
+  for (const w of list) {
+    const e = m.get(w[slugKey]) ?? { naam: w[naamKey], slug: w[slugKey], count: 0 };
+    e.count++;
+    m.set(w[slugKey], e);
+  }
+  return [...m.values()].sort((a, b) => a.naam.localeCompare(b.naam));
+}
+export function provinciesVoor(cat: Categorie): Telling[] {
+  return tellingenVan(woningenVoor(cat), "provincieSlug", "provincie");
+}
+export function gemeentenVoor(cat: Categorie, provincieSlug: string): Telling[] {
+  return tellingenVan(woningenVoor(cat).filter((w) => w.provincieSlug === provincieSlug), "gemeenteSlug", "gemeente");
+}
+export function woningenGemeenteVoor(cat: Categorie, provincieSlug: string, gemeenteSlug: string): Woning[] {
+  return woningenVoor(cat).filter((w) => w.provincieSlug === provincieSlug && w.gemeenteSlug === gemeenteSlug);
+}
+
 export function formatPrijs(n: number | null): string {
   if (!n) return "Prijs op aanvraag";
   return "€ " + n.toLocaleString("nl-BE");

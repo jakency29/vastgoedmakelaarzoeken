@@ -7,7 +7,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import { Logo } from "./Logo";
 
-export function Header() {
+export function Header({ nav }: { nav: { label: string; href: string }[] }) {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
@@ -18,7 +18,7 @@ export function Header() {
 
         <nav aria-label="Hoofdnavigatie" className="hidden lg:block">
           <ul className="flex items-center gap-7 whitespace-nowrap text-sm font-semibold text-brand-800">
-            {site.nav.map((item) => (
+            {nav.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="transition-colors hover:text-accent-600">
                   {item.label}
@@ -56,7 +56,7 @@ export function Header() {
       {open && (
         <nav aria-label="Mobiele navigatie" className="border-t border-slate-200 bg-white lg:hidden">
           <ul className="mx-auto max-w-7xl px-4 py-2 text-sm font-semibold text-brand-800">
-            {site.nav.map((item) => (
+            {nav.map((item) => (
               <li key={item.href} className="border-b border-slate-100 last:border-0">
                 <Link href={item.href} className="block py-3 hover:text-accent-600" onClick={() => setOpen(false)}>
                   {item.label}

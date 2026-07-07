@@ -1,7 +1,7 @@
 import { getCategorie } from "@/lib/woningen";
 import { ProvincieView, provincieParams, provincieMetadata } from "@/components/listing-pages";
 
-const cat = getCategorie("huis-te-koop")!;
+const cat = getCategorie("appartement-te-koop")!;
 export const dynamicParams = false;
 
 export function generateStaticParams() {
