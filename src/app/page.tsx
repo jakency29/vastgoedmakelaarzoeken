@@ -6,6 +6,9 @@ import Link from "next/link";
 import { ElfsightForm } from "@/components/ElfsightForm";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { WoningCard } from "@/components/WoningCard";
+import { woningen } from "@/lib/woningen";
+import { kantoren } from "@/lib/kantoren";
 import { site, absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -109,6 +112,24 @@ export default function Home() {
         </svg>
       </section>
 
+      {/* Laatste huizen te koop */}
+      {woningen.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 py-14">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <h2 className="text-3xl font-extrabold tracking-tight text-brand-900">Laatste huizen te koop</h2>
+              <p className="mt-2 text-slate-600">Recent aanbod bij de vastgoedkantoren op ons platform.</p>
+            </div>
+            <Link href="/huis-te-koop" className="hidden shrink-0 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-brand-800 hover:border-brand-300 sm:inline-block">
+              Alle woningen
+            </Link>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {woningen.slice(0, 3).map((w) => <WoningCard key={w.id} w={w} />)}
+          </div>
+        </section>
+      )}
+
       {/* Stappenplan */}
       <section className="mx-auto max-w-7xl px-4 py-14">
         <h2 className="text-center text-3xl font-extrabold tracking-tight text-brand-900">Zo werkt het</h2>
@@ -152,6 +173,41 @@ export default function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Vastgoedkantoren */}
+      <section className="mx-auto max-w-7xl px-4 py-14">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-3xl font-extrabold tracking-tight text-brand-900">Vastgoedkantoren</h2>
+            <p className="mt-2 text-slate-600">Erkende kantoren uit heel Vlaanderen op ons platform.</p>
+          </div>
+          <Link href="/kantoor" className="hidden shrink-0 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-brand-800 hover:border-brand-300 sm:inline-block">
+            Alle kantoren
+          </Link>
+        </div>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {kantoren.slice(0, 8).map((k) => (
+            <Link
+              key={k.slug}
+              href={`/kantoor/${k.slug}`}
+              className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
+            >
+              <div className="flex h-24 items-center justify-center border-b border-slate-100 bg-slate-50 p-3">
+                {k.foto ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={k.foto} alt={`${k.naam} logo`} loading="lazy" className="max-h-full max-w-full object-contain" />
+                ) : (
+                  <span className="text-center text-sm font-extrabold text-brand-200">{k.naam}</span>
+                )}
+              </div>
+              <div className="p-4">
+                <p className="font-bold text-brand-900 group-hover:text-brand-700">{k.naam}</p>
+                <p className="text-sm text-slate-500">{k.gemeente}, {k.provincie}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 

@@ -15,8 +15,8 @@ export const site = {
   // Basis-navigatie. De listing-links (Huis/Appartement te koop) worden dynamisch vooraan
   // toegevoegd in de layout, enkel voor categorieen die effectief panden bevatten.
   nav: [
+    { label: "Kennisbank", href: "/kennisbank" },
     { label: "Woning schatten", href: "/huis-laten-schatten" },
-    { label: "Asbestattest", href: "/asbestattest" },
     { label: "Kantoren", href: "/kantoor" },
     { label: "Contact", href: "/contact" },
   ],

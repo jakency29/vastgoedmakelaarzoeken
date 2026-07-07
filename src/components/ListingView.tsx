@@ -13,12 +13,14 @@ export function ListingView({
   subtitle,
   chips,
   woningen,
+  content,
 }: {
   breadcrumb: Crumb[];
   title: string;
   subtitle: string;
   chips?: Chip[];
   woningen: Woning[];
+  content?: React.ReactNode;
 }) {
   return (
     <main>
@@ -65,6 +67,8 @@ export function ListingView({
         ) : (
           <p className="text-slate-600">Er zijn momenteel geen panden beschikbaar in deze categorie.</p>
         )}
+
+        {content && <div className="mt-14 max-w-3xl">{content}</div>}
       </div>
     </main>
   );
