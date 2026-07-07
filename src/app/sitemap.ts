@@ -4,6 +4,7 @@ import type { MetadataRoute } from "next";
 import { getAllPages } from "@/lib/content";
 import { kantoren } from "@/lib/kantoren";
 import { makelaars } from "@/lib/makelaars";
+import { woningen, provincies, gemeenten } from "@/lib/woningen";
 import { absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -37,5 +38,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  return [home, ...pages, ...kantoorPages];
+  // Woningen: overzicht + provincie- + gemeentepagina's + detailpagina's.
+  const woningPages = [
+    { url: absoluteUrl("/huis-te-koop"), changeFrequency: "daily" as const, priority: 0.8 },
+    ...provincies().map((p) => ({ url: absoluteUrl(`/huis-te-koop/${p.slug}`), changeFrequency: "daily" as const, priority: 0.7 })),
+    ...provincies().flatMap((p) =>
+      gemeenten(p.slug).map((g) => ({ url: absoluteUrl(`/huis-te-koop/${p.slug}/${g.slug}`), changeFrequency: "daily" as const, priority: 0.7 })),
+    ),
+    ...woningen.map((w) => ({ url: absoluteUrl(`/woning/${w.slug}`), changeFrequency: "weekly" as const, priority: 0.6 })),
+  ];
+
+  return [home, ...pages, ...kantoorPages, ...woningPages];
 }

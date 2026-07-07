@@ -13,9 +13,9 @@ export const site = {
   tagline: "Vergelijk vastgoedmakelaars in jouw gemeente",
   // Hoofdnavigatie (desktop + hamburger op mobiel).
   nav: [
+    { label: "Te koop", href: "/huis-te-koop" },
     { label: "Woning schatten", href: "/huis-laten-schatten" },
     { label: "Asbestattest", href: "/asbestattest" },
-    { label: "Verkoopverplichtingen", href: "/huis-verkopen-verplichtingen" },
     { label: "Kantoren", href: "/kantoor" },
     { label: "Contact", href: "/contact" },
   ],
