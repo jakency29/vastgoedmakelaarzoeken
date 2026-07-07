@@ -41,7 +41,7 @@ export const kantoren: Kantoor[] = [
     email: "demervallei@weinvest.be",
     website: "https://weinvest.be/nl-BE/agencies/demervallei/62",
     bivNummer: "514218",
-    foto: "/afbeeldingen/kantoren/we-invest-demervallei.jpg",
+    // foto: kantoorlogo nog aan te leveren. Niels' foto staat op zijn makelaarsprofiel.
   },
   {
     slug: "hillewaere-vastgoed",
