@@ -25,17 +25,18 @@ export type Kantoor = {
 export const kantoren: Kantoor[] = [
   {
     slug: "we-invest-demervallei",
+    googlePlaceId: "ChIJMdrZH6E7wUcRHc8DgINnwCk",
     naam: "We Invest Demervallei",
     makelaar: "Niels Wouters",
-    gemeente: "Lummen",
+    gemeente: "Beringen",
     provincie: "Limburg",
     provincieSlug: "limburg",
     intro:
-      "We Invest Demervallei is een vastgoedkantoor in Meldert (Lummen) in de provincie Limburg, onder leiding van makelaar Niels Wouters. Het kantoor begeleidt eigenaars en kopers bij de verkoop, verhuur en schatting van vastgoed in de regio Halen, Herk-de-Stad, Lummen, Beringen en Diest.",
+      "We Invest Demervallei is een vastgoedkantoor in Paal (Beringen) in de provincie Limburg, onder leiding van makelaar Niels Wouters. Het kantoor begeleidt eigenaars en kopers bij de verkoop, verhuur en schatting van vastgoed in de regio Halen, Herk-de-Stad, Lummen, Beringen en Diest.",
     diensten: ["Woning verkopen", "Verhuur", "Gratis schatting", "Aankoopbegeleiding"],
     regios: ["Halen", "Herk-de-Stad", "Lummen", "Beringen", "Diest"],
-    adres: "Geenmeerstraat 20",
-    postcode: "3560",
+    adres: "Paalsesteenweg 345",
+    postcode: "3583",
     telefoon: "0488 33 81 47",
     email: "demervallei@weinvest.be",
     website: "https://weinvest.be/nl-BE/agencies/demervallei/62",
@@ -44,6 +45,7 @@ export const kantoren: Kantoor[] = [
   },
   {
     slug: "hillewaere-vastgoed",
+    googlePlaceId: "ChIJs2Zk0uSzxkcRLDfihV8Xm30",
     naam: "Hillewaere Vastgoed",
     gemeente: "Turnhout",
     provincie: "Antwerpen",
@@ -61,6 +63,7 @@ export const kantoren: Kantoor[] = [
   },
   {
     slug: "heylen-vastgoed",
+    googlePlaceId: "ChIJg_99rDtSwUcR_MU0CVQhg_s",
     naam: "Heylen Vastgoed",
     gemeente: "Herentals",
     provincie: "Antwerpen",
@@ -78,6 +81,7 @@ export const kantoren: Kantoor[] = [
   },
   {
     slug: "vastgoed-michoel",
+    googlePlaceId: "ChIJY-Cs74TEw0cRXRCfGGvekcA",
     naam: "Vastgoed Michoel",
     gemeente: "Puurs-Sint-Amands",
     provincie: "Antwerpen",
@@ -93,6 +97,7 @@ export const kantoren: Kantoor[] = [
   },
   {
     slug: "immo-de-prins",
+    googlePlaceId: "ChIJq6qqqhqMw0cR5Ot3BvG9W9o",
     naam: "Immo De Prins",
     gemeente: "Sint-Niklaas",
     provincie: "Oost-Vlaanderen",
@@ -110,14 +115,17 @@ export const kantoren: Kantoor[] = [
   },
   {
     slug: "immo-plees",
+    googlePlaceId: "ChIJVaXGapY6wUcRxZ-BNzOHHqc",
     naam: "Immo Plees",
-    gemeente: "Beringen",
+    gemeente: "Heusden-Zolder",
     provincie: "Limburg",
     provincieSlug: "limburg",
     intro:
       "Immo Plees is een familiaal vastgoedkantoor dat actief is in de regio van Beringen tot Heusden-Zolder in de provincie Limburg. Het kantoor begeleidt klanten bij de verkoop en verhuur van woningen, appartementen en gronden en biedt een gratis waardebepaling aan.",
     diensten: ["Woning verkopen", "Verhuur", "Gratis waardebepaling", "Begeleiding projectontwikkelaars"],
     regios: ["Beringen", "Heusden-Zolder"],
+    adres: "Sint-Willibrordusplein 19",
+    postcode: "3550",
     telefoon: "011 23 30 44",
     email: "info@immoplees.be",
     website: "https://immoplees.be/",
@@ -125,6 +133,7 @@ export const kantoren: Kantoor[] = [
   },
   {
     slug: "living-stone-dilbeek",
+    googlePlaceId: "ChIJPxbahdPGw0cRimTjXHv69bA",
     naam: "Living Stone Dilbeek",
     gemeente: "Dilbeek",
     provincie: "Vlaams-Brabant",
@@ -141,6 +150,7 @@ export const kantoren: Kantoor[] = [
   },
   {
     slug: "coga-vastgoed",
+    googlePlaceId: "ChIJRfK5ntkGxEcRwtn7cixwjq4",
     naam: "COGA Vastgoed",
     gemeente: "Brecht",
     provincie: "Antwerpen",
@@ -157,6 +167,7 @@ export const kantoren: Kantoor[] = [
   },
   {
     slug: "just-wonen",
+    googlePlaceId: "ChIJXSNVjHW5xkcRd7-VBTJFf_U",
     naam: "Just Wonen",
     gemeente: "Ravels",
     provincie: "Antwerpen",
@@ -174,6 +185,7 @@ export const kantoren: Kantoor[] = [
   },
   {
     slug: "homerun",
+    googlePlaceId: "ChIJX0Gk1ljpw0cRSLn857qo1WM",
     naam: "Homerun Real Estate",
     gemeente: "Grimbergen",
     provincie: "Vlaams-Brabant",
