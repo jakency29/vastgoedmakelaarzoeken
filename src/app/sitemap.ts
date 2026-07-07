@@ -21,16 +21,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: p.intent === "core" ? 0.9 : 0.7,
     }));
 
-  // Kantoren-overzicht + echte kantoor-detailpagina's (voorbeelden zijn noindex).
+  // Kantoren-overzicht + kantoor-detailpagina's.
   const kantoorPages = [
-    { url: absoluteUrl("/vastgoedkantoren"), changeFrequency: "monthly" as const, priority: 0.8 },
-    ...kantoren
-      .filter((k) => !k.example)
-      .map((k) => ({
-        url: absoluteUrl(`/vastgoedkantoor/${k.slug}`),
-        changeFrequency: "monthly" as const,
-        priority: 0.6,
-      })),
+    { url: absoluteUrl("/kantoor"), changeFrequency: "monthly" as const, priority: 0.8 },
+    ...kantoren.map((k) => ({
+      url: absoluteUrl(`/kantoor/${k.slug}`),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
   ];
 
   return [home, ...pages, ...kantoorPages];

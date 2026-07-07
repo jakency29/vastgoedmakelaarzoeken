@@ -16,7 +16,7 @@ export const site = {
     { label: "Woning schatten", href: "/huis-laten-schatten" },
     { label: "Asbestattest", href: "/asbestattest" },
     { label: "Verkoopverplichtingen", href: "/huis-verkopen-verplichtingen" },
-    { label: "Kantoren", href: "/vastgoedkantoren" },
+    { label: "Kantoren", href: "/kantoor" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;
