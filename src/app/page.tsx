@@ -3,7 +3,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LeadForm } from "@/components/LeadForm";
+import { ElfsightForm } from "@/components/ElfsightForm";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { site, absoluteUrl } from "@/lib/site";
@@ -97,7 +97,7 @@ export default function Home() {
           </div>
 
           <div id="leadform" className="lg:justify-self-end lg:pl-6">
-            <LeadForm variant="hero" />
+            <ElfsightForm />
           </div>
         </div>
 

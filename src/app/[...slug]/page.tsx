@@ -11,7 +11,7 @@ import { getAllSlugParams, getPageBySlug } from "@/lib/content";
 import { pageGraph } from "@/lib/jsonld";
 import { mdxComponents } from "@/components/mdx";
 import { JsonLd } from "@/components/JsonLd";
-import { LeadForm } from "@/components/LeadForm";
+import { ElfsightForm } from "@/components/ElfsightForm";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Faq } from "@/components/Faq";
@@ -73,7 +73,7 @@ export default async function ContentPage({ params }: Props) {
           {showForm && (
             <aside id="leadform" className="lg:order-2">
               <div className="lg:sticky lg:top-24">
-                <LeadForm variant="sidebar" />
+                <ElfsightForm />
               </div>
             </aside>
           )}

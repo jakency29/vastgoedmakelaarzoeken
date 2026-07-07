@@ -14,9 +14,9 @@ export const site = {
   // Hoofdnavigatie (desktop + hamburger op mobiel).
   nav: [
     { label: "Woning schatten", href: "/huis-laten-schatten" },
-    { label: "Waarde berekenen", href: "/waarde-woning-berekenen" },
     { label: "Asbestattest", href: "/asbestattest" },
     { label: "Verkoopverplichtingen", href: "/huis-verkopen-verplichtingen" },
+    { label: "Kantoren", href: "/vastgoedkantoren" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;
