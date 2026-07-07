@@ -1,10 +1,13 @@
-// Overzicht van vastgoedkantoren (directory). Kaarten met foto/logo, locatie en diensten.
-// Leadformulier centraal via Elfsight. URL /kantoor (zoals de bestaande site).
+// Overzicht van vastgoedkantoren (directory). Kaarten met foto/logo, locatie en diensten,
+// plus SEO-content en FAQ. Leadformulier centraal via Elfsight. URL /kantoor.
 
 import type { Metadata } from "next";
 import Link from "next/link";
 import { kantoren } from "@/lib/kantoren";
 import { ElfsightForm } from "@/components/ElfsightForm";
+import { Faq } from "@/components/Faq";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbListSchema, faqPageSchema } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: { absolute: "Vastgoedkantoren en immokantoren vergelijken" },
@@ -16,6 +19,25 @@ export const metadata: Metadata = {
 const PROVINCIES = [
   { naam: "Limburg", slug: "vastgoedkantoren/limburg" },
   { naam: "Vlaams-Brabant", slug: "vastgoedkantoren/vlaams-brabant" },
+];
+
+const FAQ = [
+  {
+    q: "Wat doet een vastgoedkantoor?",
+    a: "Een vastgoedkantoor begeleidt de verkoop, verhuur en schatting van vastgoed: van waardebepaling en marketing tot bezoeken, onderhandeling en de administratieve opvolging tot de akte. Elk kantoor moet erkend zijn bij het BIV.",
+  },
+  {
+    q: "Wat is het verschil tussen een vastgoedkantoor en een immokantoor?",
+    a: "Er is geen verschil. Immokantoor is gewoon een andere naam voor een vastgoedkantoor. Beide staan voor een erkend kantoor dat vastgoed verkoopt, verhuurt en schat.",
+  },
+  {
+    q: "Hoeveel kost een vastgoedkantoor bij verkoop?",
+    a: "De commissie ligt in Vlaanderen meestal tussen 2% en 4% van de verkoopprijs, exclusief btw. Er is geen wettelijk tarief, dus vergelijken loont.",
+  },
+  {
+    q: "Hoe kies ik het juiste vastgoedkantoor?",
+    a: "Vergelijk meerdere kantoren op tarief, aanpak en kennis van je gemeente. Vraag vrijblijvend offertes op en bespreek de verkoopstrategie en de looptijd van het mandaat voordat je tekent.",
+  },
 ];
 
 export default function KantorenPage() {
@@ -53,9 +75,9 @@ export default function KantorenPage() {
                   <div className="flex h-40 items-center justify-center border-b border-slate-100 bg-slate-50 p-4">
                     {k.foto ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={k.foto} alt={k.naam} loading="lazy" className="max-h-full max-w-full object-contain" />
+                      <img src={k.foto} alt={`${k.naam} logo`} loading="lazy" className="max-h-full max-w-full object-contain" />
                     ) : (
-                      <span className="text-2xl font-extrabold text-brand-200">{k.naam}</span>
+                      <span className="text-center text-xl font-extrabold text-brand-200">{k.naam}</span>
                     )}
                   </div>
                   <div className="flex flex-1 flex-col p-5">
@@ -73,7 +95,7 @@ export default function KantorenPage() {
               ))}
             </div>
 
-            <h2 className="mt-12 text-2xl font-extrabold tracking-tight text-brand-900">Per provincie</h2>
+            <h2 className="mt-12 text-2xl font-extrabold tracking-tight text-brand-900">Vastgoedkantoren per provincie</h2>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               {PROVINCIES.map((p) => (
                 <Link
@@ -88,6 +110,37 @@ export default function KantorenPage() {
                 </Link>
               ))}
             </div>
+
+            {/* SEO-content rond vastgoedkantoor/immokantoor */}
+            <div className="mt-12 max-w-2xl">
+              <h2 className="text-2xl font-extrabold tracking-tight text-brand-900">Wat doet een vastgoedkantoor?</h2>
+              <p className="mt-3 leading-relaxed text-slate-700">
+                Een vastgoedkantoor begeleidt de verkoop, verhuur en schatting van vastgoed. Het
+                kantoor bepaalt de waarde van je woning, verzorgt de marketing, organiseert de
+                bezoeken, onderhandelt met kandidaten en volgt de administratie op tot de akte. Elk
+                kantoor moet erkend zijn bij het BIV, het Beroepsinstituut van Vastgoedmakelaars.
+              </p>
+
+              <h3 className="mt-8 text-xl font-bold text-brand-900">Vastgoedkantoor of immokantoor?</h3>
+              <p className="mt-3 leading-relaxed text-slate-700">
+                Vastgoedkantoor en immokantoor betekenen hetzelfde. Beide staan voor een erkend
+                kantoor dat woningen en appartementen verkoopt, verhuurt en schat. De keuze van naam
+                verandert niets aan de diensten of de erkenning.
+              </p>
+
+              <h3 className="mt-8 text-xl font-bold text-brand-900">Hoe kies je het juiste vastgoedkantoor?</h3>
+              <p className="mt-3 leading-relaxed text-slate-700">
+                Je kiest een vastgoedkantoor door meerdere offertes te vergelijken op tarief, aanpak
+                en kennis van je gemeente. De commissie ligt meestal tussen 2% en 4% van de
+                verkoopprijs, exclusief btw. Meer lees je bij de{" "}
+                <Link href="/kosten-vastgoedmakelaar" className="font-medium text-brand-700 underline underline-offset-2">
+                  kosten van een vastgoedmakelaar
+                </Link>
+                .
+              </p>
+            </div>
+
+            <Faq items={FAQ} />
           </div>
 
           <aside id="leadform" className="lg:order-2">
@@ -97,6 +150,12 @@ export default function KantorenPage() {
           </aside>
         </div>
       </div>
+
+      <JsonLd data={breadcrumbListSchema([
+        { name: "Home", path: "/" },
+        { name: "Vastgoedkantoren", path: "/kantoor" },
+      ])} />
+      <JsonLd data={faqPageSchema(FAQ)} />
     </main>
   );
 }

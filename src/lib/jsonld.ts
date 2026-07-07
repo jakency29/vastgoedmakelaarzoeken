@@ -7,6 +7,33 @@ import type { ContentPage, Entity } from "./types";
 const ORG_ID = `${site.domain}/#organization`;
 const WEBSITE_ID = `${site.domain}/#website`;
 
+// Herbruikbare BreadcrumbList voor niet-MDX-pagina's (kantoren, overzichten).
+export function breadcrumbListSchema(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((b, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: b.name,
+      item: absoluteUrl(b.path),
+    })),
+  };
+}
+
+// Herbruikbare FAQPage (voor zichtbare FAQ op niet-MDX-pagina's).
+export function faqPageSchema(items: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
+
 export function organizationSchema() {
   return {
     "@type": "Organization",
