@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { kantoren } from "@/lib/kantoren";
 import { getPlaceReviews } from "@/lib/reviews";
-import { ElfsightForm } from "@/components/ElfsightForm";
 import { Faq } from "@/components/Faq";
 import { Rating } from "@/components/Rating";
 import { JsonLd } from "@/components/JsonLd";
@@ -68,9 +67,8 @@ export default async function KantorenPage() {
       </section>
 
       <div className="mx-auto max-w-6xl px-4 py-10">
-        <div className="grid gap-10 lg:grid-cols-[1fr_360px]">
-          <div className="min-w-0">
-            <div className="grid gap-5 sm:grid-cols-2">
+        <div className="min-w-0">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {kantoren.map((k) => (
                 <Link
                   key={k.slug}
@@ -156,13 +154,6 @@ export default async function KantorenPage() {
             </div>
 
             <Faq items={FAQ} />
-          </div>
-
-          <aside id="leadform" className="lg:order-2">
-            <div className="lg:sticky lg:top-24">
-              <ElfsightForm />
-            </div>
-          </aside>
         </div>
       </div>
 

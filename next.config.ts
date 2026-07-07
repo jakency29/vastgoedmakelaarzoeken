@@ -10,6 +10,9 @@ const launchRedirects = [
   { from: "/verschil-erfpacht-en-opstal-2", to: "/verschil-erfpacht-en-opstal" },
   { from: "/verwarmen-met-airco-2", to: "/verwarmen-met-airco" },
   { from: "/notariskosten-verkoop-huis/wie-betaald", to: "/notariskosten-verkoop-huis/wie-betaalt" },
+  // Kantoren-overzicht staat op /kantoor; de bare /vastgoedkantoren leidt daarheen.
+  // (de provincie-pagina's /vastgoedkantoren/limburg en /vlaams-brabant blijven bestaan)
+  { from: "/vastgoedkantoren", to: "/kantoor" },
 ];
 
 const nextConfig: NextConfig = {

@@ -3,6 +3,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPages } from "@/lib/content";
 import { kantoren } from "@/lib/kantoren";
+import { makelaars } from "@/lib/makelaars";
 import { absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -26,6 +27,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: absoluteUrl("/kantoor"), changeFrequency: "monthly" as const, priority: 0.8 },
     ...kantoren.map((k) => ({
       url: absoluteUrl(`/kantoor/${k.slug}`),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+    ...makelaars.map((m) => ({
+      url: absoluteUrl(`/makelaar/${m.slug}`),
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),

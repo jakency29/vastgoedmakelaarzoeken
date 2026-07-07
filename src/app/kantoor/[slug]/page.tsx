@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getKantoor, getKantoorSlugs, kantoren, type Kantoor } from "@/lib/kantoren";
+import { getMakelaarByKantoor } from "@/lib/makelaars";
 import { getPlaceReviews } from "@/lib/reviews";
 import { ElfsightForm } from "@/components/ElfsightForm";
 import { Faq } from "@/components/Faq";
@@ -76,6 +77,7 @@ export default async function KantoorPage({ params }: Props) {
   const faq = buildFaq(k);
   const related = buildRelated(k);
   const reviews = await getPlaceReviews(k.googlePlaceId);
+  const makelaar = getMakelaarByKantoor(k.slug);
 
   const agentSchema = {
     "@context": "https://schema.org",
@@ -145,7 +147,18 @@ export default async function KantoorPage({ params }: Props) {
               <h1 className="text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">{k.naam}</h1>
               <p className="mt-1 text-lg text-slate-600">
                 Vastgoedkantoor in {k.gemeente}, {k.provincie}
-                {k.makelaar ? <> | Makelaar: {k.makelaar}</> : null}
+                {k.makelaar ? (
+                  <>
+                    {" "}| Makelaar:{" "}
+                    {makelaar ? (
+                      <Link href={`/makelaar/${makelaar.slug}`} className="font-medium text-brand-700 underline underline-offset-2">
+                        {k.makelaar}
+                      </Link>
+                    ) : (
+                      k.makelaar
+                    )}
+                  </>
+                ) : null}
               </p>
               {reviews && reviews.total ? (
                 <div className="mt-2 flex items-center gap-2">
@@ -210,6 +223,28 @@ export default async function KantoorPage({ params }: Props) {
               )}
               {k.bivNummer && <li className="text-sm text-slate-500">BIV-erkenning {k.bivNummer}</li>}
             </ul>
+
+            {makelaar && (
+              <>
+                <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Makelaar</h2>
+                <Link
+                  href={`/makelaar/${makelaar.slug}`}
+                  className="mt-4 flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
+                >
+                  {makelaar.foto && (
+                    <span className="h-16 w-16 shrink-0 overflow-hidden rounded-full border border-slate-200">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={makelaar.foto} alt={`${makelaar.naam}, ${makelaar.functie}`} width={64} height={64} className="h-full w-full object-cover" />
+                    </span>
+                  )}
+                  <span>
+                    <span className="block font-bold text-brand-900">{makelaar.naam}</span>
+                    <span className="block text-sm text-slate-500">{makelaar.functie}</span>
+                    <span className="mt-0.5 block text-sm font-semibold text-brand-700">Bekijk profiel</span>
+                  </span>
+                </Link>
+              </>
+            )}
 
             {reviews ? <Reviews data={reviews} placeId={k.googlePlaceId} naam={k.naam} /> : null}
 
