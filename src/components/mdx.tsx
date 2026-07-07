@@ -56,10 +56,10 @@ export function DecisionBox({ title, children }: { title: string; children: Reac
 export function OfferteCheck({ children }: { children?: React.ReactNode }) {
   return (
     <div className="my-6 rounded-2xl border border-brand-200 bg-brand-50 p-5">
-      <p className="text-sm text-brand-900">
+      <div className="text-sm text-brand-900 [&>p]:m-0">
         {children ??
           "Wil je weten wat jouw woning waard is? Vergelijk erkende vastgoedmakelaars in je gemeente."}
-      </p>
+      </div>
       <a
         href="#leadform"
         className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-accent-500 px-5 py-2.5 text-sm font-bold text-brand-900 transition-colors hover:bg-accent-400"
@@ -73,9 +73,39 @@ export function OfferteCheck({ children }: { children?: React.ReactNode }) {
   );
 }
 
+// Content-afbeelding (gemigreerd van de oude site). width/height voorkomt layout-shift.
+export function Afbeelding({
+  src,
+  alt,
+  w,
+  h,
+  hero = false,
+}: {
+  src: string;
+  alt: string;
+  w?: number;
+  h?: number;
+  hero?: boolean;
+}) {
+  return (
+    <figure className="my-6 first:mt-0">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt={alt}
+        width={w}
+        height={h}
+        loading={hero ? "eager" : "lazy"}
+        className="h-auto w-full rounded-2xl border border-slate-200 bg-slate-50"
+      />
+    </figure>
+  );
+}
+
 export const mdxComponents = {
   a: A,
   table: Table,
+  Afbeelding,
   h2: (p: ComponentProps<"h2">) => (
     <h2 className="mt-10 scroll-mt-24 text-2xl font-extrabold tracking-tight text-brand-900" {...p} />
   ),

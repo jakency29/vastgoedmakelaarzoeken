@@ -74,6 +74,14 @@ for (const file of files) {
     if (!validSlugs.has(target))
       errors.push(`${rel} bevat een gebroken interne link naar '/${target}'.`);
   }
+
+  // Afbeelding-src valideren: het bestand moet bestaan in public/.
+  const imgRe = /src=["'](\/afbeeldingen\/[^"'#?]+)["']/g;
+  let im;
+  while ((im = imgRe.exec(content)) !== null) {
+    if (!fs.existsSync(path.join(process.cwd(), "public", im[1].replace(/^\//, ""))))
+      errors.push(`${rel} verwijst naar ontbrekende afbeelding '${im[1]}'.`);
+  }
 }
 
 if (errors.length) {

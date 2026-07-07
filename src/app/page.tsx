@@ -1,15 +1,25 @@
 // Homepage in vastgoedportaal-stijl: navy zoek-hero met prominente leadkaart,
-// stappenplan en card-gebaseerde populaire onderwerpen.
+// stappenplan, SEO-content rond de commerciele kernzoekwoorden, FAQ en card-onderwerpen.
 
+import type { Metadata } from "next";
 import Link from "next/link";
 import { LeadForm } from "@/components/LeadForm";
-import { site } from "@/lib/site";
+import { Faq } from "@/components/Faq";
+import { JsonLd } from "@/components/JsonLd";
+import { site, absoluteUrl } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: { absolute: "Vastgoedmakelaar zoeken en vergelijken | Gratis offertes" },
+  description:
+    "Zoek en vergelijk erkende vastgoedmakelaars in jouw gemeente. Vraag gratis en vrijblijvend offertes op voor verkopen, verhuren of je woning laten schatten.",
+  alternates: { canonical: "/" },
+};
 
 const POPULAIR = [
   { label: "Huis laten schatten", href: "/huis-laten-schatten", desc: "Ken de waarde van je woning voor je verkoopt." },
   { label: "Waarde woning berekenen", href: "/waarde-woning-berekenen", desc: "Gratis online indicatie op basis van je adres." },
   { label: "Kosten vastgoedmakelaar", href: "/kosten-vastgoedmakelaar", desc: "Wat een makelaar kost en hoe je vergelijkt." },
-  { label: "Asbestattest", href: "/asbestattest", desc: "Verplicht bij verkoop van oudere woningen." },
+  { label: "Kosten verkoop huis", href: "/kosten-verkoop-huis", desc: "Alle kosten bij de verkoop van je woning." },
   { label: "Verplichtingen bij verkoop", href: "/huis-verkopen-verplichtingen", desc: "Alle attesten en documenten op een rij." },
   { label: "Registratierechten", href: "/registratierechten", desc: "2% of 12% verkooprecht in Vlaanderen." },
 ];
@@ -20,7 +30,40 @@ const STAPPEN = [
   { n: "3", t: "Vergelijk en kies", d: "Vergelijk aanpak en tarief en kies zelf de beste match." },
 ];
 
+const FAQ = [
+  {
+    q: "Wat is Vastgoedmakelaar Zoeken?",
+    a: "Vastgoedmakelaar Zoeken is een gratis vergelijkingsdienst. Je vult je postcode in en ontvangt vrijblijvend offertes van erkende vastgoedmakelaars uit je eigen gemeente voor verkopen, verhuren of schatten.",
+  },
+  {
+    q: "Is een makelaar vergelijken gratis?",
+    a: "Ja. Offertes opvragen en vergelijken is gratis en vrijblijvend. Je beslist zelf of en met welke makelaar je in zee gaat.",
+  },
+  {
+    q: "Hoe vind ik een goede vastgoedmakelaar?",
+    a: "Je vindt een goede vastgoedmakelaar door meerdere offertes te vergelijken op tarief, aanpak en kennis van je gemeente. Vraag naar de verkoopstrategie, de kosten en de looptijd van het mandaat voordat je tekent.",
+  },
+  {
+    q: "Wat kost een vastgoedmakelaar bij verkoop?",
+    a: "De commissie ligt meestal tussen 2% en 4% van de verkoopprijs, exclusief btw. Er is geen wettelijk tarief, dus vergelijken loont. Meer lees je op de pagina over de kosten van een vastgoedmakelaar.",
+  },
+  {
+    q: "Voor welke regio's kan ik een makelaar vinden?",
+    a: "Voor heel Vlaanderen en Brussel. Je vindt erkende vastgoedmakelaars en immokantoren in je eigen gemeente en de ruimere regio.",
+  },
+];
+
 export default function Home() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <main>
       {/* Hero */}
@@ -33,7 +76,7 @@ export default function Home() {
               Voor heel Vlaanderen en Brussel
             </span>
             <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
-              Vind de juiste vastgoedmakelaar in jouw gemeente
+              Vind en vergelijk de juiste vastgoedmakelaar
             </h1>
             <p className="mt-5 max-w-xl text-lg text-brand-100">
               Vul je postcode in en vergelijk vrijblijvend offertes van erkende
@@ -58,7 +101,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* huis-skyline onderaan de hero */}
         <svg className="relative block w-full text-white" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
           <path
             fill="currentColor"
@@ -113,6 +155,58 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SEO-content rond de kernzoekwoorden */}
+      <section className="mx-auto max-w-3xl px-4 py-16">
+        <h2 className="text-3xl font-extrabold tracking-tight text-brand-900">
+          Een vastgoedmakelaar zoeken en vergelijken
+        </h2>
+        <p className="mt-4 leading-relaxed text-slate-700">
+          Een vastgoedmakelaar vergelijken loont, want elk kantoor bepaalt zelf zijn tarief en
+          aanpak. Door meerdere erkende makelaars uit je gemeente naast elkaar te leggen, kies je
+          wie het best past bij jouw woning en buurt. Vul je postcode in en ontvang vrijblijvend
+          offertes voor verkopen, verhuren of het laten schatten van je woning.
+        </p>
+
+        <h3 className="mt-8 text-xl font-bold text-brand-900">Wat doet een vastgoedmakelaar?</h3>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          Een vastgoedmakelaar begeleidt de verkoop of verhuur van je woning van A tot Z:
+          waardebepaling, fotografie en marketing, bezoeken, onderhandeling met kandidaten en de
+          administratieve opvolging tot de akte. In Belgie moet elke makelaar erkend zijn bij het
+          BIV, het Beroepsinstituut van Vastgoedmakelaars.
+        </p>
+
+        <h3 className="mt-8 text-xl font-bold text-brand-900">Hoe vind je een goede vastgoedmakelaar?</h3>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          Je vindt een goede vastgoedmakelaar door offertes te vergelijken op tarief, aanpak en
+          kennis van je gemeente. Vraag naar de verkoopstrategie, de inbegrepen diensten en de
+          looptijd van het mandaat voordat je tekent. Zo vergelijk je prijs en dienstverlening in
+          een keer en kies je met vertrouwen.
+        </p>
+
+        <h3 className="mt-8 text-xl font-bold text-brand-900">Wat kost een vastgoedmakelaar?</h3>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          De commissie van een vastgoedmakelaar ligt in Vlaanderen meestal tussen 2% en 4% van de
+          verkoopprijs, exclusief btw. Er is geen wettelijk tarief, dus vergelijken loont. Meer lees
+          je op de pagina over de{" "}
+          <Link href="/kosten-vastgoedmakelaar" className="font-medium text-brand-700 underline underline-offset-2">
+            kosten van een vastgoedmakelaar
+          </Link>
+          .
+        </p>
+
+        <h3 className="mt-8 text-xl font-bold text-brand-900">Makelaars en immokantoren in jouw regio</h3>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          Via {site.name} vind je erkende vastgoedmakelaars en immokantoren in heel Vlaanderen en
+          Brussel, van je eigen gemeente tot de ruimere regio. Zo werk je samen met een makelaar die
+          de lokale markt kent en de vraagprijs juist inschat.
+        </p>
+      </section>
+
+      {/* FAQ */}
+      <section className="mx-auto max-w-3xl px-4 pb-4">
+        <Faq items={FAQ} />
+      </section>
+
       {/* Afsluitende CTA */}
       <section className="mx-auto max-w-7xl px-4 py-16">
         <div className="overflow-hidden rounded-3xl bg-brand-900 px-6 py-12 text-center sm:px-12">
@@ -128,6 +222,8 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      <JsonLd data={faqSchema} />
     </main>
   );
 }
