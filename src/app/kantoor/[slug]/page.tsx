@@ -10,7 +10,6 @@ import { getMakelaarByKantoor } from "@/lib/makelaars";
 import { woningenVanKantoor } from "@/lib/woningen";
 import { WoningCard } from "@/components/WoningCard";
 import { getPlaceReviews } from "@/lib/reviews";
-import { ElfsightForm } from "@/components/ElfsightForm";
 import { Faq } from "@/components/Faq";
 import { Rating } from "@/components/Rating";
 import { Reviews } from "@/components/Reviews";
@@ -54,8 +53,8 @@ function buildFaq(k: Kantoor) {
     });
   }
   faq.push({
-    q: `Hoe vraag ik een offerte aan bij een vastgoedkantoor?`,
-    a: `Vul het formulier op deze pagina in met je postcode en je vraag. Wij bezorgen je aanvraag aan erkende vastgoedmakelaars in je regio, zodat je vrijblijvend kunt vergelijken.`,
+    q: `Hoe neem ik contact op met ${k.naam}?`,
+    a: `Je bereikt ${k.naam} rechtstreeks via de contactgegevens op deze pagina${k.makelaar ? `, of via makelaar ${k.makelaar}` : ""}. Wil je meerdere kantoren vrijblijvend vergelijken, gebruik dan de knop Gratis offertes bovenaan de pagina.`,
   });
   return faq;
 }
@@ -178,9 +177,8 @@ export default async function KantoorPage({ params }: Props) {
       </section>
 
       <div className="mx-auto max-w-6xl px-4 py-10">
-        <div className="grid gap-10 lg:grid-cols-[1fr_360px]">
-          <div className="min-w-0">
-            <p className="leading-relaxed text-slate-700">{k.intro}</p>
+        <div className="min-w-0">
+            <p className="max-w-3xl leading-relaxed text-slate-700">{k.intro}</p>
 
             {aanbod.length > 0 && (
               <>
@@ -188,7 +186,7 @@ export default async function KantoorPage({ params }: Props) {
                 <p className="mt-3 text-slate-700">
                   {aanbod.length === 1 ? "Deze woning staat" : `Deze ${aanbod.length} woningen staan`} momenteel te koop via {k.naam}.
                 </p>
-                <div className="mt-4 grid gap-6 sm:grid-cols-2">
+                <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {aanbod.map((w) => <WoningCard key={w.id} w={w} />)}
                 </div>
               </>
@@ -265,13 +263,6 @@ export default async function KantoorPage({ params }: Props) {
 
             <Faq items={faq} />
             <RelatedLinks items={related} />
-          </div>
-
-          <aside id="leadform" className="lg:order-2">
-            <div className="lg:sticky lg:top-24">
-              <ElfsightForm />
-            </div>
-          </aside>
         </div>
       </div>
 

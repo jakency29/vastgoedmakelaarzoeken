@@ -9,7 +9,7 @@ import { woningen, getWoningBySlug, formatPrijs, formatOpp } from "@/lib/woninge
 import { getKantoor } from "@/lib/kantoren";
 import { getMakelaarByKantoor } from "@/lib/makelaars";
 import { getNearby } from "@/lib/nearby";
-import { ElfsightForm } from "@/components/ElfsightForm";
+import { MakelaarContact } from "@/components/MakelaarContact";
 import { EpcLabel } from "@/components/EpcLabel";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbListSchema } from "@/lib/jsonld";
@@ -238,14 +238,14 @@ export default async function WoningPage({ params }: Props) {
             )}
           </div>
 
-          <aside id="leadform" className="lg:order-2">
+          <aside className="lg:order-2">
             <div className="lg:sticky lg:top-24 space-y-4">
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
                 <p className="text-2xl font-extrabold text-brand-900">{formatPrijs(w.prijs)}</p>
                 <p className="mt-1 text-sm text-slate-500">{w.type} in {w.gemeente}</p>
                 {w.epcLabel && <div className="mt-3"><EpcLabel label={w.epcLabel} /></div>}
               </div>
-              <ElfsightForm />
+              {(makelaar || kantoor) && <MakelaarContact makelaar={makelaar} kantoor={kantoor} />}
             </div>
           </aside>
         </div>
