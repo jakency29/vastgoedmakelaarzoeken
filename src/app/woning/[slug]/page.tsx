@@ -128,7 +128,11 @@ export default async function WoningPage({ params }: Props) {
             {w.beschrijving && (
               <>
                 <H2>Beschrijving</H2>
-                <p className="mt-3 whitespace-pre-line leading-relaxed text-slate-700">{w.beschrijving}</p>
+                <div className="mt-3 space-y-4 leading-relaxed text-slate-700">
+                  {w.beschrijving.split(/\n{2,}/).map((alinea, i) => (
+                    <p key={i}>{alinea}</p>
+                  ))}
+                </div>
               </>
             )}
 

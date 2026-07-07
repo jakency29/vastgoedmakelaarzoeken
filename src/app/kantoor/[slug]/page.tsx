@@ -7,6 +7,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getKantoor, getKantoorSlugs, kantoren, type Kantoor } from "@/lib/kantoren";
 import { getMakelaarByKantoor } from "@/lib/makelaars";
+import { woningenVanKantoor } from "@/lib/woningen";
+import { WoningCard } from "@/components/WoningCard";
 import { getPlaceReviews } from "@/lib/reviews";
 import { ElfsightForm } from "@/components/ElfsightForm";
 import { Faq } from "@/components/Faq";
@@ -78,6 +80,7 @@ export default async function KantoorPage({ params }: Props) {
   const related = buildRelated(k);
   const reviews = await getPlaceReviews(k.googlePlaceId);
   const makelaar = getMakelaarByKantoor(k.slug);
+  const aanbod = woningenVanKantoor(k.slug);
 
   const agentSchema = {
     "@context": "https://schema.org",
@@ -178,6 +181,18 @@ export default async function KantoorPage({ params }: Props) {
         <div className="grid gap-10 lg:grid-cols-[1fr_360px]">
           <div className="min-w-0">
             <p className="leading-relaxed text-slate-700">{k.intro}</p>
+
+            {aanbod.length > 0 && (
+              <>
+                <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Woningen te koop bij {k.naam}</h2>
+                <p className="mt-3 text-slate-700">
+                  {aanbod.length === 1 ? "Deze woning staat" : `Deze ${aanbod.length} woningen staan`} momenteel te koop via {k.naam}.
+                </p>
+                <div className="mt-4 grid gap-6 sm:grid-cols-2">
+                  {aanbod.map((w) => <WoningCard key={w.id} w={w} />)}
+                </div>
+              </>
+            )}
 
             <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Welke diensten biedt {k.naam}?</h2>
             <p className="mt-3 text-slate-700">Het kantoor biedt de volgende diensten aan.</p>

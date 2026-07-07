@@ -7,6 +7,8 @@ import { notFound } from "next/navigation";
 import { getMakelaar, getMakelaarSlugs } from "@/lib/makelaars";
 import { getKantoor } from "@/lib/kantoren";
 import { getPlaceReviews } from "@/lib/reviews";
+import { woningenVanKantoor } from "@/lib/woningen";
+import { WoningCard } from "@/components/WoningCard";
 import { ElfsightForm } from "@/components/ElfsightForm";
 import { Rating } from "@/components/Rating";
 import { Reviews } from "@/components/Reviews";
@@ -41,6 +43,7 @@ export default async function MakelaarPage({ params }: Props) {
   if (!m) notFound();
   const k = getKantoor(m.kantoorSlug);
   const reviews = k ? await getPlaceReviews(k.googlePlaceId) : null;
+  const aanbod = woningenVanKantoor(m.kantoorSlug);
   const url = absoluteUrl(`/makelaar/${m.slug}`);
 
   const personSchema = {
@@ -124,6 +127,18 @@ export default async function MakelaarPage({ params }: Props) {
           <div className="min-w-0">
             <h2 className="text-2xl font-extrabold tracking-tight text-brand-900">Over {m.naam}</h2>
             <p className="mt-3 leading-relaxed text-slate-700">{m.bio}</p>
+
+            {aanbod.length > 0 && (
+              <>
+                <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Aanbod van {m.naam}</h2>
+                <p className="mt-3 text-slate-700">
+                  {aanbod.length === 1 ? "Deze woning staat" : `Deze ${aanbod.length} woningen staan`} momenteel te koop{k ? ` via ${k.naam}` : ""}.
+                </p>
+                <div className="mt-4 grid gap-6 sm:grid-cols-2">
+                  {aanbod.map((w) => <WoningCard key={w.id} w={w} />)}
+                </div>
+              </>
+            )}
 
             {k && (
               <>

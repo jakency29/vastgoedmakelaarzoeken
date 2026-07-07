@@ -49,6 +49,11 @@ export function getWoningBySlug(slug: string): Woning | undefined {
   return woningen.find((w) => w.slug === slug);
 }
 
+// Alle woningen van een bepaald kantoor (voor de kantoor- en makelaarpagina's).
+export function woningenVanKantoor(kantoorSlug: string): Woning[] {
+  return woningen.filter((w) => w.kantoorSlug === kantoorSlug);
+}
+
 export function woningenInProvincie(provincieSlug: string): Woning[] {
   return woningen.filter((w) => w.provincieSlug === provincieSlug);
 }
