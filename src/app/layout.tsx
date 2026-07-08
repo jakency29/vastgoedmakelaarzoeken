@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
@@ -46,8 +45,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header nav={nav} />
         <div className="flex-1">{children}</div>
         <Footer />
-        {/* Elfsight-platform voor het leadformulier (site-breed) */}
-        <Script src="https://elfsightcdn.com/platform.js" strategy="afterInteractive" />
       </body>
     </html>
   );

@@ -94,7 +94,7 @@ export default async function ContentPage({ params }: Props) {
         </div>
       </div>
 
-      <Script src="https://embed.typeform.com/next/embed.js" strategy="afterInteractive" />
+      <Script src="https://embed.typeform.com/next/embed.js" strategy="lazyOnload" />
       <JsonLd data={pageGraph(page)} />
     </article>
   );
