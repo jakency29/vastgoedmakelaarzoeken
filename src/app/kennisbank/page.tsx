@@ -15,14 +15,14 @@ export const metadata: Metadata = {
 
 // Thema's met een matcher op de slug. Eerste match wint; de rest komt bij "Overige gidsen".
 const THEMAS: { titel: string; match: RegExp }[] = [
-  { titel: "Attesten en verplichtingen", match: /asbest|epc|elektriciteitskeuring|bodemattest|mazouttank|verplichtingen|co2-meter/ },
+  { titel: "Attesten en verplichtingen", match: /asbest|epc|elektriciteitskeuring|bodemattest|mazouttank|verplichtingen|co2-meter|conformiteitsattest|postinterventiedossier/ },
   { titel: "Verkopen", match: /verkop|compromis|akte-verlijden|bod-|bieden|optie-nemen|opschortende|verkoop|kosten-vastgoedmakelaar|huis-verkopen-met-makelaar|verborgen-gebreken|erfgenamen|openbare-verkoop|minimum-tijd|huis-gekocht/ },
   { titel: "Kopen en financiering", match: /kopen|lening|hypothe|spaargeld|inbreng|krediet|schuldsaldo|overbrugg|afgekeurde-elektr/ },
   { titel: "Belasting, erfenis en schenking", match: /belasting|registratierechten|meerwaarde|successie|schenk|erfenis|miserietaks|kadastraal|ouderlijk-huis/ },
   { titel: "Huren en verhuren", match: /huur|verhuren|blokpolis|gemeenschappelijke-kosten|verzekeringen-zijn-verplicht|plaatsbeschrijving|staat-van-bevinding/ },
   { titel: "Bouwen en verbouwen", match: /bouwen|verbouw|renovatie|nieuwbouw|vergunning|isoleren|container|modulair|staalbouw|sleutel-op-de-deur|tuinhuis|totaalrenovatie|bouwgrond/ },
-  { titel: "Waarde en schatten", match: /waarde|schatt/ },
-  { titel: "Wonen en eigendom", match: /erfpacht|opstal|voorkoop|overhangende|brievenbus|gras-afrijden|kangoeroe|lijfrente|huurkoop|alleenstaande|duurste-gemeente|wallonie|bewoonbare/ },
+  { titel: "Waarde en schatten", match: /waarde|schatt|mobiscore/ },
+  { titel: "Wonen en eigendom", match: /erfpacht|opstal|voorkoop|overhangende|brievenbus|gras-afrijden|kangoeroe|lijfrente|huurkoop|alleenstaande|duurste-gemeente|wallonie|bewoonbare|syndicus/ },
 ];
 
 export default function KennisbankPage() {

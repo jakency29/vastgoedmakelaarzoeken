@@ -4,6 +4,10 @@
 export function dienstCtaLabel(slug: string): string {
   const s = slug.toLowerCase();
   if (s.includes("plaatsbeschrijving")) return "Plaatsbeschrijving aanvragen";
+  if (s.includes("conformiteitsattest")) return "Conformiteitsattest aanvragen";
+  if (s.includes("postinterventiedossier")) return "Postinterventiedossier aanvragen";
+  if (s.includes("syndicus")) return "Offerte syndicus aanvragen";
+  if (s.includes("mobiscore")) return "Gratis schatting aanvragen";
   if (/asbest-?verwijder|asbestsanering/.test(s)) return "Gratis offerte voor asbestverwijdering";
   if (s.includes("asbest")) return "Asbestattest aanvragen";
   if (s.includes("epc")) return "EPC attest aanvragen";
