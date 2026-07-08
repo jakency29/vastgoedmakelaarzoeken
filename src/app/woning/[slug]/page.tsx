@@ -187,9 +187,9 @@ export default async function WoningPage({ params }: Props) {
                 <H2>Stedenbouw en omgeving</H2>
                 <dl className="mt-3 divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-white">
                   {stedenbouw.map((s) => (
-                    <div key={s.label} className="flex justify-between gap-4 px-4 py-3 text-sm">
+                    <div key={s.label} className="flex flex-col gap-0.5 px-4 py-3 text-sm sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                       <dt className="text-slate-500">{s.label}</dt>
-                      <dd className="text-right font-medium text-brand-900">{s.value}</dd>
+                      <dd className="min-w-0 font-medium text-brand-900 sm:text-right">{s.value}</dd>
                     </div>
                   ))}
                 </dl>
@@ -202,9 +202,9 @@ export default async function WoningPage({ params }: Props) {
                 <p className="mt-1 text-sm text-slate-500">Voorzieningen in de omgeving, met de afstand in vogelvlucht.</p>
                 <ul className="mt-3 grid gap-2 sm:grid-cols-2">
                   {nearby.map((n, i) => (
-                    <li key={i} className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm">
-                      <span className="text-slate-700"><span className="font-medium text-brand-900">{n.categorie}:</span> {n.naam}</span>
-                      <span className="text-slate-500">{n.afstand < 1000 ? `${n.afstand} m` : `${(n.afstand / 1000).toFixed(1)} km`}</span>
+                    <li key={i} className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm">
+                      <span className="min-w-0 text-slate-700"><span className="font-medium text-brand-900">{n.categorie}:</span> {n.naam}</span>
+                      <span className="shrink-0 text-slate-500">{n.afstand < 1000 ? `${n.afstand} m` : `${(n.afstand / 1000).toFixed(1)} km`}</span>
                     </li>
                   ))}
                 </ul>
