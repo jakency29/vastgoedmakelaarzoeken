@@ -41,6 +41,7 @@ export function organizationSchema() {
     name: site.name,
     url: site.domain,
     description: site.description,
+    ...(site.socials?.length ? { sameAs: site.socials } : {}),
   };
 }
 
