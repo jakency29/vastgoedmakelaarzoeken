@@ -3,6 +3,7 @@
 
 export function dienstCtaLabel(slug: string): string {
   const s = slug.toLowerCase();
+  if (s.includes("plaatsbeschrijving")) return "Plaatsbeschrijving aanvragen";
   if (/asbest-?verwijder|asbestsanering/.test(s)) return "Gratis offerte voor asbestverwijdering";
   if (s.includes("asbest")) return "Asbestattest aanvragen";
   if (s.includes("epc")) return "EPC attest aanvragen";
