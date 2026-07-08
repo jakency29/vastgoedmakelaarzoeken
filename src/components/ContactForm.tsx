@@ -21,6 +21,7 @@ export function ContactForm() {
         name: naam,
         email: String(fd.get("email") ?? ""),
         Bericht: String(fd.get("bericht") ?? ""),
+        botcheck: String(fd.get("botcheck") ?? ""),
       });
       setStatus("ok");
       form.reset();
@@ -84,6 +85,9 @@ export function ContactForm() {
           />
         </div>
       </div>
+
+      {/* Honeypot tegen spam (Web3Forms). Onzichtbaar voor bezoekers. */}
+      <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
       <button
         type="submit"

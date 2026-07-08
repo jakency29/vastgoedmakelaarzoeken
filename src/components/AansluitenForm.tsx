@@ -24,6 +24,7 @@ export function AansluitenForm() {
         Kantoor: kantoor || "niet opgegeven",
         Telefoon: String(fd.get("telefoon") ?? "") || "niet opgegeven",
         Bericht: String(fd.get("bericht") ?? "") || "niet opgegeven",
+        botcheck: String(fd.get("botcheck") ?? ""),
       });
       setStatus("ok");
       form.reset();
@@ -107,6 +108,9 @@ export function AansluitenForm() {
           />
         </div>
       </div>
+
+      {/* Honeypot tegen spam (Web3Forms). Onzichtbaar voor bezoekers. */}
+      <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
       <button
         type="submit"

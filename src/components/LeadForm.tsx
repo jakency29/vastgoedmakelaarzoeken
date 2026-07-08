@@ -34,6 +34,7 @@ export function LeadForm({ variant = "sidebar" }: { variant?: "sidebar" | "hero"
         Postcode: postcode,
         Telefoon: String(fd.get("telefoon") ?? ""),
         Bron: String(fd.get("bron") ?? ""),
+        botcheck: String(fd.get("botcheck") ?? ""),
       });
       setStatus("ok");
       form.reset();
@@ -166,6 +167,8 @@ export function LeadForm({ variant = "sidebar" }: { variant?: "sidebar" | "hero"
         Gratis en vrijblijvend. Enkel erkende makelaars in je gemeente.
       </p>
       <input type="hidden" name="bron" value={variant} />
+      {/* Honeypot tegen spam (Web3Forms). Onzichtbaar voor bezoekers. */}
+      <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} tabIndex={-1} autoComplete="off" aria-hidden="true" />
     </form>
   );
 }
