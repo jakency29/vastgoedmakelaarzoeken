@@ -112,24 +112,6 @@ export default function Home() {
         </svg>
       </section>
 
-      {/* Laatste huizen te koop */}
-      {woningen.length > 0 && (
-        <section className="mx-auto max-w-7xl px-4 py-14">
-          <div className="flex items-end justify-between gap-4">
-            <div>
-              <h2 className="text-3xl font-extrabold tracking-tight text-brand-900">Laatste huizen te koop</h2>
-              <p className="mt-2 text-slate-600">Recent aanbod bij de vastgoedkantoren op ons platform.</p>
-            </div>
-            <Link href="/huis-te-koop" className="hidden shrink-0 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-brand-800 hover:border-brand-300 sm:inline-block">
-              Alle woningen
-            </Link>
-          </div>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {woningen.slice(0, 3).map((w) => <WoningCard key={w.id} w={w} />)}
-          </div>
-        </section>
-      )}
-
       {/* Stappenplan */}
       <section className="mx-auto max-w-7xl px-4 py-14">
         <h2 className="text-center text-3xl font-extrabold tracking-tight text-brand-900">Zo werkt het</h2>
@@ -149,30 +131,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Populaire onderwerpen */}
+      {/* SEO-content rond de kernzoekwoorden */}
       <section className="bg-brand-50/60">
-        <div className="mx-auto max-w-7xl px-4 py-14">
-          <h2 className="text-3xl font-extrabold tracking-tight text-brand-900">Populaire onderwerpen</h2>
-          <p className="mt-3 max-w-2xl text-slate-600">
-            Praktische gidsen over kopen, verkopen en verhuren in Belgie.
+        <div className="mx-auto max-w-3xl px-4 py-16">
+          <h2 className="text-3xl font-extrabold tracking-tight text-brand-900">
+            Een vastgoedmakelaar zoeken en vergelijken
+          </h2>
+          <p className="mt-4 leading-relaxed text-slate-700">
+            Een vastgoedmakelaar vergelijken loont, want elk kantoor bepaalt zelf zijn tarief en
+            aanpak. Door meerdere erkende makelaars uit je gemeente naast elkaar te leggen, kies je
+            wie het best past bij jouw woning en buurt. Vul je postcode in en ontvang vrijblijvend
+            offertes voor verkopen, verhuren of het laten schatten van je woning.
           </p>
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {POPULAIR.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
-              >
-                <span className="flex items-center justify-between">
-                  <span className="text-lg font-bold text-brand-900 group-hover:text-brand-700">{item.label}</span>
-                  <svg className="text-accent-500" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-                    <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                <span className="mt-2 block text-sm text-slate-600">{item.desc}</span>
-              </Link>
-            ))}
-          </div>
+
+          <h3 className="mt-8 text-xl font-bold text-brand-900">Wat doet een vastgoedmakelaar?</h3>
+          <p className="mt-3 leading-relaxed text-slate-700">
+            Een vastgoedmakelaar begeleidt de verkoop of verhuur van je woning van A tot Z:
+            waardebepaling, fotografie en marketing, bezoeken, onderhandeling met kandidaten en de
+            administratieve opvolging tot de akte. In Belgie moet elke makelaar erkend zijn bij het
+            BIV, het Beroepsinstituut van Vastgoedmakelaars.
+          </p>
+
+          <h3 className="mt-8 text-xl font-bold text-brand-900">Hoe vind je een goede vastgoedmakelaar?</h3>
+          <p className="mt-3 leading-relaxed text-slate-700">
+            Je vindt een goede vastgoedmakelaar door offertes te vergelijken op tarief, aanpak en
+            kennis van je gemeente. Vraag naar de verkoopstrategie, de inbegrepen diensten en de
+            looptijd van het mandaat voordat je tekent. Zo vergelijk je prijs en dienstverlening in
+            een keer en kies je met vertrouwen.
+          </p>
+
+          <h3 className="mt-8 text-xl font-bold text-brand-900">Wat kost een vastgoedmakelaar?</h3>
+          <p className="mt-3 leading-relaxed text-slate-700">
+            De commissie van een vastgoedmakelaar ligt in Vlaanderen meestal tussen 2% en 4% van de
+            verkoopprijs, exclusief btw. Er is geen wettelijk tarief, dus vergelijken loont. Meer lees
+            je op de pagina over de{" "}
+            <Link href="/kosten-vastgoedmakelaar" className="font-medium text-brand-700 underline underline-offset-2">
+              kosten van een vastgoedmakelaar
+            </Link>
+            .
+          </p>
+
+          <h3 className="mt-8 text-xl font-bold text-brand-900">Makelaars en immokantoren in jouw regio</h3>
+          <p className="mt-3 leading-relaxed text-slate-700">
+            Via {site.name} vind je erkende vastgoedmakelaars en immokantoren in heel Vlaanderen en
+            Brussel, van je eigen gemeente tot de ruimere regio. Zo werk je samen met een makelaar die
+            de lokale markt kent en de vraagprijs juist inschat.
+          </p>
         </div>
       </section>
 
@@ -211,51 +215,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEO-content rond de kernzoekwoorden */}
-      <section className="mx-auto max-w-3xl px-4 py-16">
-        <h2 className="text-3xl font-extrabold tracking-tight text-brand-900">
-          Een vastgoedmakelaar zoeken en vergelijken
-        </h2>
-        <p className="mt-4 leading-relaxed text-slate-700">
-          Een vastgoedmakelaar vergelijken loont, want elk kantoor bepaalt zelf zijn tarief en
-          aanpak. Door meerdere erkende makelaars uit je gemeente naast elkaar te leggen, kies je
-          wie het best past bij jouw woning en buurt. Vul je postcode in en ontvang vrijblijvend
-          offertes voor verkopen, verhuren of het laten schatten van je woning.
-        </p>
+      {/* Laatste huizen te koop */}
+      {woningen.length > 0 && (
+        <section className="bg-brand-50/60">
+          <div className="mx-auto max-w-7xl px-4 py-14">
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <h2 className="text-3xl font-extrabold tracking-tight text-brand-900">Laatste huizen te koop</h2>
+                <p className="mt-2 text-slate-600">Recent aanbod bij de vastgoedkantoren op ons platform.</p>
+              </div>
+              <Link href="/huis-te-koop" className="hidden shrink-0 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-brand-800 hover:border-brand-300 sm:inline-block">
+                Alle woningen
+              </Link>
+            </div>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {woningen.slice(0, 3).map((w) => <WoningCard key={w.id} w={w} />)}
+            </div>
+          </div>
+        </section>
+      )}
 
-        <h3 className="mt-8 text-xl font-bold text-brand-900">Wat doet een vastgoedmakelaar?</h3>
-        <p className="mt-3 leading-relaxed text-slate-700">
-          Een vastgoedmakelaar begeleidt de verkoop of verhuur van je woning van A tot Z:
-          waardebepaling, fotografie en marketing, bezoeken, onderhandeling met kandidaten en de
-          administratieve opvolging tot de akte. In Belgie moet elke makelaar erkend zijn bij het
-          BIV, het Beroepsinstituut van Vastgoedmakelaars.
+      {/* Populaire onderwerpen */}
+      <section className="mx-auto max-w-7xl px-4 py-14">
+        <h2 className="text-3xl font-extrabold tracking-tight text-brand-900">Populaire onderwerpen</h2>
+        <p className="mt-3 max-w-2xl text-slate-600">
+          Praktische gidsen over kopen, verkopen en verhuren in Belgie.
         </p>
-
-        <h3 className="mt-8 text-xl font-bold text-brand-900">Hoe vind je een goede vastgoedmakelaar?</h3>
-        <p className="mt-3 leading-relaxed text-slate-700">
-          Je vindt een goede vastgoedmakelaar door offertes te vergelijken op tarief, aanpak en
-          kennis van je gemeente. Vraag naar de verkoopstrategie, de inbegrepen diensten en de
-          looptijd van het mandaat voordat je tekent. Zo vergelijk je prijs en dienstverlening in
-          een keer en kies je met vertrouwen.
-        </p>
-
-        <h3 className="mt-8 text-xl font-bold text-brand-900">Wat kost een vastgoedmakelaar?</h3>
-        <p className="mt-3 leading-relaxed text-slate-700">
-          De commissie van een vastgoedmakelaar ligt in Vlaanderen meestal tussen 2% en 4% van de
-          verkoopprijs, exclusief btw. Er is geen wettelijk tarief, dus vergelijken loont. Meer lees
-          je op de pagina over de{" "}
-          <Link href="/kosten-vastgoedmakelaar" className="font-medium text-brand-700 underline underline-offset-2">
-            kosten van een vastgoedmakelaar
-          </Link>
-          .
-        </p>
-
-        <h3 className="mt-8 text-xl font-bold text-brand-900">Makelaars en immokantoren in jouw regio</h3>
-        <p className="mt-3 leading-relaxed text-slate-700">
-          Via {site.name} vind je erkende vastgoedmakelaars en immokantoren in heel Vlaanderen en
-          Brussel, van je eigen gemeente tot de ruimere regio. Zo werk je samen met een makelaar die
-          de lokale markt kent en de vraagprijs juist inschat.
-        </p>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {POPULAIR.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
+            >
+              <span className="flex items-center justify-between">
+                <span className="text-lg font-bold text-brand-900 group-hover:text-brand-700">{item.label}</span>
+                <svg className="text-accent-500" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <span className="mt-2 block text-sm text-slate-600">{item.desc}</span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       {/* FAQ */}
