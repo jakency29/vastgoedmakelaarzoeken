@@ -4,7 +4,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
-import { AansluitenForm } from "@/components/AansluitenForm";
+import { ElfsightForm } from "@/components/ElfsightForm";
 
 export const metadata: Metadata = {
   title: { absolute: "Aansluiten als vastgoedmakelaar" },
@@ -67,7 +67,7 @@ export default function AansluitenPage() {
 
           <aside className="lg:order-2">
             <div className="lg:sticky lg:top-24">
-              <AansluitenForm />
+              <ElfsightForm />
             </div>
           </aside>
         </div>
