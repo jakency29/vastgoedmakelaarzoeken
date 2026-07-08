@@ -4,6 +4,7 @@
 import type { ComponentProps } from "react";
 import Link from "next/link";
 import { kantoren } from "@/lib/kantoren";
+import { DienstCTA } from "./DienstCTA";
 
 // Overzicht van de vastgoedkantoren in een provincie (voor de provincie-pagina's).
 export function KantorenInProvincie({ provincie }: { provincie: string }) {
@@ -154,4 +155,5 @@ export const mdxComponents = {
   DecisionBox,
   OfferteCheck,
   KantorenInProvincie,
+  DienstCTA,
 };
