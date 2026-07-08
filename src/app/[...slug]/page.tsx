@@ -13,7 +13,7 @@ import { pageGraph } from "@/lib/jsonld";
 import { dienstCtaLabel } from "@/lib/dienst-cta";
 import { mdxComponents } from "@/components/mdx";
 import { JsonLd } from "@/components/JsonLd";
-import { ElfsightForm } from "@/components/ElfsightForm";
+import { LeadForm } from "@/components/LeadForm";
 import { DienstCTA } from "@/components/DienstCTA";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedLinks } from "@/components/RelatedLinks";
@@ -79,7 +79,7 @@ export default async function ContentPage({ params }: Props) {
           {showForm && (
             <aside id="leadform" className="lg:order-2">
               <div className="lg:sticky lg:top-24">
-                <ElfsightForm />
+                <LeadForm variant="sidebar" />
               </div>
             </aside>
           )}

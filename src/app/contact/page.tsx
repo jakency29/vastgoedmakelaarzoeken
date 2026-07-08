@@ -3,7 +3,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
-import { ElfsightForm } from "@/components/ElfsightForm";
+import { ContactForm } from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: { absolute: "Contact" },
@@ -69,7 +69,7 @@ export default function ContactPage() {
 
           <aside className="lg:order-2">
             <div className="lg:sticky lg:top-24">
-              <ElfsightForm />
+              <ContactForm />
             </div>
           </aside>
         </div>
