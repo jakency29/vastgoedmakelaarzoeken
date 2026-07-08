@@ -86,8 +86,8 @@ export function gemeenten(provincieSlug: string): Telling[] {
 
 // Categorieen: elk een eigen URL-tak (/huis-te-koop, /appartement-te-koop).
 export const CATEGORIES = [
-  { key: "huis", prefix: "huis-te-koop", label: "Huis te koop", meervoud: "Huizen", types: ["house"] as string[] },
-  { key: "appartement", prefix: "appartement-te-koop", label: "Appartement te koop", meervoud: "Appartementen", types: ["apartment", "flat_studio"] as string[] },
+  { key: "huis", prefix: "huis-te-koop", label: "Huis te koop", meervoud: "Huizen", types: ["house", "exceptional_house", "maison_de_maitre", "country-house"] as string[] },
+  { key: "appartement", prefix: "appartement-te-koop", label: "Appartement te koop", meervoud: "Appartementen", types: ["apartment", "flat", "flat_studio"] as string[] },
 ] as const;
 export type Categorie = (typeof CATEGORIES)[number];
 

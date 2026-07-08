@@ -17,12 +17,24 @@ SOURCES = {
         "https://weinvest.be/nl-BE/property/for-sale/beringen/house/166222",
         "https://weinvest.be/nl-BE/property/for-sale/herk-de-stad/house/164431",
         "https://weinvest.be/nl-BE/property/for-sale/lummen/house/165685",
+        "https://weinvest.be/nl-BE/property/for-sale/tielt-winge/house/166216",
+        "https://weinvest.be/nl-BE/property/for-sale/kortenaken-ransberg/house/147439",
+        "https://weinvest.be/nl-BE/property/for-sale/halen/apartment/147729",
+        "https://weinvest.be/nl-BE/property/for-sale/halen/apartment/147725",
+        "https://weinvest.be/nl-BE/property/for-sale/halen/apartment/147730",
+        "https://weinvest.be/nl-BE/property/for-sale/herk-de-stad/house/158528",
+        "https://weinvest.be/nl-BE/property/for-sale/tessenderlo-ham/house/164013",
+        "https://weinvest.be/nl-BE/property/for-sale/beringen/house/164125",
+        "https://weinvest.be/nl-BE/property/for-sale/houthalen-helchteren/house/164540",
+        "https://weinvest.be/nl-BE/property/for-sale/halen/apartment/147667",
+        "https://weinvest.be/nl-BE/property/for-sale/halen/apartment/147665",
     ],
 }
 
 COND = {"to_renovate": "Te renoveren", "to_refresh": "Op te frissen", "good": "Goede staat",
         "excellent": "Uitstekende staat", "as_new": "Zo goed als nieuw", "new": "Nieuw"}
-TYPE = {"house": "Huis", "apartment": "Appartement", "flat_studio": "Studio", "land": "Bouwgrond",
+TYPE = {"house": "Huis", "exceptional_house": "Huis", "maison_de_maitre": "Herenhuis", "country-house": "Landhuis",
+        "apartment": "Appartement", "flat": "Appartement", "flat_studio": "Studio", "land": "Bouwgrond",
         "office": "Kantoor", "commercial": "Handelspand"}
 SPACE = {"bed_room": "Slaapkamer", "bath_room": "Badkamer", "shower_room": "Douchekamer", "toilet": "Toilet",
          "kitchen": "Keuken", "living_room": "Woonkamer", "dining_room": "Eetkamer", "laundry_room": "Wasplaats",
@@ -48,8 +60,12 @@ def nl(d):
 
 def clean(s):
     s = re.sub(r"<[^>]+>", " ", s or "")
-    s = html.unescape(s).replace("—", " ").replace("–", "-")
-    return re.sub(r"\s+", " ", s).strip()
+    s = html.unescape(s).replace("—", " ").replace("–", "-").replace("²", "2")
+    # Knip de CTA/branding-staart weg (contactoproep + kantoornaam).
+    s = re.split(r"\s*(?:Interesse of|Contacteer ons|We Invest Demervallei)", s)[0]
+    s = re.sub(r"\s+", " ", s)
+    s = re.sub(r"\s+([.,;:!?])", r"\1", s)  # geen spatie voor leestekens
+    return s.strip()
 
 def slugify(s):
     s = s.lower().replace("é", "e").replace("è", "e").replace("ë", "e").replace("ï", "i").replace("ç", "c")

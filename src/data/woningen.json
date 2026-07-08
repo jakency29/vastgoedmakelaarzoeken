@@ -1,410 +1,1571 @@
 [
-  {
-    "id": "166222",
-    "kantoorSlug": "we-invest-demervallei",
-    "transactie": "te-koop",
-    "type": "Huis",
-    "typeUID": "house",
-    "titel": "Deurnestraat 84",
-    "adres": "Deurnestraat 84",
-    "gemeente": "Beringen",
-    "gemeenteSlug": "beringen",
-    "postcode": "3583",
-    "provincie": "Limburg",
-    "provincieSlug": "limburg",
-    "prijs": 275000,
-    "bewoonbaar": 210,
-    "grond": 1235,
-    "slaapkamers": 3,
-    "gevels": 4,
-    "bouwjaar": "1964",
-    "staat": "Te renoveren",
-    "parkeerplaatsen": 0,
-    "epcLabel": "F",
-    "epcVerbruik": 555,
-    "epcCode": "0260703-0003910396-RES-1",
-    "renovatieplicht": true,
-    "kadastraalInkomen": 860,
-    "bestemming": "Woongebied met landelijk karakter",
-    "overstroming": "Niet in overstromingsgevoelig gebied",
-    "vergunning": true,
-    "indeling": [
-      {
-        "label": "Slaapkamer",
-        "aantal": 3,
-        "opp": 48
-      },
-      {
-        "label": "Badkamer",
-        "aantal": 1,
-        "opp": null
-      },
-      {
-        "label": "Douchekamer",
-        "aantal": 1,
-        "opp": null
-      },
-      {
-        "label": "Zolder",
-        "aantal": 1,
-        "opp": null
-      },
-      {
-        "label": "Kelder",
-        "aantal": 1,
-        "opp": 11
-      },
-      {
-        "label": "Toilet",
-        "aantal": 1,
-        "opp": null
-      },
-      {
-        "label": "Keuken",
-        "aantal": 1,
-        "opp": 12
-      },
-      {
-        "label": "Eetkamer",
-        "aantal": 1,
-        "opp": 16
-      },
-      {
-        "label": "Wasplaats",
-        "aantal": 1,
-        "opp": 8
-      },
-      {
-        "label": "Woonkamer",
-        "aantal": 1,
-        "opp": 16
-      },
-      {
-        "label": "Tuin",
-        "aantal": 1,
-        "opp": null
-      },
-      {
-        "label": "Terras",
-        "aantal": 1,
-        "opp": null
-      }
-    ],
-    "eigenschappen": [
-      "Individueel verwarming",
-      "Dubbele beglazing",
-      "Voorzieningen gehand.",
-      "Open haard",
-      "TV-lijn",
-      "Telefoonlijn",
-      "Aansluiting op elektriciteit",
-      "Olieketel (L)",
-      "Aansluiting op water",
-      "Watertank (L)",
-      "Rioolaansluiting",
-      "Brandmelder",
-      "PVC raamwerk",
-      "Gedeeltelijk geïnstalleerd keuken"
-    ],
-    "troeven": [
-      "Ruim perceel van 1235 m2",
-      "Tuin",
-      "Terras",
-      "Open haard",
-      "Dubbele beglazing"
-    ],
-    "geoLat": 51.0472,
-    "geoLng": 5.13871,
-    "beschrijving": "Deze viergevelwoning uit 1964 ligt aan de Deurnestraat 84 in Paal, een deelgemeente van Beringen, op een perceel van 1.235 m2. De woning heeft een bewoonbare oppervlakte van 210 m2 en biedt met 3 slaapkamers ruimte voor een gezin.\n\nOp het gelijkvloers bevinden zich de woonkamer, de eetkamer, de keuken en een wasplaats. De verdieping telt 3 slaapkamers, een badkamer en een aparte douchekamer. Verder beschikt de woning over een kelder, een zolder en een inpandige garage. Buiten zijn er een tuin en een terras.\n\nDe woning is te renoveren en heeft EPC-label F (555 kWh/m2 per jaar). Daardoor geldt de Vlaamse renovatieplicht: als koper verbeter je de woning binnen vijf jaar na de aankoop energetisch tot minstens label D. Een renovatie biedt meteen de kans om de indeling en afwerking naar eigen inzicht aan te pakken.\n\nDe ligging combineert een landelijke omgeving met het centrum van Paal op korte afstand. De Paalse Plas, wandel- en fietsroutes en de op- en afritten van de autosnelweg liggen in de buurt.",
-    "fotos": [
-      "/afbeeldingen/woningen/166222/1.jpg",
-      "/afbeeldingen/woningen/166222/2.jpg",
-      "/afbeeldingen/woningen/166222/3.jpg",
-      "/afbeeldingen/woningen/166222/4.jpg",
-      "/afbeeldingen/woningen/166222/5.jpg",
-      "/afbeeldingen/woningen/166222/6.jpg",
-      "/afbeeldingen/woningen/166222/7.jpg",
-      "/afbeeldingen/woningen/166222/8.jpg",
-      "/afbeeldingen/woningen/166222/9.jpg",
-      "/afbeeldingen/woningen/166222/10.jpg",
-      "/afbeeldingen/woningen/166222/11.jpg",
-      "/afbeeldingen/woningen/166222/12.jpg"
-    ],
-    "bron": "https://weinvest.be/nl-BE/property/for-sale/beringen/house/166222",
-    "slug": "deurnestraat-84-beringen-166222"
-  },
-  {
-    "id": "164431",
-    "kantoorSlug": "we-invest-demervallei",
-    "transactie": "te-koop",
-    "type": "Huis",
-    "typeUID": "house",
-    "titel": "Korpse straat 59",
-    "adres": "Korpse straat 59",
-    "gemeente": "Herk-de-Stad",
-    "gemeenteSlug": "herk-de-stad",
-    "postcode": "3540",
-    "provincie": "Limburg",
-    "provincieSlug": "limburg",
-    "prijs": 485000,
-    "bewoonbaar": 217,
-    "grond": 2985.79,
-    "slaapkamers": 4,
-    "gevels": 4,
-    "bouwjaar": "1983",
-    "staat": "Goede staat",
-    "parkeerplaatsen": 0,
-    "epcLabel": "D",
-    "epcVerbruik": 332,
-    "epcCode": "20260407-0003832462-RES-1",
-    "renovatieplicht": null,
-    "kadastraalInkomen": 974,
-    "bestemming": "",
-    "overstroming": "",
-    "vergunning": false,
-    "indeling": [
-      {
-        "label": "Slaapkamer",
-        "aantal": 4,
-        "opp": 44
-      },
-      {
-        "label": "Badkamer",
-        "aantal": 1,
-        "opp": null
-      },
-      {
-        "label": "Bureau",
-        "aantal": 1,
-        "opp": 9
-      },
-      {
-        "label": "Douchekamer",
-        "aantal": 1,
-        "opp": null
-      },
-      {
-        "label": "Kelder",
-        "aantal": 1,
-        "opp": 33
-      },
-      {
-        "label": "Toilet",
-        "aantal": 3,
-        "opp": null
-      },
-      {
-        "label": "Keuken",
-        "aantal": 1,
-        "opp": 14
-      },
-      {
-        "label": "Eetkamer",
-        "aantal": 1,
-        "opp": 27
-      },
-      {
-        "label": "Wasplaats",
-        "aantal": 1,
-        "opp": null
-      },
-      {
-        "label": "Woonkamer",
-        "aantal": 1,
-        "opp": 26
-      },
-      {
-        "label": "Tuin",
-        "aantal": 1,
-        "opp": 2400
-      },
-      {
-        "label": "Terras",
-        "aantal": 1,
-        "opp": 30
-      }
-    ],
-    "eigenschappen": [
-      "Zonnepanelen",
-      "Individueel verwarming",
-      "Dubbele beglazing",
-      "Alarm",
-      "Open haard",
-      "TV-lijn",
-      "Telefoonlijn",
-      "Aansluiting op elektriciteit",
-      "Aansluiting op gas",
-      "Aansluiting op water",
-      "Brandmelder",
-      "Aluminium raamwerk",
-      "Gasverwarming",
-      "VS geïnstalleerd keuken"
-    ],
-    "troeven": [
-      "Ruim perceel van 2985 m2",
-      "Tuin",
-      "Terras",
-      "Open haard",
-      "4 slaapkamers",
-      "Dubbele beglazing"
-    ],
-    "geoLat": 50.92657,
-    "geoLng": 5.14591,
-    "beschrijving": "Deze viergevelwoning uit 1983 ligt aan de Korpse straat 59 in Donk, een deelgemeente van Herk-de-Stad, op een perceel van ongeveer 2.986 m2. De woning verkeert in goede staat, heeft een bewoonbare oppervlakte van 217 m2 en telt 4 slaapkamers.\n\nHet gelijkvloers omvat een inkomhal met gastentoilet, een lichtrijke leefruimte met eet- en zithoek, een bureau, een SieMatic-keuken, een wasplaats en een inpandige garage. Op de verdieping liggen 4 slaapkamers en een badkamer met dubbele wastafel, ligbad en douche. De woning is gedeeltelijk onderkelderd.\n\nHet perceel is ongeveer 150 meter diep en grenst achteraan aan de Melsterbeek, met daarachter weilanden. De tuin is aangelegd met fruitbomen, leilindes en knotwilgen en heeft een deels overdekt, westgericht terras van 40 m2. Er is ook een carport met berging.\n\nDe woning heeft EPC-label D, waardoor er geen renovatieplicht geldt. Het dak werd in 2023 vernieuwd en voorzien van 18 zonnepanelen. Verder zijn er een alarmsysteem en camerabewaking aanwezig.\n\nDe ligging is landelijk, vlak bij het Schulensmeer, terwijl het centrum van Herk-de-Stad met scholen en winkels vlot bereikbaar blijft.",
-    "fotos": [
-      "/afbeeldingen/woningen/164431/1.jpg",
-      "/afbeeldingen/woningen/164431/2.jpg",
-      "/afbeeldingen/woningen/164431/3.jpg",
-      "/afbeeldingen/woningen/164431/4.jpg",
-      "/afbeeldingen/woningen/164431/5.jpg",
-      "/afbeeldingen/woningen/164431/6.jpg",
-      "/afbeeldingen/woningen/164431/7.jpg",
-      "/afbeeldingen/woningen/164431/8.jpg",
-      "/afbeeldingen/woningen/164431/9.jpg",
-      "/afbeeldingen/woningen/164431/10.jpg",
-      "/afbeeldingen/woningen/164431/11.jpg",
-      "/afbeeldingen/woningen/164431/12.jpg"
-    ],
-    "bron": "https://weinvest.be/nl-BE/property/for-sale/herk-de-stad/house/164431",
-    "slug": "korpse-straat-59-herk-de-stad-164431"
-  },
-  {
-    "id": "165685",
-    "kantoorSlug": "we-invest-demervallei",
-    "transactie": "te-koop",
-    "type": "Huis",
-    "typeUID": "house",
-    "titel": "Pastorijstraat 66",
-    "adres": "Pastorijstraat 66",
-    "gemeente": "Lummen",
-    "gemeenteSlug": "lummen",
-    "postcode": "3560",
-    "provincie": "Limburg",
-    "provincieSlug": "limburg",
-    "prijs": 275000,
-    "bewoonbaar": 152,
-    "grond": 784,
-    "slaapkamers": 3,
-    "gevels": 4,
-    "bouwjaar": "1956",
-    "staat": "Te renoveren",
-    "parkeerplaatsen": 0,
-    "epcLabel": "F",
-    "epcVerbruik": 702,
-    "epcCode": "20260616-0003894761-RES-1",
-    "renovatieplicht": true,
-    "kadastraalInkomen": 647,
-    "bestemming": "Woongebied met landelijk karakter",
-    "overstroming": "Niet in overstromingsgevoelig gebied",
-    "vergunning": true,
-    "indeling": [
-      {
-        "label": "Slaapkamer",
-        "aantal": 3,
-        "opp": 40
-      },
-      {
-        "label": "Badkamer",
-        "aantal": 1,
-        "opp": null
-      },
-      {
-        "label": "Bureau",
-        "aantal": 1,
-        "opp": 12
-      },
-      {
-        "label": "Douchekamer",
-        "aantal": 1,
-        "opp": null
-      },
-      {
-        "label": "Zolder",
-        "aantal": 1,
-        "opp": null
-      },
-      {
-        "label": "Kelder",
-        "aantal": 1,
-        "opp": null
-      },
-      {
-        "label": "Toilet",
-        "aantal": 2,
-        "opp": null
-      },
-      {
-        "label": "Keuken",
-        "aantal": 1,
-        "opp": 12
-      },
-      {
-        "label": "Eetkamer",
-        "aantal": 1,
-        "opp": 8
-      },
-      {
-        "label": "Wasplaats",
-        "aantal": 1,
-        "opp": 9
-      },
-      {
-        "label": "Woonkamer",
-        "aantal": 1,
-        "opp": 12
-      },
-      {
-        "label": "Veranda",
-        "aantal": 1,
-        "opp": null
-      },
-      {
-        "label": "Tuin",
-        "aantal": 1,
-        "opp": null
-      },
-      {
-        "label": "Terras",
-        "aantal": 1,
-        "opp": null
-      }
-    ],
-    "eigenschappen": [
-      "Individueel verwarming",
-      "TV-lijn",
-      "Telefoonlijn",
-      "Aansluiting op elektriciteit",
-      "Olieketel (L)",
-      "Aansluiting op water",
-      "Watertank (L)",
-      "Rioolaansluiting",
-      "Brandmelder",
-      "Aluminium raamwerk",
-      "Gedeeltelijk geïnstalleerd keuken"
-    ],
-    "troeven": [
-      "Ruim perceel van 784 m2",
-      "Tuin",
-      "Terras"
-    ],
-    "geoLat": 51.00196,
-    "geoLng": 5.14805,
-    "beschrijving": "Deze viergevelwoning uit 1956 ligt aan de Pastorijstraat 66 in Meldert, een deelgemeente van Lummen, op een perceel van 784 m2. De woning heeft een bewoonbare oppervlakte van 152 m2 en telt 3 slaapkamers.\n\nOp het gelijkvloers bevinden zich de woonkamer, de eetkamer, de keuken, een wasplaats, een bureau, een badkamer en een veranda. Verder zijn er 3 slaapkamers, een aparte douchekamer, een zolder en een kelder. Buiten liggen een tuin en een terras.\n\nDe woning is te renoveren en heeft EPC-label F (702 kWh/m2 per jaar). Daardoor geldt de Vlaamse renovatieplicht: een koper verbetert de woning binnen vijf jaar na de aankoop tot minstens label D. Zo kun je de woning bij een renovatie afstemmen op de huidige woonnormen.\n\nDe naastgelegen bouwgrond met weide op nummer 84 kan samen met deze woning worden aangekocht. Dat biedt extra mogelijkheden voor wie op zoek is naar meer ruimte of een groter woonproject.\n\nMeldert heeft een landelijk karakter met een groene omgeving. Scholen, winkels en verbindingswegen blijven vlot bereikbaar.",
-    "fotos": [
-      "/afbeeldingen/woningen/165685/1.jpg",
-      "/afbeeldingen/woningen/165685/2.jpg",
-      "/afbeeldingen/woningen/165685/3.jpg",
-      "/afbeeldingen/woningen/165685/4.jpg",
-      "/afbeeldingen/woningen/165685/5.jpg",
-      "/afbeeldingen/woningen/165685/6.jpg",
-      "/afbeeldingen/woningen/165685/7.jpg",
-      "/afbeeldingen/woningen/165685/8.jpg",
-      "/afbeeldingen/woningen/165685/9.jpg",
-      "/afbeeldingen/woningen/165685/10.jpg",
-      "/afbeeldingen/woningen/165685/11.jpg",
-      "/afbeeldingen/woningen/165685/12.jpg"
-    ],
-    "bron": "https://weinvest.be/nl-BE/property/for-sale/lummen/house/165685",
-    "slug": "pastorijstraat-66-lummen-165685"
-  }
+ {
+  "id": "166222",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Deurnestraat 84",
+  "adres": "Deurnestraat 84",
+  "gemeente": "Beringen",
+  "gemeenteSlug": "beringen",
+  "postcode": "3583",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 275000,
+  "bewoonbaar": 210,
+  "grond": 1235,
+  "slaapkamers": 3,
+  "gevels": 4,
+  "bouwjaar": "1964",
+  "staat": "Te renoveren",
+  "parkeerplaatsen": 0,
+  "epcLabel": "F",
+  "epcVerbruik": 555,
+  "epcCode": "0260703-0003910396-RES-1",
+  "renovatieplicht": true,
+  "kadastraalInkomen": 860,
+  "bestemming": "Woongebied met landelijk karakter",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 48
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": 11
+   },
+   {
+    "label": "Toilet",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 12
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 16
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 8
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 16
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Individueel verwarming",
+   "Dubbele beglazing",
+   "Voorzieningen gehand.",
+   "Open haard",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Olieketel (L)",
+   "Aansluiting op water",
+   "Watertank (L)",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "PVC raamwerk",
+   "Gedeeltelijk geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "Ruim perceel van 1235 m2",
+   "Tuin",
+   "Terras",
+   "Open haard",
+   "Dubbele beglazing"
+  ],
+  "geoLat": 51.0472,
+  "geoLng": 5.13871,
+  "beschrijving": "Deze viergevelwoning uit 1964 ligt aan de Deurnestraat 84 in Paal, een deelgemeente van Beringen, op een perceel van 1.235 m2. De woning heeft een bewoonbare oppervlakte van 210 m2 en biedt met 3 slaapkamers ruimte voor een gezin.\n\nOp het gelijkvloers bevinden zich de woonkamer, de eetkamer, de keuken en een wasplaats. De verdieping telt 3 slaapkamers, een badkamer en een aparte douchekamer. Verder beschikt de woning over een kelder, een zolder en een inpandige garage. Buiten zijn er een tuin en een terras.\n\nDe woning is te renoveren en heeft EPC-label F (555 kWh/m2 per jaar). Daardoor geldt de Vlaamse renovatieplicht: als koper verbeter je de woning binnen vijf jaar na de aankoop energetisch tot minstens label D. Een renovatie biedt meteen de kans om de indeling en afwerking naar eigen inzicht aan te pakken.\n\nDe ligging combineert een landelijke omgeving met het centrum van Paal op korte afstand. De Paalse Plas, wandel- en fietsroutes en de op- en afritten van de autosnelweg liggen in de buurt.",
+  "fotos": [
+   "/afbeeldingen/woningen/166222/1.jpg",
+   "/afbeeldingen/woningen/166222/2.jpg",
+   "/afbeeldingen/woningen/166222/3.jpg",
+   "/afbeeldingen/woningen/166222/4.jpg",
+   "/afbeeldingen/woningen/166222/5.jpg",
+   "/afbeeldingen/woningen/166222/6.jpg",
+   "/afbeeldingen/woningen/166222/7.jpg",
+   "/afbeeldingen/woningen/166222/8.jpg",
+   "/afbeeldingen/woningen/166222/9.jpg",
+   "/afbeeldingen/woningen/166222/10.jpg",
+   "/afbeeldingen/woningen/166222/11.jpg",
+   "/afbeeldingen/woningen/166222/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/beringen/house/166222",
+  "slug": "deurnestraat-84-beringen-166222"
+ },
+ {
+  "id": "164125",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "exceptional_house",
+  "titel": "Veldstraat 34",
+  "adres": "Veldstraat 34",
+  "gemeente": "Beringen",
+  "gemeenteSlug": "beringen",
+  "postcode": "3583",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 585000,
+  "bewoonbaar": null,
+  "grond": 1749,
+  "slaapkamers": 3,
+  "gevels": 4,
+  "bouwjaar": "2007",
+  "staat": "Zo goed als nieuw",
+  "parkeerplaatsen": 0,
+  "epcLabel": "B",
+  "epcVerbruik": 193,
+  "epcCode": "20260605-0003886725-RES-1",
+  "renovatieplicht": null,
+  "kadastraalInkomen": 1254,
+  "bestemming": "",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 34
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Bureau",
+    "aantal": 1,
+    "opp": 7
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 2,
+    "opp": 100
+   },
+   {
+    "label": "Toilet",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 17
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 25
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 7
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 16
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Individueel verwarming",
+   "Dubbele beglazing",
+   "Voorzieningen gehand.",
+   "Open haard",
+   "Sauna",
+   "Zwembad",
+   "Video deurbel",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op gas",
+   "Aansluiting op water",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "Aluminium raamwerk",
+   "Vloerverwarming"
+  ],
+  "troeven": [
+   "Ruim perceel van 1749 m2",
+   "Tuin",
+   "Terras",
+   "Open haard",
+   "Dubbele beglazing"
+  ],
+  "geoLat": 51.04188,
+  "geoLng": 5.17716,
+  "beschrijving": "In een rustige straat, midden in Paal, vinden we deze karaktervolle vrijstaande villa met Spaanse architectuur. Een eigendom die uitblinkt door haar ruime perceel, prachtige tuin en hoog wooncomfort. Winkels, scholen en belangrijke verbindingswegen bevinden zich op korte afstand. Bij het binnenkomen valt meteen de aangename lichtinval op. De ruime woon- en eetkamer vormt het hart van de woning en biedt een mooi zicht op de tuin. De doorkijk-gashaard zorgt voor extra sfeer tijdens gezellige avonden. Aansluitend bevindt zich de volledig uitgeruste leefkeuken met voldoende ruimte voor het dagelijkse gezinsleven. Verder beschikt de woning over een bureau, 3 slaapkamers, waaronder een master bedroom met dressing, een badkamer met douche en infraroodvoorziening, een praktische wasplaats, berging en een inpandige garage. De geïsoleerde zolder biedt bijkomende mogelijkheden. Ook buiten heeft deze eigendom heel wat te bieden. De zuidoostgerichte tuin werd fraai aangelegd en biedt veel privacy. Hier geniet u van een vergund verwarmd zwembad, een jacuzzi en diverse terrassen waar het heerlijk vertoeven is. Op het perceel bevindt zich bovendien een vergund bijgebouw dat perfect kan dienen als extra garage, opslagruimte of hobbyruimte. De woning is uitgerust met vloerverwarming, een gascondensatieketel, ventilatiesysteem D en een regenwaterput van 10.000 liter. Daarnaast is het pand asbestveilig en geldt er geen renovatieverplichting. Bent u op zoek naar een ruime villa met een hoogwaardige afwerking, veel privacy en een uitstekende ligging in Paal? Dan is dit een eigendom die u absoluut gezien moet hebben. Veldstraat 34 Paal-Beringen Interesse?",
+  "fotos": [
+   "/afbeeldingen/woningen/164125/1.jpg",
+   "/afbeeldingen/woningen/164125/2.jpg",
+   "/afbeeldingen/woningen/164125/3.jpg",
+   "/afbeeldingen/woningen/164125/4.jpg",
+   "/afbeeldingen/woningen/164125/5.jpg",
+   "/afbeeldingen/woningen/164125/6.jpg",
+   "/afbeeldingen/woningen/164125/7.jpg",
+   "/afbeeldingen/woningen/164125/8.jpg",
+   "/afbeeldingen/woningen/164125/9.jpg",
+   "/afbeeldingen/woningen/164125/10.jpg",
+   "/afbeeldingen/woningen/164125/11.jpg",
+   "/afbeeldingen/woningen/164125/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/beringen/house/164125",
+  "slug": "veldstraat-34-beringen-164125"
+ },
+ {
+  "id": "147729",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Appartement",
+  "typeUID": "flat",
+  "titel": "Singellaan 14",
+  "adres": "Singellaan 14",
+  "gemeente": "Halen",
+  "gemeenteSlug": "halen",
+  "postcode": "3545",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 385600,
+  "bewoonbaar": 121,
+  "grond": null,
+  "slaapkamers": 3,
+  "gevels": 2,
+  "bouwjaar": "2025",
+  "staat": "Nieuw",
+  "parkeerplaatsen": 0,
+  "epcLabel": "A",
+  "epcVerbruik": 12,
+  "epcCode": "71020GOMV2021038623EP12782A001D01SD017",
+  "renovatieplicht": null,
+  "kadastraalInkomen": null,
+  "bestemming": "",
+  "overstroming": "",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": null
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": 29
+   }
+  ],
+  "eigenschappen": [],
+  "troeven": [
+   "Terras"
+  ],
+  "geoLat": 50.95007,
+  "geoLng": 5.11164,
+  "beschrijving": "Laatste kans op een nieuwbouw appartement in Residentie Halon, Halen! Droomt u van modern en energiezuinig wonen op een toplocatie in Halen?",
+  "fotos": [
+   "/afbeeldingen/woningen/147729/1.jpg",
+   "/afbeeldingen/woningen/147729/2.jpg",
+   "/afbeeldingen/woningen/147729/3.jpg",
+   "/afbeeldingen/woningen/147729/4.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/halen/apartment/147729",
+  "slug": "singellaan-14-halen-147729"
+ },
+ {
+  "id": "147725",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Appartement",
+  "typeUID": "flat",
+  "titel": "Singellaan 14",
+  "adres": "Singellaan 14",
+  "gemeente": "Halen",
+  "gemeenteSlug": "halen",
+  "postcode": "3545",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 296600,
+  "bewoonbaar": 99,
+  "grond": null,
+  "slaapkamers": 3,
+  "gevels": 2,
+  "bouwjaar": "2025",
+  "staat": "Nieuw",
+  "parkeerplaatsen": 0,
+  "epcLabel": "A",
+  "epcVerbruik": 12,
+  "epcCode": "71020GOMV2021038623EP12782A001D01SD017",
+  "renovatieplicht": null,
+  "kadastraalInkomen": null,
+  "bestemming": "",
+  "overstroming": "",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": null
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": 12
+   }
+  ],
+  "eigenschappen": [],
+  "troeven": [
+   "Terras"
+  ],
+  "geoLat": 50.95007,
+  "geoLng": 5.11164,
+  "beschrijving": "Laatste kans op een nieuwbouw appartement in Residentie Halon, Halen! Droomt u van modern en energiezuinig wonen op een toplocatie in Halen?",
+  "fotos": [
+   "/afbeeldingen/woningen/147725/1.jpg",
+   "/afbeeldingen/woningen/147725/2.jpg",
+   "/afbeeldingen/woningen/147725/3.jpg",
+   "/afbeeldingen/woningen/147725/4.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/halen/apartment/147725",
+  "slug": "singellaan-14-halen-147725"
+ },
+ {
+  "id": "147730",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Appartement",
+  "typeUID": "flat",
+  "titel": "Singellaan 14",
+  "adres": "Singellaan 14",
+  "gemeente": "Halen",
+  "gemeenteSlug": "halen",
+  "postcode": "3545",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 283700,
+  "bewoonbaar": 94,
+  "grond": null,
+  "slaapkamers": 2,
+  "gevels": 2,
+  "bouwjaar": "2025",
+  "staat": "Nieuw",
+  "parkeerplaatsen": 0,
+  "epcLabel": "A",
+  "epcVerbruik": 12,
+  "epcCode": "71020GOMV2021038623EP12782A001D01SD017",
+  "renovatieplicht": null,
+  "kadastraalInkomen": null,
+  "bestemming": "",
+  "overstroming": "",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": 9
+   }
+  ],
+  "eigenschappen": [],
+  "troeven": [
+   "Terras"
+  ],
+  "geoLat": 50.95007,
+  "geoLng": 5.11164,
+  "beschrijving": "Laatste kans op een nieuwbouw appartement in Residentie Halon, Halen! Droomt u van modern en energiezuinig wonen op een toplocatie in Halen?",
+  "fotos": [
+   "/afbeeldingen/woningen/147730/1.jpg",
+   "/afbeeldingen/woningen/147730/2.jpg",
+   "/afbeeldingen/woningen/147730/3.jpg",
+   "/afbeeldingen/woningen/147730/4.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/halen/apartment/147730",
+  "slug": "singellaan-14-halen-147730"
+ },
+ {
+  "id": "147667",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Appartement",
+  "typeUID": "flat",
+  "titel": "Lakenhallesteeg 1",
+  "adres": "Lakenhallesteeg 1",
+  "gemeente": "Halen",
+  "gemeenteSlug": "halen",
+  "postcode": "3545",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 276800,
+  "bewoonbaar": 70,
+  "grond": null,
+  "slaapkamers": 2,
+  "gevels": 2,
+  "bouwjaar": "2025",
+  "staat": "Nieuw",
+  "parkeerplaatsen": 0,
+  "epcLabel": "A",
+  "epcVerbruik": null,
+  "epcCode": null,
+  "renovatieplicht": null,
+  "kadastraalInkomen": null,
+  "bestemming": "",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": 6
+   },
+   {
+    "label": "balcony",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Individueel verwarming",
+   "Dubbele beglazing",
+   "Alarm",
+   "Voorzieningen gehand.",
+   "Lift",
+   "Video deurbel",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op water",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "PVC raamwerk",
+   "Vloerverwarming",
+   "VS geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "Terras",
+   "Dubbele beglazing"
+  ],
+  "geoLat": 50.94732,
+  "geoLng": 5.11383,
+  "beschrijving": "Maak kennis met Huis Vitalé, een residentie bruisend van het leven, maar toch met de rust en zorg voor wie hiernaar verlangt. Een ideaal concept voor personen die zelfstandig kunnen en willen wonen, maar ook beroep willen doen op thuisdiensten. Huis Vitalé is meer dan louter serviceflats en serviceappartementen. De projectontwikkelaar zorgt samen met zijn partners ervoor dat de residentie een plaats wordt voor jong en oud, gezinnen en alleenstaanden die hier een thuis kunnen vinden, én elkaar! Allerlei voorzieningen voor u onder één dak! 59 Assistentiewoningen (serviceflats) samen met een ondergrondse parking. De stadsdiensten, inclusief het Sociaal Huis, een filiaal van dienstencentrum de Klapstoel, en de buurtpolitie De NOAH: Dagopvang voor ouderen i.s.m Familiehulp ‘t Paggaderke: Kinderopvang Een gezondheidscampus met mogelijks een huisdokter groepspraktijk, thuisverpleging, bewegingscentrum Kiné & Ergo, paramedici, gezondheidscoaching, etc. Bistro Vitalé, het restaurant voor de gezonde maaltijd Een wassalon, kapsalon, pedi-en manicure, enz.. Door de unieke, centrale ligging aan de Markt vind je aanvullend allerlei lokale faciliteiten, commerciële diensten en handelszaken binnen handbereik, zoals de apotheek, de bakker alsook allerlei horeca zaken. Wonen in Huis Vitalé met zorg voor de bewoners Een assistentiewoning (serviceflat) geeft veel mogelijkheden en vrijheid maar ook zelfstandigheid en vitaliteit. Uw woonassistent zal samen met u onder persoonlijke begeleiding op zoek gaan naar een oplossing voor uw zorgbehoefte op maat. Architectuur Comfort, duurzaamheid en functionaliteit zijn begrippen waar de service appartementen en aanleunappartementen maximaal aan moeten voldoen. Onze architect (DBV Hasselt) weet door middel van frisse architectuur en praktische ideeën deze begrippen te realiseren in een visueel tastbare residentie met een huiselijke sfeer. Voor de inrichting van uw eigen assistentiewoning werd voor u een harmonieus geheel aan materialen en kleuren samengesteld. U heeft hier de keuze uit drie warme huiselijke sferen: landelijk, modern of klassiek. Uw eigen meubels en decoratie zullen zeker mooi passen binnen één van deze drie weldoordachte sferen. Troeven van residentie Huis Vitalé Brede keuze In huis Vitalé kan u kiezen tussen één of tweeslaapkamer appartementen. Elke assistentiewoning heeft een oppervlakte tussen de ca 60m 2 en de 75 m 2 en is telkens uitgerust met een eigen terras. Toegankelijkheid Drempeloze overgangen Ruime liften Brede gangen met daglicht Optimale draaicirkels Schuifdeuren Praktische keukens & badkamers Grote raampartijen Hoog Comfort Energie zuinig (BEN) Vloerverwarming Ventilatie D systeem Basisdomotica & media Warmtepomp waardoor geen verloren ruimte door radiatoren Optimale indeling van de ruimtes Meer info? Mail naar demervallei@weinvest.be of surf naar http://www.huisvitale.be/",
+  "fotos": [
+   "/afbeeldingen/woningen/147667/1.jpg",
+   "/afbeeldingen/woningen/147667/2.jpg",
+   "/afbeeldingen/woningen/147667/3.jpg",
+   "/afbeeldingen/woningen/147667/4.jpg",
+   "/afbeeldingen/woningen/147667/5.jpg",
+   "/afbeeldingen/woningen/147667/6.jpg",
+   "/afbeeldingen/woningen/147667/7.jpg",
+   "/afbeeldingen/woningen/147667/8.jpg",
+   "/afbeeldingen/woningen/147667/9.jpg",
+   "/afbeeldingen/woningen/147667/10.jpg",
+   "/afbeeldingen/woningen/147667/11.jpg",
+   "/afbeeldingen/woningen/147667/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/halen/apartment/147667",
+  "slug": "lakenhallesteeg-1-halen-147667"
+ },
+ {
+  "id": "147665",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Appartement",
+  "typeUID": "flat",
+  "titel": "Lakenhallesteeg 1",
+  "adres": "Lakenhallesteeg 1",
+  "gemeente": "Halen",
+  "gemeenteSlug": "halen",
+  "postcode": "3545",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 228280,
+  "bewoonbaar": 60,
+  "grond": null,
+  "slaapkamers": 1,
+  "gevels": 2,
+  "bouwjaar": "2025",
+  "staat": "Nieuw",
+  "parkeerplaatsen": 0,
+  "epcLabel": "A",
+  "epcVerbruik": null,
+  "epcCode": null,
+  "renovatieplicht": null,
+  "kadastraalInkomen": null,
+  "bestemming": "",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": 6
+   },
+   {
+    "label": "balcony",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Individueel verwarming",
+   "Dubbele beglazing",
+   "Alarm",
+   "Voorzieningen gehand.",
+   "Lift",
+   "Video deurbel",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op water",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "PVC raamwerk",
+   "Vloerverwarming",
+   "VS geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "Terras",
+   "Dubbele beglazing"
+  ],
+  "geoLat": 50.94732,
+  "geoLng": 5.11383,
+  "beschrijving": "Maak kennis met Huis Vitalé, een residentie bruisend van het leven, maar toch met de rust en zorg voor wie hiernaar verlangt. Een ideaal concept voor personen die zelfstandig kunnen en willen wonen, maar ook beroep willen doen op thuisdiensten. Huis Vitalé is meer dan louter serviceflats en serviceappartementen. De projectontwikkelaar zorgt samen met zijn partners ervoor dat de residentie een plaats wordt voor jong en oud, gezinnen en alleenstaanden die hier een thuis kunnen vinden, én elkaar! Allerlei voorzieningen voor u onder één dak! 59 Assistentiewoningen (serviceflats) samen met een ondergrondse parking. De stadsdiensten, inclusief het Sociaal Huis, een filiaal van dienstencentrum de Klapstoel, en de buurtpolitie De NOAH: Dagopvang voor ouderen i.s.m Familiehulp ‘t Paggaderke: Kinderopvang Een gezondheidscampus met mogelijks een huisdokter groepspraktijk, thuisverpleging, bewegingscentrum Kiné & Ergo, paramedici, gezondheidscoaching, etc. Bistro Vitalé, het restaurant voor de gezonde maaltijd Een wassalon, kapsalon, pedi-en manicure, enz.. Door de unieke, centrale ligging aan de Markt vind je aanvullend allerlei lokale faciliteiten, commerciële diensten en handelszaken binnen handbereik, zoals de apotheek, de bakker alsook allerlei horeca zaken. Wonen in Huis Vitalé met zorg voor de bewoners Een assistentiewoning (serviceflat) geeft veel mogelijkheden en vrijheid maar ook zelfstandigheid en vitaliteit. Uw woonassistent zal samen met u onder persoonlijke begeleiding op zoek gaan naar een oplossing voor uw zorgbehoefte op maat. Architectuur Comfort, duurzaamheid en functionaliteit zijn begrippen waar de service appartementen en aanleunappartementen maximaal aan moeten voldoen. Onze architect (DBV Hasselt) weet door middel van frisse architectuur en praktische ideeën deze begrippen te realiseren in een visueel tastbare residentie met een huiselijke sfeer. Voor de inrichting van uw eigen assistentiewoning werd voor u een harmonieus geheel aan materialen en kleuren samengesteld. U heeft hier de keuze uit drie warme huiselijke sferen: landelijk, modern of klassiek. Uw eigen meubels en decoratie zullen zeker mooi passen binnen één van deze drie weldoordachte sferen. Troeven van residentie Huis Vitalé Brede keuze In huis Vitalé kan u kiezen tussen één of tweeslaapkamer appartementen. Elke assistentiewoning heeft een oppervlakte tussen de ca 60m 2 en de 75 m 2 en is telkens uitgerust met een eigen terras. Toegankelijkheid Drempeloze overgangen Ruime liften Brede gangen met daglicht Optimale draaicirkels Schuifdeuren Praktische keukens & badkamers Grote raampartijen Hoog Comfort Energie zuinig (BEN) Vloerverwarming Ventilatie D systeem Basisdomotica & media Warmtepomp waardoor geen verloren ruimte door radiatoren Optimale indeling van de ruimtes Meer info? Mail naar demervallei@weinvest.be of surf naar http://www.huisvitale.be/",
+  "fotos": [
+   "/afbeeldingen/woningen/147665/1.jpg",
+   "/afbeeldingen/woningen/147665/2.jpg",
+   "/afbeeldingen/woningen/147665/3.jpg",
+   "/afbeeldingen/woningen/147665/4.jpg",
+   "/afbeeldingen/woningen/147665/5.jpg",
+   "/afbeeldingen/woningen/147665/6.jpg",
+   "/afbeeldingen/woningen/147665/7.jpg",
+   "/afbeeldingen/woningen/147665/8.jpg",
+   "/afbeeldingen/woningen/147665/9.jpg",
+   "/afbeeldingen/woningen/147665/10.jpg",
+   "/afbeeldingen/woningen/147665/11.jpg",
+   "/afbeeldingen/woningen/147665/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/halen/apartment/147665",
+  "slug": "lakenhallesteeg-1-halen-147665"
+ },
+ {
+  "id": "164431",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Korpse straat 59",
+  "adres": "Korpse straat 59",
+  "gemeente": "Herk-de-Stad",
+  "gemeenteSlug": "herk-de-stad",
+  "postcode": "3540",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 485000,
+  "bewoonbaar": 217,
+  "grond": 2985.79,
+  "slaapkamers": 4,
+  "gevels": 4,
+  "bouwjaar": "1983",
+  "staat": "Goede staat",
+  "parkeerplaatsen": 0,
+  "epcLabel": "D",
+  "epcVerbruik": 332,
+  "epcCode": "20260407-0003832462-RES-1",
+  "renovatieplicht": null,
+  "kadastraalInkomen": 974,
+  "bestemming": "",
+  "overstroming": "",
+  "vergunning": false,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 4,
+    "opp": 44
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Bureau",
+    "aantal": 1,
+    "opp": 9
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": 33
+   },
+   {
+    "label": "Toilet",
+    "aantal": 3,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 14
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 27
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 26
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": 2400
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": 30
+   }
+  ],
+  "eigenschappen": [
+   "Zonnepanelen",
+   "Individueel verwarming",
+   "Dubbele beglazing",
+   "Alarm",
+   "Open haard",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op gas",
+   "Aansluiting op water",
+   "Brandmelder",
+   "Aluminium raamwerk",
+   "Gasverwarming",
+   "VS geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "Ruim perceel van 2985 m2",
+   "Tuin",
+   "Terras",
+   "Open haard",
+   "4 slaapkamers",
+   "Dubbele beglazing"
+  ],
+  "geoLat": 50.92657,
+  "geoLng": 5.14591,
+  "beschrijving": "Deze viergevelwoning uit 1983 ligt aan de Korpse straat 59 in Donk, een deelgemeente van Herk-de-Stad, op een perceel van ongeveer 2.986 m2. De woning verkeert in goede staat, heeft een bewoonbare oppervlakte van 217 m2 en telt 4 slaapkamers.\n\nHet gelijkvloers omvat een inkomhal met gastentoilet, een lichtrijke leefruimte met eet- en zithoek, een bureau, een SieMatic-keuken, een wasplaats en een inpandige garage. Op de verdieping liggen 4 slaapkamers en een badkamer met dubbele wastafel, ligbad en douche. De woning is gedeeltelijk onderkelderd.\n\nHet perceel is ongeveer 150 meter diep en grenst achteraan aan de Melsterbeek, met daarachter weilanden. De tuin is aangelegd met fruitbomen, leilindes en knotwilgen en heeft een deels overdekt, westgericht terras van 40 m2. Er is ook een carport met berging.\n\nDe woning heeft EPC-label D, waardoor er geen renovatieplicht geldt. Het dak werd in 2023 vernieuwd en voorzien van 18 zonnepanelen. Verder zijn er een alarmsysteem en camerabewaking aanwezig.\n\nDe ligging is landelijk, vlak bij het Schulensmeer, terwijl het centrum van Herk-de-Stad met scholen en winkels vlot bereikbaar blijft.",
+  "fotos": [
+   "/afbeeldingen/woningen/164431/1.jpg",
+   "/afbeeldingen/woningen/164431/2.jpg",
+   "/afbeeldingen/woningen/164431/3.jpg",
+   "/afbeeldingen/woningen/164431/4.jpg",
+   "/afbeeldingen/woningen/164431/5.jpg",
+   "/afbeeldingen/woningen/164431/6.jpg",
+   "/afbeeldingen/woningen/164431/7.jpg",
+   "/afbeeldingen/woningen/164431/8.jpg",
+   "/afbeeldingen/woningen/164431/9.jpg",
+   "/afbeeldingen/woningen/164431/10.jpg",
+   "/afbeeldingen/woningen/164431/11.jpg",
+   "/afbeeldingen/woningen/164431/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/herk-de-stad/house/164431",
+  "slug": "korpse-straat-59-herk-de-stad-164431"
+ },
+ {
+  "id": "158528",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Herenhuis",
+  "typeUID": "maison_de_maitre",
+  "titel": "Markt 17",
+  "adres": "Markt 17",
+  "gemeente": "Herk-de-Stad",
+  "gemeenteSlug": "herk-de-stad",
+  "postcode": "3540",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 400000,
+  "bewoonbaar": 465,
+  "grond": 643,
+  "slaapkamers": 5,
+  "gevels": 3,
+  "bouwjaar": "1669",
+  "staat": "Te renoveren",
+  "parkeerplaatsen": 0,
+  "epcLabel": "F",
+  "epcVerbruik": 807,
+  "epcCode": "20221017-0002675891-RES-1",
+  "renovatieplicht": null,
+  "kadastraalInkomen": 944,
+  "bestemming": "",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": false,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 5,
+    "opp": null
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Toilet",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Individueel verwarming",
+   "Open haard",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op gas",
+   "Aansluiting op water",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "Houten raamwerk",
+   "Gasverwarming",
+   "Niet geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "Ruim perceel van 643 m2",
+   "Tuin",
+   "Open haard",
+   "5 slaapkamers"
+  ],
+  "geoLat": 50.94083,
+  "geoLng": 5.16463,
+  "beschrijving": "D roomt u ervan om in een authentiek herenhuis te wonen dat ademt geschiedenis? Dan hebben wij iets bijzonders voor u! 'Het Moleneyser', Markt 17, 3540 Herk-de-Stad Dit imposante pand, daterend uit 1669, staat te popelen om zijn volgende hoofdstuk te beginnen. Met zijn geklasseerde voorgevel en erfgoedstatus is dit niet zomaar een huis, maar een ware schat! Wat maakt dit herenhuis zo bijzonder? - 465m2 bewoonbare oppervlakte - Geklasseerd als erfgoed - Vol authentieke charme en karakter Dit juweeltje staat te trappelen om gerestaureerd te worden tot zijn volle glorie. Laat uw creativiteit de vrije loop en transformeer dit historische pand tot uw droomhuis of een uniek project! Gelegen aan de Markt, bent u altijd in het centrum van het gebeuren. Tegelijkertijd biedt de ruime tuin alle rust en privacy die u zoekt. Bent u klaar om geschiedenis te schrijven in uw eigen stukje erfgoed? Neem dan snel contact met ons op voor een bezichtiging! Meer informatie over het I nventaris Onroerend Erfgoed 2024: Herenhuis, https://id.erfgoed.net/erfgoedobjecten/22417 ⚖️ Verkoop via biedingsprocedure De verkoop verloopt via het online biedingsplatform van COVAST, waar bij We Invest optreedt als vastgoedmakelaar. 📞",
+  "fotos": [
+   "/afbeeldingen/woningen/158528/1.jpg",
+   "/afbeeldingen/woningen/158528/2.jpg",
+   "/afbeeldingen/woningen/158528/3.jpg",
+   "/afbeeldingen/woningen/158528/4.jpg",
+   "/afbeeldingen/woningen/158528/5.jpg",
+   "/afbeeldingen/woningen/158528/6.jpg",
+   "/afbeeldingen/woningen/158528/7.jpg",
+   "/afbeeldingen/woningen/158528/8.jpg",
+   "/afbeeldingen/woningen/158528/9.jpg",
+   "/afbeeldingen/woningen/158528/10.jpg",
+   "/afbeeldingen/woningen/158528/11.jpg",
+   "/afbeeldingen/woningen/158528/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/herk-de-stad/house/158528",
+  "slug": "markt-17-herk-de-stad-158528"
+ },
+ {
+  "id": "164540",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Daalstraat 22",
+  "adres": "Daalstraat 22",
+  "gemeente": "Houthalen-Helchteren",
+  "gemeenteSlug": "houthalen-helchteren",
+  "postcode": "3530",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 315000,
+  "bewoonbaar": 168,
+  "grond": 812,
+  "slaapkamers": 3,
+  "gevels": 4,
+  "bouwjaar": "1977",
+  "staat": "Goede staat",
+  "parkeerplaatsen": 0,
+  "epcLabel": "C",
+  "epcVerbruik": 297,
+  "epcCode": "20250604-0003617716-RES-2",
+  "renovatieplicht": null,
+  "kadastraalInkomen": null,
+  "bestemming": "",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 34.18
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": 125
+   },
+   {
+    "label": "Toilet",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 16.2
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 10.86
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 6.86
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 20.88
+   },
+   {
+    "label": "Veranda",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Individueel verwarming",
+   "Dubbele beglazing",
+   "Alarm",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Olieketel (L)",
+   "Aansluiting op water",
+   "Rioolaansluiting",
+   "Houten raamwerk"
+  ],
+  "troeven": [
+   "Ruim perceel van 812 m2",
+   "Tuin",
+   "Terras",
+   "Dubbele beglazing"
+  ],
+  "geoLat": 51.04294,
+  "geoLng": 5.38279,
+  "beschrijving": "Bent u op zoek naar een goed onderhouden gezinswoning op een rustige maar toch zeer centrale locatie? Dan is deze open bebouwing in Houthalen-Helchteren zeker een bezoek waard. De woning is gelegen op een perceel van 8a 12ca en geniet van een gunstige ligging. Deze woning biedt het grote voordeel dat alle leefruimtes zich op één verdieping bevinden waardoor u geniet van optimaal wooncomfort en een praktische indeling voor het hele gezin. De woning beschikt over een ruime woonkamer, een keuken, drie volwaardige slaapkamers, een badkamer, een gastentoilet en een wasplaats. De verhoogde ligging zorgt voor een fijne lichtinval en zicht op de tuin. Een absolute troef is de volledige benedenverdieping/kelder. Het beschikt over een dubbele inpandige garage, een tweede wasplaats en tal van extra ruimtes die perfect kunnen dienen als opslagplaats, werkruimte, hobbyruimte of een activiteit voor zelfstandigen. Ook buiten heeft deze woning heel wat te bieden. De ruime overkapping met terras vormt een heerlijke plek om in elk seizoen van het buitenleven te genieten. Van hieruit kijkt u uit op de zonnige zuidgerichte tuin waar u in alle rust kunt ontspannen. Dankzij het EPC-label C geldt hier geen renovatieverplichting. Daarenboven is het pand asbestvrij wat interessant is voor de toekomstige eigenaar. De woning werd doorheen de jaren goed onderhouden en vormt een uitstekende basis voor wie ze naar eigen smaak wil moderniseren. Met een update van keuken, badkamer en interieur creëert u uw eigentijdse woning zonder dat er ingrijpende structurele werken nodig zijn. De woning is gelegen in een rustige straat in 'Laak' op wandelafstand van scholen en vlakbij het centrum van Houthalen met winkels en alle dagdagelijkse faciliteiten. Bovendien zorgen de nabijgelegen invalswegen en de vlotte verbinding met de E313 en E314 voor een uitstekende bereikbaarheid. Kortom, deze veelzijdige gezinswoning combineert alle wooncomfort op één niveau met een uitzonderlijk ruime kelderverdieping, een zonnige tuin en een uitstekende ligging. Daalstraat 22 - 3530 Houthalen-Helchteren Interesse?",
+  "fotos": [
+   "/afbeeldingen/woningen/164540/1.jpg",
+   "/afbeeldingen/woningen/164540/2.jpg",
+   "/afbeeldingen/woningen/164540/3.jpg",
+   "/afbeeldingen/woningen/164540/4.jpg",
+   "/afbeeldingen/woningen/164540/5.jpg",
+   "/afbeeldingen/woningen/164540/6.jpg",
+   "/afbeeldingen/woningen/164540/7.jpg",
+   "/afbeeldingen/woningen/164540/8.jpg",
+   "/afbeeldingen/woningen/164540/9.jpg",
+   "/afbeeldingen/woningen/164540/10.jpg",
+   "/afbeeldingen/woningen/164540/11.jpg",
+   "/afbeeldingen/woningen/164540/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/houthalen-helchteren/house/164540",
+  "slug": "daalstraat-22-houthalen-helchteren-164540"
+ },
+ {
+  "id": "165685",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Pastorijstraat 66",
+  "adres": "Pastorijstraat 66",
+  "gemeente": "Lummen",
+  "gemeenteSlug": "lummen",
+  "postcode": "3560",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 275000,
+  "bewoonbaar": 152,
+  "grond": 784,
+  "slaapkamers": 3,
+  "gevels": 4,
+  "bouwjaar": "1956",
+  "staat": "Te renoveren",
+  "parkeerplaatsen": 0,
+  "epcLabel": "F",
+  "epcVerbruik": 702,
+  "epcCode": "20260616-0003894761-RES-1",
+  "renovatieplicht": true,
+  "kadastraalInkomen": 647,
+  "bestemming": "Woongebied met landelijk karakter",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 40
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Bureau",
+    "aantal": 1,
+    "opp": 12
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Toilet",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 12
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 8
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 9
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 12
+   },
+   {
+    "label": "Veranda",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Individueel verwarming",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Olieketel (L)",
+   "Aansluiting op water",
+   "Watertank (L)",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "Aluminium raamwerk",
+   "Gedeeltelijk geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "Ruim perceel van 784 m2",
+   "Tuin",
+   "Terras"
+  ],
+  "geoLat": 51.00196,
+  "geoLng": 5.14805,
+  "beschrijving": "Deze viergevelwoning uit 1956 ligt aan de Pastorijstraat 66 in Meldert, een deelgemeente van Lummen, op een perceel van 784 m2. De woning heeft een bewoonbare oppervlakte van 152 m2 en telt 3 slaapkamers.\n\nOp het gelijkvloers bevinden zich de woonkamer, de eetkamer, de keuken, een wasplaats, een bureau, een badkamer en een veranda. Verder zijn er 3 slaapkamers, een aparte douchekamer, een zolder en een kelder. Buiten liggen een tuin en een terras.\n\nDe woning is te renoveren en heeft EPC-label F (702 kWh/m2 per jaar). Daardoor geldt de Vlaamse renovatieplicht: een koper verbetert de woning binnen vijf jaar na de aankoop tot minstens label D. Zo kun je de woning bij een renovatie afstemmen op de huidige woonnormen.\n\nDe naastgelegen bouwgrond met weide op nummer 84 kan samen met deze woning worden aangekocht. Dat biedt extra mogelijkheden voor wie op zoek is naar meer ruimte of een groter woonproject.\n\nMeldert heeft een landelijk karakter met een groene omgeving. Scholen, winkels en verbindingswegen blijven vlot bereikbaar.",
+  "fotos": [
+   "/afbeeldingen/woningen/165685/1.jpg",
+   "/afbeeldingen/woningen/165685/2.jpg",
+   "/afbeeldingen/woningen/165685/3.jpg",
+   "/afbeeldingen/woningen/165685/4.jpg",
+   "/afbeeldingen/woningen/165685/5.jpg",
+   "/afbeeldingen/woningen/165685/6.jpg",
+   "/afbeeldingen/woningen/165685/7.jpg",
+   "/afbeeldingen/woningen/165685/8.jpg",
+   "/afbeeldingen/woningen/165685/9.jpg",
+   "/afbeeldingen/woningen/165685/10.jpg",
+   "/afbeeldingen/woningen/165685/11.jpg",
+   "/afbeeldingen/woningen/165685/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/lummen/house/165685",
+  "slug": "pastorijstraat-66-lummen-165685"
+ },
+ {
+  "id": "164013",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Prinsenbos 49",
+  "adres": "Prinsenbos 49",
+  "gemeente": "Tessenderlo",
+  "gemeenteSlug": "tessenderlo",
+  "postcode": "3980",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 319000,
+  "bewoonbaar": 196,
+  "grond": 2190,
+  "slaapkamers": 3,
+  "gevels": 4,
+  "bouwjaar": "1961",
+  "staat": "Te renoveren",
+  "parkeerplaatsen": 0,
+  "epcLabel": "D",
+  "epcVerbruik": 387,
+  "epcCode": "20230218-0002814563-RES-1",
+  "renovatieplicht": null,
+  "kadastraalInkomen": 606,
+  "bestemming": "Woongebied met landelijk karakter",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 35
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 2,
+    "opp": 56
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": 16
+   },
+   {
+    "label": "Toilet",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 2,
+    "opp": 22
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 15
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 15
+   },
+   {
+    "label": "Veranda",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Individueel verwarming",
+   "Dubbele beglazing",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Olieketel (L)",
+   "Aansluiting op water",
+   "Watertank (L)",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "Houten raamwerk",
+   "Niet geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "Ruim perceel van 2190 m2",
+   "Tuin",
+   "Dubbele beglazing"
+  ],
+  "geoLat": 51.02183,
+  "geoLng": 5.02716,
+  "beschrijving": "In het groene Engsbergen vinden we deze goed onderhouden woning van 1961 terug op een prachtig perceel van maar liefst 22 are. Een eigendom met tal van mogelijkheden voor wie op zoek is naar ruimte, rust en een uitstekende ligging in een residentiële omgeving. Met een bewoonbare oppervlakte van 196 m2 biedt de woning heel wat potentieel. Op het gelijkvloers bevinden zich twee slaapkamers terwijl de verdieping plaats biedt aan een derde slaapkamer. Daarnaast kunnen de twee zolderruimtes verder worden afgewerkt tot extra slaapkamers, hobbyruimtes of een thuisbureau. De living, keuken, bijkeuken en grote veranda bieden samen een royale leefruimte om naar eigen smaak in te delen en te renoveren. Een belangrijk voordeel is dat de woning beschikt over een EPC-label D waardoor de renovatieverplichting niet van toepassing is. Bovendien is de elektrische installatie conform. Als toekomstige eigenaar kunt u de woning dus onmiddellijk betrekken zonder verplicht te investeren op korte termijn. Dit biedt niet alleen financiële zekerheid maar ook de vrijheid om eventuele renovatie-, verfraaiings- of moderniseringswerken volledig volgens eigen planning en budget uit te voeren. Eén van de grootste troeven van deze eigendom is het uitzonderlijke perceel. De volledig zuidgerichte tuin met een eigen bosgedeelte zorgt voor een unieke woonbeleving in het groen. Dus ook voor wie op zoek is naar een mooi stuk grond om een nieuwe droomwoning te realiseren is dit een unieke kans. De ligging is bijzonder aantrekkelijk voor liefhebbers van natuur en recreatie. Natuurgebieden zoals Gerhagen, Asdonk-Dassenaerde en Averbode Bos & Heide bevinden zich vlakbij. Daarnaast zijn zowel het station van Diest als de autosnelwegen E313 en E314 vlot bereikbaar. Kortom, deze eigendom combineert het comfort van een ruime gezinswoning met het potentieel van een uitzonderlijk perceel op een gegeerde locatie. Een unieke opportuniteit voor wie op zoek is naar een woning met toekomst- of uitbreidingsmogelijkheden of een exclusieve bouwlocatie in een groene omgeving! Prinsenbos 49 3980 Tessenderlo Interesse?",
+  "fotos": [
+   "/afbeeldingen/woningen/164013/1.jpg",
+   "/afbeeldingen/woningen/164013/2.jpg",
+   "/afbeeldingen/woningen/164013/3.jpg",
+   "/afbeeldingen/woningen/164013/4.jpg",
+   "/afbeeldingen/woningen/164013/5.jpg",
+   "/afbeeldingen/woningen/164013/6.jpg",
+   "/afbeeldingen/woningen/164013/7.jpg",
+   "/afbeeldingen/woningen/164013/8.jpg",
+   "/afbeeldingen/woningen/164013/9.jpg",
+   "/afbeeldingen/woningen/164013/10.jpg",
+   "/afbeeldingen/woningen/164013/11.jpg",
+   "/afbeeldingen/woningen/164013/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/tessenderlo-ham/house/164013",
+  "slug": "prinsenbos-49-tessenderlo-164013"
+ },
+ {
+  "id": "147439",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Landhuis",
+  "typeUID": "country-house",
+  "titel": "Welvaartstraat 4",
+  "adres": "Welvaartstraat 4",
+  "gemeente": "Kortenaken",
+  "gemeenteSlug": "kortenaken",
+  "postcode": "3470",
+  "provincie": "Vlaams-Brabant",
+  "provincieSlug": "vlaams-brabant",
+  "prijs": 940000,
+  "bewoonbaar": 370,
+  "grond": 8000,
+  "slaapkamers": 2,
+  "gevels": 4,
+  "bouwjaar": "1920",
+  "staat": "Goede staat",
+  "parkeerplaatsen": 0,
+  "epcLabel": "B",
+  "epcVerbruik": 189,
+  "epcCode": "20230426-0002872220RES1",
+  "renovatieplicht": null,
+  "kadastraalInkomen": null,
+  "bestemming": "",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 2,
+    "opp": 50
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Bureau",
+    "aantal": 1,
+    "opp": 15
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Toilet",
+    "aantal": 3,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 2,
+    "opp": 30
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 25
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 2,
+    "opp": 50
+   },
+   {
+    "label": "Veranda",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Dubbele beglazing",
+   "Open haard",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op gas",
+   "Aansluiting op water",
+   "Watertank (L)",
+   "Rioolaansluiting",
+   "Septic tank",
+   "Houten raamwerk",
+   "Andere verwarming type",
+   "VS geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "Ruim perceel van 8000 m2",
+   "Tuin",
+   "Terras",
+   "Open haard",
+   "Dubbele beglazing"
+  ],
+  "geoLat": 50.88228,
+  "geoLng": 5.03559,
+  "beschrijving": "Unieke, landelijke vierkantshoeve met goed draaiende B&B en tal van mogelijkheden - Ransberg Droom je van wonen in alle rust, omringd door groen en natuur? Deze prachtig gerestaureerde vierkantshoeve in het landelijke Ransberg biedt een zeldzame combinatie van charme, ruimte en rendement. De woning ligt op een perceel van maar liefst 80 are landbouwgrond, te midden van velden en weides. De gezellige, romantische tuin is een echte oase van rust en vormt een perfect decor voor lange zomeravonden, ontspannende wandelingen of het houden van paarden en andere dieren. Momenteel is er een goed draaiende B&B, maar de hoeve leent zich ook uitstekend als kangoeroewoning, vakantiewoning of ruime gezinswoning met praktijkruimte. Dankzij de indeling zijn er tal van mogelijkheden voor wie wonen en werken wil combineren of op zoek is naar een uniek investeringsproject. Troeven op een rijtje: Landelijk gelegen in het rustige Ransberg Gerestaureerde, karaktervolle vierkantshoeve Perceel van 80 are landbouwgrond Goed draaiende B&B (overname mogelijk) Ideaal voor paarden- of dierenliefhebbers Perfect voor kangoeroewonen of cohousing Absolute rust en volledige privacy Prachtige, onderhouden tuin Hier kom je écht thuis, weg van de dagelijkse drukte, in een omgeving waar stilte, natuur en comfort samenkomen. Ben je op zoek naar een unieke plek met karakter, rust en eindeloze mogelijkheden? Dan is deze hoeve zeker een bezoek waard. Bel Niels op 0488 33 81 47 voor meer info of een afspraak. niels.wouters@weinvest.be",
+  "fotos": [
+   "/afbeeldingen/woningen/147439/1.jpg",
+   "/afbeeldingen/woningen/147439/2.jpg",
+   "/afbeeldingen/woningen/147439/3.jpg",
+   "/afbeeldingen/woningen/147439/4.jpg",
+   "/afbeeldingen/woningen/147439/5.jpg",
+   "/afbeeldingen/woningen/147439/6.jpg",
+   "/afbeeldingen/woningen/147439/7.jpg",
+   "/afbeeldingen/woningen/147439/8.jpg",
+   "/afbeeldingen/woningen/147439/9.jpg",
+   "/afbeeldingen/woningen/147439/10.jpg",
+   "/afbeeldingen/woningen/147439/11.jpg",
+   "/afbeeldingen/woningen/147439/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/kortenaken-ransberg/house/147439",
+  "slug": "welvaartstraat-4-kortenaken-147439"
+ },
+ {
+  "id": "166216",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Stokskesstraat 28",
+  "adres": "Stokskesstraat 28",
+  "gemeente": "Tielt-Winge",
+  "gemeenteSlug": "tielt-winge",
+  "postcode": "3390",
+  "provincie": "Vlaams-Brabant",
+  "provincieSlug": "vlaams-brabant",
+  "prijs": 567000,
+  "bewoonbaar": 212,
+  "grond": 1496,
+  "slaapkamers": 3,
+  "gevels": 3,
+  "bouwjaar": "2014",
+  "staat": "Zo goed als nieuw",
+  "parkeerplaatsen": 0,
+  "epcLabel": "B",
+  "epcVerbruik": 137,
+  "epcCode": "20251226-0003762381-RES-2",
+  "renovatieplicht": null,
+  "kadastraalInkomen": 1212,
+  "bestemming": "Woongebied met landelijk karakter",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 43
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Toilet",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 20
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 30
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 5
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 15
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": 43
+   }
+  ],
+  "eigenschappen": [
+   "Zonnepanelen",
+   "Individueel verwarming",
+   "Dubbele beglazing",
+   "Voorzieningen gehand.",
+   "Airconditioning",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op gas",
+   "Aansluiting op water",
+   "Watertank (L)",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "PVC raamwerk",
+   "Gasverwarming",
+   "VS geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "Ruim perceel van 1496 m2",
+   "Tuin",
+   "Terras",
+   "Dubbele beglazing"
+  ],
+  "geoLat": 50.91781,
+  "geoLng": 4.85965,
+  "beschrijving": "Soms kom je een woning tegen waar alles gewoon klopt. Geen grote verbouwingen, geen stress over energiefacturen, maar wel alle ruimte om je eigen stempel te drukken. Stokskesstraat 28 in Tielt-Winge is precies zo’n plek. Een instapklare halfopen bebouwing in een buurt waar buren nog elkaars naam kennen en rust de standaard is. Binnen merk je meteen dat dit huis met zorg is bewoond. Het hart van de woning? De royale leefkeuken. Dit is niet zomaar een plek om te koken, maar de plek waar de dag begint met koffie aan de tafel en eindigt met goede gesprekken terwijl de potten nog op het vuur staan. Met drie ruime slaapkamers heb je momenteel plek zat, maar de echte troef zit hogerop. De zolder biedt de mogelijkheid om door te groeien naar maar liefst vijf slaapkamers en een tweede badkamer. Of je nu droomt van een riante home-office, een gameroom of een extra verdieping voor de kinderen: hier kan het. Over de techniek hoef je niet na te denken. Met een gunstig EPC-label B en zonnepanelen op het dak woon je hier met een gerust hart. Je rijdt binnen via de manuele poort en parkeert met gemak in het grote bijgebouw van 45m2. Die laatste is trouwens veel meer dan alleen een garage; het is de ideale plek voor de oldtimer, een uit de hand gelopen hobby of simpelweg bergruimte die je nooit tekortkomt. En dan is er nog de tuin. Groot genoeg voor een stevige barbecue en een speelparadijs voor de kinderen, maar vooral een plek waar je in alle privacy kunt genieten van de buitenlucht. Kortom: Instapklaar: Verhuizen, uitpakken en genieten en gelegen in een van de meest gegeerde straten van Tielt-Winge. Bij",
+  "fotos": [
+   "/afbeeldingen/woningen/166216/1.jpg",
+   "/afbeeldingen/woningen/166216/2.jpg",
+   "/afbeeldingen/woningen/166216/3.jpg",
+   "/afbeeldingen/woningen/166216/4.jpg",
+   "/afbeeldingen/woningen/166216/5.jpg",
+   "/afbeeldingen/woningen/166216/6.jpg",
+   "/afbeeldingen/woningen/166216/7.jpg",
+   "/afbeeldingen/woningen/166216/8.jpg",
+   "/afbeeldingen/woningen/166216/9.jpg",
+   "/afbeeldingen/woningen/166216/10.jpg",
+   "/afbeeldingen/woningen/166216/11.jpg",
+   "/afbeeldingen/woningen/166216/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/tielt-winge/house/166216",
+  "slug": "stokskesstraat-28-tielt-winge-166216"
+ }
 ]

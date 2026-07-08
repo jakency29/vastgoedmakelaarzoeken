@@ -8,7 +8,7 @@ import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { WoningCard } from "@/components/WoningCard";
 import { PremiumBadge } from "@/components/PremiumBadge";
-import { woningen } from "@/lib/woningen";
+import { woningenVoor, CATEGORIES } from "@/lib/woningen";
 import { kantoren } from "@/lib/kantoren";
 import { site, absoluteUrl } from "@/lib/site";
 
@@ -218,7 +218,7 @@ export default function Home() {
       </section>
 
       {/* Laatste huizen te koop */}
-      {woningen.length > 0 && (
+      {woningenVoor(CATEGORIES[0]).length > 0 && (
         <section className="bg-brand-50/60">
           <div className="mx-auto max-w-7xl px-4 py-14">
             <div className="flex items-end justify-between gap-4">
@@ -231,7 +231,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {woningen.slice(0, 3).map((w) => <WoningCard key={w.id} w={w} />)}
+              {woningenVoor(CATEGORIES[0]).slice(0, 3).map((w) => <WoningCard key={w.id} w={w} />)}
             </div>
           </div>
         </section>
