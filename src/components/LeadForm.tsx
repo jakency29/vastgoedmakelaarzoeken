@@ -4,6 +4,7 @@
 // variant "hero" = grote kaart op de homepage-hero; "sidebar" = compacte kaart naast content.
 
 import { useState } from "react";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 const TRANSACTIES = [
   { value: "verkopen", label: "Woning verkopen" },
@@ -20,14 +21,20 @@ export function LeadForm({ variant = "sidebar" }: { variant?: "sidebar" | "hero"
     e.preventDefault();
     setStatus("sending");
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const fd = new FormData(form);
+    const transactie = String(fd.get("transactie") ?? "");
+    const label = TRANSACTIES.find((t) => t.value === transactie)?.label ?? transactie;
+    const postcode = String(fd.get("postcode") ?? "");
     try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+      await submitToWeb3Forms({
+        subject: `Nieuwe lead: ${label} (${postcode})`,
+        email: String(fd.get("email") ?? ""),
+        "Type aanvraag": label,
+        Adres: String(fd.get("adres") ?? "") || "niet opgegeven",
+        Postcode: postcode,
+        Telefoon: String(fd.get("telefoon") ?? ""),
+        Bron: String(fd.get("bron") ?? ""),
       });
-      if (!res.ok) throw new Error("mislukt");
       setStatus("ok");
       form.reset();
     } catch {

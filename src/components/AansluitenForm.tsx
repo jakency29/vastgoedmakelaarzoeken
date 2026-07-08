@@ -1,9 +1,10 @@
 "use client";
 
 // Aanmeldformulier voor vastgoedmakelaars/kantoren die willen aansluiten.
-// Postt naar /api/aansluiten (los van de consumentenleads).
+// Verstuurt rechtstreeks naar Web3Forms (herkenbaar onderwerp voor deze aanvragen).
 
 import { useState } from "react";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 export function AansluitenForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
@@ -12,14 +13,18 @@ export function AansluitenForm() {
     e.preventDefault();
     setStatus("sending");
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const fd = new FormData(form);
+    const naam = String(fd.get("naam") ?? "");
+    const kantoor = String(fd.get("kantoor") ?? "");
     try {
-      const res = await fetch("/api/aansluiten", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+      await submitToWeb3Forms({
+        subject: `Nieuwe aanmelding vastgoedmakelaar: ${naam}${kantoor ? ` (${kantoor})` : ""}`,
+        name: naam,
+        email: String(fd.get("email") ?? ""),
+        Kantoor: kantoor || "niet opgegeven",
+        Telefoon: String(fd.get("telefoon") ?? "") || "niet opgegeven",
+        Bericht: String(fd.get("bericht") ?? "") || "niet opgegeven",
       });
-      if (!res.ok) throw new Error("mislukt");
       setStatus("ok");
       form.reset();
     } catch {

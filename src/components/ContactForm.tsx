@@ -4,6 +4,7 @@
 // Server-side gerenderd op vaste grootte, dus geen layout shift.
 
 import { useState } from "react";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
@@ -12,14 +13,15 @@ export function ContactForm() {
     e.preventDefault();
     setStatus("sending");
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const fd = new FormData(form);
+    const naam = String(fd.get("naam") ?? "");
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+      await submitToWeb3Forms({
+        subject: `Nieuw contactbericht: ${naam}`,
+        name: naam,
+        email: String(fd.get("email") ?? ""),
+        Bericht: String(fd.get("bericht") ?? ""),
       });
-      if (!res.ok) throw new Error("mislukt");
       setStatus("ok");
       form.reset();
     } catch {
