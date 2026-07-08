@@ -20,11 +20,13 @@ export type Kantoor = {
   bivNummer?: string; // BIV-erkenningsnummer
   foto?: string; // lokaal pad onder /afbeeldingen/kantoren/
   googlePlaceId?: string; // Google Place ID voor het ophalen van reviews
+  premium?: boolean; // premium partner: toont overal een badge
 };
 
 export const kantoren: Kantoor[] = [
   {
     slug: "we-invest-demervallei",
+    premium: true,
     googlePlaceId: "ChIJMdrZH6E7wUcRHc8DgINnwCk",
     naam: "We Invest Demervallei",
     makelaar: "Niels Wouters",

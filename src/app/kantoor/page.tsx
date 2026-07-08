@@ -7,6 +7,7 @@ import { kantoren } from "@/lib/kantoren";
 import { getPlaceReviews } from "@/lib/reviews";
 import { Faq } from "@/components/Faq";
 import { Rating } from "@/components/Rating";
+import { PremiumBadge } from "@/components/PremiumBadge";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbListSchema, faqPageSchema } from "@/lib/jsonld";
 
@@ -75,7 +76,8 @@ export default async function KantorenPage() {
                   href={`/kantoor/${k.slug}`}
                   className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
                 >
-                  <div className="flex h-40 items-center justify-center border-b border-slate-100 bg-slate-50 p-4">
+                  <div className="relative flex h-40 items-center justify-center border-b border-slate-100 bg-slate-50 p-4">
+                    {k.premium && <PremiumBadge className="absolute left-3 top-3" />}
                     {k.foto ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img src={k.foto} alt={`${k.naam} logo`} loading="lazy" className="max-h-full max-w-full object-contain" />

@@ -12,6 +12,7 @@ import { WoningCard } from "@/components/WoningCard";
 import { getPlaceReviews } from "@/lib/reviews";
 import { Faq } from "@/components/Faq";
 import { Rating } from "@/components/Rating";
+import { PremiumBadge } from "@/components/PremiumBadge";
 import { Reviews } from "@/components/Reviews";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { JsonLd } from "@/components/JsonLd";
@@ -146,7 +147,10 @@ export default async function KantoorPage({ params }: Props) {
               </div>
             )}
             <div>
-              <h1 className="text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">{k.naam}</h1>
+              <div className="flex flex-wrap items-center gap-3">
+                <h1 className="text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">{k.naam}</h1>
+                {k.premium && <PremiumBadge />}
+              </div>
               <p className="mt-1 text-lg text-slate-600">
                 Vastgoedkantoor in {k.gemeente}, {k.provincie}
                 {k.makelaar ? (

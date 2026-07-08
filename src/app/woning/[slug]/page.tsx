@@ -10,6 +10,7 @@ import { getKantoor } from "@/lib/kantoren";
 import { getMakelaarByKantoor } from "@/lib/makelaars";
 import { getNearby } from "@/lib/nearby";
 import { MakelaarContact } from "@/components/MakelaarContact";
+import { PremiumBadge } from "@/components/PremiumBadge";
 import { EpcLabel } from "@/components/EpcLabel";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbListSchema } from "@/lib/jsonld";
@@ -214,7 +215,10 @@ export default async function WoningPage({ params }: Props) {
               <>
                 <H2>Aangeboden door</H2>
                 <div className="mt-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                  <Link href={`/kantoor/${kantoor.slug}`} className="font-bold text-brand-900 hover:text-brand-700">{kantoor.naam}</Link>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Link href={`/kantoor/${kantoor.slug}`} className="font-bold text-brand-900 hover:text-brand-700">{kantoor.naam}</Link>
+                    {kantoor.premium && <PremiumBadge />}
+                  </div>
                   <p className="text-sm text-slate-500">{kantoor.gemeente}, {kantoor.provincie}</p>
                   {makelaar && (
                     <p className="mt-2 text-sm text-slate-700">

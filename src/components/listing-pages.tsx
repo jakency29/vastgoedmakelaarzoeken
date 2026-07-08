@@ -15,6 +15,7 @@ import {
   type Woning,
 } from "@/lib/woningen";
 import { kantoren, type Kantoor } from "@/lib/kantoren";
+import { PremiumBadge } from "./PremiumBadge";
 import { ListingView } from "./ListingView";
 
 const HOME = { name: "Home", href: "/" };
@@ -191,8 +192,9 @@ function LocatieContent({
           </p>
           <ul className="mt-3 space-y-2">
             {kantorenLijst.slice(0, 6).map((k) => (
-              <li key={k.slug}>
+              <li key={k.slug} className="flex flex-wrap items-center gap-2">
                 <Link href={`/kantoor/${k.slug}`} className="font-medium text-brand-700 underline underline-offset-2">{k.naam} in {k.gemeente}</Link>
+                {k.premium && <PremiumBadge />}
               </li>
             ))}
           </ul>
