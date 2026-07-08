@@ -30,6 +30,12 @@ export function Header({ nav }: { nav: { label: string; href: string }[] }) {
 
         <div className="flex items-center gap-2">
           <Link
+            href="/aansluiten"
+            className="hidden rounded-full border border-brand-200 bg-white px-5 py-2.5 text-sm font-bold text-brand-800 transition-colors hover:border-brand-400 hover:text-brand-900 sm:inline-block"
+          >
+            Word lid
+          </Link>
+          <Link
             href="/#leadform"
             className="hidden rounded-full bg-accent-500 px-5 py-2.5 text-sm font-bold text-brand-900 shadow-sm transition-colors hover:bg-accent-400 sm:inline-block"
           >
@@ -70,6 +76,15 @@ export function Header({ nav }: { nav: { label: string; href: string }[] }) {
                 onClick={() => setOpen(false)}
               >
                 Gratis offertes
+              </Link>
+            </li>
+            <li className="pt-2">
+              <Link
+                href="/aansluiten"
+                className="block rounded-full border border-brand-200 px-5 py-3 text-center font-bold text-brand-800"
+                onClick={() => setOpen(false)}
+              >
+                Word lid
               </Link>
             </li>
           </ul>
