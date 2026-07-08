@@ -1,12 +1,13 @@
 "use client";
 
 // CTA-knop die de Typeform-popup opent. Contextueel label per dienst.
-// De embed.js-script wordt op de contentpagina geladen; tf.load() zorgt dat de knop
-// ook na client-side navigatie gekoppeld wordt.
+// TYPEFORM_ID is de form-ID uit de share/embed-URL (form.typeform.com/to/<id>),
+// niet het langere "live" embed-ID. embed.js wordt op de contentpagina geladen;
+// tf.load() koppelt de knop ook na client-side navigatie.
 
 import { useEffect } from "react";
 
-const TYPEFORM_ID = "01H8KNHNFE7C35WSXTRG7SSW3B";
+const TYPEFORM_ID = "JfgTVpPn";
 
 export function DienstCTA({ label = "Gratis offerte aanvragen" }: { label?: string }) {
   useEffect(() => {
