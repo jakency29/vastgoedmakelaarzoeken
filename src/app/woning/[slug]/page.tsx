@@ -4,6 +4,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { woningen, getWoningBySlug, formatPrijs, formatOpp } from "@/lib/woningen";
 import { getKantoor } from "@/lib/kantoren";
@@ -91,12 +92,14 @@ export default async function WoningPage({ params }: Props) {
       <div className="mx-auto max-w-6xl px-4">
         {w.fotos.length > 0 && (
           <div className="mt-6 grid h-64 gap-2 sm:h-[440px] sm:grid-cols-2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={w.fotos[0]} alt={`${w.type} te koop in ${w.gemeente}, ${w.adres}`} className="h-full w-full rounded-2xl object-cover sm:rounded-l-2xl sm:rounded-r-none" />
+            <div className="relative h-full w-full overflow-hidden rounded-2xl sm:rounded-l-2xl sm:rounded-r-none">
+              <Image src={w.fotos[0]} alt={`${w.type} te koop in ${w.gemeente}, ${w.adres}`} fill priority sizes="(max-width: 640px) 100vw, 50vw" className="object-cover" />
+            </div>
             <div className="hidden grid-cols-2 grid-rows-2 gap-2 sm:grid">
               {w.fotos.slice(1, 5).map((src, i) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img key={i} src={src} alt={`${w.type} ${w.gemeente} foto ${i + 2}`} className={`h-full w-full object-cover ${i === 1 ? "rounded-tr-2xl" : ""} ${i === 3 ? "rounded-br-2xl" : ""}`} />
+                <div key={i} className={`relative overflow-hidden ${i === 1 ? "rounded-tr-2xl" : ""} ${i === 3 ? "rounded-br-2xl" : ""}`}>
+                  <Image src={src} alt={`${w.type} ${w.gemeente} foto ${i + 2}`} fill sizes="25vw" className="object-cover" />
+                </div>
               ))}
             </div>
           </div>
@@ -234,8 +237,9 @@ export default async function WoningPage({ params }: Props) {
                 <H2>Meer foto&apos;s</H2>
                 <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
                   {w.fotos.slice(5).map((src, i) => (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img key={i} src={src} alt={`${w.type} ${w.gemeente} foto ${i + 6}`} loading="lazy" className="aspect-[4/3] w-full rounded-xl object-cover" />
+                    <div key={i} className="relative aspect-[4/3] overflow-hidden rounded-xl">
+                      <Image src={src} alt={`${w.type} ${w.gemeente} foto ${i + 6}`} fill loading="lazy" sizes="(max-width: 640px) 50vw, 33vw" className="object-cover" />
+                    </div>
                   ))}
                 </div>
               </>

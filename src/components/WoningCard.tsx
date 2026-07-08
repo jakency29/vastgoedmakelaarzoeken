@@ -1,6 +1,7 @@
 // Woningkaart (Zillow-stijl): foto, prijs, kernkenmerken, adres. Link naar de detailpagina.
 
 import Link from "next/link";
+import Image from "next/image";
 import { formatPrijs, formatOpp, type Woning } from "@/lib/woningen";
 
 export function WoningCard({ w }: { w: Woning }) {
@@ -11,8 +12,13 @@ export function WoningCard({ w }: { w: Woning }) {
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
         {w.fotos[0] ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={w.fotos[0]} alt={`${w.type} te koop in ${w.gemeente}: ${w.adres}`} loading="lazy" className="h-full w-full object-cover transition-transform group-hover:scale-105" />
+          <Image
+            src={w.fotos[0]}
+            alt={`${w.type} te koop in ${w.gemeente}: ${w.adres}`}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
+            className="object-cover transition-transform group-hover:scale-105"
+          />
         ) : null}
         <span className="absolute left-3 top-3 rounded-full bg-brand-900/90 px-3 py-1 text-xs font-bold text-white">
           {w.transactie === "te-koop" ? "Te koop" : "Te huur"}

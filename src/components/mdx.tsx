@@ -3,6 +3,7 @@
 
 import type { ComponentProps } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { kantoren } from "@/lib/kantoren";
 import { DienstCTA } from "./DienstCTA";
 
@@ -115,21 +116,31 @@ export function Afbeelding({
 }: {
   src: string;
   alt: string;
-  w?: number;
-  h?: number;
+  w?: number | string;
+  h?: number | string;
   hero?: boolean;
 }) {
+  // MDX geeft attributen als string door; coerce naar getal voor next/image.
+  const width = Number(w);
+  const height = Number(h);
+  const className = "h-auto w-full rounded-2xl border border-slate-200 bg-slate-50";
   return (
     <figure className="my-6 first:mt-0">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={src}
-        alt={alt}
-        width={w}
-        height={h}
-        loading={hero ? "eager" : "lazy"}
-        className="h-auto w-full rounded-2xl border border-slate-200 bg-slate-50"
-      />
+      {Number.isFinite(width) && width > 0 && Number.isFinite(height) && height > 0 ? (
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          priority={hero}
+          sizes="(max-width: 768px) 100vw, 720px"
+          className={className}
+        />
+      ) : (
+        // Zonder afmetingen kan next/image niet optimaliseren; val terug op img.
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={src} alt={alt} loading={hero ? "eager" : "lazy"} className={className} />
+      )}
     </figure>
   );
 }
