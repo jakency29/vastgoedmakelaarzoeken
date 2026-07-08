@@ -18,6 +18,8 @@ type LeadInput = {
   transactie?: string;
   postcode?: string;
   email?: string;
+  telefoon?: string;
+  adres?: string;
   bron?: string;
 };
 
@@ -41,7 +43,9 @@ async function deliverLead(lead: Record<string, string>) {
     subject: `Nieuwe lead: ${label} (${lead.postcode})`,
     text: [
       `Type aanvraag: ${label}`,
+      `Adres: ${lead.adres || "niet opgegeven"}`,
       `Postcode: ${lead.postcode}`,
+      `Telefoon: ${lead.telefoon || "niet opgegeven"}`,
       `E-mail bezoeker: ${lead.email}`,
       `Bron: ${lead.bron}`,
       `Ontvangen: ${lead.ontvangen}`,
@@ -60,11 +64,14 @@ export async function POST(request: Request) {
   const transactie = String(data.transactie ?? "");
   const postcode = String(data.postcode ?? "").trim();
   const email = String(data.email ?? "").trim();
+  const telefoon = String(data.telefoon ?? "").trim();
+  const adres = String(data.adres ?? "").trim();
 
   const errors: string[] = [];
   if (!TRANSACTIES.has(transactie)) errors.push("transactie");
   if (!/^[1-9][0-9]{3}$/.test(postcode)) errors.push("postcode");
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) errors.push("email");
+  if (telefoon.replace(/\D/g, "").length < 6) errors.push("telefoon");
 
   if (errors.length) {
     return NextResponse.json({ error: "Controleer je gegevens.", fields: errors }, { status: 422 });
@@ -74,6 +81,8 @@ export async function POST(request: Request) {
     transactie,
     postcode,
     email,
+    telefoon,
+    adres,
     bron: String(data.bron ?? "onbekend"),
     ontvangen: new Date().toISOString(),
   };

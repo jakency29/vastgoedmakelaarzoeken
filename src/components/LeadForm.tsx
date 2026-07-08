@@ -79,6 +79,19 @@ export function LeadForm({ variant = "sidebar" }: { variant?: "sidebar" | "hero"
           </select>
         </div>
 
+        <div className={hero ? "sm:col-span-2" : ""}>
+          <label htmlFor="lf-adres" className="block text-sm font-semibold text-brand-800">
+            Adres <span className="font-normal text-slate-400">(optioneel)</span>
+          </label>
+          <input
+            id="lf-adres"
+            name="adres"
+            autoComplete="street-address"
+            placeholder="Straat en nummer"
+            className="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-3 text-sm font-medium focus:border-brand-500"
+          />
+        </div>
+
         <div>
           <label htmlFor="lf-postcode" className="block text-sm font-semibold text-brand-800">
             Postcode
@@ -96,6 +109,21 @@ export function LeadForm({ variant = "sidebar" }: { variant?: "sidebar" | "hero"
         </div>
 
         <div>
+          <label htmlFor="lf-telefoon" className="block text-sm font-semibold text-brand-800">
+            Telefoon
+          </label>
+          <input
+            id="lf-telefoon"
+            name="telefoon"
+            type="tel"
+            autoComplete="tel"
+            required
+            placeholder="0470 12 34 56"
+            className="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-3 text-sm font-medium focus:border-brand-500"
+          />
+        </div>
+
+        <div className={hero ? "sm:col-span-2" : ""}>
           <label htmlFor="lf-email" className="block text-sm font-semibold text-brand-800">
             E-mailadres
           </label>
