@@ -1,4 +1,17 @@
 import type { NextConfig } from "next";
+import fs from "node:fs";
+import path from "node:path";
+
+// Woning-detailpagina's verhuisden van /woning/<slug> naar /<categorie>/<slug>.
+// 301-redirect elke oude woning-URL naar de nieuwe categorie-URL.
+const HUIS_TYPES = ["house", "exceptional_house", "maison_de_maitre", "country-house"];
+const woningen = JSON.parse(
+  fs.readFileSync(path.join(process.cwd(), "src", "data", "woningen.json"), "utf8"),
+) as { slug: string; typeUID: string }[];
+const woningRedirects = woningen.map((w) => ({
+  from: `/woning/${w.slug}`,
+  to: `/${HUIS_TYPES.includes(w.typeUID) ? "huis-te-koop" : "appartement-te-koop"}/${w.slug}`,
+}));
 
 // 301-redirects voor de launch. De meeste van de 142 oude WP-URL's blijven 1-op-1,
 // dus vergen geen redirect. Hieronder enkel de opschoningen:
@@ -17,7 +30,7 @@ const launchRedirects = [
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return launchRedirects.map((r) => ({
+    return [...launchRedirects, ...woningRedirects].map((r) => ({
       source: r.from,
       destination: r.to,
       permanent: true,

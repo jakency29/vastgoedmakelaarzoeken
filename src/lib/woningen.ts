@@ -101,6 +101,15 @@ export function woningenVoor(cat: Categorie): Woning[] {
 export function actieveCategorieen(): Categorie[] {
   return CATEGORIES.filter((c) => woningenVoor(c).length > 0);
 }
+// De categorie (huis/appartement) van een woning op basis van typeUID.
+export function categorieVanWoning(w: Woning): Categorie | undefined {
+  return CATEGORIES.find((c) => c.types.includes(w.typeUID));
+}
+// De detail-URL van een woning: /huis-te-koop/<slug> of /appartement-te-koop/<slug>.
+export function woningHref(w: Woning): string {
+  const cat = categorieVanWoning(w);
+  return cat ? `/${cat.prefix}/${w.slug}` : `/woning/${w.slug}`;
+}
 function tellingenVan(list: Woning[], slugKey: "provincieSlug" | "gemeenteSlug", naamKey: "provincie" | "gemeente"): Telling[] {
   const m = new Map<string, Telling>();
   for (const w of list) {

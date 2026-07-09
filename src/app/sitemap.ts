@@ -4,7 +4,7 @@ import type { MetadataRoute } from "next";
 import { getAllPages } from "@/lib/content";
 import { kantoren } from "@/lib/kantoren";
 import { makelaars } from "@/lib/makelaars";
-import { woningen, actieveCategorieen, provinciesVoor, gemeentenVoor } from "@/lib/woningen";
+import { woningen, actieveCategorieen, provinciesVoor, gemeentenVoor, woningHref } from "@/lib/woningen";
 import { absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -49,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         gemeentenVoor(cat, p.slug).map((g) => ({ url: absoluteUrl(`/${cat.prefix}/${p.slug}/${g.slug}`), changeFrequency: "daily" as const, priority: 0.7 })),
       ),
     ]),
-    ...woningen.map((w) => ({ url: absoluteUrl(`/woning/${w.slug}`), changeFrequency: "weekly" as const, priority: 0.6 })),
+    ...woningen.map((w) => ({ url: absoluteUrl(woningHref(w)), changeFrequency: "weekly" as const, priority: 0.6 })),
   ];
 
   return [home, kennisbank, ...pages, ...kantoorPages, ...woningPages];

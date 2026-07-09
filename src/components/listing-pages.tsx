@@ -11,6 +11,7 @@ import {
   woningenGemeenteVoor,
   formatPrijs,
   formatOpp,
+  woningHref,
   type Categorie,
   type Woning,
 } from "@/lib/woningen";
@@ -168,7 +169,7 @@ function LocatieContent({
             {lijst.length === 1 ? (
               <>
                 Het aanbod in {naam} bestaat uit{" "}
-                <Link href={`/woning/${lijst[0].slug}`} className="font-medium text-brand-700 underline underline-offset-2">
+                <Link href={woningHref(lijst[0])} className="font-medium text-brand-700 underline underline-offset-2">
                   {lijst[0].type.toLowerCase()} aan de {lijst[0].adres}
                 </Link>
                 {lijst[0].bouwjaar ? ` uit ${lijst[0].bouwjaar}` : ""}. De vraagprijs bedraagt {formatPrijs(lijst[0].prijs)}

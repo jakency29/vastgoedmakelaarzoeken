@@ -1,12 +1,11 @@
-// Woning-detailpagina (/woning/<slug>) in Zillow-stijl: fotogalerij, kerncijfers, troeven,
-// beschrijving, indeling, eigenschappen, EPC/energie, stedenbouw, in de buurt, kantoor/makelaar
-// en leadformulier. Geen kaart.
+// Woning-detailweergave in Zillow-stijl: fotogalerij, kerncijfers, troeven, beschrijving,
+// indeling, eigenschappen, EPC/energie, stedenbouw, in de buurt, kantoor/makelaar en
+// contactkaart. Gerenderd onder /huis-te-koop/<slug> of /appartement-te-koop/<slug>.
 
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { notFound } from "next/navigation";
-import { woningen, getWoningBySlug, formatPrijs, formatOpp } from "@/lib/woningen";
+import { formatPrijs, formatOpp, categorieVanWoning, woningHref, type Woning } from "@/lib/woningen";
 import { getKantoor } from "@/lib/kantoren";
 import { getMakelaarByKantoor } from "@/lib/makelaars";
 import { getNearby } from "@/lib/nearby";
@@ -16,22 +15,11 @@ import { EpcLabel } from "@/components/EpcLabel";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbListSchema } from "@/lib/jsonld";
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return woningen.map((w) => ({ slug: w.slug }));
-}
-
-type Props = { params: Promise<{ slug: string }> };
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const w = getWoningBySlug(slug);
-  if (!w) return {};
+export function woningMetadata(w: Woning): Metadata {
   return {
     title: { absolute: `${w.type} te koop in ${w.gemeente}: ${w.adres}`.slice(0, 60) },
     description: `${w.type} te koop in ${w.gemeente}. ${formatPrijs(w.prijs)}${w.slaapkamers ? `, ${w.slaapkamers} slaapkamers` : ""}${w.bewoonbaar ? `, ${formatOpp(w.bewoonbaar)}` : ""}${w.epcLabel ? `, EPC ${w.epcLabel}` : ""}. Vraag vrijblijvend info of een bezoek.`.slice(0, 155),
-    alternates: { canonical: `/woning/${w.slug}` },
+    alternates: { canonical: woningHref(w) },
   };
 }
 
@@ -48,10 +36,10 @@ function H2({ children }: { children: React.ReactNode }) {
   return <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">{children}</h2>;
 }
 
-export default async function WoningPage({ params }: Props) {
-  const { slug } = await params;
-  const w = getWoningBySlug(slug);
-  if (!w) notFound();
+export async function WoningDetailView({ w }: { w: Woning }) {
+  const cat = categorieVanWoning(w);
+  const prefix = cat ? cat.prefix : "huis-te-koop";
+  const catLabel = cat ? cat.label : "Te koop";
   const kantoor = getKantoor(w.kantoorSlug);
   const makelaar = getMakelaarByKantoor(w.kantoorSlug);
   const nearby = await getNearby(w.geoLat, w.geoLng);
@@ -79,9 +67,9 @@ export default async function WoningPage({ params }: Props) {
             <ol className="flex flex-wrap items-center gap-1.5">
               <li><Link href="/" className="hover:text-brand-700 hover:underline">Home</Link></li>
               <li aria-hidden="true" className="text-slate-300">/</li>
-              <li><Link href="/huis-te-koop" className="hover:text-brand-700 hover:underline">Te koop</Link></li>
+              <li><Link href={`/${prefix}`} className="hover:text-brand-700 hover:underline">{catLabel}</Link></li>
               <li aria-hidden="true" className="text-slate-300">/</li>
-              <li><Link href={`/huis-te-koop/${w.provincieSlug}/${w.gemeenteSlug}`} className="hover:text-brand-700 hover:underline">{w.gemeente}</Link></li>
+              <li><Link href={`/${prefix}/${w.provincieSlug}/${w.gemeenteSlug}`} className="hover:text-brand-700 hover:underline">{w.gemeente}</Link></li>
             </ol>
           </nav>
           <h1 className="mt-3 text-2xl font-extrabold tracking-tight text-brand-900 sm:text-3xl">{w.type} te koop in {w.gemeente}</h1>
@@ -261,10 +249,10 @@ export default async function WoningPage({ params }: Props) {
 
       <JsonLd data={breadcrumbListSchema([
         { name: "Home", path: "/" },
-        { name: "Te koop", path: "/huis-te-koop" },
-        { name: w.provincie, path: `/huis-te-koop/${w.provincieSlug}` },
-        { name: w.gemeente, path: `/huis-te-koop/${w.provincieSlug}/${w.gemeenteSlug}` },
-        { name: w.adres, path: `/woning/${w.slug}` },
+        { name: catLabel, path: `/${prefix}` },
+        { name: w.provincie, path: `/${prefix}/${w.provincieSlug}` },
+        { name: w.gemeente, path: `/${prefix}/${w.provincieSlug}/${w.gemeenteSlug}` },
+        { name: w.adres, path: woningHref(w) },
       ])} />
     </main>
   );

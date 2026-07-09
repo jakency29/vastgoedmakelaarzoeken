@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { formatPrijs, formatOpp, type Woning } from "@/lib/woningen";
+import { formatPrijs, formatOpp, woningHref, type Woning } from "@/lib/woningen";
 
 export function WoningCard({ w }: { w: Woning }) {
   return (
     <Link
-      href={`/woning/${w.slug}`}
+      href={woningHref(w)}
       className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
