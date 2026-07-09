@@ -9,6 +9,7 @@ import { getKantoor } from "@/lib/kantoren";
 import { getPlaceReviews } from "@/lib/reviews";
 import { woningenVanKantoor } from "@/lib/woningen";
 import { WoningCard } from "@/components/WoningCard";
+import { SellerLeadForm } from "@/components/SellerLeadForm";
 import { Rating } from "@/components/Rating";
 import { Reviews } from "@/components/Reviews";
 import { JsonLd } from "@/components/JsonLd";
@@ -52,8 +53,6 @@ export default async function MakelaarPage({ params }: Props) {
     url,
     jobTitle: m.functie,
     ...(m.foto ? { image: absoluteUrl(m.foto) } : {}),
-    ...(m.telefoon ? { telephone: m.telefoon } : {}),
-    ...(m.email ? { email: m.email } : {}),
     ...(k
       ? {
           worksFor: {
@@ -145,13 +144,13 @@ export default async function MakelaarPage({ params }: Props) {
               </>
             )}
 
-            <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Contactgegevens</h2>
-            <ul className="mt-3 space-y-1.5 text-slate-700">
-              {k?.adres && <li>{k.adres}{k.postcode ? `, ${k.postcode}` : ""} {k.gemeente}</li>}
-              {m.telefoon && <li>{m.telefoon}</li>}
-              {m.email && <li>{m.email}</li>}
-              {m.bivNummer && <li className="text-sm text-slate-500">BIV-erkenning {m.bivNummer}</li>}
-            </ul>
+            <h2 id="contact" className="mt-8 scroll-mt-24 text-2xl font-extrabold tracking-tight text-brand-900">Contacteer {m.naam}</h2>
+            <p className="mt-3 max-w-2xl text-slate-700">
+              Wil je je woning verkopen of heb je een vraag? Vul het formulier in. Wij verwerken je aanvraag en bezorgen ze, zodat je vrijblijvend antwoord krijgt.
+            </p>
+            <div className="mt-4 max-w-xl">
+              <SellerLeadForm kantoor={k?.naam} />
+            </div>
 
             {reviews && k ? <Reviews data={reviews} placeId={k.googlePlaceId} naam={k.naam} /> : null}
         </div>

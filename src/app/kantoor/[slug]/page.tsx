@@ -9,6 +9,7 @@ import { getKantoor, getKantoorSlugs, kantoren, type Kantoor } from "@/lib/kanto
 import { getMakelaarByKantoor } from "@/lib/makelaars";
 import { woningenVanKantoor } from "@/lib/woningen";
 import { WoningCard } from "@/components/WoningCard";
+import { SellerLeadForm } from "@/components/SellerLeadForm";
 import { getPlaceReviews } from "@/lib/reviews";
 import { Faq } from "@/components/Faq";
 import { Rating } from "@/components/Rating";
@@ -47,15 +48,9 @@ function buildFaq(k: Kantoor) {
     },
     { q: `In welke regio is ${k.naam} actief?`, a: `${k.naam} is actief in ${k.regios.join(", ")}.` },
   ];
-  if (k.adres) {
-    faq.push({
-      q: `Waar is ${k.naam} gevestigd?`,
-      a: `${k.naam} is gevestigd op ${k.adres}${k.postcode ? `, ${k.postcode}` : ""} ${k.gemeente}, in de provincie ${k.provincie}.`,
-    });
-  }
   faq.push({
     q: `Hoe neem ik contact op met ${k.naam}?`,
-    a: `Je bereikt ${k.naam} rechtstreeks via de contactgegevens op deze pagina${k.makelaar ? `, of via makelaar ${k.makelaar}` : ""}. Wil je meerdere kantoren vrijblijvend vergelijken, gebruik dan de knop Gratis offertes bovenaan de pagina.`,
+    a: `Je contacteert ${k.naam} via het formulier op deze pagina. Vul je gegevens en het adres van je woning in, dan verwerken wij je aanvraag en bezorgen ze aan het kantoor voor een vrijblijvend antwoord.`,
   });
   return faq;
 }
@@ -88,14 +83,11 @@ export default async function KantoorPage({ params }: Props) {
     name: k.naam,
     url,
     ...(k.foto ? { image: absoluteUrl(k.foto) } : {}),
-    ...(k.telefoon ? { telephone: k.telefoon } : {}),
-    ...(k.email ? { email: k.email } : {}),
-    ...(k.website ? { sameAs: [k.website] } : {}),
     ...(k.makelaar ? { employee: { "@type": "Person", name: k.makelaar } } : {}),
+    // Enkel plaats/regio in de structured data; geen telefoon, e-mail, website of straatadres,
+    // zodat de contactweg altijd via het formulier loopt (verkoper-lead-model).
     address: {
       "@type": "PostalAddress",
-      ...(k.adres ? { streetAddress: k.adres } : {}),
-      ...(k.postcode ? { postalCode: k.postcode } : {}),
       addressLocality: k.gemeente,
       addressRegion: k.provincie,
       addressCountry: "BE",
@@ -226,20 +218,13 @@ export default async function KantoorPage({ params }: Props) {
               ) : null}
             </p>
 
-            <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Contactgegevens</h2>
-            <ul className="mt-3 space-y-1.5 text-slate-700">
-              {k.adres && <li>{k.adres}{k.postcode ? `, ${k.postcode}` : ""} {k.gemeente}</li>}
-              {k.telefoon && <li>{k.telefoon}</li>}
-              {k.email && <li>{k.email}</li>}
-              {k.website && (
-                <li>
-                  <a href={k.website} rel="noopener noreferrer nofollow" target="_blank" className="font-medium text-brand-700 underline underline-offset-2">
-                    Website
-                  </a>
-                </li>
-              )}
-              {k.bivNummer && <li className="text-sm text-slate-500">BIV-erkenning {k.bivNummer}</li>}
-            </ul>
+            <h2 id="contact" className="mt-8 scroll-mt-24 text-2xl font-extrabold tracking-tight text-brand-900">Contacteer {k.naam}</h2>
+            <p className="mt-3 max-w-2xl text-slate-700">
+              Interesse of een vraag over de verkoop van je woning? Vul het formulier in. Wij verwerken je aanvraag en bezorgen ze aan het kantoor, zodat je vrijblijvend antwoord krijgt.
+            </p>
+            <div className="mt-4 max-w-xl">
+              <SellerLeadForm kantoor={k.naam} />
+            </div>
 
             {makelaar && (
               <>
