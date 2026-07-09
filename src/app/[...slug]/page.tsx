@@ -10,10 +10,11 @@ import remarkGfm from "remark-gfm";
 
 import { getAllSlugParams, getPageBySlug } from "@/lib/content";
 import { pageGraph } from "@/lib/jsonld";
-import { dienstCtaLabel } from "@/lib/dienst-cta";
+import { dienstCtaLabel, dienstVoorSlug } from "@/lib/dienst-cta";
 import { mdxComponents } from "@/components/mdx";
 import { JsonLd } from "@/components/JsonLd";
 import { LeadForm } from "@/components/LeadForm";
+import { DienstLeadForm } from "@/components/DienstLeadForm";
 import { DienstCTA } from "@/components/DienstCTA";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedLinks } from "@/components/RelatedLinks";
@@ -53,6 +54,9 @@ export default async function ContentPage({ params }: Props) {
   });
 
   const showForm = page.showLeadForm !== false;
+  // Dienst-pagina's (asbestattest, EPC, keuring, ...) krijgen het dienst-formulier in de
+  // zijbalk; overige pagina's het algemene makelaarsformulier.
+  const dienst = dienstVoorSlug(page.slug);
   // CTA-knop (Typeform) op kennisbank-artikels, niet op de kantoren-directorypagina's.
   const showCta = !page.slug.startsWith("vastgoedkantoren/");
   const ctaLabel = dienstCtaLabel(page.slug);
@@ -79,7 +83,11 @@ export default async function ContentPage({ params }: Props) {
           {showForm && (
             <aside id="leadform" className="lg:order-2">
               <div className="lg:sticky lg:top-24">
-                <LeadForm variant="sidebar" />
+                {dienst ? (
+                  <DienstLeadForm dienst={dienst.naam} cta={dienst.cta} slug={page.slug} />
+                ) : (
+                  <LeadForm variant="sidebar" />
+                )}
               </div>
             </aside>
           )}
