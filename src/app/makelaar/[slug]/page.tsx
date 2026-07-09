@@ -121,7 +121,8 @@ export default async function MakelaarPage({ params }: Props) {
       </section>
 
       <div className="mx-auto max-w-6xl px-4 py-10">
-        <div className="min-w-0">
+        <div className="grid gap-10 lg:grid-cols-[1fr_360px]">
+          <div className="min-w-0">
             <h2 className="text-2xl font-extrabold tracking-tight text-brand-900">Over {m.naam}</h2>
             <p className="mt-3 max-w-3xl leading-relaxed text-slate-700">{m.bio}</p>
 
@@ -131,7 +132,7 @@ export default async function MakelaarPage({ params }: Props) {
                 <p className="mt-3 text-slate-700">
                   {aanbod.length === 1 ? "Deze woning staat" : `Deze ${aanbod.length} woningen staan`} momenteel te koop{k ? ` via ${k.naam}` : ""}.
                 </p>
-                <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-4 grid gap-6 sm:grid-cols-2">
                   {aanbod.map((w) => <WoningCard key={w.id} w={w} />)}
                 </div>
               </>
@@ -144,15 +145,14 @@ export default async function MakelaarPage({ params }: Props) {
               </>
             )}
 
-            <h2 id="contact" className="mt-8 scroll-mt-24 text-2xl font-extrabold tracking-tight text-brand-900">Contacteer {m.naam}</h2>
-            <p className="mt-3 max-w-2xl text-slate-700">
-              Wil je je woning verkopen of heb je een vraag? Vul het formulier in. Wij verwerken je aanvraag en bezorgen ze, zodat je vrijblijvend antwoord krijgt.
-            </p>
-            <div className="mt-4 max-w-xl">
-              <SellerLeadForm kantoor={k?.naam} kantoorSlug={k?.slug} via={m.naam} />
-            </div>
-
             {reviews && k ? <Reviews data={reviews} placeId={k.googlePlaceId} naam={k.naam} /> : null}
+          </div>
+
+          <aside className="lg:order-2">
+            <div className="lg:sticky lg:top-24">
+              <SellerLeadForm kantoor={k?.naam} kantoorSlug={k?.slug} via={m.naam} contactNaam={m.naam} />
+            </div>
+          </aside>
         </div>
       </div>
 

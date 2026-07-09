@@ -7,8 +7,19 @@
 import { useState } from "react";
 import { submitToWeb3Forms } from "@/lib/web3forms";
 
-export function SellerLeadForm({ kantoor, kantoorSlug, via }: { kantoor?: string; kantoorSlug?: string; via?: string }) {
+export function SellerLeadForm({
+  kantoor,
+  kantoorSlug,
+  via,
+  contactNaam,
+}: {
+  kantoor?: string;
+  kantoorSlug?: string;
+  via?: string;
+  contactNaam?: string;
+}) {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
+  const naam = contactNaam ?? kantoor;
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -48,8 +59,10 @@ export function SellerLeadForm({ kantoor, kantoorSlug, via }: { kantoor?: string
 
   return (
     <form onSubmit={onSubmit} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-lg ring-1 ring-black/5 sm:p-6" aria-label="Contactformulier">
-      <p className="text-lg font-extrabold text-brand-900">Vraag vrijblijvend info</p>
-      <p className="mt-1 text-sm text-slate-600">Vul het formulier in en we bezorgen je aanvraag. Je krijgt vrijblijvend antwoord.</p>
+      <p className="text-lg font-extrabold text-brand-900">Verkoop je woning?</p>
+      <p className="mt-1 text-sm text-slate-600">
+        {naam ? `Contacteer ${naam} vrijblijvend via dit formulier. Wij bezorgen je aanvraag.` : "Vul het formulier in en we bezorgen je aanvraag vrijblijvend."}
+      </p>
 
       <div className="mt-4 space-y-3">
         <div>
