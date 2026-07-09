@@ -223,7 +223,7 @@ export default async function KantoorPage({ params }: Props) {
               Interesse of een vraag over de verkoop van je woning? Vul het formulier in. Wij verwerken je aanvraag en bezorgen ze aan het kantoor, zodat je vrijblijvend antwoord krijgt.
             </p>
             <div className="mt-4 max-w-xl">
-              <SellerLeadForm kantoor={k.naam} />
+              <SellerLeadForm kantoor={k.naam} kantoorSlug={k.slug} />
             </div>
 
             {makelaar && (

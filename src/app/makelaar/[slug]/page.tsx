@@ -149,7 +149,7 @@ export default async function MakelaarPage({ params }: Props) {
               Wil je je woning verkopen of heb je een vraag? Vul het formulier in. Wij verwerken je aanvraag en bezorgen ze, zodat je vrijblijvend antwoord krijgt.
             </p>
             <div className="mt-4 max-w-xl">
-              <SellerLeadForm kantoor={k?.naam} />
+              <SellerLeadForm kantoor={k?.naam} kantoorSlug={k?.slug} via={m.naam} />
             </div>
 
             {reviews && k ? <Reviews data={reviews} placeId={k.googlePlaceId} naam={k.naam} /> : null}

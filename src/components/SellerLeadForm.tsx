@@ -7,7 +7,7 @@
 import { useState } from "react";
 import { submitToWeb3Forms } from "@/lib/web3forms";
 
-export function SellerLeadForm({ kantoor }: { kantoor?: string }) {
+export function SellerLeadForm({ kantoor, kantoorSlug, via }: { kantoor?: string; kantoorSlug?: string; via?: string }) {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -24,7 +24,8 @@ export function SellerLeadForm({ kantoor }: { kantoor?: string }) {
         "Adres van het pand": String(fd.get("adres") ?? ""),
         Omschrijving: String(fd.get("bericht") ?? "") || "niet opgegeven",
         ...(kantoor ? { Kantoor: kantoor } : {}),
-        Bron: "kantoorpagina",
+        ...(kantoorSlug ? { "Kantoor-ID": kantoorSlug } : {}),
+        Bron: via ? `kantoorpagina (${via})` : "kantoorpagina",
         botcheck: String(fd.get("botcheck") ?? ""),
       });
       setStatus("ok");
