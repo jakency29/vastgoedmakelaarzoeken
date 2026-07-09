@@ -72,8 +72,14 @@ export async function WoningDetailView({ w }: { w: Woning }) {
               <li><Link href={`/${prefix}/${w.provincieSlug}/${w.gemeenteSlug}`} className="hover:text-brand-700 hover:underline">{w.gemeente}</Link></li>
             </ol>
           </nav>
-          <h1 className="mt-3 text-2xl font-extrabold tracking-tight text-brand-900 sm:text-3xl">{w.type} te koop in {w.gemeente}</h1>
-          <p className="mt-1 text-slate-600">{w.adres}, {w.postcode} {w.gemeente}</p>
+          <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-brand-600">{w.type} te koop in {w.gemeente}</p>
+          <h1 className="mt-1 text-2xl font-extrabold tracking-tight text-brand-900 sm:text-3xl">{w.adres}, {w.postcode} {w.gemeente}</h1>
+          <p className="mt-2 text-slate-600">
+            {formatPrijs(w.prijs)}
+            {w.slaapkamers ? ` · ${w.slaapkamers} slaapkamers` : ""}
+            {w.bewoonbaar ? ` · ${formatOpp(w.bewoonbaar)} bewoonbaar` : ""}
+            {w.epcLabel ? ` · EPC ${w.epcLabel}` : ""}
+          </p>
         </div>
       </section>
 
