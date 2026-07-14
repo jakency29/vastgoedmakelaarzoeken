@@ -22,7 +22,7 @@ const THEMAS: { titel: string; match: RegExp }[] = [
   { titel: "Huren en verhuren", match: /huur|verhuren|blokpolis|gemeenschappelijke-kosten|verzekeringen-zijn-verplicht|plaatsbeschrijving|staat-van-bevinding/ },
   { titel: "Bouwen en verbouwen", match: /bouwen|verbouw|renovatie|nieuwbouw|vergunning|isoleren|container|modulair|staalbouw|sleutel-op-de-deur|tuinhuis|totaalrenovatie|bouwgrond/ },
   { titel: "Waarde en schatten", match: /waarde|schatt|mobiscore/ },
-  { titel: "Wonen en eigendom", match: /erfpacht|opstal|voorkoop|overhangende|brievenbus|gras-afrijden|kangoeroe|lijfrente|huurkoop|alleenstaande|duurste-gemeente|wallonie|bewoonbare|syndicus/ },
+  { titel: "Wonen en eigendom", match: /erfpacht|opstal|voorkoop|overhangende|haag|brievenbus|gras-afrijden|kangoeroe|lijfrente|huurkoop|alleenstaande|duurste-gemeente|wallonie|bewoonbare|syndicus/ },
 ];
 
 export default function KennisbankPage() {
