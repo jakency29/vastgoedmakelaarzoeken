@@ -2,6 +2,7 @@
 // stappenplan, SEO-content rond de commerciele kernzoekwoorden, FAQ en card-onderwerpen.
 
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { LeadForm } from "@/components/LeadForm";
 import { Faq } from "@/components/Faq";
@@ -10,7 +11,8 @@ import { WoningCard } from "@/components/WoningCard";
 import { PremiumBadge } from "@/components/PremiumBadge";
 import { woningenVoor, CATEGORIES } from "@/lib/woningen";
 import { kantoren } from "@/lib/kantoren";
-import { site, absoluteUrl } from "@/lib/site";
+import { getAllPages } from "@/lib/content";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: "Vastgoedmakelaar zoeken en vergelijken | Gratis offertes" },
@@ -56,6 +58,36 @@ const FAQ = [
     a: "Voor heel Vlaanderen en Brussel. Je vindt erkende vastgoedmakelaars en immokantoren in je eigen gemeente en de ruimere regio.",
   },
 ];
+
+function getArticleImage(body: string) {
+  const hero = body.match(/<Afbeelding\s+[^>]*src=["']([^"']+)["'][^>]*\bhero\b[^>]*\/?\s*>/);
+  const first = body.match(/<Afbeelding\s+[^>]*src=["']([^"']+)["']/);
+  return hero?.[1] ?? first?.[1] ?? "/afbeeldingen/huis-laten-schatten/huis-laten-schatten.jpg";
+}
+
+const dateFormatter = new Intl.DateTimeFormat("nl-BE", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+const latestArticles = getAllPages()
+  .filter((page) => !page.noindex && !page.slug.startsWith("vastgoedkantoren/"))
+  .sort((a, b) => {
+    const dateA = Date.parse(a.updated ?? a.published ?? "1970-01-01");
+    const dateB = Date.parse(b.updated ?? b.published ?? "1970-01-01");
+    return dateB - dateA || b.slug.localeCompare(a.slug, "nl-BE");
+  })
+  .slice(0, 3)
+  .map((page) => {
+    const articleDate = page.updated ?? page.published;
+    return {
+      ...page,
+      image: getArticleImage(page.body),
+      displayDate: articleDate ? dateFormatter.format(new Date(articleDate)) : null,
+    };
+  });
 
 export default function Home() {
   const faqSchema = {
@@ -259,6 +291,70 @@ export default function Home() {
               <span className="mt-2 block text-sm text-slate-600">{item.desc}</span>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Nieuwste kennisbankartikelen */}
+      <section className="border-y border-slate-200 bg-brand-50/60">
+        <div className="mx-auto max-w-7xl px-4 py-14">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <h2 className="text-3xl font-extrabold tracking-tight text-brand-900">Nieuw in de kennisbank</h2>
+              <p className="mt-2 max-w-2xl text-slate-600">
+                De drie nieuwste gidsen over vastgoed, wonen, verkopen en erven.
+              </p>
+            </div>
+            <Link
+              href="/kennisbank"
+              className="hidden shrink-0 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-brand-800 transition-colors hover:border-brand-300 hover:text-brand-700 sm:inline-block"
+            >
+              Bekijk de kennisbank
+            </Link>
+          </div>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {latestArticles.map((article) => (
+              <article key={article.slug} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md">
+                <Link href={`/${article.slug}`} className="flex h-full flex-col">
+                  <div className="relative aspect-[16/9] overflow-hidden bg-brand-100">
+                    <Image
+                      src={article.image}
+                      alt={article.h1 || article.title}
+                      fill
+                      sizes="(max-width: 767px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    {article.displayDate && (
+                      <span className="text-xs font-semibold uppercase tracking-wide text-brand-600">
+                        Bijgewerkt op {article.displayDate}
+                      </span>
+                    )}
+                    <h3 className="mt-2 text-xl font-bold leading-snug text-brand-900 group-hover:text-brand-700">
+                      {article.h1 || article.title}
+                    </h3>
+                    <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-600">
+                      {article.description}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-700">
+                      Lees het artikel
+                      <svg className="text-accent-500" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                  </div>
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          <Link
+            href="/kennisbank"
+            className="mt-7 inline-flex rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-brand-800 sm:hidden"
+          >
+            Bekijk de kennisbank
+          </Link>
         </div>
       </section>
 
