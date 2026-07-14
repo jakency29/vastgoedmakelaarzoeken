@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const THEMAS: { titel: string; match: RegExp }[] = [
   { titel: "Attesten en verplichtingen", match: /asbest|epc|elektriciteitskeuring|bodemattest|mazouttank|verplichtingen|co2-meter|conformiteitsattest|postinterventiedossier/ },
   { titel: "Verkopen", match: /verkop|compromis|akte-verlijden|bod-|bieden|optie-nemen|opschortende|verkoop|kosten-vastgoedmakelaar|huis-verkopen-met-makelaar|verborgen-gebreken|erfgenamen|openbare-verkoop|minimum-tijd|huis-gekocht/ },
-  { titel: "Kopen en financiering", match: /kopen|lening|hypothe|spaargeld|inbreng|krediet|schuldsaldo|overbrugg|afgekeurde-elektr/ },
+  { titel: "Kopen en financiering", match: /kopen|lening|hypothe|spaargeld|inbreng|krediet|schuldsaldo|overbrugg|afgekeurde-elektr|aankoopmakelaar/ },
   { titel: "Belasting, erfenis en schenking", match: /belasting|registratierechten|meerwaarde|successie|schenk|erfenis|miserietaks|kadastraal|ouderlijk-huis/ },
   { titel: "Huren en verhuren", match: /huur|verhuren|blokpolis|gemeenschappelijke-kosten|verzekeringen-zijn-verplicht|plaatsbeschrijving|staat-van-bevinding/ },
   { titel: "Bouwen en verbouwen", match: /bouwen|verbouw|renovatie|nieuwbouw|vergunning|isoleren|container|modulair|staalbouw|sleutel-op-de-deur|tuinhuis|totaalrenovatie|bouwgrond/ },
