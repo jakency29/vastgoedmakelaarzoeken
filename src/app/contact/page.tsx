@@ -31,7 +31,7 @@ export default function ContactPage() {
           </nav>
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">Contact</h1>
           <p className="mt-3 max-w-2xl text-lg text-slate-600">
-            Een vraag of feedback? Vul het formulier in en we nemen zo snel mogelijk contact met je op.
+            Een vraag of feedback? Vul het formulier in of mail naar {site.email}.
           </p>
         </div>
       </section>
@@ -63,6 +63,13 @@ export default function ContactPage() {
               <Link href="/aansluiten" className="font-medium text-brand-700 underline underline-offset-2">
                 aansluiten als vastgoedmakelaar
               </Link>
+              .
+            </p>
+            <p className="mt-4 leading-relaxed text-slate-700">
+              Je kunt ons ook rechtstreeks bereiken via{" "}
+              <a href={`mailto:${site.email}`} className="font-medium text-brand-700 underline underline-offset-2">
+                {site.email}
+              </a>
               .
             </p>
           </div>

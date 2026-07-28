@@ -18,6 +18,9 @@ export type Kantoor = {
   email?: string;
   website?: string;
   bivNummer?: string; // BIV-erkenningsnummer
+  bivHouder?: string; // persoon of onderneming bij wie het nummer hoort
+  bivBron?: string; // pagina waarop het kantoor zijn wettelijke gegevens publiceert
+  bivGecontroleerdOp?: string; // ISO-datum van de laatste handmatige controle
   foto?: string; // lokaal pad onder /afbeeldingen/kantoren/
   googlePlaceId?: string; // Google Place ID voor het ophalen van reviews
   premium?: boolean; // premium partner: toont overal een badge
@@ -30,19 +33,22 @@ export const kantoren: Kantoor[] = [
     googlePlaceId: "ChIJMdrZH6E7wUcRHc8DgINnwCk",
     naam: "We Invest Demervallei",
     makelaar: "Niels Wouters",
-    gemeente: "Beringen",
+    gemeente: "Halen",
     provincie: "Limburg",
     provincieSlug: "limburg",
     intro:
       "We Invest Demervallei is een vastgoedkantoor in Paal (Beringen) in de provincie Limburg, onder leiding van makelaar Niels Wouters. Het kantoor begeleidt eigenaars en kopers bij de verkoop, verhuur en schatting van vastgoed in de regio Halen, Herk-de-Stad, Lummen, Beringen en Diest.",
     diensten: ["Woning verkopen", "Verhuur", "Gratis schatting", "Aankoopbegeleiding"],
     regios: ["Halen", "Herk-de-Stad", "Lummen", "Beringen", "Diest"],
-    adres: "Paalsesteenweg 345",
-    postcode: "3583",
+    adres: "Koepoortstraat 6/3",
+    postcode: "3545",
     telefoon: "0488 33 81 47",
     email: "demervallei@weinvest.be",
     website: "https://weinvest.be/nl-BE/agencies/demervallei/62",
     bivNummer: "514218",
+    bivHouder: "Niels Wouters",
+    bivBron: "https://weinvest.be/nl-BE/agencies/demervallei/62",
+    bivGecontroleerdOp: "2026-07-28",
     foto: "/afbeeldingen/kantoren/we-invest-demervallei.svg", // SVG-namaak; echt logo mag dit vervangen
   },
   {
@@ -61,6 +67,8 @@ export const kantoren: Kantoor[] = [
     email: "vastgoed@hillewaere.be",
     website: "https://www.hillewaere-vastgoed.be/",
     bivNummer: "501935",
+    bivBron: "https://www.hillewaere-vastgoed.be/",
+    bivGecontroleerdOp: "2026-07-28",
     foto: "/afbeeldingen/kantoren/hillewaere-vastgoed.jpg",
   },
   {
@@ -79,6 +87,8 @@ export const kantoren: Kantoor[] = [
     email: "info@heylenvastgoed.be",
     website: "https://www.heylenvastgoed.be",
     bivNummer: "502895",
+    bivBron: "https://www.heylenvastgoed.be",
+    bivGecontroleerdOp: "2026-07-28",
     foto: "/afbeeldingen/kantoren/heylen-vastgoed.jpg",
   },
   {
@@ -95,6 +105,9 @@ export const kantoren: Kantoor[] = [
     postcode: "2870",
     website: "https://vastgoedmichoel.be/nl",
     bivNummer: "507422",
+    bivHouder: "Pauline Michoel",
+    bivBron: "https://vastgoedmichoel.be/nl",
+    bivGecontroleerdOp: "2026-07-28",
     foto: "/afbeeldingen/kantoren/vastgoed-michoel.jpg",
   },
   {
@@ -113,6 +126,9 @@ export const kantoren: Kantoor[] = [
     email: "info@immodeprins.be",
     website: "https://immodeprins.be/",
     bivNummer: "200392",
+    bivHouder: "Lieven De Prins",
+    bivBron: "https://immodeprins.be/contact",
+    bivGecontroleerdOp: "2026-07-28",
     foto: "/afbeeldingen/kantoren/immo-de-prins.jpg",
   },
   {
@@ -131,6 +147,9 @@ export const kantoren: Kantoor[] = [
     telefoon: "011 23 30 44",
     email: "info@immoplees.be",
     website: "https://immoplees.be/",
+    bivNummer: "507429",
+    bivBron: "https://immoplees.be/nl/contact/",
+    bivGecontroleerdOp: "2026-07-28",
     foto: "/afbeeldingen/kantoren/immo-plees.jpg",
   },
   {
@@ -149,6 +168,8 @@ export const kantoren: Kantoor[] = [
     telefoon: "02 466 05 75",
     website: "https://living-stone.be/nl",
     bivNummer: "509622",
+    bivBron: "https://living-stone.be/vastgoedhuizen/vastgoedhuis-dilbeek",
+    bivGecontroleerdOp: "2026-07-28",
   },
   {
     slug: "coga-vastgoed",
@@ -165,6 +186,10 @@ export const kantoren: Kantoor[] = [
     telefoon: "03 636 47 47",
     email: "info@coga.be",
     website: "https://coga.be/",
+    bivNummer: "500559",
+    bivHouder: "Koen Conings",
+    bivBron: "https://coga.be/contact",
+    bivGecontroleerdOp: "2026-07-28",
     foto: "/afbeeldingen/kantoren/coga-vastgoed.jpg",
   },
   {
@@ -182,7 +207,10 @@ export const kantoren: Kantoor[] = [
     telefoon: "014 65 87 11",
     email: "info@justwonen.be",
     website: "https://www.justwonen.be/",
-    bivNummer: "BE1016346006",
+    bivNummer: "507005",
+    bivHouder: "Sander Turelinckx",
+    bivBron: "https://www.biv.be/vastgoedmakelaars/sander-turelinckx-507005",
+    bivGecontroleerdOp: "2026-07-28",
     foto: "/afbeeldingen/kantoren/just-wonen.jpg",
   },
   {
@@ -201,6 +229,10 @@ export const kantoren: Kantoor[] = [
     telefoon: "02 445 10 00",
     email: "contact@homerun.immo",
     website: "https://www.homerun.immo/",
+    bivNummer: "512774",
+    bivHouder: "Bart Narmon",
+    bivBron: "https://www.homerun.immo/nl/contact",
+    bivGecontroleerdOp: "2026-07-28",
     foto: "/afbeeldingen/kantoren/homerun.jpg",
   },
 ];

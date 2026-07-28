@@ -7,9 +7,10 @@ export const site = {
   lang: "nl",
   locale: "nl_BE",
   region: "BE",
+  email: "info@vastgoedmakelaarzoeken.be",
   // Korte omschrijving van de dienst. Beschrijft wat de bezoeker doet, geen beloftes.
   description:
-    "Vergelijk BIV-erkende vastgoedmakelaars in jouw gemeente. Vul je postcode in en vraag vrijblijvend offertes op.",
+    "Belgische vergelijkingsdienst voor eigenaars die vastgoedmakelaars in Vlaanderen en Brussel willen vergelijken voor verkoop, verhuur of waardebepaling.",
   tagline: "Vergelijk vastgoedmakelaars in jouw gemeente",
   // Officiele socialeprofielen (voedt Organization.sameAs in de structured data).
   socials: [
@@ -24,6 +25,7 @@ export const site = {
     { label: "Kennisbank", href: "/kennisbank" },
     { label: "Woning schatten", href: "/huis-laten-schatten" },
     { label: "Kantoren", href: "/kantoor" },
+    { label: "Onze werkwijze", href: "/werkwijze" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;

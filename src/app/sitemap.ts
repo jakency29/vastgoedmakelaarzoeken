@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 1,
   };
   const kennisbank = { url: absoluteUrl("/kennisbank"), changeFrequency: "weekly" as const, priority: 0.7 };
+  const werkwijze = { url: absoluteUrl("/werkwijze"), changeFrequency: "monthly" as const, priority: 0.6 };
 
   const pages = getAllPages()
     .filter((p) => !p.noindex)
@@ -52,5 +53,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...woningen.map((w) => ({ url: absoluteUrl(woningHref(w)), changeFrequency: "weekly" as const, priority: 0.6 })),
   ];
 
-  return [home, kennisbank, ...pages, ...kantoorPages, ...woningPages];
+  return [home, kennisbank, werkwijze, ...pages, ...kantoorPages, ...woningPages];
 }

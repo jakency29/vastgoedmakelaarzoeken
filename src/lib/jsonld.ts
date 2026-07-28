@@ -41,6 +41,18 @@ export function organizationSchema() {
     name: site.name,
     url: site.domain,
     description: site.description,
+    email: site.email,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: site.email,
+      availableLanguage: ["nl"],
+      areaServed: ["BE"],
+    },
+    areaServed: [
+      { "@type": "AdministrativeArea", name: "Vlaanderen" },
+      { "@type": "AdministrativeArea", name: "Brussels Hoofdstedelijk Gewest" },
+    ],
     ...(site.socials?.length ? { sameAs: site.socials } : {}),
   };
 }

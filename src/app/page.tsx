@@ -39,7 +39,7 @@ const STAPPEN = [
 const FAQ = [
   {
     q: "Wat is Vastgoedmakelaar Zoeken?",
-    a: "Vastgoedmakelaar Zoeken is een gratis vergelijkingsdienst. Je vult je postcode in en ontvangt vrijblijvend offertes van erkende vastgoedmakelaars uit je eigen gemeente voor verkopen, verhuren of schatten.",
+    a: "Vastgoedmakelaar Zoeken is een Belgische vergelijkingsdienst voor eigenaars in Vlaanderen en Brussel. Je vraagt gratis en vrijblijvend voorstellen aan voor de verkoop, verhuur of waardebepaling van een woning en beslist zelf met welk kantoor je contact voortzet.",
   },
   {
     q: "Is een makelaar vergelijken gratis?",
@@ -115,8 +115,9 @@ export default function Home() {
               Vind en vergelijk de juiste vastgoedmakelaar
             </h1>
             <p className="mt-5 max-w-xl text-lg text-brand-100">
-              Vul je postcode in en vergelijk vrijblijvend offertes van erkende
-              vastgoedmakelaars uit je buurt. Verkopen, verhuren of laten schatten: jij kiest.
+              Vastgoedmakelaar Zoeken is een Belgische vergelijkingsdienst voor eigenaars in
+              Vlaanderen en Brussel. Vraag gratis en vrijblijvend voorstellen aan voor verkoop,
+              verhuur of waardebepaling.
             </p>
             <ul className="mt-6 grid gap-2.5 text-sm text-brand-100 sm:grid-cols-2">
               {["Erkende BIV-makelaars", "Gratis en vrijblijvend", "Uit je eigen gemeente", "Vergelijk tarieven"].map((f) => (
@@ -150,6 +151,13 @@ export default function Home() {
         <h2 className="text-center text-3xl font-extrabold tracking-tight text-brand-900">Zo werkt het</h2>
         <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600">
           In drie stappen van postcode naar de makelaar die bij jou past.
+        </p>
+        <p className="mt-3 text-center text-sm">
+          Bekijk hoe wij{" "}
+          <Link href="/werkwijze" className="font-semibold text-brand-700 underline underline-offset-2">
+            aanvragen verwerken en kantoorinformatie controleren
+          </Link>
+          .
         </p>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {STAPPEN.map((s) => (

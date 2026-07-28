@@ -82,8 +82,18 @@ export default async function KantoorPage({ params }: Props) {
     "@type": "RealEstateAgent",
     name: k.naam,
     url,
+    ...(k.website ? { sameAs: k.website } : {}),
     ...(k.foto ? { image: absoluteUrl(k.foto) } : {}),
     ...(k.makelaar ? { employee: { "@type": "Person", name: k.makelaar } } : {}),
+    ...(k.bivNummer
+      ? {
+          identifier: {
+            "@type": "PropertyValue",
+            propertyID: "BIV",
+            value: k.bivNummer,
+          },
+        }
+      : {}),
     // Enkel plaats/regio in de structured data; geen telefoon, e-mail, website of straatadres,
     // zodat de contactweg altijd via het formulier loopt (verkoper-lead-model).
     address: {
@@ -176,6 +186,44 @@ export default async function KantoorPage({ params }: Props) {
         <div className="grid gap-10 lg:grid-cols-[1fr_360px]">
           <div className="min-w-0">
             <p className="max-w-3xl leading-relaxed text-slate-700">{k.intro}</p>
+
+            {k.bivNummer && (
+              <section className="mt-7 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+                <h2 className="text-xl font-extrabold tracking-tight text-emerald-950">
+                  Hoe is de BIV-erkenning van {k.naam} gecontroleerd?
+                </h2>
+                <p className="mt-2 leading-relaxed text-emerald-950">
+                  Voor {k.naam} staat BIV-nummer <strong>{k.bivNummer}</strong>
+                  {k.bivHouder ? <> op naam van {k.bivHouder}</> : null} vermeld.
+                  {k.bivGecontroleerdOp ? (
+                    <> Het nummer is voor het laatst gecontroleerd op{" "}
+                      {new Intl.DateTimeFormat("nl-BE", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                        timeZone: "UTC",
+                      }).format(new Date(k.bivGecontroleerdOp))}.</>
+                  ) : null}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-emerald-900">
+                  {k.bivBron ? (
+                    <>
+                      Bekijk de{" "}
+                      <a href={k.bivBron} className="font-semibold underline underline-offset-2">
+                        gebruikte wettelijke vermelding
+                      </a>{" "}
+                      en controleer de vastgoedmakelaar die je dossier behandelt ook in de{" "}
+                    </>
+                  ) : (
+                    <>Controleer de vastgoedmakelaar die je dossier behandelt in de{" "}</>
+                  )}
+                  <a href="https://www.biv.be/" className="font-semibold underline underline-offset-2">
+                    officiële BIV-databank
+                  </a>
+                  .
+                </p>
+              </section>
+            )}
 
             {aanbod.length > 0 && (
               <>

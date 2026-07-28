@@ -48,7 +48,8 @@ export function LeadForm({ variant = "sidebar" }: { variant?: "sidebar" | "hero"
       <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-emerald-900 shadow-sm">
         <p className="text-lg font-bold">Aanvraag ontvangen.</p>
         <p className="mt-1 text-sm">
-          Je vraag is verstuurd. Erkende vastgoedmakelaars uit je gemeente nemen contact op.
+          Je vraag is verstuurd. Wij verwerken ze en kunnen ze bezorgen aan een of meer passende
+          vastgoedkantoren uit je regio.
         </p>
       </div>
     );
@@ -164,7 +165,7 @@ export function LeadForm({ variant = "sidebar" }: { variant?: "sidebar" | "hero"
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
           <path d="M20 6 9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-        Gratis en vrijblijvend. Enkel erkende makelaars in je gemeente.
+        Gratis en vrijblijvend. Wij kunnen je aanvraag aan een of meer passende kantoren bezorgen.
       </p>
       <input type="hidden" name="bron" value={variant} />
       {/* Honeypot tegen spam (Web3Forms). Onzichtbaar voor bezoekers. */}

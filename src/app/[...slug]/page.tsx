@@ -19,6 +19,8 @@ import { DienstCTA } from "@/components/DienstCTA";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Faq } from "@/components/Faq";
+import { CommercialNextStep } from "@/components/CommercialNextStep";
+import { EditorialSources } from "@/components/EditorialSources";
 
 export const dynamicParams = false;
 
@@ -95,6 +97,8 @@ export default async function ContentPage({ params }: Props) {
           <div className="min-w-0 lg:order-1">
             {showCta && <DienstCTA label={ctaLabel} />}
             <div className="max-w-none">{content}</div>
+            <EditorialSources page={page} />
+            <CommercialNextStep page={page} />
             {showCta && <DienstCTA label={ctaLabel} />}
             {page.faq?.length ? <Faq items={page.faq} /> : null}
             {page.related?.length ? <RelatedLinks items={page.related} /> : null}

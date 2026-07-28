@@ -37,12 +37,18 @@ export function Footer() {
               <li><Link href="/huis-te-koop" className="hover:text-accent-400">Huizen te koop</Link></li>
               <li><Link href="/kennisbank" className="hover:text-accent-400">Kennisbank</Link></li>
               <li><Link href="/kantoor" className="hover:text-accent-400">Vastgoedkantoren</Link></li>
+              <li><Link href="/werkwijze" className="hover:text-accent-400">Onze werkwijze</Link></li>
               <li><Link href="/contact" className="hover:text-accent-400">Contact</Link></li>
+              <li>
+                <a href={`mailto:${site.email}`} className="hover:text-accent-400">
+                  {site.email}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
         <div className="mt-12 border-t border-white/10 pt-6 text-xs text-brand-300">
-          {site.name}. Vergelijk erkende vastgoedmakelaars in Belgie.
+          {site.name}. Vergelijk vastgoedmakelaars in België.
         </div>
       </div>
     </footer>

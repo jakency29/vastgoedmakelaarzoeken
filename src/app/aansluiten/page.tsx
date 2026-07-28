@@ -18,6 +18,13 @@ const VOORDELEN = [
   "Je woningaanbod op de listingpagina's van het platform.",
 ];
 
+const VOORWAARDEN = [
+  "Je bezorgt correcte kantoor-, contact- en regiogegevens.",
+  "Je vermeldt de vastgoedmakelaar of erkende onderneming die de activiteit uitvoert.",
+  "Het opgegeven BIV-nummer moet controleerbaar zijn via wettelijke vermeldingen of de officiële BIV-databank.",
+  "Wijzigingen in adres, diensten, erkenning of werkingsgebied meld je zodat het profiel actueel blijft.",
+];
+
 export default function AansluitenPage() {
   return (
     <main>
@@ -60,8 +67,46 @@ export default function AansluitenPage() {
               ))}
             </ul>
 
-            <p className="mt-8 leading-relaxed text-slate-700">
-              Nog een vraag? Vul het formulier in met je bericht, dan bezorgen we je alle informatie.
+            <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">
+              Aan welke voorwaarden moet een kantoor voldoen?
+            </h2>
+            <p className="mt-3 leading-relaxed text-slate-700">
+              Een kantoor moet correcte en controleerbare beroepsgegevens aanleveren voordat een
+              profiel als aangesloten kantoor wordt gepubliceerd. De basisvoorwaarden zijn:
+            </p>
+            <ul className="mt-3 space-y-2.5">
+              {VOORWAARDEN.map((voorwaarde) => (
+                <li key={voorwaarde} className="flex items-start gap-2.5 text-slate-700">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-500 text-brand-900">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true">
+                      <path d="M20 6 9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  {voorwaarde}
+                </li>
+              ))}
+            </ul>
+
+            <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">
+              Wat wordt niet gegarandeerd door een aansluiting?
+            </h2>
+            <p className="mt-3 leading-relaxed text-slate-700">
+              Een aansluiting garandeert geen vast aantal aanvragen, exclusiviteit in een regio of
+              een vaste positie in overzichten. Een premiumbadge vermeldt een commerciële
+              samenwerking, maar is geen kwaliteitscertificaat.
+            </p>
+
+            <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">
+              Hoe worden commerciële afspraken vastgelegd?
+            </h2>
+            <p className="mt-3 leading-relaxed text-slate-700">
+              Kosten, looptijd, zichtbaarheid en verwerking van aanvragen worden vóór een
+              samenwerking afzonderlijk afgesproken. Het invullen van dit formulier is alleen een
+              aanmelding en vormt nog geen overeenkomst. De algemene werkwijze staat op de pagina{" "}
+              <Link href="/werkwijze" className="font-medium text-brand-700 underline underline-offset-2">
+                over controle en aanvraagverwerking
+              </Link>
+              .
             </p>
           </div>
 
