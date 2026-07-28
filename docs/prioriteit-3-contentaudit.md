@@ -25,7 +25,33 @@ De volgende pagina's hebben een grotere inhoudelijke afstand tot de commerciële
 Deze pagina's blijven voorlopig gepubliceerd omdat hun actuele zoekverkeer, externe links en
 geassisteerde conversies niet bekend zijn.
 
-## Meetplan
+## Resultaten uit Google Search Console
+
+De export van 28 juli 2026 bevat gegevens van 26 maart 2025 tot en met 25 juli 2026.
+In die periode registreerde de website 5.338 klikken en 1.205.038 vertoningen. De gemiddelde
+positie verbeterde van 33,59 in de eerste 28 dagen naar 18,97 in de laatste 28 dagen. De CTR
+steeg in die vergelijking van 0,56% naar 0,63%.
+
+De zwak gerelateerde pagina's die in de top 1.000 van de export voorkomen, leverden samen
+minstens 83 klikken en 19.404 vertoningen op:
+
+| Pagina | Klikken | Vertoningen | CTR | Positie | Beslissing |
+|---|---:|---:|---:|---:|---|
+| CO2-meter verplicht in huis | 70 | 16.975 | 0,41% | 7,58 | Behouden en snippet verbeteren |
+| Haaghoogte | 6 | 455 | 1,32% | 5,62 | Behouden |
+| Vanaf hoe laat mag je lawaai maken | 4 | 943 | 0,42% | 7,01 | Behouden en verder meten |
+| Hoogte brievenbus | 3 | 1.031 | 0,29% | 9,70 | Behouden en snippet verbeteren |
+
+De andere vier pagina's ontbreken in de top 1.000 van de export. Dat bewijst niet dat zij nul
+vertoningen hebben. Ze blijven daarom gepubliceerd tot een volledige pagina-export en
+conversiedata beschikbaar zijn.
+
+De export bracht ook oude URL's aan het licht die nog verkeer ontvangen. Voor oude blogpagina's
+met een duidelijk inhoudelijk equivalent zijn permanente redirects toegevoegd. Oude pagina's
+zonder passende bestemming krijgen geen redirect naar een algemeen of inhoudelijk afwijkend
+onderwerp.
+
+## Doorlopend meetplan
 
 Vanaf deze wijziging vermeldt iedere algemene formulierinzending:
 
@@ -34,8 +60,8 @@ Vanaf deze wijziging vermeldt iedere algemene formulierinzending:
 - de verwijzende pagina indien de browser die doorgeeft;
 - het gekozen transactietype.
 
-Beoordeel de pagina's na minimaal 90 dagen met gegevens uit Google Search Console en de ontvangen
-formulierinzendingen. Gebruik per pagina:
+Beoordeel de pagina's opnieuw na minimaal 90 dagen met een nieuwe Google Search Console-export en
+de ontvangen formulierinzendingen. Gebruik per pagina:
 
 - organische vertoningen;
 - organische klikken;

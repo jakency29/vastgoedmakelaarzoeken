@@ -28,9 +28,83 @@ const launchRedirects = [
   { from: "/vastgoedkantoren", to: "/kantoor" },
 ];
 
+// Redirects op basis van Google Search Console-data van 28 juli 2026.
+// Deze oude routes ontvangen nog organische vertoningen of klikken, maar hebben in de
+// huidige site een nieuwe inhoudelijk equivalente bestemming.
+const searchConsoleRedirects = [
+  {
+    from: "/blog/is-een-mondelinge-overeenkomst-bindend",
+    to: "/bieden-op-een-huis",
+  },
+  {
+    from: "/blog/welke-kosten-heb-je-bij-de-aankoop-van-een-huis-of-een-appartement",
+    to: "/notariskosten-verkoop-huis",
+  },
+  {
+    from: "/blog/kan-je-jouw-woning-verkopen-door-meerdere-makelaars",
+    to: "/huis-verkopen-met-makelaar",
+  },
+  {
+    from: "/blog/kan-je-een-bod-op-een-huis-intrekken",
+    to: "/bod-intrekken-huis",
+  },
+  {
+    from: "/blog/vanaf-2030-nieuwe-energienorm-voor-verhuur",
+    to: "/renovatieplicht-2030",
+  },
+  {
+    from: "/blog/waar-moet-je-op-letten-bij-het-kopen-van-een-nieuwbouwwoning",
+    to: "/nieuwbouw-kopen-waar-op-letten",
+  },
+  {
+    from: "/blog/huurkoop-alles-wat-je-moet-weten-over-deze-vastgoedoptie",
+    to: "/huurkoop-woning",
+  },
+  {
+    from: "/blog/een-garage-verhuren-waar-moet-je-rekening-mee-houden",
+    to: "/garage-verhuren",
+  },
+  {
+    from: "/blog/wat-je-moet-weten-over-erfpacht-bij-het-kopen-van-een-woning",
+    to: "/erfpacht",
+  },
+  {
+    from: "/blog/hypotheekoverdracht-een-slimme-zet-bij-verhuisplannen",
+    to: "/lening-overzetten-op-ander-huis",
+  },
+  {
+    from: "/blog/het-verlijden-van-de-akte",
+    to: "/akte-verlijden",
+  },
+  {
+    from: "/blog/hoe-investeren-in-vastgoed",
+    to: "/huis-kopen-om-te-verhuren",
+  },
+  {
+    from: "/blog/hoe-weet-je-wanneer-het-tijd-is-om-jouw-woning-te-verkopen",
+    to: "/woning-verkopen",
+  },
+  {
+    from: "/blog/mijn-woning-geraakt-niet-verkocht-7-tips",
+    to: "/woning-verkopen",
+  },
+  {
+    from: "/blog/waarom-verkoopt-mijn-huis-niet-8-redenen-hoe-dit-te-verhelpen",
+    to: "/woning-verkopen",
+  },
+  {
+    from: "/blog/10-cruciale-vragen-aan-een-vastgoedmakelaar",
+    to: "/huis-verkopen-met-makelaar",
+  },
+  { from: "/schatting", to: "/huis-laten-schatten" },
+  { from: "/vastgoedkantoren/antwerpen", to: "/kantoor" },
+  { from: "/vastgoedkantoren/oost-vlaanderen", to: "/kantoor" },
+  { from: "/vastgoedkantoren/west-vlaanderen", to: "/kantoor" },
+];
+
 const nextConfig: NextConfig = {
   async redirects() {
-    return [...launchRedirects, ...woningRedirects].map((r) => ({
+    return [...launchRedirects, ...searchConsoleRedirects, ...woningRedirects].map((r) => ({
       source: r.from,
       destination: r.to,
       permanent: true,
