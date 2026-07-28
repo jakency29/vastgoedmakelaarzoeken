@@ -11,6 +11,9 @@ import matter from "gray-matter";
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const TITLE_MAX = 60;
 const DESC_MAX = 155;
+const GENERIC_HEADING_RE = /^## (Conclusie|Samenvatting)\s*$/m;
+const UNACCENTED_RE =
+  /\b(Belgie|officiele|notariele|financiele|commerciele|geinteresseerd|geinstalleerd|geisoleerd|creeren|beeindigen|reele|ideeen)\b/i;
 const DASH_RE = /[–—]/; // en-dash, em-dash
 
 function walk(dir) {
@@ -44,6 +47,22 @@ for (const file of files) {
   const rel = path.relative(process.cwd(), file);
   const raw = fs.readFileSync(file, "utf8");
   const { data, content } = matter(raw);
+
+  if (GENERIC_HEADING_RE.test(content)) {
+    const line = raw.split("\n").findIndex((l) => GENERIC_HEADING_RE.test(l)) + 1;
+    errors.push(`${rel}:${line} bevat een generieke conclusie- of samenvattingskop.`);
+  }
+  const languageLines = raw
+    .split("\n")
+    .map((line) =>
+      line
+        .replace(/(?:src|href)=["'][^"']+["']/g, "")
+        .replace(/\]\([^)]+\)/g, "]"),
+    );
+  if (languageLines.some((line) => UNACCENTED_RE.test(line))) {
+    const line = languageLines.findIndex((value) => UNACCENTED_RE.test(value)) + 1;
+    errors.push(`${rel}:${line} bevat een Nederlands woord zonder vereist accent.`);
+  }
 
   if (DASH_RE.test(raw)) {
     const line = raw.split("\n").findIndex((l) => DASH_RE.test(l)) + 1;

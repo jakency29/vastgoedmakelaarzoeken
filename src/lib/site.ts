@@ -12,7 +12,7 @@ export const site = {
   description:
     "Belgische vergelijkingsdienst voor eigenaars die vastgoedmakelaars in Vlaanderen en Brussel willen vergelijken voor verkoop, verhuur of waardebepaling.",
   tagline: "Vergelijk vastgoedmakelaars in jouw gemeente",
-  // Officiele socialeprofielen (voedt Organization.sameAs in de structured data).
+  // Officiële socialeprofielen (voedt Organization.sameAs in de structured data).
   socials: [
     "https://www.facebook.com/vastgoedmakelaarzoeken/",
     "https://www.instagram.com/vastgoedmakelaarzoeken/",

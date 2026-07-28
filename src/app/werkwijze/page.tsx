@@ -3,6 +3,8 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbListSchema } from "@/lib/jsonld";
 import { absoluteUrl, site } from "@/lib/site";
+import { getAllPages } from "@/lib/content";
+import { kantoren } from "@/lib/kantoren";
 
 export const metadata: Metadata = {
   title: { absolute: "Onze werkwijze | Vastgoedmakelaar Zoeken" },
@@ -30,6 +32,10 @@ const stappen = [
 ];
 
 export default function WerkwijzePage() {
+  const kennisbankPaginaCount = getAllPages().filter((page) => !page.noindex).length;
+  const gecontroleerdeKantoren = kantoren.filter(
+    (kantoor) => kantoor.bivNummer && kantoor.bivBron && kantoor.bivGecontroleerdOp,
+  ).length;
   const pageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -143,6 +149,37 @@ export default function WerkwijzePage() {
             contactpagina
           </Link>
           .
+        </p>
+
+        <h2 className="mt-12 text-2xl font-extrabold tracking-tight text-brand-900">
+          Welke eigen controles publiceren we?
+        </h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          Onze redactionele inventaris telt momenteel {kennisbankPaginaCount} indexeerbare
+          kennisbankpagina&apos;s. Iedere gids toont een eigen bronsectie of een redactioneel
+          geselecteerde lijst met primaire bronnen. Feiten die per gemeente of situatie verschillen,
+          worden als voorwaardelijk antwoord beschreven.
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p className="text-3xl font-extrabold text-brand-900">{kennisbankPaginaCount}</p>
+            <p className="mt-1 text-sm text-slate-600">indexeerbare gidsen in de inventaris</p>
+          </div>
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p className="text-3xl font-extrabold text-brand-900">
+              {gecontroleerdeKantoren}/{kantoren.length}
+            </p>
+            <p className="mt-1 text-sm text-slate-600">kantoorprofielen met BIV-bron en controledatum</p>
+          </div>
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p className="text-3xl font-extrabold text-brand-900">28 juli 2026</p>
+            <p className="mt-1 text-sm text-slate-600">laatste volledige redactionele controle</p>
+          </div>
+        </div>
+        <p className="mt-4 leading-relaxed text-slate-700">
+          Deze cijfers worden rechtstreeks uit de gepubliceerde content en kantoorprofielen
+          berekend. Ze zijn geen claim over marktdekking, bezoekersaantallen of het aantal
+          succesvolle verkopen.
         </p>
 
         <h2 className="mt-12 text-2xl font-extrabold tracking-tight text-brand-900">

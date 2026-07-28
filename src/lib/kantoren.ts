@@ -118,7 +118,7 @@ export const kantoren: Kantoor[] = [
     provincie: "Oost-Vlaanderen",
     intro:
       "Immo De Prins is een vastgoedkantoor in Sint-Niklaas, in de provincie Oost-Vlaanderen. Het kantoor is actief in het Waasland met verkoop, verhuur, vastgoedbeheer en waardebepaling.",
-    diensten: ["Verkoop", "Verhuur", "Vastgoedbeheer", "Advies op maat", "Waardebepaling", "Begeleiding notariele akte"],
+    diensten: ["Verkoop", "Verhuur", "Vastgoedbeheer", "Advies op maat", "Waardebepaling", "Begeleiding notariële akte"],
     regios: ["Waasland", "Sint-Niklaas"],
     adres: "Mercatorstraat 64",
     postcode: "9100",

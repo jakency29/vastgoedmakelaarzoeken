@@ -1,5 +1,5 @@
 // Homepage in vastgoedportaal-stijl: navy zoek-hero met prominente leadkaart,
-// stappenplan, SEO-content rond de commerciele kernzoekwoorden, FAQ en card-onderwerpen.
+// stappenplan, SEO-content rond de commerciële kernzoekwoorden, FAQ en card-onderwerpen.
 
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -189,7 +189,7 @@ export default function Home() {
           <p className="mt-3 leading-relaxed text-slate-700">
             Een vastgoedmakelaar begeleidt de verkoop of verhuur van je woning van A tot Z:
             waardebepaling, fotografie en marketing, bezoeken, onderhandeling met kandidaten en de
-            administratieve opvolging tot de akte. In Belgie moet elke makelaar erkend zijn bij het
+            administratieve opvolging tot de akte. In België moet elke makelaar erkend zijn bij het
             BIV, het Beroepsinstituut van Vastgoedmakelaars.
           </p>
 
@@ -281,7 +281,7 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-4 py-14">
         <h2 className="text-3xl font-extrabold tracking-tight text-brand-900">Populaire onderwerpen</h2>
         <p className="mt-3 max-w-2xl text-slate-600">
-          Praktische gidsen over kopen, verkopen en verhuren in Belgie.
+          Praktische gidsen over kopen, verkopen en verhuren in België.
         </p>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {POPULAIR.map((item) => (

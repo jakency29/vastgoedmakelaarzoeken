@@ -34,6 +34,8 @@ export function LeadForm({ variant = "sidebar" }: { variant?: "sidebar" | "hero"
         Postcode: postcode,
         Telefoon: String(fd.get("telefoon") ?? ""),
         Bron: String(fd.get("bron") ?? ""),
+        Pagina: window.location.pathname,
+        Verwijzer: document.referrer || "rechtstreeks bezoek",
         botcheck: String(fd.get("botcheck") ?? ""),
       });
       setStatus("ok");

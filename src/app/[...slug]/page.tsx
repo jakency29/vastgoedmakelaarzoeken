@@ -21,6 +21,7 @@ import { RelatedLinks } from "@/components/RelatedLinks";
 import { Faq } from "@/components/Faq";
 import { CommercialNextStep } from "@/components/CommercialNextStep";
 import { EditorialSources } from "@/components/EditorialSources";
+import { PracticalExample } from "@/components/PracticalExample";
 
 export const dynamicParams = false;
 
@@ -97,6 +98,7 @@ export default async function ContentPage({ params }: Props) {
           <div className="min-w-0 lg:order-1">
             {showCta && <DienstCTA label={ctaLabel} />}
             <div className="max-w-none">{content}</div>
+            <PracticalExample page={page} />
             <EditorialSources page={page} />
             <CommercialNextStep page={page} />
             {showCta && <DienstCTA label={ctaLabel} />}

@@ -9,7 +9,7 @@ import { breadcrumbListSchema } from "@/lib/jsonld";
 export const metadata: Metadata = {
   title: { absolute: "Kennisbank: gidsen over kopen, verkopen en verhuren" },
   description:
-    "De kennisbank bundelt alle gidsen over vastgoed in Belgie: verkopen, kopen, financiering, attesten, belastingen, huren en verbouwen. Vind snel het juiste antwoord.",
+    "De kennisbank bundelt alle gidsen over vastgoed in België: verkopen, kopen, financiering, attesten, belastingen, huren en verbouwen. Vind snel het juiste antwoord.",
   alternates: { canonical: "/kennisbank" },
 };
 
@@ -51,7 +51,7 @@ export default function KennisbankPage() {
           </nav>
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">Kennisbank</h1>
           <p className="mt-3 max-w-2xl text-lg text-slate-600">
-            Alle gidsen over kopen, verkopen, verhuren en verbouwen in Belgie, gebundeld per thema.
+            Alle gidsen over kopen, verkopen, verhuren en verbouwen in België, gebundeld per thema.
             Vind snel het juiste antwoord op je vastgoedvraag.
           </p>
         </div>
