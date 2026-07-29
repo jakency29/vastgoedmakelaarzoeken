@@ -132,6 +132,7 @@ export function Afbeelding({
           alt={alt}
           width={width}
           height={height}
+          unoptimized={src.toLowerCase().endsWith(".svg")}
           priority={hero}
           sizes="(max-width: 768px) 100vw, 720px"
           className={className}

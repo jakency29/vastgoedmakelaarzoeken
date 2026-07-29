@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="title desc">
+  <title id="title">Overzicht van de kosten van een vastgoedmakelaar</title>
+  <desc id="desc">De commissie bedraagt meestal twee tot vier procent exclusief btw en wordt beïnvloed door de verkoopprijs, diensten en regio.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071a4a"/>
+      <stop offset="1" stop-color="#194b83"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" rx="28" fill="url(#bg)"/>
+  <text x="52" y="68" fill="#ffbd2e" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="2">MAKELAARSKOSTEN</text>
+  <text x="52" y="116" fill="#fff" font-family="Arial, sans-serif" font-size="38" font-weight="700">Wat bepaalt de commissie?</text>
+
+  <rect x="52" y="154" width="310" height="356" rx="24" fill="#ffbd2e"/>
+  <text x="207" y="225" text-anchor="middle" fill="#071a4a" font-family="Arial, sans-serif" font-size="22" font-weight="700">MEESTAL</text>
+  <text x="207" y="310" text-anchor="middle" fill="#071a4a" font-family="Arial, sans-serif" font-size="60" font-weight="800">2% tot 4%</text>
+  <text x="207" y="353" text-anchor="middle" fill="#071a4a" font-family="Arial, sans-serif" font-size="26" font-weight="700">exclusief btw</text>
+  <line x1="99" y1="392" x2="315" y2="392" stroke="#071a4a" stroke-width="2" opacity=".3"/>
+  <text x="207" y="435" text-anchor="middle" fill="#071a4a" font-family="Arial, sans-serif" font-size="20">Geen wettelijk</text>
+  <text x="207" y="464" text-anchor="middle" fill="#071a4a" font-family="Arial, sans-serif" font-size="20">commissietarief</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="402" y="154" width="446" height="78" rx="18" fill="#fff"/>
+    <circle cx="446" cy="193" r="20" fill="#ffbd2e"/>
+    <text x="446" y="201" text-anchor="middle" fill="#071a4a" font-size="23" font-weight="700">1</text>
+    <text x="482" y="201" fill="#071a4a" font-size="25" font-weight="700">Verkoopprijs</text>
+
+    <rect x="402" y="247" width="446" height="78" rx="18" fill="#fff"/>
+    <circle cx="446" cy="286" r="20" fill="#ffbd2e"/>
+    <text x="446" y="294" text-anchor="middle" fill="#071a4a" font-size="23" font-weight="700">2</text>
+    <text x="482" y="294" fill="#071a4a" font-size="25" font-weight="700">Inbegrepen diensten</text>
+
+    <rect x="402" y="340" width="446" height="78" rx="18" fill="#fff"/>
+    <circle cx="446" cy="379" r="20" fill="#ffbd2e"/>
+    <text x="446" y="387" text-anchor="middle" fill="#071a4a" font-size="23" font-weight="700">3</text>
+    <text x="482" y="387" fill="#071a4a" font-size="25" font-weight="700">Regio en woningtype</text>
+
+    <rect x="402" y="433" width="446" height="78" rx="18" fill="#fff"/>
+    <circle cx="446" cy="472" r="20" fill="#ffbd2e"/>
+    <text x="446" y="480" text-anchor="middle" fill="#071a4a" font-size="23" font-weight="700">4</text>
+    <text x="482" y="480" fill="#071a4a" font-size="25" font-weight="700">21% btw controleren</text>
+  </g>
+  <text x="52" y="559" fill="#c9d8ee" font-family="Arial, sans-serif" font-size="19">Vergelijk percentage, btw en diensten vóór je tekent.</text>
+</svg>

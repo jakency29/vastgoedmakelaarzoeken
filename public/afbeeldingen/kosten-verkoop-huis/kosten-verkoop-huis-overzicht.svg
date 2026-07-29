@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="title desc">
+  <title id="title">Verdeling van kosten bij de verkoop van een huis</title>
+  <desc id="desc">Overzicht van de voornaamste kosten voor verkoper en koper en de berekening van de netto-opbrengst.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071a4a"/>
+      <stop offset="1" stop-color="#123d78"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" rx="28" fill="url(#bg)"/>
+  <circle cx="817" cy="72" r="120" fill="#ffbd2e" opacity=".12"/>
+  <text x="52" y="72" fill="#ffbd2e" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="2">KOSTENOVERZICHT</text>
+  <text x="52" y="122" fill="#fff" font-family="Arial, sans-serif" font-size="38" font-weight="700">Wie betaalt welke verkoopkosten?</text>
+
+  <rect x="52" y="164" width="378" height="290" rx="22" fill="#fff"/>
+  <circle cx="95" cy="211" r="22" fill="#ffbd2e"/>
+  <path d="M84 211h22M95 200v22" stroke="#071a4a" stroke-width="4" stroke-linecap="round"/>
+  <text x="132" y="221" fill="#071a4a" font-family="Arial, sans-serif" font-size="30" font-weight="700">Verkoper</text>
+  <g fill="#263b5e" font-family="Arial, sans-serif" font-size="23">
+    <text x="83" y="283">• Makelaarscommissie</text>
+    <text x="83" y="331">• Verplichte attesten</text>
+    <text x="83" y="379">• Keuringen</text>
+    <text x="83" y="427">• Hypotheek doorhalen</text>
+  </g>
+
+  <rect x="470" y="164" width="378" height="290" rx="22" fill="#fff"/>
+  <circle cx="513" cy="211" r="22" fill="#ffbd2e"/>
+  <path d="M501 211h24" stroke="#071a4a" stroke-width="4" stroke-linecap="round"/>
+  <text x="550" y="221" fill="#071a4a" font-family="Arial, sans-serif" font-size="30" font-weight="700">Koper</text>
+  <g fill="#263b5e" font-family="Arial, sans-serif" font-size="23">
+    <text x="501" y="294">• Verkooprecht</text>
+    <text x="501" y="348">• Notaris-ereloon</text>
+    <text x="501" y="402">• Kosten aankoopakte</text>
+  </g>
+
+  <rect x="52" y="490" width="796" height="72" rx="18" fill="#ffbd2e"/>
+  <text x="450" y="522" text-anchor="middle" fill="#071a4a" font-family="Arial, sans-serif" font-size="21" font-weight="700">NETTO-OPBRENGST</text>
+  <text x="450" y="549" text-anchor="middle" fill="#071a4a" font-family="Arial, sans-serif" font-size="19">verkoopprijs minus krediet en verkoopkosten</text>
+</svg>

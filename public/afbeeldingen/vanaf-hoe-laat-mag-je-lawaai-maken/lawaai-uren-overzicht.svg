@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="title desc">
+  <title id="title">Richtlijnen voor lawaai maken in België</title>
+  <desc id="desc">Er bestaat geen algemeen Belgisch startuur. Weekdagen, zaterdag en zondag kunnen lokaal verschillende regels hebben.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071a4a"/>
+      <stop offset="1" stop-color="#123d78"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" rx="28" fill="url(#bg)"/>
+  <text x="52" y="68" fill="#ffbd2e" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="2">BELGIË</text>
+  <text x="52" y="116" fill="#fff" font-family="Arial, sans-serif" font-size="38" font-weight="700">Wanneer mag je lawaai maken?</text>
+  <rect x="52" y="146" width="796" height="64" rx="18" fill="#ffbd2e"/>
+  <text x="450" y="188" text-anchor="middle" fill="#071a4a" font-family="Arial, sans-serif" font-size="26" font-weight="700">Er bestaat geen algemeen Belgisch startuur</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="52" y="244" width="244" height="220" rx="22" fill="#fff"/>
+    <text x="174" y="292" text-anchor="middle" fill="#071a4a" font-size="25" font-weight="700">Weekdagen</text>
+    <circle cx="174" cy="358" r="48" fill="#e8eef8"/>
+    <text x="174" y="368" text-anchor="middle" fill="#071a4a" font-size="31" font-weight="800">vaak 7 u.</text>
+    <text x="174" y="432" text-anchor="middle" fill="#5c6c82" font-size="18">lokale regels gelden</text>
+
+    <rect x="328" y="244" width="244" height="220" rx="22" fill="#fff"/>
+    <text x="450" y="292" text-anchor="middle" fill="#071a4a" font-size="25" font-weight="700">Zaterdag</text>
+    <circle cx="450" cy="358" r="48" fill="#e8eef8"/>
+    <text x="450" y="368" text-anchor="middle" fill="#071a4a" font-size="27" font-weight="800">7, 8 of 9 u.</text>
+    <text x="450" y="432" text-anchor="middle" fill="#5c6c82" font-size="18">verschilt per gemeente</text>
+
+    <rect x="604" y="244" width="244" height="220" rx="22" fill="#fff"/>
+    <text x="726" y="292" text-anchor="middle" fill="#071a4a" font-size="25" font-weight="700">Zondag</text>
+    <circle cx="726" cy="358" r="48" fill="#e8eef8"/>
+    <text x="726" y="354" text-anchor="middle" fill="#071a4a" font-size="21" font-weight="800">verboden,</text>
+    <text x="726" y="381" text-anchor="middle" fill="#071a4a" font-size="21" font-weight="800">beperkt of lokaal</text>
+    <text x="726" y="432" text-anchor="middle" fill="#5c6c82" font-size="18">controleer je gemeente</text>
+  </g>
+  <text x="450" y="528" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="23" font-weight="700">Controleer het actuele politiereglement</text>
+  <text x="450" y="559" text-anchor="middle" fill="#c9d8ee" font-family="Arial, sans-serif" font-size="18">Toegelaten uren zijn geen vrijgeleide voor buitensporige hinder.</text>
+</svg>

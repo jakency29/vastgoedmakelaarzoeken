@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="title desc">
+  <title id="title">Beslisroute voor de verkoop van het ouderlijk huis</title>
+  <desc id="desc">De eigenaar beslist en tekent zelf, tenzij een geldige volmacht, zorgvolmacht of rechterlijke bescherming de bevoegdheid anders regelt.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071a4a"/>
+      <stop offset="1" stop-color="#184a82"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" rx="28" fill="url(#bg)"/>
+  <text x="52" y="68" fill="#ffbd2e" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="2">BESLISROUTE</text>
+  <text x="52" y="116" fill="#fff" font-family="Arial, sans-serif" font-size="36" font-weight="700">Wie kan het ouderlijk huis verkopen?</text>
+
+  <rect x="263" y="148" width="374" height="76" rx="20" fill="#ffbd2e"/>
+  <text x="450" y="180" text-anchor="middle" fill="#071a4a" font-family="Arial, sans-serif" font-size="21" font-weight="700">Wie is juridisch eigenaar?</text>
+  <text x="450" y="207" text-anchor="middle" fill="#071a4a" font-family="Arial, sans-serif" font-size="17">Controleer eerst de eigendomstitel</text>
+
+  <path d="M450 224v43M175 267h550M175 267v38M450 267v38M725 267v38" fill="none" stroke="#ffbd2e" stroke-width="4" stroke-linecap="round"/>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="52" y="305" width="246" height="175" rx="20" fill="#fff"/>
+    <text x="175" y="345" text-anchor="middle" fill="#071a4a" font-size="21" font-weight="700">Eigenaar kan beslissen</text>
+    <text x="175" y="391" text-anchor="middle" fill="#263b5e" font-size="18">De eigenaar beslist</text>
+    <text x="175" y="419" text-anchor="middle" fill="#263b5e" font-size="18">en ondertekent zelf</text>
+    <circle cx="175" cy="453" r="9" fill="#ffbd2e"/>
+
+    <rect x="327" y="305" width="246" height="175" rx="20" fill="#fff"/>
+    <text x="450" y="345" text-anchor="middle" fill="#071a4a" font-size="21" font-weight="700">Volmacht aanwezig</text>
+    <text x="450" y="387" text-anchor="middle" fill="#263b5e" font-size="18">Vertegenwoordiging kan</text>
+    <text x="450" y="415" text-anchor="middle" fill="#263b5e" font-size="18">alleen binnen de geldige</text>
+    <text x="450" y="443" text-anchor="middle" fill="#263b5e" font-size="18">bevoegdheden</text>
+
+    <rect x="602" y="305" width="246" height="175" rx="20" fill="#fff"/>
+    <text x="725" y="345" text-anchor="middle" fill="#071a4a" font-size="21" font-weight="700">Bewind of bescherming</text>
+    <text x="725" y="387" text-anchor="middle" fill="#263b5e" font-size="18">Bewindvoerder en soms</text>
+    <text x="725" y="415" text-anchor="middle" fill="#263b5e" font-size="18">toestemming van de</text>
+    <text x="725" y="443" text-anchor="middle" fill="#263b5e" font-size="18">vrederechter nodig</text>
+  </g>
+
+  <rect x="129" y="512" width="642" height="56" rx="16" fill="#ffbd2e"/>
+  <text x="450" y="547" text-anchor="middle" fill="#071a4a" font-family="Arial, sans-serif" font-size="22" font-weight="700">Laat de notaris eigendom en bevoegdheid controleren</text>
+</svg>
