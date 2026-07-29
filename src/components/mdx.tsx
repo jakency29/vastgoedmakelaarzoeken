@@ -6,6 +6,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { kantoren } from "@/lib/kantoren";
 import { DienstCTA } from "./DienstCTA";
+import { MakelaarskostenCalculator, NettoOpbrengstCalculator } from "./VastgoedCalculators";
+import { VerkoopChecklist } from "./VerkoopChecklist";
 
 // Overzicht van de vastgoedkantoren in een provincie (voor de provincie-pagina's).
 export function KantorenInProvincie({ provincie }: { provincie: string }) {
@@ -179,4 +181,7 @@ export const mdxComponents = {
   OfferteCheck,
   KantorenInProvincie,
   DienstCTA,
+  MakelaarskostenCalculator,
+  NettoOpbrengstCalculator,
+  VerkoopChecklist,
 };
