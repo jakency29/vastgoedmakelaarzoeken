@@ -24,6 +24,17 @@ export type RelatedLink = {
 // Zoekintentie van de pagina (bepaalt sectievolgorde en interne links).
 export type Intent = "core" | "informational" | "local";
 
+// Visuele pagina-opbouw. Deze staat los van schema.org en beschrijft welk
+// pagina-element voor de bezoeker centraal moet staan.
+export type VisualType =
+  | "commercial"
+  | "service"
+  | "cost"
+  | "legal"
+  | "process"
+  | "local"
+  | "guide";
+
 // JSON-LD hoofdtype van de pagina.
 export type PageType = "WebPage" | "Article" | "Service";
 
@@ -32,6 +43,7 @@ export type PageFrontmatter = {
   h1: string; // zichtbare H1
   description: string; // meta description, max ~155 tekens
   intent?: Intent;
+  visualType?: VisualType; // optionele override voor de intentiegestuurde template
   silo?: string; // hub-slug, bijv. "asbestattest"
   type?: PageType;
   updated?: string; // ISO datum (dateModified)
