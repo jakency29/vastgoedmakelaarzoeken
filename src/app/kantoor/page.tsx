@@ -6,10 +6,10 @@ import Link from "next/link";
 import { kantoren } from "@/lib/kantoren";
 import { getPlaceReviews } from "@/lib/reviews";
 import { Faq } from "@/components/Faq";
-import { Rating } from "@/components/Rating";
-import { PremiumBadge } from "@/components/PremiumBadge";
+import { OfficeDirectoryExplorer, type OfficeDirectoryItem } from "@/components/OfficeDirectoryExplorer";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbListSchema, faqPageSchema } from "@/lib/jsonld";
+import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: "Vastgoedkantoren en immokantoren vergelijken" },
@@ -44,7 +44,40 @@ const FAQ = [
 
 export default async function KantorenPage() {
   const ratingList = await Promise.all(kantoren.map((k) => getPlaceReviews(k.googlePlaceId)));
-  const ratingBySlug = new Map(kantoren.map((k, i) => [k.slug, ratingList[i]]));
+  const offices: OfficeDirectoryItem[] = kantoren.map((k, index) => {
+    const reviews = ratingList[index];
+    return {
+      slug: k.slug,
+      naam: k.naam,
+      gemeente: k.gemeente,
+      provincie: k.provincie,
+      postcode: k.postcode,
+      foto: k.foto,
+      diensten: k.diensten,
+      regios: k.regios,
+      premium: Boolean(k.premium),
+      bivNummer: k.bivNummer,
+      bivGecontroleerdOp: k.bivGecontroleerdOp,
+      rating: reviews?.rating,
+      reviewTotal: reviews?.total,
+    };
+  });
+  const directorySchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Vastgoedkantoren in jouw regio",
+    url: absoluteUrl("/kantoor"),
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: kantoren.length,
+      itemListElement: kantoren.map((k, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: k.naam,
+        url: absoluteUrl(`/kantoor/${k.slug}`),
+      })),
+    },
+  };
 
   return (
     <main>
@@ -61,56 +94,20 @@ export default async function KantorenPage() {
             Vastgoedkantoren in jouw regio
           </h1>
           <p className="mt-3 max-w-2xl text-lg text-slate-600">
-            Bekijk erkende vastgoedkantoren en immokantoren per gemeente en provincie. Vraag
-            vrijblijvend een offerte voor het verkopen, verhuren of laten schatten van je woning.
+            Zoek en vergelijk {kantoren.length} vastgoedkantoren op werkingsgebied, diensten,
+            BIV-vermelding en beschikbare Google-reviewdata. Open daarna het volledige kantoorprofiel.
           </p>
         </div>
       </section>
 
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="min-w-0">
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {kantoren.map((k) => (
-                <Link
-                  key={k.slug}
-                  href={`/kantoor/${k.slug}`}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
-                >
-                  <div className="relative flex h-40 items-center justify-center border-b border-slate-100 bg-slate-50 p-4">
-                    {k.premium && <PremiumBadge className="absolute left-3 top-3" />}
-                    {k.foto ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={k.foto} alt={`${k.naam} logo`} loading="lazy" className="max-h-full max-w-full object-contain" />
-                    ) : (
-                      <span className="text-center text-xl font-extrabold text-brand-200">{k.naam}</span>
-                    )}
-                  </div>
-                  <div className="flex flex-1 flex-col p-5">
-                    <p className="text-lg font-bold text-brand-900 group-hover:text-brand-700">{k.naam}</p>
-                    <p className="mt-0.5 text-sm text-slate-500">{k.gemeente}, {k.provincie}</p>
-                    {(() => {
-                      const rev = ratingBySlug.get(k.slug);
-                      return rev && rev.total ? (
-                        <span className="mt-1.5 flex items-center gap-1.5">
-                          <Rating rating={rev.rating} />
-                          <span className="text-sm font-semibold text-brand-900">{rev.rating.toFixed(1)}</span>
-                          <span className="text-xs text-slate-400">({rev.total})</span>
-                        </span>
-                      ) : null;
-                    })()}
-                    <p className="mt-2 line-clamp-2 text-sm text-slate-600">{k.diensten.slice(0, 3).join(" | ")}</p>
-                    <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
-                      Bekijk kantoor
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-                        <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <OfficeDirectoryExplorer offices={offices} />
 
-            <h2 className="mt-12 text-2xl font-extrabold tracking-tight text-brand-900">Vastgoedkantoren per provincie</h2>
+            <h2 className="mt-12 text-2xl font-extrabold tracking-tight text-brand-900">Welke provinciegidsen kun je bekijken?</h2>
+            <p className="mt-3 max-w-2xl text-slate-700">
+              De provinciegidsen bundelen kantoorprofielen en lokale informatie voor provincies waarvoor een aparte gids beschikbaar is.
+            </p>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               {PROVINCIES.map((p) => (
                 <Link
@@ -164,6 +161,7 @@ export default async function KantorenPage() {
         { name: "Vastgoedkantoren", path: "/kantoor" },
       ])} />
       <JsonLd data={faqPageSchema(FAQ)} />
+      <JsonLd data={directorySchema} />
     </main>
   );
 }
