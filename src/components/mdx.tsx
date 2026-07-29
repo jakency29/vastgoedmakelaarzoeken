@@ -110,12 +110,14 @@ export function OfferteCheck({ children }: { children?: React.ReactNode }) {
 export function Afbeelding({
   src,
   alt,
+  caption,
   w,
   h,
   hero = false,
 }: {
   src: string;
   alt: string;
+  caption?: string;
   w?: number | string;
   h?: number | string;
   hero?: boolean;
@@ -141,6 +143,15 @@ export function Afbeelding({
         // Zonder afmetingen kan next/image niet optimaliseren; val terug op img.
         // eslint-disable-next-line @next/next/no-img-element
         <img src={src} alt={alt} loading={hero ? "eager" : "lazy"} className={className} />
+      )}
+      {caption && (
+        <figcaption className="mt-3 flex items-start gap-2 px-1 text-sm leading-relaxed text-slate-600">
+          <span
+            aria-hidden="true"
+            className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-500"
+          />
+          <span>{caption}</span>
+        </figcaption>
       )}
     </figure>
   );
