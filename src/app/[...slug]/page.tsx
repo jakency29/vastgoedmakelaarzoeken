@@ -11,6 +11,7 @@ import remarkGfm from "remark-gfm";
 import { getAllSlugParams, getPageBySlug } from "@/lib/content";
 import { pageGraph } from "@/lib/jsonld";
 import { dienstCtaLabel, dienstVoorSlug } from "@/lib/dienst-cta";
+import { splitMdxIntro } from "@/lib/mdx-intro";
 import { pageVisualConfig } from "@/lib/page-visual";
 import { mdxComponents } from "@/components/mdx";
 import { JsonLd } from "@/components/JsonLd";
@@ -21,6 +22,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Faq } from "@/components/Faq";
 import { CommercialNextStep } from "@/components/CommercialNextStep";
+import { DirectAnswer } from "@/components/DirectAnswer";
 import { EditorialSources } from "@/components/EditorialSources";
 import { PracticalExample } from "@/components/PracticalExample";
 
@@ -51,17 +53,30 @@ export default async function ContentPage({ params }: Props) {
   const page = getPageBySlug(slug.join("/"));
   if (!page) notFound();
 
-  const { content } = await compileMDX({
-    source: page.body,
-    components: mdxComponents,
-    options: { mdxOptions: { remarkPlugins: [remarkGfm] } },
-  });
-
   const showForm = page.showLeadForm !== false;
   // Dienst-pagina's (asbestattest, EPC, keuring, ...) krijgen het dienst-formulier in de
   // zijbalk; overige pagina's het algemene makelaarsformulier.
   const dienst = dienstVoorSlug(page.slug);
   const visual = pageVisualConfig(page, Boolean(dienst));
+  const bodyParts = visual.prominentForm
+    ? { intro: null, rest: page.body }
+    : splitMdxIntro(page.body);
+  const [bodyResult, introResult] = await Promise.all([
+    compileMDX({
+      source: bodyParts.rest,
+      components: mdxComponents,
+      options: { mdxOptions: { remarkPlugins: [remarkGfm] } },
+    }),
+    bodyParts.intro
+      ? compileMDX({
+          source: bodyParts.intro,
+          components: mdxComponents,
+          options: { mdxOptions: { remarkPlugins: [remarkGfm] } },
+        })
+      : Promise.resolve(null),
+  ]);
+  const content = bodyResult.content;
+  const introContent = introResult?.content;
   // CTA-knop (Typeform) op kennisbank-artikels, niet op de kantoren-directorypagina's.
   const showCta = !page.slug.startsWith("vastgoedkantoren/");
   const ctaLabel = dienstCtaLabel(page.slug);
@@ -108,6 +123,11 @@ export default async function ContentPage({ params }: Props) {
 
           <div className={`min-w-0 lg:order-1 ${visual.contentWidth}`}>
             {showCta && visual.prominentForm && <DienstCTA label={ctaLabel} />}
+            {introContent && (
+              <DirectAnswer note={page.answerNote} updated={page.updated}>
+                {introContent}
+              </DirectAnswer>
+            )}
             <div className="max-w-none">{content}</div>
             <PracticalExample page={page} />
             <EditorialSources page={page} />
