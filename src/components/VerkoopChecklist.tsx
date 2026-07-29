@@ -27,7 +27,7 @@ export function VerkoopChecklist() {
   }
 
   return (
-    <section className="my-10 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6">
+    <section id="verkoopchecklist" className="my-10 scroll-mt-24 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6">
       <p className="text-xs font-bold uppercase tracking-wide text-brand-600">Interactieve checklist</p>
       <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-900">
         Welke verkoopstappen heb je al voorbereid?

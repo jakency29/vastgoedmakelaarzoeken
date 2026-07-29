@@ -85,7 +85,7 @@ export function MakelaarskostenCalculator() {
   const commissionTotal = commissionExVat + vat;
 
   return (
-    <section className="my-10 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6">
+    <section id="makelaarskosten-calculator" className="my-10 scroll-mt-24 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6">
       <p className="text-xs font-bold uppercase tracking-wide text-brand-600">Interactieve calculator</p>
       <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-900">
         Hoe bereken je de makelaarscommissie?
@@ -144,7 +144,7 @@ export function NettoOpbrengstCalculator() {
   const estimatedNet = price - outstandingLoan - sellingCosts;
 
   return (
-    <section className="my-10 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6">
+    <section id="netto-opbrengst-calculator" className="my-10 scroll-mt-24 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6">
       <p className="text-xs font-bold uppercase tracking-wide text-brand-600">Interactieve calculator</p>
       <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-900">
         Hoe bereken je de geschatte netto-opbrengst?
