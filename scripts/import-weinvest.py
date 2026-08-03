@@ -4,6 +4,7 @@
 
 import os, re, io, json, html, urllib.request, gzip, sys
 from collections import defaultdict
+from datetime import date
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -76,10 +77,12 @@ def slugify(s):
 def main():
     only_ids = set(sys.argv[1:])
     data_path = os.path.join(ROOT, "src", "data", "woningen.json")
-    out = []
-    if only_ids and os.path.exists(data_path):
+    existing = []
+    if os.path.exists(data_path):
         with open(data_path, encoding="utf-8") as f:
-            out = [item for item in json.load(f) if str(item.get("id")) not in only_ids]
+            existing = json.load(f)
+    existing_by_id = {str(item.get("id")): item for item in existing}
+    out = [item for item in existing if str(item.get("id")) not in only_ids] if only_ids else []
     for kantoor, urls in SOURCES.items():
         for u in urls:
             if only_ids and u.rstrip("/").split("/")[-1] not in only_ids:
@@ -146,7 +149,7 @@ def main():
                 except Exception:
                     continue
 
-            out.append({
+            record = {
                 "id": pid, "kantoorSlug": kantoor,
                 "transactie": "te-koop" if p.get("transactionType") == "for-sale" else "te-huur",
                 "type": TYPE.get(p.get("typeUID"), "Woning"), "typeUID": p.get("typeUID"),
@@ -169,7 +172,13 @@ def main():
                 "beschrijving": clean(nl(p.get("description", {}))),
                 "fotos": photo_paths, "bron": u,
                 "slug": f"{slugify(title + ' ' + gemeente)}-{pid}",
-            })
+            }
+            vorige_datum = existing_by_id.get(pid, {}).get("toegevoegdOp")
+            if vorige_datum:
+                record["toegevoegdOp"] = vorige_datum
+            elif pid not in existing_by_id:
+                record["toegevoegdOp"] = date.today().isoformat()
+            out.append(record)
             print(f"OK {pid} {gemeente} EPC {out[-1]['epcLabel']} | {len(indeling)} ruimtes | {len(eigenschappen)} kenmerken | {len(photo_paths)} foto's")
     out.sort(key=lambda r: (r["provincie"], r["gemeente"]))
     os.makedirs(os.path.join(ROOT, "src", "data"), exist_ok=True)

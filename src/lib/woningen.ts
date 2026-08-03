@@ -41,9 +41,17 @@ export type Woning = {
   fotos: string[];
   bron: string;
   slug: string;
+  toegevoegdOp?: string;
 };
 
-export const woningen = raw as unknown as Woning[];
+function nieuwsteEerst(a: Woning, b: Woning): number {
+  if (a.toegevoegdOp && b.toegevoegdOp) return b.toegevoegdOp.localeCompare(a.toegevoegdOp);
+  if (a.toegevoegdOp) return -1;
+  if (b.toegevoegdOp) return 1;
+  return 0;
+}
+
+export const woningen = [...(raw as unknown as Woning[])].sort(nieuwsteEerst);
 
 export function getWoningBySlug(slug: string): Woning | undefined {
   return woningen.find((w) => w.slug === slug);
