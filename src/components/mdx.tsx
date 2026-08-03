@@ -6,7 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { kantoren } from "@/lib/kantoren";
 import { DienstCTA } from "./DienstCTA";
-import { MakelaarskostenCalculator, NettoOpbrengstCalculator } from "./VastgoedCalculators";
+import {
+  EpcFBudgetCalculator,
+  MakelaarskostenCalculator,
+  NettoOpbrengstCalculator,
+  WoningWaardeQuickscan,
+} from "./VastgoedCalculators";
 import { VerkoopChecklist } from "./VerkoopChecklist";
 
 // Overzicht van de vastgoedkantoren in een provincie (voor de provincie-pagina's).
@@ -32,6 +37,43 @@ export function KantorenInProvincie({ provincie }: { provincie: string }) {
           <span className="min-w-0">
             <span className="block font-bold text-brand-900 group-hover:text-brand-700">{k.naam}</span>
             <span className="block text-sm text-slate-500">{k.gemeente}, {k.provincie}</span>
+          </span>
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+// Lokale selectie voor gemeentepagina's. Een kantoor verschijnt wanneer de gemeente
+// overeenkomt of wanneer de gemeente expliciet in het werkingsgebied staat.
+export function KantorenInRegio({ regio }: { regio: string }) {
+  const normalized = regio.toLocaleLowerCase("nl-BE");
+  const list = kantoren.filter(
+    (k) =>
+      k.gemeente.toLocaleLowerCase("nl-BE") === normalized ||
+      k.regios.some((item) => item.toLocaleLowerCase("nl-BE") === normalized),
+  );
+  if (!list.length) return null;
+  return (
+    <div className="my-8 grid gap-4 sm:grid-cols-2">
+      {list.map((k) => (
+        <Link
+          key={k.slug}
+          href={`/kantoor/${k.slug}`}
+          className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 no-underline shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
+        >
+          <span className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+            {k.foto ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={k.foto} alt={`${k.naam} logo`} loading="lazy" className="max-h-full max-w-full object-contain p-1" />
+            ) : (
+              <span className="text-lg font-extrabold text-brand-200">{k.naam.slice(0, 1)}</span>
+            )}
+          </span>
+          <span className="min-w-0">
+            <span className="block font-bold text-brand-900 group-hover:text-brand-700">{k.naam}</span>
+            <span className="block text-sm text-slate-500">{k.gemeente}, {k.provincie}</span>
+            <span className="mt-1 block text-xs font-semibold text-brand-600">Actief in {regio}</span>
           </span>
         </Link>
       ))}
@@ -180,8 +222,11 @@ export const mdxComponents = {
   DecisionBox,
   OfferteCheck,
   KantorenInProvincie,
+  KantorenInRegio,
   DienstCTA,
   MakelaarskostenCalculator,
   NettoOpbrengstCalculator,
+  EpcFBudgetCalculator,
+  WoningWaardeQuickscan,
   VerkoopChecklist,
 };

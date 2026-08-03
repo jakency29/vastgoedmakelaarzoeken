@@ -33,8 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const k = getKantoor(slug);
   if (!k) return {};
   return {
-    title: { absolute: `${k.naam} | Vastgoedkantoor ${k.gemeente}` },
+    title: { absolute: k.seoTitle ?? `${k.naam} | Vastgoedkantoor ${k.gemeente}` },
     description:
+      k.seoDescription ??
       `${k.naam} is een erkend vastgoedkantoor in ${k.gemeente} (${k.provincie}). Bekijk diensten, werkingsgebied en reviews en vraag vrijblijvend een offerte.`.slice(0, 155),
     alternates: { canonical: `/kantoor/${k.slug}` },
   };

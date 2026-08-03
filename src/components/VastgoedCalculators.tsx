@@ -183,3 +183,93 @@ export function NettoOpbrengstCalculator() {
     </section>
   );
 }
+
+export function EpcFBudgetCalculator() {
+  const [askingPrice, setAskingPrice] = useState("350000");
+  const [totalBudget, setTotalBudget] = useState("400000");
+  const [renovationBudget, setRenovationBudget] = useState("50000");
+  const [reserve, setReserve] = useState("15000");
+
+  const asking = numberFrom(askingPrice);
+  const budget = numberFrom(totalBudget);
+  const renovation = numberFrom(renovationBudget);
+  const safetyReserve = numberFrom(reserve);
+  const maximumOffer = Math.max(budget - renovation - safetyReserve, 0);
+  const difference = maximumOffer - asking;
+
+  return (
+    <section id="epc-f-budgetcalculator" className="my-10 scroll-mt-24 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6">
+      <p className="text-xs font-bold uppercase tracking-wide text-brand-600">Interactieve budgetcheck</p>
+      <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-900">
+        Hoe bereken je een haalbaar bod voor een woning met EPC F?
+      </h2>
+      <p className="mt-3 leading-relaxed text-slate-700">
+        Trek je renovatiebudget en veiligheidsreserve af van je totale beschikbare budget. De
+        uitkomst is je budgettaire bovengrens voor het pand, niet automatisch de marktwaarde.
+      </p>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <Field id="epcf-vraagprijs" label="Vraagprijs" value={askingPrice} onChange={setAskingPrice} suffix="€" />
+        <Field id="epcf-totaalbudget" label="Totaal beschikbaar budget" value={totalBudget} onChange={setTotalBudget} suffix="€" />
+        <Field id="epcf-renovatie" label="Voorlopig renovatiebudget" value={renovationBudget} onChange={setRenovationBudget} suffix="€" />
+        <Field id="epcf-reserve" label="Reserve voor onverwachte kosten" value={reserve} onChange={setReserve} suffix="€" />
+      </div>
+
+      <div className="mt-6 grid gap-3 sm:grid-cols-3" aria-live="polite">
+        <Result label="Budgettaire bovengrens bod" value={maximumOffer} emphasis />
+        <Result label="Verschil met vraagprijs" value={difference} />
+        <Result label="Renovatie en reserve samen" value={renovation + safetyReserve} />
+      </div>
+
+      <p className="mt-4 text-xs leading-relaxed text-slate-500">
+        De berekening houdt geen rekening met aankoopkosten, kredietvoorwaarden of de werkelijke
+        marktwaarde. Voeg die posten afzonderlijk toe aan je totaalbudget en laat de woning vóór
+        een bindend bod technisch en financieel beoordelen.
+      </p>
+    </section>
+  );
+}
+
+export function WoningWaardeQuickscan() {
+  const [area, setArea] = useState("160");
+  const [referencePrice, setReferencePrice] = useState("2500");
+  const [conditionAdjustment, setConditionAdjustment] = useState("0");
+
+  const squareMeters = numberFrom(area, 10_000);
+  const pricePerSquareMeter = numberFrom(referencePrice, 100_000);
+  const adjustment = Math.min(Math.max(Number(conditionAdjustment) || 0, -50), 50) / 100;
+  const centralValue = squareMeters * pricePerSquareMeter * (1 + adjustment);
+  const lowerValue = centralValue * 0.925;
+  const upperValue = centralValue * 1.075;
+
+  return (
+    <section id="woningwaarde-quickscan" className="my-10 scroll-mt-24 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6">
+      <p className="text-xs font-bold uppercase tracking-wide text-brand-600">Interactieve quickscan</p>
+      <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-900">
+        Hoe maak je zelf een eerste berekening van de woningwaarde?
+      </h2>
+      <p className="mt-3 leading-relaxed text-slate-700">
+        Gebruik de bewoonbare oppervlakte en een lokale referentieprijs per vierkante meter. Pas
+        daarna voorzichtig aan voor de staat van de woning.
+      </p>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-3">
+        <Field id="ww-oppervlakte" label="Bewoonbare oppervlakte" value={area} onChange={setArea} step="1" suffix="m²" />
+        <Field id="ww-referentie" label="Lokale referentieprijs" value={referencePrice} onChange={setReferencePrice} step="50" suffix="€/m²" />
+        <Field id="ww-correctie" label="Correctie voor staat" value={conditionAdjustment} onChange={setConditionAdjustment} step="1" suffix="%" />
+      </div>
+
+      <div className="mt-6 grid gap-3 sm:grid-cols-3" aria-live="polite">
+        <Result label="Voorzichtige ondergrens" value={lowerValue} />
+        <Result label="Centrale rekenwaarde" value={centralValue} emphasis />
+        <Result label="Voorzichtige bovengrens" value={upperValue} />
+      </div>
+
+      <p className="mt-4 text-xs leading-relaxed text-slate-500">
+        Vul zelf een actuele referentieprijs uit je buurt in. Deze quickscan is geen automatische
+        waardering en geen officieel schattingsverslag. Ligging, perceel, EPC, afwerking,
+        vergunningen en marktvraag kunnen de uiteindelijke verkoopwaarde sterk wijzigen.
+      </p>
+    </section>
+  );
+}

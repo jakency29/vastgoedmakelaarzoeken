@@ -24,6 +24,8 @@ export type Kantoor = {
   foto?: string; // lokaal pad onder /afbeeldingen/kantoren/
   googlePlaceId?: string; // Google Place ID voor het ophalen van reviews
   premium?: boolean; // premium partner: toont overal een badge
+  seoTitle?: string;
+  seoDescription?: string;
 };
 
 export const kantoren: Kantoor[] = [
@@ -196,6 +198,9 @@ export const kantoren: Kantoor[] = [
     slug: "just-wonen",
     googlePlaceId: "ChIJXSNVjHW5xkcRd7-VBTJFf_U",
     naam: "Just Wonen",
+    seoTitle: "Just Wonen Ravels: diensten, reviews en contact",
+    seoDescription:
+      "Bekijk Just Wonen in Ravels: diensten, BIV-erkenning, werkgebied, Google-reviews en contact voor verkoop, verhuur of een schatting.",
     gemeente: "Ravels",
     provincie: "Antwerpen",
     intro:
