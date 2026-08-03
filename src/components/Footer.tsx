@@ -17,6 +17,7 @@ export function Footer() {
             <p className="text-sm font-bold uppercase tracking-wide text-white">Verkopen</p>
             <ul className="mt-3 space-y-2 text-sm">
               <li><Link href="/huis-laten-schatten" className="hover:text-accent-400">Huis laten schatten</Link></li>
+              <li><Link href="/huis-verkopen-zonder-makelaar" className="hover:text-accent-400">Huis verkopen zonder makelaar</Link></li>
               <li><Link href="/kosten-vastgoedmakelaar" className="hover:text-accent-400">Kosten makelaar</Link></li>
               <li><Link href="/huis-verkopen-verplichtingen" className="hover:text-accent-400">Verplichtingen bij verkoop</Link></li>
               <li><Link href="/notariskosten-verkoop-huis" className="hover:text-accent-400">Notariskosten</Link></li>
