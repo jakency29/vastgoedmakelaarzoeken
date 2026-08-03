@@ -905,6 +905,141 @@
   "slug": "markt-17-herk-de-stad-158528"
  },
  {
+  "id": "167851",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Villa",
+  "typeUID": "house_villa",
+  "titel": "Dorpsstraat 73",
+  "adres": "Dorpsstraat 73",
+  "gemeente": "Herk-de-Stad",
+  "gemeenteSlug": "herk-de-stad",
+  "postcode": "3540",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 495000,
+  "bewoonbaar": 213,
+  "grond": 916,
+  "slaapkamers": 4,
+  "gevels": 4,
+  "bouwjaar": "1997",
+  "staat": "Zo goed als nieuw",
+  "parkeerplaatsen": 6,
+  "epcLabel": "C",
+  "epcVerbruik": 250,
+  "epcCode": "20200929-0002321309-RES-1",
+  "renovatieplicht": null,
+  "kadastraalInkomen": 1351,
+  "bestemming": "Woongebied",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 4,
+    "opp": 58
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": 120
+   },
+   {
+    "label": "Toilet",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 2,
+    "opp": 17
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 40
+   },
+   {
+    "label": "Veranda",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": 20
+   }
+  ],
+  "eigenschappen": [
+   "Individueel verwarming",
+   "Dubbele beglazing",
+   "Open haard",
+   "Airconditioning",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Olieketel (L)",
+   "Aansluiting op water",
+   "Rioolaansluiting",
+   "Septic tank",
+   "Brandmelder",
+   "Houten raamwerk",
+   "VS volledig geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "Ruim perceel van 916 m2",
+   "Westgerichte tuin",
+   "Terras van 20 m2",
+   "Open haard",
+   "Parkeergelegenheid",
+   "4 slaapkamers"
+  ],
+  "geoLat": 50.93475,
+  "geoLng": 5.13676,
+  "beschrijving": "Deze viergevelvilla uit 1997 ligt aan de Dorpsstraat 73 in Donk, Herk-de-Stad. De woning heeft een bewoonbare oppervlakte van 213 m2 op een perceel van 916 m2 en telt 4 slaapkamers.\n\nDe leefruimtes bevinden zich op het gelijkvloers en sluiten aan op de praktische keuken en de tuin. Op de verdieping liggen vier slaapkamers, waarvan één momenteel als dressing wordt gebruikt. De woning heeft ook een veranda, een ingerichte zolder en een kelder van 120 m2.\n\nDe westgerichte tuin beschikt over een terras van 20 m2. Een garage en bijkomende parkeerplaatsen bieden ruimte voor meerdere voertuigen. De woning heeft EPC-label C met een energieverbruik van 250 kWh/m2 per jaar. Verder zijn er dubbele beglazing, airconditioning, een open haard en verwarming op stookolie.\n\nDonk biedt een groene woonomgeving met verbindingen naar Herk-de-Stad, Lummen en omliggende gemeenten.",
+  "fotos": [
+   "/afbeeldingen/woningen/167851/1.jpg",
+   "/afbeeldingen/woningen/167851/2.jpg",
+   "/afbeeldingen/woningen/167851/3.jpg",
+   "/afbeeldingen/woningen/167851/4.jpg",
+   "/afbeeldingen/woningen/167851/5.jpg",
+   "/afbeeldingen/woningen/167851/6.jpg",
+   "/afbeeldingen/woningen/167851/7.jpg",
+   "/afbeeldingen/woningen/167851/8.jpg",
+   "/afbeeldingen/woningen/167851/9.jpg",
+   "/afbeeldingen/woningen/167851/10.jpg",
+   "/afbeeldingen/woningen/167851/11.jpg",
+   "/afbeeldingen/woningen/167851/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/herk-de-stad/house/167851",
+  "slug": "dorpsstraat-73-herk-de-stad-167851"
+ },
+ {
   "id": "164540",
   "kantoorSlug": "we-invest-demervallei",
   "transactie": "te-koop",
@@ -1306,6 +1441,145 @@
   ],
   "bron": "https://weinvest.be/nl-BE/property/for-sale/tessenderlo-ham/house/164013",
   "slug": "prinsenbos-49-tessenderlo-164013"
+ },
+ {
+  "id": "162471",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Herestraat 114",
+  "adres": "Herestraat 114",
+  "gemeente": "Zonhoven",
+  "gemeenteSlug": "zonhoven",
+  "postcode": "3520",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 445000,
+  "bewoonbaar": 200,
+  "grond": 651.57,
+  "slaapkamers": 4,
+  "gevels": 4,
+  "bouwjaar": "1957",
+  "staat": "Net gerenoveerd",
+  "parkeerplaatsen": 4,
+  "epcLabel": "C",
+  "epcVerbruik": 212,
+  "epcCode": "20260721-0003917835-RES-1",
+  "renovatieplicht": null,
+  "kadastraalInkomen": 1060,
+  "bestemming": "Woongebied",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 4,
+    "opp": 50
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Bureau",
+    "aantal": 1,
+    "opp": 12
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 3,
+    "opp": null
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Toilet",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 18
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 18
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 10
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 11
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": 220
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": 27
+   }
+  ],
+  "eigenschappen": [
+   "Zonnepanelen",
+   "Dubbele beglazing",
+   "Voorzieningen gehand.",
+   "Airconditioning",
+   "TV-lijn",
+   "Aansluiting op elektriciteit",
+   "Olieketel (L)",
+   "Aansluiting op water",
+   "Watertank (L)",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "PVC raamwerk",
+   "VS geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "Ruim perceel van 651 m2",
+   "Tuin van 220 m2",
+   "Terras van 27 m2",
+   "Parkeergelegenheid",
+   "4 slaapkamers",
+   "Zonnepanelen"
+  ],
+  "geoLat": 50.98707,
+  "geoLng": 5.3832,
+  "beschrijving": "Deze vrijstaande woning uit 1957 ligt aan de Herestraat 114 in Zonhoven en werd in 2018 gerenoveerd. Ze biedt 200 m2 bewoonbare oppervlakte op een perceel van 651,57 m2 en telt 4 slaapkamers en 2 badkamers.\n\nDe indeling omvat een keuken, eetkamer, woonkamer, wasplaats en een afzonderlijk bureau van 12 m2. De extra ruimte kan ook als hobbykamer worden ingericht. Verder zijn er drie zolderruimtes en een kelder.\n\nDe zuidoostgerichte tuin is 220 m2 groot en sluit aan op een terras van 27 m2. Er zijn vier parkeerplaatsen, waaronder een carport. De woning heeft EPC-label C met een energieverbruik van 212 kWh/m2 per jaar. Zonnepanelen, dubbele beglazing en airconditioning zijn aanwezig. Verwarming is mogelijk met stookolie en een pelletkachel.\n\nWinkels, scholen, horeca, natuur en belangrijke verbindingswegen liggen in de omgeving van Zonhoven.",
+  "fotos": [
+   "/afbeeldingen/woningen/162471/1.jpg",
+   "/afbeeldingen/woningen/162471/2.jpg",
+   "/afbeeldingen/woningen/162471/3.jpg",
+   "/afbeeldingen/woningen/162471/4.jpg",
+   "/afbeeldingen/woningen/162471/5.jpg",
+   "/afbeeldingen/woningen/162471/6.jpg",
+   "/afbeeldingen/woningen/162471/7.jpg",
+   "/afbeeldingen/woningen/162471/8.jpg",
+   "/afbeeldingen/woningen/162471/9.jpg",
+   "/afbeeldingen/woningen/162471/10.jpg",
+   "/afbeeldingen/woningen/162471/11.jpg",
+   "/afbeeldingen/woningen/162471/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/zonhoven/house/162471",
+  "slug": "herestraat-114-zonhoven-162471"
  },
  {
   "id": "147439",

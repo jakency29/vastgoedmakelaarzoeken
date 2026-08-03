@@ -2,7 +2,7 @@
 # en downloadt de foto's naar public/afbeeldingen/woningen/<id>/. Herbruikbaar: vul URLS aan.
 # Haalt ook EPC/energie, indeling, eigenschappen en stedenbouw uit de detaildata.
 
-import os, re, io, json, html, urllib.request, gzip
+import os, re, io, json, html, urllib.request, gzip, sys
 from collections import defaultdict
 from PIL import Image
 
@@ -28,12 +28,14 @@ SOURCES = {
         "https://weinvest.be/nl-BE/property/for-sale/houthalen-helchteren/house/164540",
         "https://weinvest.be/nl-BE/property/for-sale/halen/apartment/147667",
         "https://weinvest.be/nl-BE/property/for-sale/halen/apartment/147665",
+        "https://weinvest.be/nl-BE/property/for-sale/herk-de-stad/house/167851",
+        "https://weinvest.be/nl-BE/property/for-sale/zonhoven/house/162471",
     ],
 }
 
 COND = {"to_renovate": "Te renoveren", "to_refresh": "Op te frissen", "good": "Goede staat",
-        "excellent": "Uitstekende staat", "as_new": "Zo goed als nieuw", "new": "Nieuw"}
-TYPE = {"house": "Huis", "exceptional_house": "Huis", "maison_de_maitre": "Herenhuis", "country-house": "Landhuis",
+        "excellent": "Uitstekende staat", "as_new": "Zo goed als nieuw", "just_renovated": "Net gerenoveerd", "new": "Nieuw"}
+TYPE = {"house": "Huis", "house_villa": "Villa", "exceptional_house": "Huis", "maison_de_maitre": "Herenhuis", "country-house": "Landhuis",
         "apartment": "Appartement", "flat": "Appartement", "flat_studio": "Studio", "land": "Bouwgrond",
         "office": "Kantoor", "commercial": "Handelspand"}
 SPACE = {"bed_room": "Slaapkamer", "bath_room": "Badkamer", "shower_room": "Douchekamer", "toilet": "Toilet",
@@ -42,7 +44,7 @@ SPACE = {"bed_room": "Slaapkamer", "bath_room": "Badkamer", "shower_room": "Douc
          "parking": "Parkeerplaats", "carport": "Carport", "office": "Bureau", "veranda": "Veranda",
          "dressing": "Dressing", "entrance_hall": "Inkomhal", "night_hall": "Nachthal", "living": "Leefruimte",
          "garden_house": "Tuinhuis"}
-LAND = {"RURAL_RESIDENTIAL_AREA": "Woongebied met landelijk karakter", "RESIDENTIAL_AREA": "Woongebied",
+LAND = {"RURAL_RESIDENTIAL_AREA": "Woongebied met landelijk karakter", "RESIDENTIAL_AREA": "Woongebied", "LIVING_ZONE": "Woongebied",
         "RECREATION_AREA": "Recreatiegebied", "AGRICULTURAL_AREA": "Agrarisch gebied", "INDUSTRIAL_AREA": "Industriegebied"}
 FLOOD = {"NOT_FLOOD_AREA": "Niet in overstromingsgevoelig gebied", "POSSIBLE_FLOOD_AREA": "Mogelijk overstromingsgevoelig",
          "EFFECTIVE_FLOOD_AREA": "Effectief overstromingsgevoelig"}
@@ -72,9 +74,16 @@ def slugify(s):
     return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", s)).strip("-")
 
 def main():
+    only_ids = set(sys.argv[1:])
+    data_path = os.path.join(ROOT, "src", "data", "woningen.json")
     out = []
+    if only_ids and os.path.exists(data_path):
+        with open(data_path, encoding="utf-8") as f:
+            out = [item for item in json.load(f) if str(item.get("id")) not in only_ids]
     for kantoor, urls in SOURCES.items():
         for u in urls:
+            if only_ids and u.rstrip("/").split("/")[-1] not in only_ids:
+                continue
             try:
                 h = get(u).decode("utf-8", "replace")
                 pp = json.loads(re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', h, re.S).group(1))["props"]["pageProps"]
@@ -97,7 +106,7 @@ def main():
             indeling = [{"label": SPACE.get(t, t), "aantal": g["aantal"], "opp": g["opp"] or None}
                         for t, g in groups.items() if t]
             bed = p.get("bedroomCount") or groups.get("bed_room", {}).get("aantal", 0)
-            parking = sum(g["aantal"] for t, g in groups.items() if t in PARKING_TYPES)
+            parking = p.get("parkingCount") or sum(g["aantal"] for t, g in groups.items() if t in PARKING_TYPES)
 
             eigenschappen = [nl(f.get("name", {})) for f in p.get("features", []) if nl(f.get("name", {}))]
             uids = {f.get("uid") for f in p.get("features", [])}
@@ -164,7 +173,7 @@ def main():
             print(f"OK {pid} {gemeente} EPC {out[-1]['epcLabel']} | {len(indeling)} ruimtes | {len(eigenschappen)} kenmerken | {len(photo_paths)} foto's")
     out.sort(key=lambda r: (r["provincie"], r["gemeente"]))
     os.makedirs(os.path.join(ROOT, "src", "data"), exist_ok=True)
-    with open(os.path.join(ROOT, "src", "data", "woningen.json"), "w", encoding="utf-8") as f:
+    with open(data_path, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
     print(f"\n{len(out)} woningen -> src/data/woningen.json")
 
