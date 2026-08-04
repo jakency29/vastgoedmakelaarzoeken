@@ -33,7 +33,7 @@ export function ListingView({
                   {c.href ? (
                     <Link href={c.href} className="hover:text-brand-700 hover:underline">{c.name}</Link>
                   ) : (
-                    <span className="font-medium text-brand-800">{c.name}</span>
+                    <span aria-current="page" className="font-medium text-brand-800">{c.name}</span>
                   )}
                   {i < breadcrumb.length - 1 && <span aria-hidden="true" className="text-slate-300">/</span>}
                 </li>

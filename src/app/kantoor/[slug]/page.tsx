@@ -132,7 +132,7 @@ export default async function KantoorPage({ params }: Props) {
               <li aria-hidden="true" className="text-slate-300">/</li>
               <li><Link href="/kantoor" className="hover:text-brand-700 hover:underline">Vastgoedkantoren</Link></li>
               <li aria-hidden="true" className="text-slate-300">/</li>
-              <li className="font-medium text-brand-800">{k.naam}</li>
+              <li aria-current="page" className="font-medium text-brand-800">{k.naam}</li>
             </ol>
           </nav>
 

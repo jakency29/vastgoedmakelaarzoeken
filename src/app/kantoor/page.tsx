@@ -87,7 +87,7 @@ export default async function KantorenPage() {
             <ol className="flex flex-wrap items-center gap-1.5">
               <li><Link href="/" className="hover:text-brand-700 hover:underline">Home</Link></li>
               <li aria-hidden="true" className="text-slate-300">/</li>
-              <li className="font-medium text-brand-800">Vastgoedkantoren</li>
+              <li aria-current="page" className="font-medium text-brand-800">Vastgoedkantoren</li>
             </ol>
           </nav>
           <h1 className="mt-4 max-w-3xl text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">

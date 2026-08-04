@@ -30,10 +30,10 @@ export function DirectAnswer({
         >
           Kort antwoord
         </h2>
-        {displayDate && (
-          <p className="text-xs font-medium text-slate-500">
+        {displayDate && updated && (
+          <time dateTime={updated} className="text-xs font-medium text-slate-500">
             Inhoud gecontroleerd op {displayDate}
-          </p>
+          </time>
         )}
       </div>
       <div className="mt-3 text-base leading-relaxed text-slate-700 [&>p:first-child]:mt-0">

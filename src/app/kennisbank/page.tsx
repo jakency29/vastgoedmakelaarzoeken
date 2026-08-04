@@ -51,7 +51,7 @@ export default function KennisbankPage() {
             <ol className="flex flex-wrap items-center gap-1.5">
               <li><Link href="/" className="hover:text-brand-700 hover:underline">Home</Link></li>
               <li aria-hidden="true" className="text-slate-300">/</li>
-              <li className="font-medium text-brand-800">Kennisbank</li>
+              <li aria-current="page" className="font-medium text-brand-800">Kennisbank</li>
             </ol>
           </nav>
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">Kennisbank</h1>

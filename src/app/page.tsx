@@ -335,9 +335,12 @@ export default function Home() {
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     {article.displayDate && (
-                      <span className="text-xs font-semibold uppercase tracking-wide text-brand-600">
+                      <time
+                        dateTime={article.updated ?? article.published}
+                        className="text-xs font-semibold uppercase tracking-wide text-brand-600"
+                      >
                         Bijgewerkt op {article.displayDate}
-                      </span>
+                      </time>
                     )}
                     <h3 className="mt-2 text-xl font-bold leading-snug text-brand-900 group-hover:text-brand-700">
                       {article.h1 || article.title}

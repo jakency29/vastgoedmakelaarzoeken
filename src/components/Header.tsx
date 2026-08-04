@@ -46,6 +46,7 @@ export function Header({ nav }: { nav: { label: string; href: string }[] }) {
             className="inline-flex items-center rounded-lg border border-slate-300 p-2 text-brand-800 lg:hidden"
             aria-label="Menu"
             aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen((v) => !v)}
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -60,7 +61,7 @@ export function Header({ nav }: { nav: { label: string; href: string }[] }) {
       </div>
 
       {open && (
-        <nav aria-label="Mobiele navigatie" className="border-t border-slate-200 bg-white lg:hidden">
+        <nav id="mobile-navigation" aria-label="Mobiele navigatie" className="border-t border-slate-200 bg-white lg:hidden">
           <ul className="mx-auto max-w-7xl px-4 py-2 text-sm font-semibold text-brand-800">
             {nav.map((item) => (
               <li key={item.href} className="border-b border-slate-100 last:border-0">

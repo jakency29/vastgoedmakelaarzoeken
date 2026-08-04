@@ -84,7 +84,7 @@ export default async function MakelaarPage({ params }: Props) {
                 </>
               )}
               <li aria-hidden="true" className="text-slate-300">/</li>
-              <li className="font-medium text-brand-800">{m.naam}</li>
+              <li aria-current="page" className="font-medium text-brand-800">{m.naam}</li>
             </ol>
           </nav>
 

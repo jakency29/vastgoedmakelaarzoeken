@@ -13,8 +13,8 @@ export function Footer() {
             <Logo variant="light" />
             <p className="mt-4 max-w-xs text-sm text-brand-200">{site.tagline}.</p>
           </div>
-          <div>
-            <p className="text-sm font-bold uppercase tracking-wide text-white">Verkopen</p>
+          <nav aria-labelledby="footer-verkopen">
+            <p id="footer-verkopen" className="text-sm font-bold uppercase tracking-wide text-white">Verkopen</p>
             <ul className="mt-3 space-y-2 text-sm">
               <li><Link href="/huis-laten-schatten" className="hover:text-accent-400">Huis laten schatten</Link></li>
               <li><Link href="/huis-verkopen-zonder-makelaar" className="hover:text-accent-400">Huis verkopen zonder makelaar</Link></li>
@@ -22,18 +22,18 @@ export function Footer() {
               <li><Link href="/huis-verkopen-verplichtingen" className="hover:text-accent-400">Verplichtingen bij verkoop</Link></li>
               <li><Link href="/notariskosten-verkoop-huis" className="hover:text-accent-400">Notariskosten</Link></li>
             </ul>
-          </div>
-          <div>
-            <p className="text-sm font-bold uppercase tracking-wide text-white">Attesten</p>
+          </nav>
+          <nav aria-labelledby="footer-attesten">
+            <p id="footer-attesten" className="text-sm font-bold uppercase tracking-wide text-white">Attesten</p>
             <ul className="mt-3 space-y-2 text-sm">
               <li><Link href="/asbestattest" className="hover:text-accent-400">Asbestattest</Link></li>
               <li><Link href="/huis-verkopen-verplichtingen/epc" className="hover:text-accent-400">EPC</Link></li>
               <li><Link href="/registratierechten" className="hover:text-accent-400">Registratierechten</Link></li>
               <li><Link href="/waarde-woning-berekenen" className="hover:text-accent-400">Waarde berekenen</Link></li>
             </ul>
-          </div>
-          <div>
-            <p className="text-sm font-bold uppercase tracking-wide text-white">Info</p>
+          </nav>
+          <nav aria-labelledby="footer-info">
+            <p id="footer-info" className="text-sm font-bold uppercase tracking-wide text-white">Info</p>
             <ul className="mt-3 space-y-2 text-sm">
               <li><Link href="/huis-te-koop" className="hover:text-accent-400">Huizen te koop</Link></li>
               <li><Link href="/kennisbank" className="hover:text-accent-400">Kennisbank</Link></li>
@@ -46,11 +46,11 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </nav>
         </div>
-        <div className="mt-12 border-t border-white/10 pt-6 text-xs text-brand-300">
+        <p className="mt-12 border-t border-white/10 pt-6 text-xs text-brand-300">
           {site.name}. Vergelijk vastgoedmakelaars in België.
-        </div>
+        </p>
       </div>
     </footer>
   );

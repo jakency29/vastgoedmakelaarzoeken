@@ -59,7 +59,7 @@ export default function WerkwijzePage() {
             <ol className="flex flex-wrap items-center gap-1.5">
               <li><Link href="/" className="hover:text-brand-700 hover:underline">Home</Link></li>
               <li aria-hidden="true" className="text-slate-300">/</li>
-              <li className="font-medium text-brand-800">Onze werkwijze</li>
+              <li aria-current="page" className="font-medium text-brand-800">Onze werkwijze</li>
             </ol>
           </nav>
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">
@@ -70,7 +70,7 @@ export default function WerkwijzePage() {
             en Brussel helpt om vastgoedkantoren te vinden en vrijblijvend voorstellen aan te vragen
             voor verkoop, verhuur of waardebepaling.
           </p>
-          <p className="mt-3 text-sm font-semibold text-brand-700">Laatst bijgewerkt: 28 juli 2026</p>
+          <time dateTime="2026-07-28" className="mt-3 block text-sm font-semibold text-brand-700">Laatst bijgewerkt: 28 juli 2026</time>
         </div>
       </section>
 

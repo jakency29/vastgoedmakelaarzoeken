@@ -89,7 +89,8 @@ export default async function ContentPage({ params }: Props) {
   );
 
   return (
-    <article data-visual-type={visual.type}>
+    <main>
+      <article aria-labelledby="page-title" data-visual-type={visual.type}>
       {/* Kop-band met breadcrumbs, H1 en intro op een lichte achtergrond. */}
       <header className="border-b border-slate-200 bg-brand-50/60">
         <div className="mx-auto max-w-6xl px-4 py-8 lg:py-10">
@@ -104,7 +105,7 @@ export default async function ContentPage({ params }: Props) {
             </span>
             <span className="text-sm text-slate-500">{visual.description}</span>
           </div>
-          <h1 className="max-w-3xl text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">
+          <h1 id="page-title" className="max-w-3xl text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">
             {page.h1}
           </h1>
           <p className="mt-3 max-w-2xl text-lg text-slate-600">{page.description}</p>
@@ -156,8 +157,9 @@ export default async function ContentPage({ params }: Props) {
         </div>
       </div>
 
-      <Script src="https://embed.typeform.com/next/embed.js" strategy="lazyOnload" />
-      <JsonLd data={pageGraph(page)} />
-    </article>
+        <Script src="https://embed.typeform.com/next/embed.js" strategy="lazyOnload" />
+        <JsonLd data={pageGraph(page)} />
+      </article>
+    </main>
   );
 }
