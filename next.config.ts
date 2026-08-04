@@ -33,6 +33,26 @@ const launchRedirects = [
 // huidige site een nieuwe inhoudelijk equivalente bestemming.
 const searchConsoleRedirects = [
   {
+    from: "/agencies",
+    to: "/kantoor",
+  },
+  {
+    from: "/vlaams-brabant",
+    to: "/vastgoedkantoren/vlaams-brabant",
+  },
+  {
+    from: "/limburg",
+    to: "/vastgoedkantoren/limburg",
+  },
+  {
+    from: "/blog/is-jouw-toekomstige-woning-duurzaam-gelegen",
+    to: "/mobiscore",
+  },
+  {
+    from: "/create-listing",
+    to: "/aansluiten",
+  },
+  {
     from: "/blog/is-een-mondelinge-overeenkomst-bindend",
     to: "/bieden-op-een-huis",
   },
