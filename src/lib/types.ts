@@ -44,6 +44,7 @@ export type PageFrontmatter = {
   description: string; // meta description, max ~155 tekens
   intent?: Intent;
   visualType?: VisualType; // optionele override voor de intentiegestuurde template
+  introInHeader?: boolean; // toon de vrije openingsalinea's direct onder de H1
   answerNote?: string; // belangrijke uitzondering of toepassingscontext bij het directe antwoord
   silo?: string; // hub-slug, bijv. "asbestattest"
   type?: PageType;

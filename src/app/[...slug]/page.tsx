@@ -28,6 +28,13 @@ import { PracticalExample } from "@/components/PracticalExample";
 
 export const dynamicParams = false;
 
+const dateFormatter = new Intl.DateTimeFormat("nl-BE", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
 export function generateStaticParams() {
   return getAllSlugParams();
 }
@@ -58,7 +65,8 @@ export default async function ContentPage({ params }: Props) {
   // zijbalk; overige pagina's het algemene makelaarsformulier.
   const dienst = dienstVoorSlug(page.slug);
   const visual = pageVisualConfig(page, Boolean(dienst));
-  const bodyParts = visual.prominentForm
+  const introInHeader = page.introInHeader === true;
+  const bodyParts = visual.prominentForm && !introInHeader
     ? { intro: null, rest: page.body }
     : splitMdxIntro(page.body);
   const [bodyResult, introResult] = await Promise.all([
@@ -108,7 +116,21 @@ export default async function ContentPage({ params }: Props) {
           <h1 id="page-title" className="max-w-3xl text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">
             {page.h1}
           </h1>
-          <p className="mt-3 max-w-2xl text-lg text-slate-600">{page.description}</p>
+          {introInHeader && introContent ? (
+            <div className="mt-3 max-w-3xl text-lg leading-relaxed text-slate-600 [&>p+p]:mt-3">
+              {introContent}
+              {page.updated ? (
+                <time
+                  dateTime={page.updated}
+                  className="mt-3 block text-sm font-semibold text-brand-700"
+                >
+                  Inhoud gecontroleerd op {dateFormatter.format(new Date(page.updated))}
+                </time>
+              ) : null}
+            </div>
+          ) : (
+            <p className="mt-3 max-w-2xl text-lg text-slate-600">{page.description}</p>
+          )}
         </div>
       </header>
 
@@ -124,7 +146,7 @@ export default async function ContentPage({ params }: Props) {
 
           <div className={`min-w-0 lg:order-1 ${visual.contentWidth}`}>
             {showCta && visual.prominentForm && <DienstCTA label={ctaLabel} />}
-            {introContent && (
+            {introContent && !introInHeader && (
               <DirectAnswer note={page.answerNote} updated={page.updated}>
                 {introContent}
               </DirectAnswer>
