@@ -3,6 +3,7 @@
 // hebben voorrang op deze catch-all.
 
 import type { Metadata } from "next";
+import Image from "next/image";
 import Script from "next/script";
 import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
@@ -51,7 +52,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: page.description,
     alternates: { canonical: path },
     robots: page.noindex ? { index: false, follow: true } : undefined,
-    openGraph: { title: page.title, description: page.description, url: path, type: "article" },
+    openGraph: {
+      title: page.title,
+      description: page.description,
+      url: path,
+      type: "article",
+      ...(page.image ? { images: [{ url: page.image, alt: page.headerImageAlt ?? page.h1 }] } : {}),
+    },
   };
 }
 
@@ -107,44 +114,61 @@ export default async function ContentPage({ params }: Props) {
               <Breadcrumbs items={page.breadcrumbs} />
             </div>
           ) : null}
-          <div className="mb-3 flex flex-wrap items-center gap-2">
-            <span className="inline-flex rounded-full border border-brand-200 bg-white px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand-700">
-              {visual.label}
-            </span>
-            <span className="text-sm text-slate-500">{visual.description}</span>
-          </div>
-          <h1 id="page-title" className="max-w-3xl text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">
-            {page.h1}
-          </h1>
-          {introInHeader && introContent ? (
-            <div className="mt-3 max-w-3xl text-lg leading-relaxed text-slate-600 [&>p+p]:mt-3">
-              {introContent}
-              {page.updated || page.editorial ? (
-                <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-semibold text-brand-700">
-                  {page.updated ? (
-                    <time dateTime={page.updated}>
-                      Inhoud gecontroleerd op {dateFormatter.format(new Date(page.updated))}
-                    </time>
+          <div className={page.headerImage ? "grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_400px]" : ""}>
+            <div>
+              <div className="mb-3 flex flex-wrap items-center gap-2">
+                <span className="inline-flex rounded-full border border-brand-200 bg-white px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand-700">
+                  {visual.label}
+                </span>
+                <span className="text-sm text-slate-500">{visual.description}</span>
+              </div>
+              <h1 id="page-title" className="max-w-3xl text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">
+                {page.h1}
+              </h1>
+              {introInHeader && introContent ? (
+                <div className="mt-3 max-w-3xl text-lg leading-relaxed text-slate-600 [&>p+p]:mt-3">
+                  {introContent}
+                  {page.updated || page.editorial ? (
+                    <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-semibold text-brand-700">
+                      {page.updated ? (
+                        <time dateTime={page.updated}>
+                          Inhoud gecontroleerd op {dateFormatter.format(new Date(page.updated))}
+                        </time>
+                      ) : null}
+                      {page.editorial?.author ? <span>Uitgever: {page.editorial.author}</span> : null}
+                      {page.editorial?.sourceLabel && page.editorial.sourceUrl ? (
+                        <a
+                          href={page.editorial.sourceUrl}
+                          rel="noopener noreferrer"
+                          className="underline decoration-brand-300 underline-offset-2 hover:text-brand-800"
+                        >
+                          Controlebasis: {page.editorial.sourceLabel}
+                        </a>
+                      ) : null}
+                    </div>
                   ) : null}
-                  {page.editorial?.author ? <span>Uitgever: {page.editorial.author}</span> : null}
-                  {page.editorial?.sourceLabel && page.editorial.sourceUrl ? (
-                    <a
-                      href={page.editorial.sourceUrl}
-                      rel="noopener noreferrer"
-                      className="underline decoration-brand-300 underline-offset-2 hover:text-brand-800"
-                    >
-                      Controlebasis: {page.editorial.sourceLabel}
-                    </a>
+                  {page.editorial?.note ? (
+                    <p className="mt-2 text-sm leading-relaxed text-slate-500">{page.editorial.note}</p>
                   ) : null}
                 </div>
-              ) : null}
-              {page.editorial?.note ? (
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">{page.editorial.note}</p>
-              ) : null}
+              ) : (
+                <p className="mt-3 max-w-2xl text-lg text-slate-600">{page.description}</p>
+              )}
             </div>
-          ) : (
-            <p className="mt-3 max-w-2xl text-lg text-slate-600">{page.description}</p>
-          )}
+            {page.headerImage ? (
+              <figure className="overflow-hidden rounded-2xl border border-brand-200 bg-brand-900 shadow-sm">
+                <Image
+                  src={page.headerImage}
+                  alt={page.headerImageAlt ?? ""}
+                  width={1200}
+                  height={675}
+                  priority
+                  sizes="(max-width: 1023px) 100vw, 400px"
+                  className="h-auto w-full"
+                />
+              </figure>
+            ) : null}
+          </div>
         </div>
       </header>
 

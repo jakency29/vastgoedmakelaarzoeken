@@ -66,6 +66,8 @@ export type PageFrontmatter = {
   showLeadForm?: boolean; // default true
   serviceType?: string; // enkel voor type: "Service"
   image?: string; // hoofdafbeelding voor Article/OpenGraph-schema
+  headerImage?: string; // optionele illustratie rechts van H1 en intro
+  headerImageAlt?: string;
   noindex?: boolean;
 };
 
