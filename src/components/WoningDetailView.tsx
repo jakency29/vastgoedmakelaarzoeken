@@ -171,7 +171,7 @@ export async function WoningDetailView({ w }: { w: Woning }) {
                   <EpcLabel label={w.epcLabel} verbruik={w.epcVerbruik} />
                   {w.renovatieplicht ? (
                     <p className="mt-3 text-sm text-slate-700">
-                      Voor deze woning geldt de Vlaamse renovatieplicht: een koper moet ze binnen vijf jaar na de aankoop energetisch verbeteren tot minstens label D.
+                      Voor deze woning geldt de Vlaamse renovatieplicht: een koper moet ze binnen zes jaar na de aankoop energetisch verbeteren tot minstens label D.
                     </p>
                   ) : null}
                   {w.epcCode ? <p className="mt-2 text-xs text-slate-400">EPC-certificaat {w.epcCode}</p> : null}

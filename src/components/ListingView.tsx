@@ -9,6 +9,7 @@ import { woningHref, type Woning } from "@/lib/woningen";
 
 type Crumb = { name: string; href?: string };
 type Chip = { label: string; href: string; count: number };
+export type ListingFaqItem = { question: string; answer: string };
 
 export function ListingView({
   breadcrumb,
@@ -17,6 +18,7 @@ export function ListingView({
   path,
   chips,
   woningen,
+  faq,
   content,
 }: {
   breadcrumb: Crumb[];
@@ -25,6 +27,7 @@ export function ListingView({
   path: string;
   chips?: Chip[];
   woningen: Woning[];
+  faq?: ListingFaqItem[];
   content?: React.ReactNode;
 }) {
   const url = absoluteUrl(path);
@@ -98,6 +101,22 @@ export function ListingView({
         })),
       },
       itemList,
+      ...(faq?.length
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": `${url}#veelgestelde-vragen`,
+              url: `${url}#veelgestelde-vragen`,
+              inLanguage: "nl-BE",
+              isPartOf: { "@id": `${url}#page` },
+              mainEntity: faq.map((item) => ({
+                "@type": "Question",
+                name: item.question,
+                acceptedAnswer: { "@type": "Answer", text: item.answer },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 

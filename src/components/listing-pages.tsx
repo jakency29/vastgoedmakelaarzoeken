@@ -17,7 +17,7 @@ import {
 } from "@/lib/woningen";
 import { kantoren, type Kantoor } from "@/lib/kantoren";
 import { PremiumBadge } from "./PremiumBadge";
-import { ListingView } from "./ListingView";
+import { ListingView, type ListingFaqItem } from "./ListingView";
 
 const HOME = { name: "Home", href: "/" };
 const aantal = (n: number) => `${n} ${n === 1 ? "pand" : "panden"}`;
@@ -67,6 +67,53 @@ function hash(s: string): number {
 }
 
 type Gids = { slug: string; anker: string };
+
+type LocatieProfiel = {
+  deelgemeenten: { naam: string; postcode: string }[];
+  bron: { label: string; href: string };
+  controles: { titel: string; tekst: string; label: string; href: string }[];
+};
+
+const LOCATIEPROFIELEN: Record<string, LocatieProfiel> = {
+  beringen: {
+    deelgemeenten: [
+      { naam: "Beringen", postcode: "3580" },
+      { naam: "Beverlo", postcode: "3581" },
+      { naam: "Koersel", postcode: "3582" },
+      { naam: "Paal", postcode: "3583" },
+    ],
+    bron: {
+      label: "Vlaamse overheid: Stad Beringen",
+      href: "https://www.vlaanderen.be/organisaties/stad-beringen",
+    },
+    controles: [
+      {
+        titel: "Perceel en omgeving",
+        tekst: "Zoek het adres in Geopunt op en bekijk het perceel, de kadastrale context en relevante kaartlagen rond de woning.",
+        label: "Open Geopunt",
+        href: "https://www.geopunt.be/",
+      },
+      {
+        titel: "Overstromingsgevoeligheid",
+        tekst: "Controleer op Waterinfo afzonderlijk de P-score van het perceel en de G-score van het gebouw. Beide lopen van A tot D.",
+        label: "Open Waterinfo",
+        href: "https://www.waterinfo.vlaanderen.be/",
+      },
+      {
+        titel: "Vergunningen en bestemming",
+        tekst: "Vraag na welke plannen, vergunningen, erfdienstbaarheden, heffingen en andere vastgoedinlichtingen bij het pand horen.",
+        label: "Bekijk het VIP van Stad Beringen",
+        href: "https://www.beringen.be/vastgoedinformatie-platform",
+      },
+      {
+        titel: "EPC en renovatieplicht",
+        tekst: "Bij een residentiële woning met EPC-label E of F moet de nieuwe eigenaar binnen zes jaar minstens label D behalen.",
+        label: "Lees de officiële renovatieregels",
+        href: "https://www.vlaanderen.be/bouwen-wonen-en-energie/kopen-en-verkopen/een-huis-of-appartement-kopen/renovatieverplichting-voor-residentiele-gebouwen",
+      },
+    ],
+  },
+};
 
 // Attest- en kostengidsen (voor de aankoopparagraaf). Ankertekst spiegelt de doelpagina.
 const ATTEST_GIDSEN: Gids[] = [
@@ -144,6 +191,45 @@ function introTekst(cat: Categorie, naam: string, lijst: Woning[], gemeenten?: s
   return zinnen.join(" ");
 }
 
+function deelgemeentenInAanbod(lijst: Woning[], profiel: LocatieProfiel): string[] {
+  const postcodes = new Set(lijst.map((woning) => woning.postcode));
+  return profiel.deelgemeenten.filter((deelgemeente) => postcodes.has(deelgemeente.postcode)).map((deelgemeente) => deelgemeente.naam);
+}
+
+function maakGemeenteFaq(cat: Categorie, naam: string, lijst: Woning[], profiel?: LocatieProfiel): ListingFaqItem[] | undefined {
+  if (!profiel) return undefined;
+
+  const range = prijsRange(lijst);
+  const deelgemeenten = deelgemeentenInAanbod(lijst, profiel);
+  const renovatiepanden = lijst.filter((woning) => woning.renovatieplicht === true);
+  const aanbodWoord = lijst.length === 1 ? cat.key : catWoord(cat, true);
+  const locatieAntwoord = deelgemeenten.length
+    ? `Het huidige aanbod op deze pagina ligt in ${lijstNL(deelgemeenten)}. De gemeente Beringen omvat ${lijstNL(profiel.deelgemeenten.map((item) => item.naam))}. Controleer daarom op elk panddetail het volledige adres en niet alleen de gemeentenaam.`
+    : `Controleer op elk panddetail het volledige adres en de postcode. Beringen bestaat uit ${lijstNL(profiel.deelgemeenten.map((item) => item.naam))}, waardoor een resultaat op gemeenteniveau in verschillende deelgemeenten kan liggen.`;
+  const prijsAntwoord = range
+    ? range.min === range.max
+      ? `De enige vermelde vraagprijs is momenteel ${formatPrijs(range.min)}. Dit is een vraagprijs van één pand en geen gemiddelde verkoopprijs voor heel ${naam}.`
+      : `De actuele vraagprijzen op deze pagina lopen van ${formatPrijs(range.min)} tot ${formatPrijs(range.max)}. Dat is de bandbreedte van het huidige platformaanbod, niet de gemiddelde woningprijs voor heel ${naam}.`
+    : `Niet elk pand op deze pagina heeft een openbare vraagprijs. Open het panddetail om de beschikbare prijsinformatie te bekijken.`;
+  const renovatieAntwoord = renovatiepanden.length
+    ? `${renovatiepanden.map((woning) => woning.adres).join(" en ")} ${renovatiepanden.length === 1 ? "staat" : "staan"} in de aanbodgegevens met renovatieplicht vermeld. Voor een residentiële woning met EPC-label E of F geldt dat de nieuwe eigenaar binnen zes jaar minstens label D moet behalen. Laat de concrete verplichting vóór een bod bevestigen.`
+    : `In het huidige aanbod staat geen pand expliciet met renovatieplicht aangeduid. Controleer toch altijd het EPC en de overdrachtsvoorwaarden van het gekozen pand vóór je een bod doet.`;
+
+  return [
+    {
+      question: `Hoeveel ${catWoord(cat, true)} staan momenteel te koop in ${naam}?`,
+      answer: `Op dit moment toont deze pagina ${lijst.length} ${aanbodWoord} te koop in ${naam}. Het aantal wordt rechtstreeks uit het beschikbare aanbod op het platform opgebouwd en kan wijzigen wanneer een pand wordt toegevoegd of verkocht.`,
+    },
+    { question: `In welke deelgemeente ligt het huidige aanbod in ${naam}?`, answer: locatieAntwoord },
+    { question: `Wat is de prijs van een ${cat.key} in ${naam}?`, answer: prijsAntwoord },
+    { question: `Voor welke woning in ${naam} geldt de renovatieplicht?`, answer: renovatieAntwoord },
+    {
+      question: `Hoe vraag ik informatie of een bezoek aan voor een ${cat.key} in ${naam}?`,
+      answer: `Open het detail van het pand dat je interesseert. Daar vind je de aanbieder, alle beschikbare kenmerken en de knop om informatie of een bezoek aan te vragen. Vergelijk eerst prijs, EPC, oppervlakte, perceel en staat van de woning.`,
+    },
+  ];
+}
+
 // Unieke, data-gedreven content onder de listings.
 function LocatieContent({
   cat,
@@ -153,6 +239,10 @@ function LocatieContent({
   kantorenLijst,
   gemeenten,
   bovenliggendAanbod,
+  profiel,
+  provincieSlug,
+  alternatieven,
+  faq,
 }: {
   cat: Categorie;
   naam: string;
@@ -161,10 +251,27 @@ function LocatieContent({
   kantorenLijst: Kantoor[];
   gemeenten?: { naam: string; slug: string; count: number }[];
   bovenliggendAanbod?: { naam: string; href: string };
+  profiel?: LocatieProfiel;
+  provincieSlug?: string;
+  alternatieven?: { naam: string; slug: string; count: number }[];
+  faq?: ListingFaqItem[];
 }) {
   const attest = kiesGidsen(ATTEST_GIDSEN, seed, 2);
   const leesook = kiesGidsen(LEESOOK_GIDSEN, `${seed}-lees`, 3);
   const teRenoveren = lijst.filter((w) => w.epcLabel && ["E", "F", "G"].includes(w.epcLabel));
+  const geprijsdePanden = lijst.filter((woning): woning is Woning & { prijs: number } => woning.prijs !== null);
+  const laagstePrijs = geprijsdePanden.reduce<(Woning & { prijs: number }) | undefined>(
+    (laagste, woning) => (!laagste || woning.prijs < laagste.prijs ? woning : laagste),
+    undefined,
+  );
+  const epcVolgorde = ["A+", "A", "B", "C", "D", "E", "F", "G"];
+  const besteEpc = lijst
+    .filter((woning) => woning.epcLabel && epcVolgorde.includes(woning.epcLabel))
+    .sort((a, b) => epcVolgorde.indexOf(a.epcLabel!) - epcVolgorde.indexOf(b.epcLabel!))[0];
+  const grootstePerceel = lijst
+    .filter((woning): woning is Woning & { grond: number } => woning.grond !== null)
+    .sort((a, b) => b.grond - a.grond)[0];
+  const deelgemeenten = profiel ? deelgemeentenInAanbod(lijst, profiel) : [];
 
   return (
     <>
@@ -198,7 +305,7 @@ function LocatieContent({
                 {lijst[0].bouwjaar ? ` uit ${lijst[0].bouwjaar}` : ""}. De vraagprijs bedraagt {formatPrijs(lijst[0].prijs)}
                 {lijst[0].bewoonbaar ? ` voor ${formatOpp(lijst[0].bewoonbaar)} bewoonbare oppervlakte` : ""}.
                 {teRenoveren.length
-                  ? ` Door EPC-label ${lijst[0].epcLabel} valt de woning onder de Vlaamse renovatieplicht: een koper verbetert ze binnen vijf jaar na de aankoop tot minstens label D.`
+                  ? ` Door EPC-label ${lijst[0].epcLabel} valt de woning onder de Vlaamse renovatieplicht: een koper verbetert ze binnen zes jaar na de aankoop tot minstens label D.`
                   : ""}
               </>
             ) : (
@@ -240,6 +347,78 @@ function LocatieContent({
               </table>
             </div>
           )}
+
+          {profiel && lijst.length > 1 && (
+            <>
+              <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Welke woning past bij je zoekprofiel?</h2>
+              <p className="mt-3 leading-relaxed text-slate-700">
+                De panden verschillen sterk in prijs, energieprestatie en perceel. Gebruik die kenmerken als eerste selectie en open daarna het panddetail voor de volledige documenten en voorwaarden.
+              </p>
+              <dl className="mt-4 grid gap-3 sm:grid-cols-3">
+                {laagstePrijs && (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                    <dt className="text-sm font-bold text-slate-500">Laagste vraagprijs</dt>
+                    <dd className="mt-1 font-extrabold text-brand-900">{laagstePrijs.adres}</dd>
+                    <dd className="mt-1 text-sm text-slate-700">{formatPrijs(laagstePrijs.prijs)}</dd>
+                  </div>
+                )}
+                {besteEpc && (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                    <dt className="text-sm font-bold text-slate-500">Sterkste EPC-label</dt>
+                    <dd className="mt-1 font-extrabold text-brand-900">{besteEpc.adres}</dd>
+                    <dd className="mt-1 text-sm text-slate-700">EPC-label {besteEpc.epcLabel}{besteEpc.epcVerbruik ? `, ${besteEpc.epcVerbruik} kWh/m2` : ""}</dd>
+                  </div>
+                )}
+                {grootstePerceel && (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                    <dt className="text-sm font-bold text-slate-500">Grootste perceel</dt>
+                    <dd className="mt-1 font-extrabold text-brand-900">{grootstePerceel.adres}</dd>
+                    <dd className="mt-1 text-sm text-slate-700">{formatOpp(grootstePerceel.grond)}</dd>
+                  </div>
+                )}
+              </dl>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                Dit zijn vergelijkingen binnen het actuele aanbod op deze pagina. Een lagere vraagprijs kan samengaan met renovatiewerken, terwijl een groter perceel of beter EPC niet op zichzelf de uiteindelijke waarde bepaalt.
+              </p>
+            </>
+          )}
+
+          {profiel && (
+            <>
+              <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Waar ligt het huidige aanbod binnen {naam}?</h2>
+              <p className="mt-3 leading-relaxed text-slate-700">
+                {naam} bestaat uit {lijstNL(profiel.deelgemeenten.map((item) => item.naam))}. Het huidige aanbod op deze pagina ligt
+                {deelgemeenten.length ? ` in ${lijstNL(deelgemeenten)}` : " verspreid binnen de gemeente"}. Zo zie je meteen dat de gemeentenaam alleen niet voldoende is om de ligging van een pand te beoordelen.
+              </p>
+              <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200">
+                <table className="w-full border-collapse text-left text-sm">
+                  <thead className="bg-brand-50 text-brand-900">
+                    <tr>
+                      <th className="px-4 py-3 font-extrabold">Deelgemeente</th>
+                      <th className="px-4 py-3 font-extrabold">Postcode</th>
+                      <th className="px-4 py-3 font-extrabold">Huidig aanbod</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
+                    {profiel.deelgemeenten.map((deelgemeente) => {
+                      const count = lijst.filter((woning) => woning.postcode === deelgemeente.postcode).length;
+                      return (
+                        <tr key={deelgemeente.postcode}>
+                          <td className="px-4 py-3 font-semibold text-brand-800">{deelgemeente.naam}</td>
+                          <td className="px-4 py-3">{deelgemeente.postcode}</td>
+                          <td className="px-4 py-3">{count ? aantal(count) : "Geen pand op dit moment"}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-3 text-sm text-slate-600">
+                Gemeente-indeling gecontroleerd via{" "}
+                <a href={profiel.bron.href} className="font-medium text-brand-700 underline underline-offset-2">{profiel.bron.label}</a>.
+              </p>
+            </>
+          )}
         </>
       )}
 
@@ -266,6 +445,30 @@ function LocatieContent({
         <GidsLink gids={attest[0]} /> en <GidsLink gids={attest[1]} />, zodat je de vraagprijs kunt afwegen tegen de energiescore, de staat van de woning en wat je als koper nog extra betaalt.
       </p>
 
+      {profiel && (
+        <>
+          <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Welke lokale gegevens controleer je vóór een bod?</h2>
+          <p className="mt-3 leading-relaxed text-slate-700">
+            Controleer niet alleen de foto&apos;s en kenmerken uit de advertentie. Zoek elk adres afzonderlijk op en vergelijk de officiële perceel-, water- en vergunningsinformatie met wat in het panddetail staat.
+          </p>
+          <ol className="mt-4 grid gap-3 sm:grid-cols-2">
+            {profiel.controles.map((controle, index) => (
+              <li key={controle.href} className="rounded-2xl border border-slate-200 bg-white p-4">
+                <p className="text-sm font-bold text-accent-700">Controle {index + 1}</p>
+                <h3 className="mt-1 font-extrabold text-brand-900">{controle.titel}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-700">{controle.tekst}</p>
+                <a href={controle.href} className="mt-3 inline-block text-sm font-bold text-brand-700 underline underline-offset-2">
+                  {controle.label}
+                </a>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600">
+            Een kaart of advertentie vervangt de attesten, het vastgoedinformatiedossier en juridisch advies van de notaris niet. Neem bij twijfel een opschortende voorwaarde op voordat je een bindend bod uitbrengt.
+          </p>
+        </>
+      )}
+
       {bovenliggendAanbod && (
         <div className="mt-8 rounded-2xl border border-accent-300 bg-accent-50 px-5 py-4">
           <p className="font-extrabold text-brand-900">Nog niet gevonden wat je zoekt?</p>
@@ -273,6 +476,43 @@ function LocatieContent({
             Bekijk ook <Link href={bovenliggendAanbod.href} className="font-bold text-brand-700 underline underline-offset-2">het volledige aanbod in {bovenliggendAanbod.naam}</Link>. Open een panddetail om alle foto&apos;s en kenmerken te bekijken en rechtstreeks informatie of een bezoek aan te vragen.
           </p>
         </div>
+      )}
+
+      {alternatieven && alternatieven.length > 0 && (
+        <>
+          <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Welke andere gemeenten in de provincie kun je vergelijken?</h2>
+          <p className="mt-3 leading-relaxed text-slate-700">
+            Vind je in {naam} nog niet de juiste woning, vergelijk dan het beschikbare aanbod in andere gemeenten binnen dezelfde provincie. De aantallen hieronder komen uit het actuele platformaanbod.
+          </p>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {alternatieven.map((alternatief) => (
+              <li key={alternatief.slug}>
+                <Link href={`/${cat.prefix}/${provincieSlug}/${alternatief.slug}`} className="font-medium text-brand-700 underline underline-offset-2">
+                  {cat.meervoud} te koop in {alternatief.naam}
+                </Link>{" "}
+                <span className="text-slate-500">({aantal(alternatief.count)})</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {faq && faq.length > 0 && (
+        <section id="veelgestelde-vragen" aria-labelledby="veelgestelde-vragen-titel" className="mt-8 scroll-mt-24">
+          <h2 id="veelgestelde-vragen-titel" className="text-2xl font-extrabold tracking-tight text-brand-900">
+            Veelgestelde vragen over {catWoord(cat, true)} te koop in {naam}
+          </h2>
+          <div className="mt-4 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white px-5">
+            {faq.map((item) => (
+              <details key={item.question} className="group py-4">
+                <summary className="cursor-pointer list-none pr-6 font-bold text-brand-900 marker:content-none">
+                  {item.question}
+                </summary>
+                <p className="mt-3 leading-relaxed text-slate-700">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
       )}
 
       <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Welke gidsen helpen je bij de aankoop?</h2>
@@ -385,6 +625,11 @@ export function GemeenteView({ cat, provincieSlug, gemeenteSlug }: { cat: Catego
   if (!l) notFound();
   const lijst = woningenGemeenteVoor(cat, provincieSlug, gemeenteSlug);
   const kantorenLijst = kantoren.filter((k) => k.gemeente === l.gemeente || k.regios.includes(l.gemeente));
+  const profiel = LOCATIEPROFIELEN[gemeenteSlug];
+  const faq = maakGemeenteFaq(cat, l.gemeente, lijst, profiel);
+  const alternatieven = profiel
+    ? gemeentenVoor(cat, provincieSlug).filter((gemeente) => gemeente.slug !== gemeenteSlug).slice(0, 6)
+    : undefined;
   return (
     <ListingView
       breadcrumb={[HOME, { name: cat.label, href: `/${cat.prefix}` }, { name: l.provincie, href: `/${cat.prefix}/${provincieSlug}` }, { name: l.gemeente }]}
@@ -392,6 +637,7 @@ export function GemeenteView({ cat, provincieSlug, gemeenteSlug }: { cat: Catego
       subtitle={introTekst(cat, l.gemeente, lijst)}
       path={`/${cat.prefix}/${provincieSlug}/${gemeenteSlug}`}
       woningen={lijst}
+      faq={faq}
       content={
         <LocatieContent
           cat={cat}
@@ -400,6 +646,10 @@ export function GemeenteView({ cat, provincieSlug, gemeenteSlug }: { cat: Catego
           lijst={lijst}
           kantorenLijst={kantorenLijst}
           bovenliggendAanbod={{ naam: l.provincie, href: `/${cat.prefix}/${provincieSlug}` }}
+          profiel={profiel}
+          provincieSlug={provincieSlug}
+          alternatieven={alternatieven}
+          faq={faq}
         />
       }
     />
