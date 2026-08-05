@@ -159,6 +159,25 @@ const contentNavPresets: Record<string, ContentNavItem[]> = {
     { id: "hoe-pas-je-de-regels-toe-in-drie-praktijksituaties", label: "Drie praktijksituaties" },
     { id: "welke-checklist-gebruik-je-voor-verkoop", label: "Verkoopchecklist" },
   ],
+  elektriciteitskeuring: [
+    { id: "wat-is-een-elektriciteitskeuring-bij-verkoop-precies", label: "Betekenis en AREI" },
+    { id: "wanneer-is-een-elektriciteitskeuring-verplicht-bij-verkoop", label: "Verplichting" },
+    { id: "wat-is-het-verschil-tussen-een-oude-en-nieuwere-installatie", label: "Oude of nieuwere installatie" },
+    { id: "welke-uitzondering-geldt-bij-volledige-renovatie-of-afbraak", label: "Renovatie of afbraak" },
+    { id: "wie-mag-de-elektriciteitskeuring-uitvoeren", label: "Erkend controleorganisme" },
+    { id: "hoe-verloopt-de-elektriciteitskeuring-stap-voor-stap", label: "Keuring stap voor stap" },
+    { id: "welke-documenten-heb-je-nodig", label: "Schema's en dossier" },
+    { id: "wat-controleert-de-keurder", label: "Controlepunten" },
+    { id: "wat-kost-een-elektriciteitskeuring-in-2026", label: "Prijs en offerte" },
+    { id: "hoe-lang-is-een-elektrisch-keuringsverslag-geldig", label: "Geldigheid" },
+    { id: "wat-betekent-een-positief-of-negatief-verslag", label: "Positief of negatief" },
+    { id: "wie-moet-een-afgekeurde-installatie-in-orde-brengen", label: "Hersteltermijnen" },
+    { id: "welke-rol-heeft-de-notaris-bij-de-verkoop", label: "Notaris en verkoopakte" },
+    { id: "hoe-werkt-de-keuring-bij-een-appartement", label: "Appartement" },
+    { id: "welke-fouten-moet-je-vermijden-bij-de-keuring", label: "Veelgemaakte fouten" },
+    { id: "hoe-pas-je-de-regels-toe-in-drie-praktijksituaties", label: "Drie praktijksituaties" },
+    { id: "welke-checklist-gebruik-je-voor-de-verkoop", label: "Verkoopchecklist" },
+  ],
 };
 
 export function ContentNav({ variant, items }: { variant?: string; items?: ContentNavItem[] }) {
