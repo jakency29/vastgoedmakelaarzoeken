@@ -133,7 +133,7 @@ const ATTEST_GIDSEN: Gids[] = [
   { slug: "huis-verkopen-verplichtingen/epc", anker: "het EPC" },
   { slug: "huis-verkopen-verplichtingen/elektriciteitskeuring", anker: "de elektrische keuring" },
   { slug: "huis-verkopen-verplichtingen/bodemattest", anker: "het bodemattest" },
-  { slug: "asbestattest/bij-verkoop", anker: "het asbestattest" },
+  { slug: "huis-verkopen-verplichtingen/asbestattest", anker: "het asbestattest" },
   { slug: "registratierechten", anker: "de registratierechten" },
   { slug: "notariskosten-verkoop-huis", anker: "de notariskosten" },
 ];

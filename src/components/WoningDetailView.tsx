@@ -330,7 +330,7 @@ export async function WoningDetailView({ w }: { w: Woning }) {
               <li className="rounded-2xl border border-slate-200 bg-white p-4">
                 <h3 className="font-extrabold text-brand-900">Bodem en asbest</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-700">
-                  Vraag het <Link href="/huis-verkopen-verplichtingen/bodemattest" className="font-medium text-brand-700 underline underline-offset-2">bodemattest bij de verkoop</Link> op{Number(w.bouwjaar) < 2001 ? <> en controleer het <Link href="/asbestattest/bij-verkoop" className="font-medium text-brand-700 underline underline-offset-2">asbestattest voor het oudere gebouw</Link></> : ""}.
+                  Vraag het <Link href="/huis-verkopen-verplichtingen/bodemattest" className="font-medium text-brand-700 underline underline-offset-2">bodemattest bij de verkoop</Link> op{Number(w.bouwjaar) < 2001 ? <> en controleer het <Link href="/huis-verkopen-verplichtingen/asbestattest" className="font-medium text-brand-700 underline underline-offset-2">asbestattest voor het oudere gebouw</Link></> : ""}.
                 </p>
               </li>
               <li className="rounded-2xl border border-slate-200 bg-white p-4">

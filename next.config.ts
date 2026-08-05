@@ -28,6 +28,12 @@ const launchRedirects = [
   { from: "/vastgoedkantoren", to: "/kantoor" },
 ];
 
+// Gebruik een klassieke 301 voor inhoudelijke consolidaties waarbij de oude URL
+// definitief naar de gekozen canonieke pagina verhuist.
+const movedPermanentlyRedirects = [
+  { from: "/asbestattest/bij-verkoop", to: "/huis-verkopen-verplichtingen/asbestattest" },
+];
+
 // Redirects op basis van Google Search Console-data van 28 juli 2026.
 // Deze oude routes ontvangen nog organische vertoningen of klikken, maar hebben in de
 // huidige site een nieuwe inhoudelijk equivalente bestemming.
@@ -124,11 +130,18 @@ const searchConsoleRedirects = [
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return [...launchRedirects, ...searchConsoleRedirects, ...woningRedirects].map((r) => ({
-      source: r.from,
-      destination: r.to,
-      permanent: true,
-    }));
+    return [
+      ...movedPermanentlyRedirects.map((r) => ({
+        source: r.from,
+        destination: r.to,
+        statusCode: 301 as const,
+      })),
+      ...[...launchRedirects, ...searchConsoleRedirects, ...woningRedirects].map((r) => ({
+        source: r.from,
+        destination: r.to,
+        permanent: true,
+      })),
+    ];
   },
 };
 

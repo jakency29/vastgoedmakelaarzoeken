@@ -124,6 +124,23 @@ function headingId(children: ReactNode) {
 type ContentNavItem = { id: string; label: string };
 
 const contentNavPresets: Record<string, ContentNavItem[]> = {
+  "asbestattest-verkoop": [
+    { id: "wat-moet-je-eerst-weten-over-het-asbestattest-bij-verkoop", label: "Snel overzicht" },
+    { id: "wat-is-een-asbestattest-bij-verkoop-precies", label: "Betekenis en inhoud" },
+    { id: "wanneer-is-een-asbestattest-verplicht-bij-verkoop", label: "Verplichting en 20 m²" },
+    { id: "wanneer-moet-de-koper-het-asbestattest-ontvangen", label: "Timing en compromis" },
+    { id: "wie-mag-een-asbestattest-opmaken", label: "Gecertificeerde deskundige" },
+    { id: "hoe-verloopt-de-aanvraag-en-inventarisatie", label: "Aanvraag en inspectie" },
+    { id: "wat-onderzoekt-de-asbestdeskundige-in-en-rond-de-woning", label: "Onderzoek en materialen" },
+    { id: "wat-kost-een-asbestattest-bij-verkoop", label: "Prijs en offerte" },
+    { id: "hoelang-is-een-asbestattest-geldig", label: "Geldigheid" },
+    { id: "mag-je-een-woning-met-asbest-verkopen", label: "Verkopen met asbest" },
+    { id: "wat-gebeurt-er-als-het-asbestattest-ontbreekt-of-onjuist-is", label: "Ontbrekend attest" },
+    { id: "welke-regels-gelden-voor-appartementen-en-gemene-delen", label: "Appartement en VME" },
+    { id: "welke-andere-attesten-horen-bij-het-verkoopdossier", label: "Andere verkoopattesten" },
+    { id: "hoe-pas-je-de-regels-toe-in-drie-praktijksituaties", label: "Drie praktijksituaties" },
+    { id: "welke-checklist-gebruik-je-voor-verkoop-en-aanvraag", label: "Verkoopchecklist" },
+  ],
   asbestattest: [
     { id: "wat-is-een-asbestattest-precies", label: "Betekenis en inhoud" },
     { id: "wanneer-is-een-asbestattest-verplicht", label: "Verplichting en uitzonderingen" },
