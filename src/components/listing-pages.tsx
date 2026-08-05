@@ -38,6 +38,27 @@ function prijsRange(lijst: Woning[]): { min: number; max: number } | null {
   return p.length ? { min: p[0], max: p[p.length - 1] } : null;
 }
 
+function listingDescription(cat: Categorie, naam: string, lijst: Woning[]): string {
+  const range = prijsRange(lijst);
+  const aantalTekst = `${lijst.length} ${lijst.length === 1 ? cat.key : catWoord(cat, true)}`;
+  const prijsTekst = range
+    ? range.min === range.max
+      ? ` met een vraagprijs van ${formatPrijs(range.min)}`
+      : ` met vraagprijzen van ${formatPrijs(range.min)} tot ${formatPrijs(range.max)}`
+    : "";
+  return `Bekijk ${aantalTekst} te koop in ${naam}${prijsTekst}. Vergelijk foto's, EPC, oppervlakte en aanbieder en vraag informatie aan.`.slice(0, 155);
+}
+
+function socialMetadata(title: string, description: string, path: string, lijst: Woning[]): Metadata["openGraph"] {
+  return {
+    type: "website",
+    title,
+    description,
+    url: path,
+    ...(lijst[0]?.fotos[0] ? { images: [{ url: lijst[0].fotos[0], alt: `${lijst[0].type} te koop in ${lijst[0].gemeente}` }] } : {}),
+  };
+}
+
 // Stabiele hash op een string, voor deterministische maar per-pagina wisselende linkselectie.
 function hash(s: string): number {
   let h = 0;
@@ -131,6 +152,7 @@ function LocatieContent({
   lijst,
   kantorenLijst,
   gemeenten,
+  bovenliggendAanbod,
 }: {
   cat: Categorie;
   naam: string;
@@ -138,6 +160,7 @@ function LocatieContent({
   lijst: Woning[];
   kantorenLijst: Kantoor[];
   gemeenten?: { naam: string; slug: string; count: number }[];
+  bovenliggendAanbod?: { naam: string; href: string };
 }) {
   const attest = kiesGidsen(ATTEST_GIDSEN, seed, 2);
   const leesook = kiesGidsen(LEESOOK_GIDSEN, `${seed}-lees`, 3);
@@ -164,7 +187,7 @@ function LocatieContent({
         </>
       ) : (
         <>
-          <h2 className="text-2xl font-extrabold tracking-tight text-brand-900">Over het aanbod in {naam}</h2>
+          <h2 className="text-2xl font-extrabold tracking-tight text-brand-900">Wat staat er momenteel te koop in {naam}?</h2>
           <p className="mt-3 leading-relaxed text-slate-700">
             {lijst.length === 1 ? (
               <>
@@ -182,12 +205,47 @@ function LocatieContent({
               <>Het aanbod in {naam} omvat {aantal(lijst.length)}. {teRenoveren.length ? `Voor ${teRenoveren.length} daarvan geldt door het EPC-label de Vlaamse renovatieplicht.` : ""} Bekijk per pand de kenmerken, de energiescore en de bijkomende kosten.</>
             )}
           </p>
+
+          {lijst.length > 1 && (
+            <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200">
+              <table className="w-full min-w-[680px] border-collapse text-left text-sm">
+                <thead className="bg-brand-50 text-brand-900">
+                  <tr>
+                    <th className="px-4 py-3 font-extrabold">Woning</th>
+                    <th className="px-4 py-3 font-extrabold">Vraagprijs</th>
+                    <th className="px-4 py-3 font-extrabold">Slaapkamers</th>
+                    <th className="px-4 py-3 font-extrabold">Bewoonbaar</th>
+                    <th className="px-4 py-3 font-extrabold">Perceel</th>
+                    <th className="px-4 py-3 font-extrabold">EPC</th>
+                    <th className="px-4 py-3 font-extrabold">Staat</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
+                  {lijst.map((woning) => (
+                    <tr key={woning.id}>
+                      <td className="px-4 py-3 font-semibold text-brand-800">
+                        <Link href={woningHref(woning)} className="underline decoration-brand-300 underline-offset-2 hover:text-brand-600">
+                          {woning.adres}
+                        </Link>
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-3">{formatPrijs(woning.prijs)}</td>
+                      <td className="px-4 py-3">{woning.slaapkamers ?? "Niet vermeld"}</td>
+                      <td className="whitespace-nowrap px-4 py-3">{woning.bewoonbaar ? formatOpp(woning.bewoonbaar) : "Niet vermeld"}</td>
+                      <td className="whitespace-nowrap px-4 py-3">{woning.grond ? formatOpp(woning.grond) : "Niet vermeld"}</td>
+                      <td className="px-4 py-3">{woning.epcLabel ?? "Niet vermeld"}</td>
+                      <td className="px-4 py-3">{woning.staat || "Niet vermeld"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </>
       )}
 
       {kantorenLijst.length > 0 && (
         <>
-          <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Vastgoedkantoren in {naam}</h2>
+          <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Welke vastgoedkantoren zijn actief in {naam}?</h2>
           <p className="mt-3 text-slate-700">
             {kantorenLijst.length === 1 ? "Dit kantoor is" : `Deze ${kantorenLijst.length} kantoren zijn`} actief in {naam}. Bekijk hun aanbod, werkingsgebied en reviews.
           </p>
@@ -208,7 +266,17 @@ function LocatieContent({
         <GidsLink gids={attest[0]} /> en <GidsLink gids={attest[1]} />, zodat je de vraagprijs kunt afwegen tegen de energiescore, de staat van de woning en wat je als koper nog extra betaalt.
       </p>
 
-      <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Lees ook</h2>
+      {bovenliggendAanbod && (
+        <div className="mt-8 rounded-2xl border border-accent-300 bg-accent-50 px-5 py-4">
+          <p className="font-extrabold text-brand-900">Nog niet gevonden wat je zoekt?</p>
+          <p className="mt-1 text-sm leading-relaxed text-slate-700">
+            Bekijk ook <Link href={bovenliggendAanbod.href} className="font-bold text-brand-700 underline underline-offset-2">het volledige aanbod in {bovenliggendAanbod.naam}</Link>. Open een panddetail om alle foto&apos;s en kenmerken te bekijken en rechtstreeks informatie of een bezoek aan te vragen.
+          </p>
+        </div>
+      )}
+
+      <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Welke gidsen helpen je bij de aankoop?</h2>
+      <p className="mt-3 leading-relaxed text-slate-700">Deze gidsen helpen je om budget, bod en begeleiding te beoordelen voordat je een woning kiest.</p>
       <ul className="mt-3 space-y-2">
         {leesook.map((g) => (
           <li key={g.slug}><GidsLink gids={g} /></li>
@@ -220,19 +288,27 @@ function LocatieContent({
 
 // ---- Overzicht ----
 export function overviewMetadata(cat: Categorie): Metadata {
+  const lijst = woningenVoor(cat);
+  const title = `${cat.meervoud} te koop in Vlaanderen`;
+  const description = `Bekijk ${lijst.length} ${catWoord(cat, true)} te koop bij vastgoedkantoren op ons platform. Filter per provincie en gemeente en vergelijk de belangrijkste kenmerken.`.slice(0, 155);
+  const path = `/${cat.prefix}`;
   return {
-    title: { absolute: `${cat.meervoud} te koop in Vlaanderen` },
-    description: `Bekijk ${cat.meervoud.toLowerCase()} te koop bij erkende vastgoedkantoren. Filter per provincie en gemeente en vraag vrijblijvend info of een bezoek aan.`.slice(0, 155),
-    alternates: { canonical: `/${cat.prefix}` },
+    title: { absolute: title },
+    description,
+    alternates: { canonical: path },
+    openGraph: socialMetadata(title, description, path, lijst),
+    twitter: { card: "summary_large_image", title, description, ...(lijst[0]?.fotos[0] ? { images: [lijst[0].fotos[0]] } : {}) },
   };
 }
 export function OverviewView({ cat }: { cat: Categorie }) {
   const provs = provinciesVoor(cat);
+  const path = `/${cat.prefix}`;
   return (
     <ListingView
       breadcrumb={[HOME, { name: cat.label }]}
       title={`${cat.meervoud} te koop`}
       subtitle={`Bekijk het actuele aanbod van ${cat.meervoud.toLowerCase()} te koop bij de vastgoedkantoren op ons platform. Kies je provincie en gemeente of bekijk meteen alle panden.`}
+      path={path}
       chips={provs.map((p) => ({ label: p.naam, href: `/${cat.prefix}/${p.slug}`, count: p.count }))}
       woningen={woningenVoor(cat)}
     />
@@ -246,10 +322,16 @@ export function provincieParams(cat: Categorie) {
 export function provincieMetadata(cat: Categorie, provincieSlug: string): Metadata {
   const p = provinciesVoor(cat).find((x) => x.slug === provincieSlug);
   if (!p) return {};
+  const lijst = woningenVoor(cat).filter((w) => w.provincieSlug === provincieSlug);
+  const title = `${cat.meervoud} te koop in ${p.naam}: ${lijst.length} ${lijst.length === 1 ? "pand" : "panden"}`;
+  const description = listingDescription(cat, p.naam, lijst);
+  const path = `/${cat.prefix}/${p.slug}`;
   return {
-    title: { absolute: `${cat.meervoud} te koop in ${p.naam}` },
-    description: `Bekijk ${cat.meervoud.toLowerCase()} te koop in ${p.naam} bij erkende vastgoedkantoren. Vraag vrijblijvend info of een bezoek aan.`.slice(0, 155),
-    alternates: { canonical: `/${cat.prefix}/${p.slug}` },
+    title: { absolute: title },
+    description,
+    alternates: { canonical: path },
+    openGraph: socialMetadata(title, description, path, lijst),
+    twitter: { card: "summary_large_image", title, description, ...(lijst[0]?.fotos[0] ? { images: [lijst[0].fotos[0]] } : {}) },
   };
 }
 export function ProvincieView({ cat, provincieSlug }: { cat: Categorie; provincieSlug: string }) {
@@ -263,6 +345,7 @@ export function ProvincieView({ cat, provincieSlug }: { cat: Categorie; provinci
       breadcrumb={[HOME, { name: cat.label, href: `/${cat.prefix}` }, { name: p.naam }]}
       title={`${cat.meervoud} te koop in ${p.naam}`}
       subtitle={introTekst(cat, p.naam, lijst, gem.map((g) => g.naam))}
+      path={`/${cat.prefix}/${p.slug}`}
       chips={gem.map((g) => ({ label: g.naam, href: `/${cat.prefix}/${p.slug}/${g.slug}`, count: g.count }))}
       woningen={lijst}
       content={<LocatieContent cat={cat} naam={p.naam} seed={p.slug} lijst={lijst} kantorenLijst={kantorenLijst} gemeenten={gem} />}
@@ -285,10 +368,16 @@ function gemeenteLabels(cat: Categorie, provincieSlug: string, gemeenteSlug: str
 export function gemeenteMetadata(cat: Categorie, provincieSlug: string, gemeenteSlug: string): Metadata {
   const l = gemeenteLabels(cat, provincieSlug, gemeenteSlug);
   if (!l) return {};
+  const lijst = woningenGemeenteVoor(cat, provincieSlug, gemeenteSlug);
+  const title = `${cat.meervoud} te koop in ${l.gemeente}: ${lijst.length} ${lijst.length === 1 ? "pand" : "panden"}`;
+  const description = listingDescription(cat, l.gemeente, lijst);
+  const path = `/${cat.prefix}/${provincieSlug}/${gemeenteSlug}`;
   return {
-    title: { absolute: `${cat.meervoud} te koop in ${l.gemeente}` },
-    description: `Bekijk ${cat.meervoud.toLowerCase()} te koop in ${l.gemeente} (${l.provincie}) bij erkende vastgoedkantoren. Vraag vrijblijvend info of een bezoek aan.`.slice(0, 155),
-    alternates: { canonical: `/${cat.prefix}/${provincieSlug}/${gemeenteSlug}` },
+    title: { absolute: title },
+    description,
+    alternates: { canonical: path },
+    openGraph: socialMetadata(title, description, path, lijst),
+    twitter: { card: "summary_large_image", title, description, ...(lijst[0]?.fotos[0] ? { images: [lijst[0].fotos[0]] } : {}) },
   };
 }
 export function GemeenteView({ cat, provincieSlug, gemeenteSlug }: { cat: Categorie; provincieSlug: string; gemeenteSlug: string }) {
@@ -301,8 +390,18 @@ export function GemeenteView({ cat, provincieSlug, gemeenteSlug }: { cat: Catego
       breadcrumb={[HOME, { name: cat.label, href: `/${cat.prefix}` }, { name: l.provincie, href: `/${cat.prefix}/${provincieSlug}` }, { name: l.gemeente }]}
       title={`${cat.meervoud} te koop in ${l.gemeente}`}
       subtitle={introTekst(cat, l.gemeente, lijst)}
+      path={`/${cat.prefix}/${provincieSlug}/${gemeenteSlug}`}
       woningen={lijst}
-      content={<LocatieContent cat={cat} naam={l.gemeente} seed={gemeenteSlug} lijst={lijst} kantorenLijst={kantorenLijst} />}
+      content={
+        <LocatieContent
+          cat={cat}
+          naam={l.gemeente}
+          seed={gemeenteSlug}
+          lijst={lijst}
+          kantorenLijst={kantorenLijst}
+          bovenliggendAanbod={{ naam: l.provincie, href: `/${cat.prefix}/${provincieSlug}` }}
+        />
+      }
     />
   );
 }

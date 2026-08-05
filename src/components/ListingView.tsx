@@ -1,8 +1,11 @@
 // Herbruikbare listing-weergave (overzicht/provincie/gemeente) voor huis- en appartement-takken.
 
 import Link from "next/link";
-import { WoningCard } from "./WoningCard";
-import type { Woning } from "@/lib/woningen";
+import { JsonLd } from "./JsonLd";
+import { ListingResults } from "./ListingResults";
+import { absoluteUrl } from "@/lib/site";
+import { getKantoor } from "@/lib/kantoren";
+import { woningHref, type Woning } from "@/lib/woningen";
 
 type Crumb = { name: string; href?: string };
 type Chip = { label: string; href: string; count: number };
@@ -11,6 +14,7 @@ export function ListingView({
   breadcrumb,
   title,
   subtitle,
+  path,
   chips,
   woningen,
   content,
@@ -18,12 +22,88 @@ export function ListingView({
   breadcrumb: Crumb[];
   title: string;
   subtitle: string;
+  path: string;
   chips?: Chip[];
   woningen: Woning[];
   content?: React.ReactNode;
 }) {
+  const url = absoluteUrl(path);
+  const itemListId = `${url}#woningaanbod`;
+  const itemList = {
+    "@type": "ItemList",
+    "@id": itemListId,
+    name: title,
+    numberOfItems: woningen.length,
+    itemListOrder: "https://schema.org/ItemListOrderDescending",
+    itemListElement: woningen.map((woning, index) => {
+      const detailUrl = absoluteUrl(woningHref(woning));
+      const kantoor = getKantoor(woning.kantoorSlug);
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        url: detailUrl,
+        item: {
+          "@type": woning.typeUID.includes("apartment") || woning.typeUID.includes("flat") ? "Apartment" : "House",
+          "@id": `${detailUrl}#woning`,
+          name: `${woning.type} te koop aan de ${woning.adres} in ${woning.gemeente}`,
+          url: detailUrl,
+          ...(woning.fotos[0] ? { image: absoluteUrl(woning.fotos[0]) } : {}),
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: woning.adres,
+            postalCode: woning.postcode,
+            addressLocality: woning.gemeente,
+            addressRegion: woning.provincie,
+            addressCountry: "BE",
+          },
+          ...(woning.slaapkamers ? { numberOfBedrooms: woning.slaapkamers } : {}),
+          ...(woning.bewoonbaar ? { floorSize: { "@type": "QuantitativeValue", value: woning.bewoonbaar, unitCode: "MTK" } } : {}),
+          ...(woning.grond ? { landSize: { "@type": "QuantitativeValue", value: woning.grond, unitCode: "MTK" } } : {}),
+          ...(woning.toegevoegdOp ? { datePosted: woning.toegevoegdOp } : {}),
+          ...(woning.prijs
+            ? {
+                offers: {
+                  "@type": "Offer",
+                  url: detailUrl,
+                  price: woning.prijs,
+                  priceCurrency: "EUR",
+                  availability: "https://schema.org/InStock",
+                  ...(kantoor ? { seller: { "@type": "RealEstateAgent", name: kantoor.naam, url: absoluteUrl(`/kantoor/${kantoor.slug}`) } } : {}),
+                },
+              }
+            : {}),
+        },
+      };
+    }),
+  };
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${url}#page`,
+        url,
+        name: title,
+        description: subtitle,
+        inLanguage: "nl-BE",
+        mainEntity: { "@id": itemListId },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumb.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.name,
+          item: absoluteUrl(item.href ?? path),
+        })),
+      },
+      itemList,
+    ],
+  };
+
   return (
     <main>
+      <JsonLd data={pageSchema} />
       <section className="border-b border-slate-200 bg-brand-50/60">
         <div className="mx-auto max-w-6xl px-4 py-8 lg:py-10">
           <nav aria-label="Broodkruimel" className="text-sm text-slate-500">
@@ -61,9 +141,7 @@ export function ListingView({
         )}
 
         {woningen.length ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {woningen.map((w) => <WoningCard key={w.id} w={w} />)}
-          </div>
+          <ListingResults woningen={woningen} heading={title} />
         ) : (
           <p className="text-slate-600">Er zijn momenteel geen panden beschikbaar in deze categorie.</p>
         )}
