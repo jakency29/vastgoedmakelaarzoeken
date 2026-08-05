@@ -119,13 +119,27 @@ export default async function ContentPage({ params }: Props) {
           {introInHeader && introContent ? (
             <div className="mt-3 max-w-3xl text-lg leading-relaxed text-slate-600 [&>p+p]:mt-3">
               {introContent}
-              {page.updated ? (
-                <time
-                  dateTime={page.updated}
-                  className="mt-3 block text-sm font-semibold text-brand-700"
-                >
-                  Inhoud gecontroleerd op {dateFormatter.format(new Date(page.updated))}
-                </time>
+              {page.updated || page.editorial ? (
+                <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-semibold text-brand-700">
+                  {page.updated ? (
+                    <time dateTime={page.updated}>
+                      Inhoud gecontroleerd op {dateFormatter.format(new Date(page.updated))}
+                    </time>
+                  ) : null}
+                  {page.editorial?.author ? <span>Uitgever: {page.editorial.author}</span> : null}
+                  {page.editorial?.sourceLabel && page.editorial.sourceUrl ? (
+                    <a
+                      href={page.editorial.sourceUrl}
+                      rel="noopener noreferrer"
+                      className="underline decoration-brand-300 underline-offset-2 hover:text-brand-800"
+                    >
+                      Controlebasis: {page.editorial.sourceLabel}
+                    </a>
+                  ) : null}
+                </div>
+              ) : null}
+              {page.editorial?.note ? (
+                <p className="mt-2 text-sm leading-relaxed text-slate-500">{page.editorial.note}</p>
               ) : null}
             </div>
           ) : (

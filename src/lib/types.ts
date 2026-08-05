@@ -21,6 +21,13 @@ export type RelatedLink = {
   slug: string;
 };
 
+export type EditorialInfo = {
+  author?: string;
+  sourceLabel?: string;
+  sourceUrl?: string;
+  note?: string;
+};
+
 // Zoekintentie van de pagina (bepaalt sectievolgorde en interne links).
 export type Intent = "core" | "informational" | "local";
 
@@ -46,6 +53,7 @@ export type PageFrontmatter = {
   visualType?: VisualType; // optionele override voor de intentiegestuurde template
   introInHeader?: boolean; // toon de vrije openingsalinea's direct onder de H1
   answerNote?: string; // belangrijke uitzondering of toepassingscontext bij het directe antwoord
+  editorial?: EditorialInfo; // zichtbare uitgever, controlebasis en redactionele toelichting
   silo?: string; // hub-slug, bijv. "asbestattest"
   type?: PageType;
   updated?: string; // ISO datum (dateModified)
@@ -57,6 +65,7 @@ export type PageFrontmatter = {
   related?: RelatedLink[];
   showLeadForm?: boolean; // default true
   serviceType?: string; // enkel voor type: "Service"
+  image?: string; // hoofdafbeelding voor Article/OpenGraph-schema
   noindex?: boolean;
 };
 

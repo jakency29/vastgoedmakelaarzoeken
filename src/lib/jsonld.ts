@@ -127,6 +127,7 @@ function mainSchema(page: ContentPage) {
       mainEntityOfPage: url,
       author: { "@id": ORG_ID },
       publisher: { "@id": ORG_ID },
+      ...(page.image ? { image: absoluteUrl(page.image) } : {}),
       ...(page.published ? { datePublished: page.published } : {}),
     };
   }
@@ -145,8 +146,31 @@ function mainSchema(page: ContentPage) {
   return { "@type": "WebPage", ...base };
 }
 
+// Een uitgebreide gids kan tegelijk een zichtbare bemiddelingsdienst beschrijven.
+// Het Article blijft dan de pagina-entiteit en de Service krijgt een eigen identiteit.
+function supplementalServiceSchema(page: ContentPage) {
+  if (page.type === "Service" || !page.serviceType) return null;
+  const url = absoluteUrl(`/${page.slug}`);
+  return {
+    "@type": "Service",
+    "@id": `${url}#service`,
+    name: page.serviceType,
+    serviceType: page.serviceType,
+    description: page.description,
+    url,
+    broker: { "@id": ORG_ID },
+    areaServed: { "@type": "Country", name: "België" },
+    subjectOf: { "@id": `${url}#page` },
+  };
+}
+
 // Volledige per-pagina graph.
 export function pageGraph(page: ContentPage) {
-  const graph = [mainSchema(page), breadcrumbSchema(page), faqSchema(page)].filter(Boolean);
+  const graph = [
+    mainSchema(page),
+    supplementalServiceSchema(page),
+    breadcrumbSchema(page),
+    faqSchema(page),
+  ].filter(Boolean);
   return { "@context": "https://schema.org", "@graph": graph };
 }

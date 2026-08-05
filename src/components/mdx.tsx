@@ -1,7 +1,8 @@
 // Componenten-map voor MDX-content: getypte prose-elementen + custom SEO-blokken,
 // in de merkkleuren (navy + amber). Tabellen in scrollwrapper.
 
-import type { ComponentProps } from "react";
+import { isValidElement } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { kantoren } from "@/lib/kantoren";
@@ -100,6 +101,65 @@ function Table(props: ComponentProps<"table">) {
     <div className="my-6 overflow-x-auto rounded-xl border border-slate-200">
       <table className="w-full border-collapse text-sm" {...props} />
     </div>
+  );
+}
+
+function textFromNode(node: ReactNode): string {
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(textFromNode).join(" ");
+  if (isValidElement<{ children?: ReactNode }>(node)) return textFromNode(node.props.children);
+  return "";
+}
+
+function headingId(children: ReactNode) {
+  return textFromNode(children)
+    .replace(/^\d+\.\s*/, "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+type ContentNavItem = { id: string; label: string };
+
+const contentNavPresets: Record<string, ContentNavItem[]> = {
+  asbestattest: [
+    { id: "wat-is-een-asbestattest-precies", label: "Betekenis en inhoud" },
+    { id: "wanneer-is-een-asbestattest-verplicht", label: "Verplichting en uitzonderingen" },
+    { id: "welke-toekomstige-deadlines-gelden-in-vlaanderen", label: "Deadlines voor eigenaars en VME's" },
+    { id: "wie-mag-een-asbestattest-opmaken", label: "Gecertificeerde deskundige" },
+    { id: "hoe-verloopt-een-asbestinventarisatie-stap-voor-stap", label: "Inventarisatie stap voor stap" },
+    { id: "hoe-lees-en-beoordeel-je-het-resultaat", label: "Resultaat beoordelen" },
+    { id: "wat-kost-een-asbestattest-in-2026", label: "Prijs en kostenopbouw" },
+    { id: "hoe-lang-duurt-een-asbestattest-aanvragen", label: "Doorlooptijd" },
+    { id: "hoe-lang-is-een-asbestattest-geldig", label: "Geldigheid" },
+    { id: "welke-rol-speelt-het-attest-bij-verkoop-en-compromis", label: "Verkoop en compromis" },
+    { id: "mag-je-een-woning-met-asbest-verkopen", label: "Verkopen met asbest" },
+    { id: "is-een-asbestattest-voldoende-voor-renovatie", label: "Renovatie en sloop" },
+    { id: "welke-fouten-moet-je-vermijden-bij-een-asbestattest", label: "Veelgemaakte fouten" },
+    { id: "welke-checklist-gebruik-je-voor-aanvraag-en-verkoop", label: "Checklist" },
+    { id: "hoe-werken-de-regels-in-drie-praktijksituaties", label: "Drie praktijksituaties" },
+  ],
+};
+
+export function ContentNav({ variant, items }: { variant?: string; items?: ContentNavItem[] }) {
+  const resolvedItems = items ?? (variant ? contentNavPresets[variant] : undefined) ?? [];
+  if (!resolvedItems.length) return null;
+  return (
+    <nav aria-label="Inhoudsopgave" className="my-8 rounded-2xl border border-brand-200 bg-brand-50/70 p-5">
+      <p className="font-extrabold text-brand-900">Op deze pagina</p>
+      <ol className="mt-3 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-2">
+        {resolvedItems.map((item, index) => (
+          <li key={item.id} className="flex gap-2">
+            <span className="font-bold text-accent-700">{index + 1}.</span>
+            <a href={`#${item.id}`} className="font-medium text-brand-700 underline decoration-brand-200 underline-offset-2 hover:decoration-brand-500">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
   );
 }
 
@@ -205,8 +265,15 @@ export const mdxComponents = {
   a: A,
   table: Table,
   Afbeelding,
-  h2: (p: ComponentProps<"h2">) => (
-    <h2 className="mt-10 scroll-mt-24 text-2xl font-extrabold tracking-tight text-brand-900" {...p} />
+  ContentNav,
+  h2: ({ id, children, ...p }: ComponentProps<"h2">) => (
+    <h2
+      id={id || headingId(children)}
+      className="mt-10 scroll-mt-24 text-2xl font-extrabold tracking-tight text-brand-900"
+      {...p}
+    >
+      {children}
+    </h2>
   ),
   h3: (p: ComponentProps<"h3">) => (
     <h3 className="mt-7 text-lg font-bold text-brand-900" {...p} />

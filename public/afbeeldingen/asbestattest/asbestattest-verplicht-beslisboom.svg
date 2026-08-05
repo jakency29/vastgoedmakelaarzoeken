@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Wanneer is een asbestattest verplicht?</title>
+  <desc id="desc">Beslisboom met bouwjaar, toegankelijkheid, oppervlakte en overdracht als vier controlepunten.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#081543" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3350ab"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="675" rx="32" fill="#eef1fb"/>
+  <circle cx="1080" cy="92" r="94" fill="#ffd47a" opacity="0.45"/>
+  <text x="70" y="82" fill="#081543" font-family="Arial, sans-serif" font-size="38" font-weight="700">Wanneer is een asbestattest verplicht?</text>
+  <text x="70" y="121" fill="#3350ab" font-family="Arial, sans-serif" font-size="20">Controleer vier voorwaarden en laat de concrete afbakening door een deskundige bevestigen.</text>
+
+  <g filter="url(#shadow)" font-family="Arial, sans-serif">
+    <rect x="70" y="185" width="235" height="190" rx="22" fill="#ffffff" stroke="#b8c4ec" stroke-width="2"/>
+    <circle cx="118" cy="232" r="25" fill="#f9a41a"/>
+    <text x="118" y="240" text-anchor="middle" fill="#081543" font-size="22" font-weight="700">1</text>
+    <text x="95" y="290" fill="#081543" font-size="24" font-weight="700">Bouwjaar</text>
+    <text x="95" y="326" fill="#182c6f" font-size="19">Gebouwd voor 2001?</text>
+    <text x="95" y="353" fill="#5670c7" font-size="16">Risicobouwjaar</text>
+
+    <rect x="345" y="185" width="235" height="190" rx="22" fill="#ffffff" stroke="#b8c4ec" stroke-width="2"/>
+    <circle cx="393" cy="232" r="25" fill="#f9a41a"/>
+    <text x="393" y="240" text-anchor="middle" fill="#081543" font-size="22" font-weight="700">2</text>
+    <text x="370" y="290" fill="#081543" font-size="24" font-weight="700">Toegang</text>
+    <text x="370" y="326" fill="#182c6f" font-size="19">Normaal betreedbaar?</text>
+    <text x="370" y="353" fill="#5670c7" font-size="16">Dak en draagstructuur</text>
+
+    <rect x="620" y="185" width="235" height="190" rx="22" fill="#ffffff" stroke="#b8c4ec" stroke-width="2"/>
+    <circle cx="668" cy="232" r="25" fill="#f9a41a"/>
+    <text x="668" y="240" text-anchor="middle" fill="#081543" font-size="22" font-weight="700">3</text>
+    <text x="645" y="290" fill="#081543" font-size="24" font-weight="700">Oppervlakte</text>
+    <text x="645" y="326" fill="#182c6f" font-size="19">Samen minstens 20 m²?</text>
+    <text x="645" y="353" fill="#5670c7" font-size="16">Kleine gebouwen optellen</text>
+
+    <rect x="895" y="185" width="235" height="190" rx="22" fill="#ffffff" stroke="#b8c4ec" stroke-width="2"/>
+    <circle cx="943" cy="232" r="25" fill="#f9a41a"/>
+    <text x="943" y="240" text-anchor="middle" fill="#081543" font-size="22" font-weight="700">4</text>
+    <text x="920" y="290" fill="#081543" font-size="24" font-weight="700">Overdracht</text>
+    <text x="920" y="326" fill="#182c6f" font-size="19">Verkoop of schenking?</text>
+    <text x="920" y="353" fill="#5670c7" font-size="16">Onder levenden</text>
+  </g>
+
+  <g stroke="#3350ab" stroke-width="4" marker-end="url(#arrow)">
+    <line x1="305" y1="280" x2="337" y2="280"/>
+    <line x1="580" y1="280" x2="612" y2="280"/>
+    <line x1="855" y1="280" x2="887" y2="280"/>
+  </g>
+
+  <rect x="220" y="450" width="760" height="135" rx="28" fill="#081543"/>
+  <circle cx="285" cy="517" r="34" fill="#f9a41a"/>
+  <path d="M269 517l11 11 23-27" fill="none" stroke="#081543" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="340" y="507" fill="#ffffff" font-family="Arial, sans-serif" font-size="27" font-weight="700">Voldoet het vastgoed aan de voorwaarden?</text>
+  <text x="340" y="545" fill="#dbe1f5" font-family="Arial, sans-serif" font-size="20">Regel het attest tijdig en laat het volledige inspectiegebied afbakenen.</text>
+  <text x="70" y="635" fill="#5670c7" font-family="Arial, sans-serif" font-size="16">Vereenvoudigd overzicht. De officiële OVAM-criteria en jouw concrete situatie blijven bepalend.</text>
+</svg>
