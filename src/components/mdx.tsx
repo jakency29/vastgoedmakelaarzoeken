@@ -141,6 +141,24 @@ const contentNavPresets: Record<string, ContentNavItem[]> = {
     { id: "welke-checklist-gebruik-je-voor-aanvraag-en-verkoop", label: "Checklist" },
     { id: "hoe-werken-de-regels-in-drie-praktijksituaties", label: "Drie praktijksituaties" },
   ],
+  epc: [
+    { id: "wat-is-een-epc-bij-verkoop-precies", label: "Betekenis en inhoud" },
+    { id: "wanneer-is-een-epc-verplicht-bij-verkoop", label: "Verplichting" },
+    { id: "wanneer-moet-het-epc-beschikbaar-zijn", label: "Timing en advertenties" },
+    { id: "welke-uitzonderingen-en-bijzondere-situaties-bestaan-er", label: "Uitzonderingen" },
+    { id: "wie-mag-een-epc-opmaken", label: "Energiedeskundige type A" },
+    { id: "hoe-verloopt-de-epc-aanvraag-stap-voor-stap", label: "Aanvraag stap voor stap" },
+    { id: "welke-bewijsstukken-verbeteren-de-berekening", label: "Bewijsstukken" },
+    { id: "hoe-lees-je-het-epc-resultaat", label: "Resultaat beoordelen" },
+    { id: "wat-kost-een-epc-bij-verkoop-in-2026", label: "Prijs en offerte" },
+    { id: "hoe-lang-is-een-epc-geldig", label: "Geldigheid" },
+    { id: "welke-verplichtingen-heeft-de-verkoper", label: "Verkoper en notaris" },
+    { id: "wat-betekent-de-renovatieverplichting-bij-label-e-of-f", label: "Renovatieverplichting" },
+    { id: "welke-epcs-heb-je-nodig-voor-een-appartement", label: "Appartement" },
+    { id: "welke-fouten-moet-je-vermijden", label: "Veelgemaakte fouten" },
+    { id: "hoe-pas-je-de-regels-toe-in-drie-praktijksituaties", label: "Drie praktijksituaties" },
+    { id: "welke-checklist-gebruik-je-voor-verkoop", label: "Verkoopchecklist" },
+  ],
 };
 
 export function ContentNav({ variant, items }: { variant?: string; items?: ContentNavItem[] }) {
