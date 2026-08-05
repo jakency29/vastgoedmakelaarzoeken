@@ -2,12 +2,12 @@
 
 import type { FaqItem } from "@/lib/types";
 
-export function Faq({ items }: { items: FaqItem[] }) {
+export function Faq({ items, title = "Veelgestelde vragen" }: { items: FaqItem[]; title?: string }) {
   if (!items?.length) return null;
   return (
     <section className="mt-12" aria-labelledby="faq">
       <h2 id="faq" className="text-2xl font-extrabold tracking-tight text-brand-900">
-        Veelgestelde vragen
+        {title}
       </h2>
       <div className="mt-5 space-y-3">
         {items.map((f) => (
