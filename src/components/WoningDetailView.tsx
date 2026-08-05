@@ -5,7 +5,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { formatPrijs, formatOpp, categorieVanWoning, woningHref, woningenGemeenteVoor, type Woning } from "@/lib/woningen";
+import { formatPrijs, formatOpp, categorieVanWoning, woningDisplayTitel, woningHref, woningenGemeenteVoor, type Woning } from "@/lib/woningen";
 import { getKantoor } from "@/lib/kantoren";
 import { getMakelaarByKantoor } from "@/lib/makelaars";
 import { getNearby } from "@/lib/nearby";
@@ -19,8 +19,11 @@ import { absoluteUrl } from "@/lib/site";
 import type { FaqItem } from "@/lib/types";
 
 export function woningMetadata(w: Woning): Metadata {
-  const title = `${w.type} te koop in ${w.gemeente}: ${w.adres}`.slice(0, 60);
-  const description = `${w.type} te koop in ${w.gemeente}. ${formatPrijs(w.prijs)}${w.slaapkamers ? `, ${w.slaapkamers} slaapkamers` : ""}${w.bewoonbaar ? `, ${formatOpp(w.bewoonbaar)}` : ""}${w.epcLabel ? `, EPC ${w.epcLabel}` : ""}. Vraag vrijblijvend info of een bezoek.`.slice(0, 155);
+  const isAppartement = categorieVanWoning(w)?.key === "appartement";
+  const title = (isAppartement && w.bewoonbaar
+    ? `${w.type} ${formatOpp(w.bewoonbaar)}${w.slaapkamers ? ` met ${w.slaapkamers} ${w.slaapkamers === 1 ? "slaapkamer" : "slaapkamers"}` : ""} in ${w.gemeente}`
+    : `${w.type} te koop in ${w.gemeente}: ${w.adres}`).slice(0, 60);
+  const description = `${w.type} te koop in ${w.gemeente}. ${formatPrijs(w.prijs)}${w.slaapkamers ? `, ${w.slaapkamers} ${w.slaapkamers === 1 ? "slaapkamer" : "slaapkamers"}` : ""}${w.bewoonbaar ? `, ${formatOpp(w.bewoonbaar)}` : ""}${w.epcLabel ? `, EPC ${w.epcLabel}` : ""}. Vraag vrijblijvend info of een bezoek.`.slice(0, 155);
   return {
     title: { absolute: title },
     description,
@@ -51,6 +54,7 @@ function H2({ children }: { children: React.ReactNode }) {
 
 function woningFaq(w: Woning): FaqItem[] {
   const renovatieAandacht = w.renovatieplicht === true || w.epcLabel === "E" || w.epcLabel === "F";
+  const isAppartement = categorieVanWoning(w)?.key === "appartement";
   return [
     {
       q: `Wat is de vraagprijs van ${w.adres} in ${w.gemeente}?`,
@@ -64,7 +68,9 @@ function woningFaq(w: Woning): FaqItem[] {
     },
     {
       q: `Welke documenten controleer je voor deze woning?`,
-      a: `Controleer minstens het EPC, de elektrische keuring, het bodemattest, de stedenbouwkundige inlichtingen en de overstromingsinformatie. Voor een gebouw van voor 2001 kan ook een asbestattest verplicht zijn. Laat de notaris bevestigen welke documenten voor dit specifieke pand en deze overdracht nodig zijn.`,
+      a: isAppartement
+        ? `Controleer minstens het EPC, de elektrische keuring, het bodemattest, de stedenbouwkundige inlichtingen en de overstromingsinformatie. Vraag daarnaast de basisakte, het reglement van mede-eigendom, recente notulen, de lasten en de stand van het werk- en reservekapitaal op. Laat je notaris het volledige dossier beoordelen.`
+        : `Controleer minstens het EPC, de elektrische keuring, het bodemattest, de stedenbouwkundige inlichtingen en de overstromingsinformatie. Voor een gebouw van voor 2001 kan ook een asbestattest verplicht zijn. Laat de notaris bevestigen welke documenten voor dit specifieke pand en deze overdracht nodig zijn.`,
     },
     {
       q: `Hoe vraag je een bezoek aan voor ${w.adres}?`,
@@ -87,7 +93,7 @@ function woningSchema(w: Woning, kantoor: ReturnType<typeof getKantoor>, faq: Fa
         "@type": "WebPage",
         "@id": `${url}#page`,
         url,
-        name: `${w.type} te koop aan de ${w.adres} in ${w.gemeente}`,
+        name: woningDisplayTitel(w),
         description: w.beschrijving?.split(/\n{2,}/)[0],
         inLanguage: "nl-BE",
         mainEntity: { "@id": woningId },
@@ -95,7 +101,7 @@ function woningSchema(w: Woning, kantoor: ReturnType<typeof getKantoor>, faq: Fa
       {
         "@type": w.typeUID.includes("apartment") || w.typeUID.includes("flat") ? "Apartment" : "House",
         "@id": woningId,
-        name: `${w.type} te koop aan de ${w.adres} in ${w.gemeente}`,
+        name: woningDisplayTitel(w),
         url,
         ...(w.fotos.length ? { image: w.fotos.map((foto) => absoluteUrl(foto)) } : {}),
         address: {
@@ -151,6 +157,7 @@ export async function WoningDetailView({ w }: { w: Woning }) {
   const makelaar = getMakelaarByKantoor(w.kantoorSlug);
   const nearby = await getNearby(w.geoLat, w.geoLng);
   const faq = woningFaq(w);
+  const isAppartement = cat?.key === "appartement";
   const vergelijkbareWoningen = cat
     ? woningenGemeenteVoor(cat, w.provincieSlug, w.gemeenteSlug).filter((woning) => woning.id !== w.id).slice(0, 3)
     : [];
@@ -172,7 +179,7 @@ export async function WoningDetailView({ w }: { w: Woning }) {
 
   return (
     <main>
-      {cat?.key === "huis" && <JsonLd data={woningSchema(w, kantoor, faq)} />}
+      {cat && <JsonLd data={woningSchema(w, kantoor, faq)} />}
       <section className="border-b border-slate-200 bg-brand-50/60">
         <div className="mx-auto max-w-6xl px-4 py-6">
           <nav aria-label="Broodkruimel" className="text-sm text-slate-500">
@@ -185,10 +192,12 @@ export async function WoningDetailView({ w }: { w: Woning }) {
             </ol>
           </nav>
           <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-brand-600">{w.type} te koop in {w.gemeente}</p>
-          <h1 className="mt-1 text-2xl font-extrabold tracking-tight text-brand-900 sm:text-3xl">{w.adres}, {w.postcode} {w.gemeente}</h1>
+          <h1 className="mt-1 text-2xl font-extrabold tracking-tight text-brand-900 sm:text-3xl">
+            {isAppartement && w.bewoonbaar ? `${w.type} van ${formatOpp(w.bewoonbaar)} aan ` : ""}{w.adres}, {w.postcode} {w.gemeente}
+          </h1>
           <p className="mt-2 text-slate-600">
             {formatPrijs(w.prijs)}
-            {w.slaapkamers ? ` · ${w.slaapkamers} slaapkamers` : ""}
+            {w.slaapkamers ? ` · ${w.slaapkamers} ${w.slaapkamers === 1 ? "slaapkamer" : "slaapkamers"}` : ""}
             {w.bewoonbaar ? ` · ${formatOpp(w.bewoonbaar)} bewoonbaar` : ""}
             {w.epcLabel ? ` · EPC ${w.epcLabel}` : ""}
           </p>
@@ -305,11 +314,11 @@ export async function WoningDetailView({ w }: { w: Woning }) {
               </>
             )}
 
-            {cat?.key === "huis" && (
+            {cat && (
               <>
                 <H2>Welke documenten controleer je vóór een bod?</H2>
                 <p className="mt-3 leading-relaxed text-slate-700">
-                  Controleer het EPC, de elektrische keuring, het bodemattest, de stedenbouwkundige inlichtingen en de overstromingsinformatie van dit specifieke pand. Laat ontbrekende of onduidelijke gegevens vóór een bindend bod door de aanbieder en je notaris bevestigen.
+                  Controleer het EPC, de elektrische keuring, het bodemattest, de stedenbouwkundige inlichtingen en de overstromingsinformatie van dit specifieke pand. {isAppartement ? "Vraag ook de stukken van de mede-eigendom op, zodat je de toestand en financiële verplichtingen van het hele gebouw beoordeelt." : "Laat ontbrekende of onduidelijke gegevens vóór een bindend bod door de aanbieder en je notaris bevestigen."}
                 </p>
                 <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               <li className="rounded-2xl border border-slate-200 bg-white p-4">
@@ -332,6 +341,14 @@ export async function WoningDetailView({ w }: { w: Woning }) {
                 <h3 className="font-extrabold text-brand-900">Overstromingsinformatie</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-700">Controleer via <a href="https://www.waterinfo.vlaanderen.be/" className="font-medium text-brand-700 underline underline-offset-2">Waterinfo van de Vlaamse overheid</a> de P-score van het perceel en de G-score van het gebouw.</p>
               </li>
+              {isAppartement && (
+                <li className="rounded-2xl border border-slate-200 bg-white p-4 sm:col-span-2">
+                  <h3 className="font-extrabold text-brand-900">Mede-eigendom en gemeenschappelijke kosten</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                    Vraag de basisakte, het reglement, recente notulen, de lasten en de stand van het werk- en reservekapitaal op. Bekijk ook de <a href="https://www.vlaanderen.be/bouwen-wonen-en-energie/beheer-en-onderhoud-van-appartementsgebouwen" className="font-medium text-brand-700 underline underline-offset-2">officiële uitleg over appartementsgebouwen, de VME en de syndicus</a>.
+                  </p>
+                </li>
+              )}
                 </ul>
               </>
             )}
@@ -382,27 +399,29 @@ export async function WoningDetailView({ w }: { w: Woning }) {
               </>
             )}
 
-            {cat?.key === "huis" && (
+            {cat && (
               <>
                 <H2>Hoe vergelijk je deze woning met ander aanbod?</H2>
                 <p className="mt-3 leading-relaxed text-slate-700">
-                  Vergelijk deze woning met andere huizen in dezelfde gemeente op vraagprijs, oppervlakte, perceel, EPC en staat. Zo voorkom je dat één opvallend kenmerk de volledige beslissing bepaalt.
+                  {isAppartement
+                    ? `Vergelijk dit appartement met andere appartementen in dezelfde gemeente op vraagprijs, woonoppervlakte, slaapkamers, terras, EPC en gemeenschappelijke kosten. Zo beoordeel je zowel de private woonruimte als het appartementsgebouw.`
+                    : `Vergelijk deze woning met andere huizen in dezelfde gemeente op vraagprijs, oppervlakte, perceel, EPC en staat. Zo voorkom je dat één opvallend kenmerk de volledige beslissing bepaalt.`}
                 </p>
                 {vergelijkbareWoningen.length > 0 ? (
                   <ul className="mt-4 space-y-2">
                     {vergelijkbareWoningen.map((woning) => (
                       <li key={woning.id}>
                         <Link href={woningHref(woning)} className="font-medium text-brand-700 underline underline-offset-2">
-                          {woning.adres}: {formatPrijs(woning.prijs)}{woning.epcLabel ? `, EPC ${woning.epcLabel}` : ""}
+                          {woning.adres}{isAppartement && woning.bewoonbaar ? `, ${formatOpp(woning.bewoonbaar)}` : ""}: {formatPrijs(woning.prijs)}{woning.epcLabel ? `, EPC ${woning.epcLabel}` : ""}
                         </Link>
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <p className="mt-3 text-slate-700">Er staat momenteel geen tweede huis in {w.gemeente} op het platform.</p>
+                  <p className="mt-3 text-slate-700">Er staat momenteel geen tweede {isAppartement ? "appartement" : "huis"} in {w.gemeente} op het platform.</p>
                 )}
                 <p className="mt-3 leading-relaxed text-slate-700">
-                  Bekijk ook <Link href={`/${prefix}/${w.provincieSlug}/${w.gemeenteSlug}`} className="font-medium text-brand-700 underline underline-offset-2">het volledige huizenaanbod in {w.gemeente}</Link> en de andere <Link href={`/${prefix}/${w.provincieSlug}`} className="font-medium text-brand-700 underline underline-offset-2">woningen in {w.provincie}</Link>.
+                  Bekijk ook <Link href={`/${prefix}/${w.provincieSlug}/${w.gemeenteSlug}`} className="font-medium text-brand-700 underline underline-offset-2">het volledige {isAppartement ? "appartementenaanbod" : "huizenaanbod"} in {w.gemeente}</Link> en de andere <Link href={`/${prefix}/${w.provincieSlug}`} className="font-medium text-brand-700 underline underline-offset-2">{isAppartement ? "appartementen" : "woningen"} in {w.provincie}</Link>.
                 </p>
 
                 <Faq items={faq} title="Welke vragen worden vaak gesteld over deze woning?" />

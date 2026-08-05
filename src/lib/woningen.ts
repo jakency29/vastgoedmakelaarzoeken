@@ -118,6 +118,12 @@ export function woningHref(w: Woning): string {
   const cat = categorieVanWoning(w);
   return cat ? `/${cat.prefix}/${w.slug}` : `/woning/${w.slug}`;
 }
+
+export function woningDisplayTitel(w: Woning): string {
+  const cat = categorieVanWoning(w);
+  const oppervlakte = cat?.key === "appartement" && w.bewoonbaar ? ` van ${formatOpp(w.bewoonbaar)}` : "";
+  return `${w.type}${oppervlakte} te koop aan de ${w.adres} in ${w.gemeente}`;
+}
 function tellingenVan(list: Woning[], slugKey: "provincieSlug" | "gemeenteSlug", naamKey: "provincie" | "gemeente"): Telling[] {
   const m = new Map<string, Telling>();
   for (const w of list) {

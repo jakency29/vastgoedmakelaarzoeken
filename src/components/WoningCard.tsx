@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { formatPrijs, formatOpp, woningHref, type Woning } from "@/lib/woningen";
+import { formatPrijs, formatOpp, woningDisplayTitel, woningHref, type Woning } from "@/lib/woningen";
 import { getKantoor } from "@/lib/kantoren";
 
 const EPC_KLEUR: Record<string, string> = {
@@ -24,7 +24,7 @@ function formatDatum(datum: string): string {
 export function WoningCard({ w }: { w: Woning }) {
   const kantoor = getKantoor(w.kantoorSlug);
   const detailUrl = woningHref(w);
-  const heading = `${w.type} te koop aan de ${w.adres} in ${w.gemeente}`;
+  const heading = woningDisplayTitel(w);
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md">
@@ -52,7 +52,7 @@ export function WoningCard({ w }: { w: Woning }) {
           <h3 className="text-base font-extrabold leading-snug text-brand-900 group-hover:text-brand-700">{heading}</h3>
           <p className="mt-2 text-xl font-extrabold text-brand-900">{formatPrijs(w.prijs)}</p>
           <ul className="mt-3 flex list-none flex-wrap gap-x-4 gap-y-1 p-0 text-sm text-slate-700" aria-label="Belangrijkste kenmerken">
-            {w.slaapkamers ? <li>{w.slaapkamers} slaapkamers</li> : null}
+            {w.slaapkamers ? <li>{w.slaapkamers} {w.slaapkamers === 1 ? "slaapkamer" : "slaapkamers"}</li> : null}
             {w.bewoonbaar ? <li>{formatOpp(w.bewoonbaar)} bewoonbaar</li> : null}
             {w.grond ? <li>{formatOpp(w.grond)} grond</li> : null}
           </ul>

@@ -5,7 +5,7 @@ import { JsonLd } from "./JsonLd";
 import { ListingResults } from "./ListingResults";
 import { absoluteUrl } from "@/lib/site";
 import { getKantoor } from "@/lib/kantoren";
-import { woningHref, type Woning } from "@/lib/woningen";
+import { woningDisplayTitel, woningHref, type Woning } from "@/lib/woningen";
 
 type Crumb = { name: string; href?: string };
 type Chip = { label: string; href: string; count: number };
@@ -48,7 +48,7 @@ export function ListingView({
         item: {
           "@type": woning.typeUID.includes("apartment") || woning.typeUID.includes("flat") ? "Apartment" : "House",
           "@id": `${detailUrl}#woning`,
-          name: `${woning.type} te koop aan de ${woning.adres} in ${woning.gemeente}`,
+          name: woningDisplayTitel(woning),
           url: detailUrl,
           ...(woning.fotos[0] ? { image: absoluteUrl(woning.fotos[0]) } : {}),
           address: {
