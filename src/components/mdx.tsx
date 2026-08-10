@@ -11,6 +11,9 @@ import {
   EpcFBudgetCalculator,
   MakelaarskostenCalculator,
   NettoOpbrengstCalculator,
+  PidChecklist,
+  RenovatieAankoopCalculator,
+  SleutelOpDeDeurCalculator,
   WoningWaardeQuickscan,
 } from "./VastgoedCalculators";
 import { VerkoopChecklist } from "./VerkoopChecklist";
@@ -349,5 +352,8 @@ export const mdxComponents = {
   NettoOpbrengstCalculator,
   EpcFBudgetCalculator,
   WoningWaardeQuickscan,
+  RenovatieAankoopCalculator,
+  SleutelOpDeDeurCalculator,
+  PidChecklist,
   VerkoopChecklist,
 };

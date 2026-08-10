@@ -21,6 +21,7 @@ function Field({
   onChange,
   step = "1000",
   suffix,
+  min = "0",
 }: {
   id: string;
   label: string;
@@ -28,6 +29,7 @@ function Field({
   onChange: (value: string) => void;
   step?: string;
   suffix?: string;
+  min?: string;
 }) {
   return (
     <label htmlFor={id} className="block">
@@ -36,7 +38,7 @@ function Field({
         <input
           id={id}
           type="number"
-          min="0"
+          min={min}
           step={step}
           value={value}
           onChange={(event) => onChange(event.target.value)}
@@ -256,7 +258,7 @@ export function WoningWaardeQuickscan() {
       <div className="mt-6 grid gap-4 sm:grid-cols-3">
         <Field id="ww-oppervlakte" label="Bewoonbare oppervlakte" value={area} onChange={setArea} step="1" suffix="m²" />
         <Field id="ww-referentie" label="Lokale referentieprijs" value={referencePrice} onChange={setReferencePrice} step="50" suffix="€/m²" />
-        <Field id="ww-correctie" label="Correctie voor staat" value={conditionAdjustment} onChange={setConditionAdjustment} step="1" suffix="%" />
+        <Field id="ww-correctie" label="Correctie voor staat" value={conditionAdjustment} onChange={setConditionAdjustment} step="1" min="-50" suffix="%" />
       </div>
 
       <div className="mt-6 grid gap-3 sm:grid-cols-3" aria-live="polite">
@@ -269,6 +271,172 @@ export function WoningWaardeQuickscan() {
         Vul zelf een actuele referentieprijs uit je buurt in. Deze quickscan is geen automatische
         waardering en geen officieel schattingsverslag. Ligging, perceel, EPC, afwerking,
         vergunningen en marktvraag kunnen de uiteindelijke verkoopwaarde sterk wijzigen.
+      </p>
+    </section>
+  );
+}
+
+export function RenovatieAankoopCalculator() {
+  const [purchasePrice, setPurchasePrice] = useState("300000");
+  const [registrationRate, setRegistrationRate] = useState("2");
+  const [deedCosts, setDeedCosts] = useState("6500");
+  const [renovationBudget, setRenovationBudget] = useState("100000");
+  const [reserve, setReserve] = useState("15000");
+  const [ownFunds, setOwnFunds] = useState("80000");
+
+  const price = numberFrom(purchasePrice);
+  const rate = numberFrom(registrationRate, 20);
+  const additionalPurchaseCosts = numberFrom(deedCosts);
+  const renovation = numberFrom(renovationBudget);
+  const safetyReserve = numberFrom(reserve);
+  const equity = numberFrom(ownFunds);
+  const registrationTax = price * (rate / 100);
+  const totalProject = price + registrationTax + additionalPurchaseCosts + renovation + safetyReserve;
+  const estimatedFinancing = Math.max(totalProject - equity, 0);
+
+  return (
+    <section id="aankoop-renovatie-calculator" className="my-10 scroll-mt-24 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6">
+      <p className="text-xs font-bold uppercase tracking-wide text-brand-600">Interactieve projectraming</p>
+      <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-900">
+        Hoe bereken je de totaalprijs van aankoop en renovatie?
+      </h2>
+      <p className="mt-3 leading-relaxed text-slate-700">
+        Tel de aankoopprijs, het zelf gekozen belastingpercentage, de andere aankoopkosten, het
+        renovatiebudget en een reserve bij elkaar. Trek daarna je eigen middelen af om een eerste
+        indicatie van de financieringsbehoefte te krijgen.
+      </p>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <Field id="ar-aankoopprijs" label="Aankoopprijs woning" value={purchasePrice} onChange={setPurchasePrice} suffix="€" />
+        <Field id="ar-verkooprecht" label="Toepasselijk belastingpercentage" value={registrationRate} onChange={setRegistrationRate} step="0.1" suffix="%" />
+        <Field id="ar-akte" label="Andere aankoop- en kredietkosten" value={deedCosts} onChange={setDeedCosts} suffix="€" />
+        <Field id="ar-renovatie" label="Voorlopig renovatiebudget" value={renovationBudget} onChange={setRenovationBudget} suffix="€" />
+        <Field id="ar-reserve" label="Reserve voor onverwachte kosten" value={reserve} onChange={setReserve} suffix="€" />
+        <Field id="ar-eigen-middelen" label="Beschikbare eigen middelen" value={ownFunds} onChange={setOwnFunds} suffix="€" />
+      </div>
+
+      <div className="mt-6 grid gap-3 sm:grid-cols-3" aria-live="polite">
+        <Result label="Berekende aankoopbelasting" value={registrationTax} />
+        <Result label="Totale projectraming" value={totalProject} emphasis />
+        <Result label="Geschatte financieringsbehoefte" value={estimatedFinancing} />
+      </div>
+
+      <p className="mt-4 text-xs leading-relaxed text-slate-500">
+        Dit is een transparante optelsom, geen kredietadvies of offerte. Controleer het toepasselijke
+        belastingtarief en de akte- en kredietkosten bij je notaris en bank. Laat de renovatie vóór
+        een bindend bod technisch ramen en pas de ingevoerde bedragen daarop aan.
+      </p>
+    </section>
+  );
+}
+
+export function SleutelOpDeDeurCalculator() {
+  const [buildingPrice, setBuildingPrice] = useState("300000");
+  const [landPrice, setLandPrice] = useState("150000");
+  const [excludedWorks, setExcludedWorks] = useState("35000");
+  const [studyCosts, setStudyCosts] = useState("25000");
+  const [vatRate, setVatRate] = useState("21");
+
+  const building = numberFrom(buildingPrice);
+  const land = numberFrom(landPrice);
+  const extras = numberFrom(excludedWorks);
+  const studies = numberFrom(studyCosts);
+  const rate = numberFrom(vatRate, 30);
+  const taxableWorks = building + extras;
+  const vat = taxableWorks * (rate / 100);
+  const buildingWithVat = taxableWorks + vat;
+  const projectTotal = land + buildingWithVat + studies;
+
+  return (
+    <section id="sleutel-op-de-deur-calculator" className="my-10 scroll-mt-24 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6">
+      <p className="text-xs font-bold uppercase tracking-wide text-brand-600">Interactieve all-in raming</p>
+      <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-900">
+        Hoe bereken je de totale prijs van een sleutel-op-de-deurwoning?
+      </h2>
+      <p className="mt-3 leading-relaxed text-slate-700">
+        Vul de geadverteerde bouwprijs, grond, uitgesloten werken, studie- en aansluitingskosten en
+        het toepasselijke btw-percentage in. Zo zie je hoeveel het volledige project kan afwijken
+        van de bouwprijs alleen.
+      </p>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <Field id="sod-bouwprijs" label="Bouwprijs exclusief btw" value={buildingPrice} onChange={setBuildingPrice} suffix="€" />
+        <Field id="sod-grond" label="Prijs van de bouwgrond" value={landPrice} onChange={setLandPrice} suffix="€" />
+        <Field id="sod-uitgesloten" label="Uitgesloten werken exclusief btw" value={excludedWorks} onChange={setExcludedWorks} suffix="€" />
+        <Field id="sod-studies" label="Studies, aansluitingen en andere kosten" value={studyCosts} onChange={setStudyCosts} suffix="€" />
+        <Field id="sod-btw" label="Btw op bouw en ingevoerde werken" value={vatRate} onChange={setVatRate} step="0.1" suffix="%" />
+      </div>
+
+      <div className="mt-6 grid gap-3 sm:grid-cols-3" aria-live="polite">
+        <Result label="Btw op bouw en werken" value={vat} />
+        <Result label="Bouw en werken inclusief btw" value={buildingWithVat} />
+        <Result label="Voorlopige totale projectprijs" value={projectTotal} emphasis />
+      </div>
+
+      <p className="mt-4 text-xs leading-relaxed text-slate-500">
+        De raming bevat alleen de bedragen die je invoert. Verkooprecht of btw op de grond,
+        notariskosten, kredietkosten, prijsherzieningen, tuin, schilderwerken en andere uitsluitingen
+        kunnen nog ontbreken. Controleer elke post in het lastenboek en vraag een gepersonaliseerde
+        afrekening aan notaris, bank en bouwfirma.
+      </p>
+    </section>
+  );
+}
+
+const PID_ITEMS = [
+  "Plannen en uitvoeringsdetails",
+  "Lastenboeken en technische fiches",
+  "As-builtplannen van leidingen en technieken",
+  "Gebruiksaanwijzingen en onderhoudsvoorschriften",
+  "Garantiebewijzen en keuringsverslagen",
+  "Gegevens van aannemers en ontwerpers",
+  "Veiligheidsinformatie voor latere werken",
+  "Aanvullingen van verbouwingen sinds mei 2001",
+] as const;
+
+export function PidChecklist() {
+  const [checked, setChecked] = useState<boolean[]>(PID_ITEMS.map(() => false));
+  const completed = checked.filter(Boolean).length;
+
+  return (
+    <section id="pid-checklist" className="my-10 scroll-mt-24 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6">
+      <p className="text-xs font-bold uppercase tracking-wide text-brand-600">Interactieve dossiercheck</p>
+      <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-900">
+        Welke onderdelen van het postinterventiedossier heb je al?
+      </h2>
+      <p className="mt-3 leading-relaxed text-slate-700">
+        Vink aan welke stukken je hebt teruggevonden. De teller helpt je het dossier te ordenen,
+        maar bepaalt niet of het juridisch volledig is.
+      </p>
+
+      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+        {PID_ITEMS.map((item, index) => (
+          <label key={item} className="flex cursor-pointer items-start gap-3 rounded-xl border border-slate-200 bg-white p-3.5 text-sm text-slate-700">
+            <input
+              type="checkbox"
+              checked={checked[index]}
+              onChange={() => setChecked((current) => current.map((value, itemIndex) => itemIndex === index ? !value : value))}
+              className="mt-0.5 h-4 w-4 rounded border-slate-300 accent-brand-700"
+            />
+            <span>{item}</span>
+          </label>
+        ))}
+      </div>
+
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-xl bg-brand-900 p-4 text-white" aria-live="polite">
+        <p className="font-bold">{completed} van {PID_ITEMS.length} onderdelen aangeduid</p>
+        <button
+          type="button"
+          onClick={() => setChecked(PID_ITEMS.map(() => false))}
+          className="rounded-full border border-white/30 px-4 py-2 text-sm font-bold hover:bg-white/10"
+        >
+          Opnieuw beginnen
+        </button>
+      </div>
+
+      <p className="mt-4 text-xs leading-relaxed text-slate-500">
+        De vereiste inhoud hangt af van de uitgevoerde werken en de betrokken bouwpartners. Laat een
+        ontbrekend of onvolledig dossier beoordelen voordat je de woning verkoopt of nieuwe werken start.
       </p>
     </section>
   );

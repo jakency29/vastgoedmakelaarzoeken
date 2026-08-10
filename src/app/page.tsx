@@ -75,13 +75,14 @@ const dateFormatter = new Intl.DateTimeFormat("nl-BE", {
 const latestArticles = getAllPages()
   .filter((page) => !page.noindex && !page.slug.startsWith("vastgoedkantoren/"))
   .sort((a, b) => {
-    const dateA = Date.parse(a.updated ?? a.published ?? "1970-01-01");
-    const dateB = Date.parse(b.updated ?? b.published ?? "1970-01-01");
-    return dateB - dateA || b.slug.localeCompare(a.slug, "nl-BE");
+    const dateA = Date.parse(a.published ?? a.updated ?? "1970-01-01");
+    const dateB = Date.parse(b.published ?? b.updated ?? "1970-01-01");
+    const publicationPriority = Number(Boolean(b.published)) - Number(Boolean(a.published));
+    return dateB - dateA || publicationPriority || b.slug.localeCompare(a.slug, "nl-BE");
   })
   .slice(0, 3)
   .map((page) => {
-    const articleDate = page.updated ?? page.published;
+    const articleDate = page.published ?? page.updated;
     return {
       ...page,
       image: getArticleImage(page.body),

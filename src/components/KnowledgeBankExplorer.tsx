@@ -55,6 +55,21 @@ const TASKS = [
 
 const TOOLS = [
   {
+    title: "Woningwaarde snel inschatten",
+    description: "Maak een indicatieve waardevork op basis van een referentiewaarde en woningkenmerken.",
+    href: "/waarde-woning-berekenen#woningwaarde-quickscan",
+  },
+  {
+    title: "Aankoop en renovatie berekenen",
+    description: "Tel aankoopkosten, renovatiebudget en buffer op tot één projectbudget.",
+    href: "/hoeveel-kost-een-totaalrenovatie#aankoop-renovatie-calculator",
+  },
+  {
+    title: "Sleutel-op-de-deur budgetteren",
+    description: "Bereken een all-in indicatie voor grond, woning, btw, kosten en reserve.",
+    href: "/sleutel-op-de-deur-woning#sleutel-op-de-deur-calculator",
+  },
+  {
     title: "Makelaarscommissie berekenen",
     description: "Bereken de commissie exclusief en inclusief 21% btw.",
     href: "/kosten-vastgoedmakelaar#makelaarskosten-calculator",
@@ -198,7 +213,7 @@ export function KnowledgeBankExplorer({ groups }: { groups: KnowledgeGroup[] }) 
         <p className="mt-2 max-w-2xl text-brand-100">
           Bereken een indicatie of houd je voorbereiding bij met de interactieve onderdelen.
         </p>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {TOOLS.map((tool) => (
             <Link
               key={tool.href}
