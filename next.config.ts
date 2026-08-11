@@ -24,7 +24,7 @@ const launchRedirects = [
   { from: "/verwarmen-met-airco-2", to: "/verwarmen-met-airco" },
   { from: "/notariskosten-verkoop-huis/wie-betaald", to: "/notariskosten-verkoop-huis/wie-betaalt" },
   // Kantoren-overzicht staat op /kantoor; de bare /vastgoedkantoren leidt daarheen.
-  // (de provincie-pagina's /vastgoedkantoren/limburg en /vlaams-brabant blijven bestaan)
+  // De provincie-pagina's voor Antwerpen, Limburg en Vlaams-Brabant blijven bestaan.
   { from: "/vastgoedkantoren", to: "/kantoor" },
 ];
 
@@ -123,7 +123,6 @@ const searchConsoleRedirects = [
     to: "/huis-verkopen-met-makelaar",
   },
   { from: "/schatting", to: "/huis-laten-schatten" },
-  { from: "/vastgoedkantoren/antwerpen", to: "/kantoor" },
   { from: "/vastgoedkantoren/oost-vlaanderen", to: "/kantoor" },
   { from: "/vastgoedkantoren/west-vlaanderen", to: "/kantoor" },
 ];
