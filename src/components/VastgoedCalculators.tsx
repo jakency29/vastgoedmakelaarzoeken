@@ -324,6 +324,48 @@ export function OnroerendeVoorheffingCalculator() {
   );
 }
 
+export function HuurcontractOpzegCalculator() {
+  const [monthlyRent, setMonthlyRent] = useState("900");
+  const [rentalYear, setRentalYear] = useState("1");
+
+  const rent = numberFrom(monthlyRent, 100_000);
+  const endingYear = Math.min(Math.max(Math.round(numberFrom(rentalYear, 3)), 1), 3);
+  const compensationFactor = endingYear === 1 ? 1.5 : endingYear === 2 ? 1 : 0.5;
+  const noticeRent = rent * 3;
+  const compensation = rent * compensationFactor;
+
+  return (
+    <section id="huurcontract-opzegcalculator" className="my-10 scroll-mt-24 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6">
+      <p className="text-xs font-bold uppercase tracking-wide text-brand-600">Interactieve rekenhulp</p>
+      <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-900">
+        Hoeveel bedraagt de vergoeding bij vroegtijdige opzegging?
+      </h2>
+      <p className="mt-3 leading-relaxed text-slate-700">
+        Vul de maandhuur en het huurjaar in waarin het contract na de opzegtermijn eindigt. Voor een
+        Vlaams kort woninghuurcontract vanaf 1 januari 2019 bedraagt de vergoeding respectievelijk
+        anderhalve, één of een halve maand huur.
+      </p>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <Field id="hc-maandhuur" label="Maandelijkse basishuur" value={monthlyRent} onChange={setMonthlyRent} step="25" suffix="€" />
+        <Field id="hc-huurjaar" label="Einde valt in huurjaar 1, 2 of 3" value={rentalYear} onChange={setRentalYear} step="1" min="1" />
+      </div>
+
+      <div className="mt-6 grid gap-3 sm:grid-cols-3" aria-live="polite">
+        <Result label="Huur tijdens 3 maanden opzeg" value={noticeRent} />
+        <Result label={`Opzegvergoeding van ${compensationFactor.toLocaleString("nl-BE")} maand huur`} value={compensation} />
+        <Result label="Samen geraamd" value={noticeRent + compensation} emphasis />
+      </div>
+
+      <p className="mt-4 text-xs leading-relaxed text-slate-500">
+        De huur tijdens de opzegtermijn is geen boete: de huurder behoudt in die periode het gebruik
+        van de woning. Onderling akkoord, ontbrekende registratie of een afwijkende contractdatum kan
+        de uitkomst veranderen. Controleer de einddatum en het contract voordat je opzegt.
+      </p>
+    </section>
+  );
+}
+
 export function RenovatieAankoopCalculator() {
   const [purchasePrice, setPurchasePrice] = useState("300000");
   const [registrationRate, setRegistrationRate] = useState("2");

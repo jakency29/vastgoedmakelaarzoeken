@@ -9,6 +9,7 @@ import { kantoren } from "@/lib/kantoren";
 import { DienstCTA } from "./DienstCTA";
 import {
   EpcFBudgetCalculator,
+  HuurcontractOpzegCalculator,
   MakelaarskostenCalculator,
   NettoOpbrengstCalculator,
   OnroerendeVoorheffingCalculator,
@@ -353,6 +354,7 @@ export const mdxComponents = {
   OnroerendeVoorheffingCalculator,
   NettoOpbrengstCalculator,
   EpcFBudgetCalculator,
+  HuurcontractOpzegCalculator,
   WoningWaardeQuickscan,
   RenovatieAankoopCalculator,
   SleutelOpDeDeurCalculator,
