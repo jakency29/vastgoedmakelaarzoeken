@@ -1,5 +1,275 @@
 [
  {
+  "id": "167717",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Patrijzenlaan 5",
+  "adres": "Patrijzenlaan 5",
+  "gemeente": "Beringen",
+  "gemeenteSlug": "beringen",
+  "postcode": "3583",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 349000,
+  "bewoonbaar": 181,
+  "grond": 387,
+  "slaapkamers": 3,
+  "gevels": 2,
+  "bouwjaar": "1986",
+  "staat": "Goed",
+  "parkeerplaatsen": 3,
+  "epcLabel": "B",
+  "epcVerbruik": 122,
+  "epcCode": "20260731-0003921661-RES-1",
+  "renovatieplicht": null,
+  "kadastraalInkomen": null,
+  "bestemming": "Woongebied",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 37
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Toilet",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 10
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 17
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 27
+   },
+   {
+    "label": "Veranda",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Overdekt terras",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Garage",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "12 zonnepanelen",
+   "Thuisbatterij",
+   "Dubbele beglazing",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op gas",
+   "Aansluiting op water",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "PVC raamwerk",
+   "Gasverwarming",
+   "Volledig geïnstalleerde keuken"
+  ],
+  "troeven": [
+   "Gerenoveerd in 2020",
+   "Bewoonbare oppervlakte van 181 m2",
+   "Zuidgerichte en omheinde tuin",
+   "Grote veranda en overdekt terras",
+   "12 zonnepanelen en thuisbatterij",
+   "EPC-label B",
+   "3 slaapkamers"
+  ],
+  "geoLat": 51.04508,
+  "geoLng": 5.15692,
+  "beschrijving": "Deze instapklare gezinswoning ligt aan de Patrijzenlaan 5 in Paal, Beringen. Het huis werd gebouwd in 1986, gerenoveerd in 2020 en biedt 181 m2 bewoonbare oppervlakte op een perceel van 387 m2. De rustige, kindvriendelijke woonwijk en het groene speelplein voor de deur maken de ligging geschikt voor gezinnen.\n\nDe inkomhal met open vide leidt naar de woonkamer van 27 m2, de eetruimte en de volledig geïnstalleerde keuken van 10 m2. De grote veranda zorgt voor extra leefruimte en veel lichtinval richting de tuin. De inpandige garage sluit aan op een praktische wasplaats van 17 m2.\n\nOp de verdieping bevinden zich drie slaapkamers, een badkamer en extra bergruimte. De slaapkamers hebben samen een oppervlakte van 37 m2. Buiten beschikt de woning over een volledig omheinde, zuidgerichte tuin, een overdekt terras en een groot tuinhuis.\n\nDe woning heeft EPC-label B met een energieverbruik van 122 kWh/m2 per jaar. Twaalf zonnepanelen, een thuisbatterij, dubbele beglazing, PVC raamwerk en verwarming op aardgas dragen bij aan de energieprestatie. Het centrum van Paal, scholen, winkels en openbaar vervoer liggen vlakbij. Via de E313 zijn omliggende gemeenten vlot bereikbaar.",
+  "fotos": [
+   "/afbeeldingen/woningen/167717/1.jpg",
+   "/afbeeldingen/woningen/167717/2.jpg",
+   "/afbeeldingen/woningen/167717/3.jpg",
+   "/afbeeldingen/woningen/167717/4.jpg",
+   "/afbeeldingen/woningen/167717/5.jpg",
+   "/afbeeldingen/woningen/167717/6.jpg",
+   "/afbeeldingen/woningen/167717/7.jpg",
+   "/afbeeldingen/woningen/167717/8.jpg",
+   "/afbeeldingen/woningen/167717/9.jpg",
+   "/afbeeldingen/woningen/167717/10.jpg",
+   "/afbeeldingen/woningen/167717/11.jpg",
+   "/afbeeldingen/woningen/167717/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/beringen/house/167717",
+  "slug": "patrijzenlaan-5-beringen-167717",
+  "toegevoegdOp": "2026-08-11"
+ },
+ {
+  "id": "166187",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Eekhoornlaan 50",
+  "adres": "Eekhoornlaan 50",
+  "gemeente": "Dilsen-Stokkem",
+  "gemeenteSlug": "dilsen-stokkem",
+  "postcode": "3650",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 474000,
+  "bewoonbaar": 159,
+  "grond": 936,
+  "slaapkamers": 3,
+  "gevels": 4,
+  "bouwjaar": "1992",
+  "staat": "Goed",
+  "parkeerplaatsen": 8,
+  "epcLabel": "C",
+  "epcVerbruik": 215,
+  "epcCode": "20260724-0003916266-RES-1",
+  "renovatieplicht": null,
+  "kadastraalInkomen": 902,
+  "bestemming": "Woongebied met landelijk karakter",
+  "overstroming": "Niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 34
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Kruipkelder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Toilet",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 14
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 6
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 36
+   },
+   {
+    "label": "Multifunctionele ruimte",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Overdekt terras",
+    "aantal": 1,
+    "opp": 36
+   },
+   {
+    "label": "Garage",
+    "aantal": 2,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "20 zonnepanelen met groenestroomcertificaten",
+   "Dubbele beglazing",
+   "Open haard",
+   "TV-lijn",
+   "Aansluiting op elektriciteit",
+   "Verwarming op stookolie",
+   "Aansluiting op water",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "PVC raamwerk",
+   "Volledig geïnstalleerde keuken"
+  ],
+  "troeven": [
+   "Perceel van 936 m2",
+   "Bewoonbare oppervlakte van 159 m2",
+   "Vrijstaande dubbele garage",
+   "Overdekt terras van 36 m2",
+   "20 zonnepanelen",
+   "EPC-label C",
+   "3 slaapkamers"
+  ],
+  "geoLat": 51.06681,
+  "geoLng": 5.72089,
+  "beschrijving": "Deze vrijstaande gezinswoning ligt aan de Eekhoornlaan 50 in Rotem, Dilsen-Stokkem. Het huis werd gebouwd in 1992 en biedt 159 m2 bewoonbare oppervlakte op een perceel van 936 m2. De woning telt drie slaapkamers en combineert een rustige woonomgeving met veel praktische ruimte.\n\nOp het gelijkvloers bevinden zich de inkomhal met gastentoilet, een lichtrijke woonkamer van 36 m2, een volledig geïnstalleerde keuken van 14 m2 en een wasplaats. De extra multifunctionele ruimte kan worden ingericht als bureau, praktijkruimte, hobbykamer of speelkamer. Op de verdieping liggen drie slaapkamers en de badkamer.\n\nBuiten beschikt de woning over een ruim overdekt terras van 36 m2 en een onderhoudsvriendelijke tuin. De vrijstaande dubbele garage biedt plaats voor voertuigen, opslag, een atelier of een zelfstandige activiteit aan huis. Op het perceel zijn daarnaast meerdere parkeerplaatsen beschikbaar.\n\nDe woning heeft EPC-label C met een energieverbruik van 215 kWh/m2 per jaar. Twintig zonnepanelen met groenestroomcertificaten, dubbele beglazing en PVC raamwerk ondersteunen de energieprestatie. De ligging in Rotem biedt snelle verbindingen naar Maaseik, Maasmechelen en Nederland, met het Nationaal Park Hoge Kempen, Bergerven en de Maasvallei in de omgeving.",
+  "fotos": [
+   "/afbeeldingen/woningen/166187/1.jpg",
+   "/afbeeldingen/woningen/166187/2.jpg",
+   "/afbeeldingen/woningen/166187/3.jpg",
+   "/afbeeldingen/woningen/166187/4.jpg",
+   "/afbeeldingen/woningen/166187/5.jpg",
+   "/afbeeldingen/woningen/166187/6.jpg",
+   "/afbeeldingen/woningen/166187/7.jpg",
+   "/afbeeldingen/woningen/166187/8.jpg",
+   "/afbeeldingen/woningen/166187/9.jpg",
+   "/afbeeldingen/woningen/166187/10.jpg",
+   "/afbeeldingen/woningen/166187/11.jpg",
+   "/afbeeldingen/woningen/166187/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/dilsen-stokkem/house/166187",
+  "slug": "eekhoornlaan-50-dilsen-stokkem-166187",
+  "toegevoegdOp": "2026-08-11"
+ },
+ {
   "id": "166222",
   "kantoorSlug": "we-invest-demervallei",
   "transactie": "te-koop",
