@@ -276,6 +276,54 @@ export function WoningWaardeQuickscan() {
   );
 }
 
+export function OnroerendeVoorheffingCalculator() {
+  const [nonIndexedKi, setNonIndexedKi] = useState("1000");
+  const [provincialSurcharges, setProvincialSurcharges] = useState("150");
+  const [municipalSurcharges, setMunicipalSurcharges] = useState("900");
+
+  const ki = numberFrom(nonIndexedKi, 1_000_000);
+  const provinceRate = numberFrom(provincialSurcharges, 10_000);
+  const municipalityRate = numberFrom(municipalSurcharges, 10_000);
+  const indexedKi = Math.round(ki * 2.3);
+  const FlemishBaseTax = indexedKi * 0.0397;
+  const provincialTax = FlemishBaseTax * (provinceRate / 100);
+  const municipalTax = FlemishBaseTax * (municipalityRate / 100);
+  const estimatedTotal = FlemishBaseTax + provincialTax + municipalTax;
+
+  return (
+    <section id="onroerende-voorheffing-calculator" className="my-10 scroll-mt-24 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6">
+      <p className="text-xs font-bold uppercase tracking-wide text-brand-600">Interactieve rekenhulp 2026</p>
+      <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-900">
+        Hoe maak je een raming van de onroerende voorheffing?
+      </h2>
+      <p className="mt-3 leading-relaxed text-slate-700">
+        Vul het niet-geïndexeerde kadastraal inkomen en de opcentiemen van je provincie en gemeente
+        in. De rekenhulp gebruikt de officiële indexatiecoëfficiënt 2,3000 en het Vlaamse basistarief
+        van 3,97% voor aanslagjaar 2026.
+      </p>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-3">
+        <Field id="ov-ki" label="Niet-geïndexeerd KI" value={nonIndexedKi} onChange={setNonIndexedKi} step="1" suffix="€" />
+        <Field id="ov-provincie" label="Provinciale opcentiemen" value={provincialSurcharges} onChange={setProvincialSurcharges} step="1" />
+        <Field id="ov-gemeente" label="Gemeentelijke opcentiemen" value={municipalSurcharges} onChange={setMunicipalSurcharges} step="1" />
+      </div>
+
+      <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" aria-live="polite">
+        <Result label="Vlaamse basisheffing" value={FlemishBaseTax} />
+        <Result label="Provinciaal aandeel" value={provincialTax} />
+        <Result label="Gemeentelijk aandeel" value={municipalTax} />
+        <Result label="Geschat totaal" value={estimatedTotal} emphasis />
+      </div>
+
+      <p className="mt-4 text-xs leading-relaxed text-slate-500">
+        De vooraf ingevulde opcentiemen zijn alleen een voorbeeld. Vervang ze door de officiële
+        tarieven voor jouw gemeente en provincie. Verminderingen, vrijstellingen en bijzondere
+        situaties zijn niet verwerkt. Het aanslagbiljet van VLABEL blijft bepalend.
+      </p>
+    </section>
+  );
+}
+
 export function RenovatieAankoopCalculator() {
   const [purchasePrice, setPurchasePrice] = useState("300000");
   const [registrationRate, setRegistrationRate] = useState("2");
