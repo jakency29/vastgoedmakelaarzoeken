@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 };
 
 const PROVINCIES = [
+  { naam: "Antwerpen", slug: "vastgoedkantoren/antwerpen" },
   { naam: "Limburg", slug: "vastgoedkantoren/limburg" },
   { naam: "Vlaams-Brabant", slug: "vastgoedkantoren/vlaams-brabant" },
 ];

@@ -260,7 +260,7 @@ export default async function KantoorPage({ params }: Props) {
                 <>
                   {" "}
                   Bekijk alle{" "}
-                  <Link href={`/${k.provincieSlug}`} className="font-medium text-brand-700 underline underline-offset-2">
+                  <Link href={`/vastgoedkantoren/${k.provincieSlug}`} className="font-medium text-brand-700 underline underline-offset-2">
                     vastgoedkantoren in {k.provincie}
                   </Link>
                   .

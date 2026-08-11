@@ -59,6 +59,7 @@ export const kantoren: Kantoor[] = [
     naam: "Hillewaere Vastgoed",
     gemeente: "Turnhout",
     provincie: "Antwerpen",
+    provincieSlug: "antwerpen",
     intro:
       "Hillewaere Vastgoed is een vastgoedkantoor gevestigd in Turnhout dat zich richt op de verkoop en verhuur van residentieel en professioneel vastgoed. Het kantoor is actief in de provincies Antwerpen, Limburg en Oost-Vlaanderen en biedt daarnaast nieuwbouwbegeleiding, gratis waardebepaling en advies rond investeringsvastgoed.",
     diensten: ["Verkoop en verhuur", "Nieuwbouw en ontwikkeling", "Investerings- en bedrijfsvastgoed", "Gratis waardebepaling", "Hippisch vastgoed en luxe segment"],
@@ -79,6 +80,7 @@ export const kantoren: Kantoor[] = [
     naam: "Heylen Vastgoed",
     gemeente: "Herentals",
     provincie: "Antwerpen",
+    provincieSlug: "antwerpen",
     intro:
       "Heylen Vastgoed is een vastgoedkantoor met een vestiging aan de Grote Markt in Herentals, in de provincie Antwerpen. Het kantoor begeleidt klanten bij verkoop, verhuur, nieuwbouw, vastgoedbeheer en schatting en is actief in Vlaanderen.",
     diensten: ["Verkoop", "Verhuur", "Nieuwbouw", "Vastgoedbeheer", "Schatting", "Juridische ondersteuning"],
@@ -99,6 +101,7 @@ export const kantoren: Kantoor[] = [
     naam: "Vastgoed Michoel",
     gemeente: "Puurs-Sint-Amands",
     provincie: "Antwerpen",
+    provincieSlug: "antwerpen",
     intro:
       "Vastgoed Michoel is een erkend vastgoedkantoor in Puurs-Sint-Amands in de provincie Antwerpen. Het kantoor is actief in Puurs, Liezele, Hingene en de omliggende regio Klein-Brabant, met diensten voor verkoop, verhuur, nieuwbouw en advies.",
     diensten: ["Verkoop", "Verhuur", "Nieuwbouw", "Advies"],
@@ -179,6 +182,7 @@ export const kantoren: Kantoor[] = [
     naam: "COGA Vastgoed",
     gemeente: "Brecht",
     provincie: "Antwerpen",
+    provincieSlug: "antwerpen",
     intro:
       "COGA Vastgoed is een erkend vastgoedkantoor in Brecht (Sint-Job-in-'t-Goor) in de provincie Antwerpen. Het kantoor verzorgt verkoop, verhuur en schatting van vastgoed in Brecht en de omliggende regio tussen Antwerpen en de Nederlandse grens.",
     diensten: ["Woning verkopen", "Verhuur", "Schatting", "Nieuwbouwprojecten", "Projectbegeleiding", "Juridisch advies"],
@@ -203,6 +207,7 @@ export const kantoren: Kantoor[] = [
       "Bekijk Just Wonen in Ravels: diensten, BIV-erkenning, werkgebied, Google-reviews en contact voor verkoop, verhuur of een schatting.",
     gemeente: "Ravels",
     provincie: "Antwerpen",
+    provincieSlug: "antwerpen",
     intro:
       "Just Wonen is een vastgoedkantoor gevestigd in de Kerkstraat in Ravels, dat verkoop en verhuur van woningen combineert met verzekeringen en financieel advies. Het kantoor is actief in Ravels en Poppel en begeleidt het volledige verhuurproces, inclusief kandidaatscreening en contractbeheer.",
     diensten: ["Woning verkopen", "Verhuur", "Schatting", "Kandidaatscreening", "Contractbeheer", "Verzekeringen", "Financieel advies"],
