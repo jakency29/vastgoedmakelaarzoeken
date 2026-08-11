@@ -85,7 +85,7 @@ const latestArticles = getAllPages()
     const articleDate = page.published ?? page.updated;
     return {
       ...page,
-      image: getArticleImage(page.body),
+      image: page.image ?? getArticleImage(page.body),
       displayDate: articleDate ? dateFormatter.format(new Date(articleDate)) : null,
     };
   });
