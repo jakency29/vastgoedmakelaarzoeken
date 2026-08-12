@@ -366,6 +366,46 @@ export function HuurcontractOpzegCalculator() {
   );
 }
 
+export function WederbeleggingsvergoedingCalculator() {
+  const [repayment, setRepayment] = useState("180000");
+  const [annualRate, setAnnualRate] = useState("2.4");
+
+  const repaidCapital = numberFrom(repayment);
+  const rate = numberFrom(annualRate, 25) / 100;
+  const oneMonthInterest = repaidCapital * rate / 12;
+  const threeMonthsInterest = oneMonthInterest * 3;
+
+  return (
+    <section id="wederbeleggingsvergoeding-calculator" className="my-10 scroll-mt-24 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6">
+      <p className="text-xs font-bold uppercase tracking-wide text-brand-600">Interactieve rekenhulp</p>
+      <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-900">
+        Hoeveel bedraagt je wederbeleggingsvergoeding?
+      </h2>
+      <p className="mt-3 leading-relaxed text-slate-700">
+        Vul alleen het kapitaal in dat je vervroegd terugbetaalt en de jaarlijkse rentevoet van je
+        woonkrediet. De calculator raamt het wettelijke maximum van drie maanden intrest.
+      </p>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <Field id="wv-kapitaal" label="Vervroegd terugbetaald kapitaal" value={repayment} onChange={setRepayment} suffix="€" />
+        <Field id="wv-rente" label="Jaarlijkse rentevoet" value={annualRate} onChange={setAnnualRate} step="0.01" suffix="%" />
+      </div>
+
+      <div className="mt-6 grid gap-3 sm:grid-cols-3" aria-live="polite">
+        <Result label="Eén maand intrest" value={oneMonthInterest} />
+        <Result label="Maximaal drie maanden intrest" value={threeMonthsInterest} emphasis />
+        <Result label="Kapitaal plus geraamde vergoeding" value={repaidCapital + threeMonthsInterest} />
+      </div>
+
+      <p className="mt-4 text-xs leading-relaxed text-slate-500">
+        Dit is een indicatieve berekening. Je kredietcontract moet de vergoeding voorzien en de bank
+        maakt de definitieve afrekening volgens de periodieke rentevoet. Lopende intrest,
+        handlichtingskosten, dossierkosten en notariskosten zijn niet inbegrepen.
+      </p>
+    </section>
+  );
+}
+
 export function RenovatieAankoopCalculator() {
   const [purchasePrice, setPurchasePrice] = useState("300000");
   const [registrationRate, setRegistrationRate] = useState("2");

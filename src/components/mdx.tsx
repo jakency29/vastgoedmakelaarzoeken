@@ -16,6 +16,7 @@ import {
   PidChecklist,
   RenovatieAankoopCalculator,
   SleutelOpDeDeurCalculator,
+  WederbeleggingsvergoedingCalculator,
   WoningWaardeQuickscan,
 } from "./VastgoedCalculators";
 import { VerkoopChecklist } from "./VerkoopChecklist";
@@ -355,6 +356,7 @@ export const mdxComponents = {
   NettoOpbrengstCalculator,
   EpcFBudgetCalculator,
   HuurcontractOpzegCalculator,
+  WederbeleggingsvergoedingCalculator,
   WoningWaardeQuickscan,
   RenovatieAankoopCalculator,
   SleutelOpDeDeurCalculator,
