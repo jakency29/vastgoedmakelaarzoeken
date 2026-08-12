@@ -64,6 +64,9 @@ export type PageFrontmatter = {
   faq?: FaqItem[];
   related?: RelatedLink[];
   showLeadForm?: boolean; // default true
+  showTopCta?: boolean; // default true, kan uit bij een zichtbaar zijbalkformulier
+  leadFormTitle?: string; // contextuele titel voor het algemene makelaarsformulier
+  leadFormDescription?: string; // contextuele uitleg boven de formuliervelden
   serviceType?: string; // enkel voor type: "Service"
   image?: string; // hoofdafbeelding voor Article/OpenGraph-schema
   headerImage?: string; // optionele illustratie rechts van H1 en intro

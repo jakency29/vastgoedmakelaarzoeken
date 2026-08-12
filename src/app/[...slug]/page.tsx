@@ -100,7 +100,11 @@ export default async function ContentPage({ params }: Props) {
   const form = dienst ? (
     <DienstLeadForm dienst={dienst.naam} cta={dienst.cta} slug={page.slug} />
   ) : (
-    <LeadForm variant="sidebar" />
+    <LeadForm
+      variant="sidebar"
+      title={page.leadFormTitle}
+      description={page.leadFormDescription}
+    />
   );
 
   return (
@@ -183,7 +187,7 @@ export default async function ContentPage({ params }: Props) {
           )}
 
           <div className={`min-w-0 lg:order-1 ${visual.contentWidth}`}>
-            {showCta && visual.prominentForm && <DienstCTA label={ctaLabel} />}
+            {showCta && visual.prominentForm && page.showTopCta !== false && <DienstCTA label={ctaLabel} />}
             {introContent && !introInHeader && (
               <DirectAnswer note={page.answerNote} updated={page.updated}>
                 {introContent}

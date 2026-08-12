@@ -13,7 +13,15 @@ const TRANSACTIES = [
   { value: "kopen", label: "Woning kopen" },
 ] as const;
 
-export function LeadForm({ variant = "sidebar" }: { variant?: "sidebar" | "hero" }) {
+export function LeadForm({
+  variant = "sidebar",
+  title = "Vergelijk vastgoedmakelaars",
+  description = "Vul je postcode in en vraag vrijblijvend offertes op.",
+}: {
+  variant?: "sidebar" | "hero";
+  title?: string;
+  description?: string;
+}) {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const hero = variant === "hero";
 
@@ -64,10 +72,10 @@ export function LeadForm({ variant = "sidebar" }: { variant?: "sidebar" | "hero"
       aria-label="Vraag offertes op bij vastgoedmakelaars"
     >
       <p className={`font-extrabold text-brand-900 ${hero ? "text-xl" : "text-lg"}`}>
-        Vergelijk vastgoedmakelaars
+        {title}
       </p>
       <p className="mt-1 text-sm text-slate-600">
-        Vul je postcode in en vraag vrijblijvend offertes op.
+        {description}
       </p>
 
       <div className={`mt-4 gap-3 ${hero ? "grid sm:grid-cols-2" : "space-y-3"}`}>
