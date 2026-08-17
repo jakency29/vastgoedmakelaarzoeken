@@ -133,16 +133,28 @@ export function NettoOpbrengstCalculator() {
   const [salePrice, setSalePrice] = useState("350000");
   const [loan, setLoan] = useState("150000");
   const [percentage, setPercentage] = useState("3");
-  const [certificates, setCertificates] = useState("1500");
-  const [otherCosts, setOtherCosts] = useState("1000");
+  const [certificates, setCertificates] = useState("1200");
+  const [deliveryCosts, setDeliveryCosts] = useState("500");
+  const [mortgageCancellation, setMortgageCancellation] = useState("1000");
+  const [reinvestmentFee, setReinvestmentFee] = useState("0");
+  const [otherCosts, setOtherCosts] = useState("0");
 
   const price = numberFrom(salePrice);
   const outstandingLoan = numberFrom(loan);
   const rate = numberFrom(percentage, 20);
   const certificateCosts = numberFrom(certificates);
+  const deliveryAndFileCosts = numberFrom(deliveryCosts);
+  const cancellationCosts = numberFrom(mortgageCancellation);
+  const bankFee = numberFrom(reinvestmentFee);
   const additionalCosts = numberFrom(otherCosts);
   const commissionTotal = price * (rate / 100) * 1.21;
-  const sellingCosts = commissionTotal + certificateCosts + additionalCosts;
+  const sellingCosts =
+    commissionTotal +
+    certificateCosts +
+    deliveryAndFileCosts +
+    cancellationCosts +
+    bankFee +
+    additionalCosts;
   const estimatedNet = price - outstandingLoan - sellingCosts;
 
   return (
@@ -152,8 +164,9 @@ export function NettoOpbrengstCalculator() {
         Hoe bereken je de geschatte netto-opbrengst?
       </h2>
       <p className="mt-3 leading-relaxed text-slate-700">
-        Trek het openstaande krediet en de ingevoerde verkoopkosten af van de verwachte
-        verkoopprijs. De makelaarscommissie wordt inclusief 21% btw berekend.
+        Pas de voorbeeldbedragen aan je dossier aan. De calculator trekt de verkoopkosten en het
+        openstaande woonkrediet afzonderlijk af. De makelaarscommissie wordt inclusief 21% btw
+        berekend. Vul 0% in wanneer je zonder makelaar verkoopt.
       </p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -168,19 +181,42 @@ export function NettoOpbrengstCalculator() {
           suffix="%"
         />
         <Field id="no-attesten" label="Attesten en keuringen" value={certificates} onChange={setCertificates} suffix="€" />
-        <Field id="no-overig" label="Andere verkoopkosten" value={otherCosts} onChange={setOtherCosts} suffix="€" />
+        <Field
+          id="no-levering"
+          label="Opzoekingen en leveringskosten"
+          value={deliveryCosts}
+          onChange={setDeliveryCosts}
+          suffix="€"
+        />
+        <Field
+          id="no-doorhaling"
+          label="Hypotheekdoorhaling"
+          value={mortgageCancellation}
+          onChange={setMortgageCancellation}
+          suffix="€"
+        />
+        <Field
+          id="no-wederbelegging"
+          label="Wederbeleggingsvergoeding bank"
+          value={reinvestmentFee}
+          onChange={setReinvestmentFee}
+          suffix="€"
+        />
+        <Field id="no-overig" label="Andere dossierkosten" value={otherCosts} onChange={setOtherCosts} suffix="€" />
       </div>
 
-      <div className="mt-6 grid gap-3 sm:grid-cols-3" aria-live="polite">
+      <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-live="polite">
         <Result label="Commissie inclusief btw" value={commissionTotal} />
-        <Result label="Totale verkoopkosten" value={sellingCosts} />
+        <Result label="Verkoopkosten zonder lening" value={sellingCosts} />
+        <Result label="Aflossing woonkrediet" value={outstandingLoan} />
         <Result label="Geschatte netto-opbrengst" value={estimatedNet} emphasis />
       </div>
 
       <p className="mt-4 text-xs leading-relaxed text-slate-500">
-        De uitkomst is indicatief. Vraag je bank, notaris en dienstverleners naar de exacte
-        afrekening. Belastingen, een wederbeleggingsvergoeding en andere dossierkosten zijn alleen
-        inbegrepen wanneer je ze zelf bij de andere verkoopkosten optelt.
+        De uitkomst is indicatief en houdt geen rekening met een mogelijke belasting op de
+        meerwaarde. Vraag je bank om de kredietafrekening, je notaris om de kosten van een
+        doorhaling en je dienstverleners om offertes. Een openstaand woonkrediet verlaagt wat je
+        ontvangt, maar is geen verkoopkost.
       </p>
     </section>
   );

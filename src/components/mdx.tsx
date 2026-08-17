@@ -130,6 +130,20 @@ function headingId(children: ReactNode) {
 type ContentNavItem = { id: string; label: string };
 
 const contentNavPresets: Record<string, ContentNavItem[]> = {
+  "kosten-verkoop-huis": [
+    { id: "wat-kost-een-huis-verkopen-in-vlaanderen", label: "Snel kostenoverzicht" },
+    { id: "welke-kosten-betaalt-de-verkoper-en-welke-de-koper", label: "Verkoper of koper" },
+    { id: "netto-opbrengst-calculator", label: "Netto-opbrengst berekenen" },
+    { id: "hoeveel-kost-een-vastgoedmakelaar-bij-verkoop", label: "Vastgoedmakelaar" },
+    { id: "wat-kosten-de-verplichte-attesten-en-documenten", label: "Attesten en documenten" },
+    { id: "welke-kosten-heeft-een-lopende-hypotheek", label: "Hypotheek en bank" },
+    { id: "welke-notariskosten-betaalt-de-verkoper", label: "Notariskosten" },
+    { id: "welke-extra-kosten-hangen-af-van-de-woning", label: "Extra dossierkosten" },
+    { id: "wat-kost-verkopen-en-een-nieuwe-woning-kopen", label: "Verkopen en kopen" },
+    { id: "wat-is-goedkoper-zelf-verkopen-of-met-een-makelaar", label: "Zelf of met makelaar" },
+    { id: "welke-bedragen-zijn-geen-verkoopkosten", label: "Geen verkoopkosten" },
+    { id: "hoe-maak-je-een-complete-kostenraming", label: "Checklist" },
+  ],
   "asbestattest-verkoop": [
     { id: "wat-moet-je-eerst-weten-over-het-asbestattest-bij-verkoop", label: "Snel overzicht" },
     { id: "wat-is-een-asbestattest-bij-verkoop-precies", label: "Betekenis en inhoud" },

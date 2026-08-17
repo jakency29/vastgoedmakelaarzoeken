@@ -118,8 +118,8 @@ export default async function ContentPage({ params }: Props) {
               <Breadcrumbs items={page.breadcrumbs} />
             </div>
           ) : null}
-          <div className={page.headerImage ? "grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_400px]" : ""}>
-            <div>
+          <div className={page.headerImage ? "grid min-w-0 grid-cols-[minmax(0,1fr)] items-center gap-8 lg:grid-cols-[minmax(0,1fr)_400px]" : ""}>
+            <div className="min-w-0">
               <div className="mb-3 flex flex-wrap items-center gap-2">
                 <span className="inline-flex rounded-full border border-brand-200 bg-white px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand-700">
                   {visual.label}
@@ -130,7 +130,7 @@ export default async function ContentPage({ params }: Props) {
                 {page.h1}
               </h1>
               {introInHeader && introContent ? (
-                <div className="mt-3 max-w-3xl text-lg leading-relaxed text-slate-600 [&>p+p]:mt-3">
+                <div className="mt-3 min-w-0 max-w-3xl text-lg leading-relaxed text-slate-600 [overflow-wrap:anywhere] [&>p+p]:mt-3">
                   {introContent}
                   {page.updated || page.editorial ? (
                     <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-semibold text-brand-700">
@@ -160,7 +160,7 @@ export default async function ContentPage({ params }: Props) {
               )}
             </div>
             {page.headerImage ? (
-              <figure className="overflow-hidden rounded-2xl border border-brand-200 bg-brand-900 shadow-sm">
+              <figure className="min-w-0 overflow-hidden rounded-2xl border border-brand-200 bg-brand-900 shadow-sm">
                 <Image
                   src={page.headerImage}
                   alt={page.headerImageAlt ?? ""}
