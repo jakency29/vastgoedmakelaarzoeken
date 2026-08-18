@@ -124,6 +124,12 @@ const LOCATIEPROFIELEN: Record<string, LocatieProfiel> = {
         href: "https://www.beringen.be/vastgoedinformatie-platform",
       },
       ALGEMENE_KOOPCONTROLES[2],
+      {
+        titel: "Sporen van mijnschade",
+        tekst: "Zie je scheuren, barsten of verzakkingen, laat de oorzaak bouwkundig onderzoeken en vraag of er eerder een melding of dossier over mijnschade bestond.",
+        label: "Bekijk het officiële meldpunt mijnschade",
+        href: "https://www.vlaanderen.be/organisaties/administratieve-diensten-van-de-vlaamse-overheid/beleidsdomein-werk-economie-wetenschap-innovatie-landbouw-en-sociale-economie/limburgse-reconversiemaatschappij/mijnschade-en-bemaling-limburgs-mijngebied",
+      },
     ],
   },
 };
@@ -251,6 +257,54 @@ function maakGemeenteFaq(cat: Categorie, naam: string, lijst: Woning[], profiel?
       answer: cat.key === "appartement"
         ? `Open het detail van het appartement dat je interesseert. Daar vind je de aanbieder, alle beschikbare kenmerken en de knop om informatie of een bezoek aan te vragen. Vergelijk eerst prijs, EPC, woonoppervlakte, terras, gemeenschappelijke kosten en de toestand van het gebouw.`
         : `Open het detail van het pand dat je interesseert. Daar vind je de aanbieder, alle beschikbare kenmerken en de knop om informatie of een bezoek aan te vragen. Vergelijk eerst prijs, EPC, oppervlakte, perceel en staat van de woning.`,
+    },
+  ];
+}
+
+function maakBeringenFaq(lijst: Woning[]): ListingFaqItem[] {
+  const geprijsd = lijst.filter((woning): woning is Woning & { prijs: number } => woning.prijs !== null);
+  const laagste = [...geprijsd].sort((a, b) => a.prijs - b.prijs)[0];
+  const hoogste = [...geprijsd].sort((a, b) => b.prijs - a.prijs)[0];
+  const epcVolgorde = ["A+", "A", "B", "C", "D", "E", "F", "G"];
+  const besteEpc = [...lijst]
+    .filter((woning) => woning.epcLabel && epcVolgorde.includes(woning.epcLabel))
+    .sort((a, b) => epcVolgorde.indexOf(a.epcLabel!) - epcVolgorde.indexOf(b.epcLabel!))[0];
+  const renovatiepanden = lijst.filter((woning) => woning.renovatieplicht || woning.epcLabel === "E" || woning.epcLabel === "F");
+  const paal = lijst.filter((woning) => woning.postcode === "3583").length;
+  const koersel = lijst.filter((woning) => woning.postcode === "3582").length;
+
+  return [
+    {
+      question: "Hoeveel huizen staan momenteel te koop in Beringen?",
+      answer: `Deze pagina toont momenteel ${lijst.length} huizen te koop in Beringen. Daarvan liggen er ${paal} in Paal en ${koersel} in Koersel. Het aantal volgt het beschikbare aanbod op ons platform en kan wijzigen wanneer een woning wordt toegevoegd of verkocht.`,
+    },
+    {
+      question: "Wat is het goedkoopste huis in Beringen op deze pagina?",
+      answer: laagste
+        ? `${laagste.adres} heeft momenteel de laagste vraagprijs: ${formatPrijs(laagste.prijs)}. Vergelijk die prijs wel met de staat, het EPC en de nodige werken. De laagste vraagprijs is niet automatisch de laagste totale aankoopkost.`
+        : "Niet elke woning heeft een openbare vraagprijs. Open het panddetail voor de beschikbare prijsinformatie.",
+    },
+    {
+      question: "Binnen welke prijsvork valt het huidige huizenaanbod in Beringen?",
+      answer: laagste && hoogste
+        ? `De actuele vraagprijzen op deze pagina lopen van ${formatPrijs(laagste.prijs)} tot ${formatPrijs(hoogste.prijs)}. Dit is de bandbreedte van deze ${lijst.length} panden en geen gemiddelde woningprijs voor de volledige gemeente Beringen.`
+        : "De beschikbare panden hebben niet allemaal een openbare vraagprijs. Controleer de details per woning.",
+    },
+    {
+      question: "Welk huis in Beringen heeft het beste EPC-label?",
+      answer: besteEpc
+        ? `${besteEpc.adres} heeft binnen het huidige aanbod het sterkste vermelde EPC-label: ${besteEpc.epcLabel}${besteEpc.epcVerbruik ? ` met ${besteEpc.epcVerbruik} kWh/m² per jaar` : ""}. Controleer naast het label ook het volledige attest, de installaties en het werkelijke gebruik.`
+        : "Er is momenteel geen vergelijkbaar EPC-label voor de woningen op deze pagina vermeld.",
+    },
+    {
+      question: "Voor welk huis in Beringen geldt de renovatieplicht?",
+      answer: renovatiepanden.length
+        ? `${renovatiepanden.map((woning) => `${woning.adres} met EPC-label ${woning.epcLabel}`).join(" en ")} valt op basis van het vermelde label onder de Vlaamse renovatieplicht. Laat de concrete verplichting, termijn en haalbare werken vóór een bod bevestigen.`
+        : "Geen van de huidige woningen heeft een vermeld EPC-label E of F. Controleer het geldige EPC toch altijd vóór een bod.",
+    },
+    {
+      question: "Hoe vraag ik een bezoek aan voor een huis in Beringen?",
+      answer: "Open het panddetail van de woning die je interesseert. Daar vind je de aanbieder, foto’s, kenmerken en de contactmogelijkheid om informatie of een bezoek aan te vragen. Vraag meteen naar de beschikbaarheid en naar ontbrekende attesten of plannen.",
     },
   ];
 }
@@ -406,6 +460,277 @@ function OverzichtContent({ cat, lijst, faq }: { cat: Categorie; lijst: Woning[]
   );
 }
 
+function mediaan(getallen: number[]): number | null {
+  if (!getallen.length) return null;
+  const gesorteerd = [...getallen].sort((a, b) => a - b);
+  const midden = Math.floor(gesorteerd.length / 2);
+  return gesorteerd.length % 2 === 0 ? (gesorteerd[midden - 1] + gesorteerd[midden]) / 2 : gesorteerd[midden];
+}
+
+function beringenKoopprofiel(woning: Woning): string {
+  switch (woning.id) {
+    case "167846":
+      return "Instapklaar wonen met het laagste energieverbruik";
+    case "167717":
+      return "Veel woonruimte met EPC-label B";
+    case "166222":
+      return "Renoveren op het laagste instapbudget";
+    case "164125":
+      return "Groot perceel met extra comfort";
+    default:
+      return woning.renovatieplicht ? "Renovatiekans" : "Vergelijken op ligging en kenmerken";
+  }
+}
+
+function BeringenHuisContent({
+  lijst,
+  kantorenLijst,
+  profiel,
+  alternatieven,
+  faq,
+}: {
+  lijst: Woning[];
+  kantorenLijst: Kantoor[];
+  profiel: LocatieProfiel;
+  alternatieven: { naam: string; slug: string; count: number }[];
+  faq: ListingFaqItem[];
+}) {
+  const geprijsd = lijst.filter((woning): woning is Woning & { prijs: number } => woning.prijs !== null);
+  const mediaanVraagprijs = mediaan(geprijsd.map((woning) => woning.prijs));
+  const bekendeOppervlakte = lijst.filter(
+    (woning): woning is Woning & { prijs: number; bewoonbaar: number } => woning.prijs !== null && woning.bewoonbaar !== null,
+  );
+  const energiezuinig = lijst.filter((woning) => woning.epcLabel === "A" || woning.epcLabel === "B");
+  const renovatiepanden = lijst.filter((woning) => woning.renovatieplicht || woning.epcLabel === "E" || woning.epcLabel === "F");
+  const deelgemeenten = profiel.deelgemeenten.map((deelgemeente) => ({
+    ...deelgemeente,
+    woningen: lijst.filter((woning) => woning.postcode === deelgemeente.postcode),
+  }));
+
+  return (
+    <>
+      <section aria-labelledby="actueel-aanbod-beringen">
+        <h2 id="actueel-aanbod-beringen" className="text-2xl font-extrabold tracking-tight text-brand-900">Welke huizen staan nu te koop in Beringen?</h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          Op deze pagina staan momenteel {aantal(lijst.length)} in Beringen: {lijstNL(lijst.map((woning) => woning.adres))}. Het aanbod ligt in Paal en Koersel en varieert van een te renoveren woning tot energiezuinige, instapklare huizen.
+        </p>
+
+        <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200">
+          <table className="w-full min-w-[820px] border-collapse text-left text-sm">
+            <caption className="sr-only">Vergelijking van het actuele huizenaanbod in Beringen</caption>
+            <thead className="bg-brand-50 text-brand-900">
+              <tr>
+                <th className="px-4 py-3 font-extrabold">Woning</th>
+                <th className="px-4 py-3 font-extrabold">Vraagprijs</th>
+                <th className="px-4 py-3 font-extrabold">Woonoppervlakte</th>
+                <th className="px-4 py-3 font-extrabold">Vraagprijs per m²</th>
+                <th className="px-4 py-3 font-extrabold">Perceel</th>
+                <th className="px-4 py-3 font-extrabold">EPC</th>
+                <th className="px-4 py-3 font-extrabold">Sterkste match</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
+              {lijst.map((woning) => {
+                const vraagprijsPerM2 = woning.prijs && woning.bewoonbaar ? Math.round(woning.prijs / woning.bewoonbaar) : null;
+                return (
+                  <tr key={woning.id}>
+                    <td className="px-4 py-3">
+                      <Link href={woningHref(woning)} className="font-bold text-brand-800 underline decoration-brand-300 underline-offset-2 hover:text-brand-600">
+                        {woning.adres}
+                      </Link>
+                      <span className="mt-1 block text-xs text-slate-500">{woning.postcode === "3583" ? "Paal" : woning.postcode === "3582" ? "Koersel" : "Beringen"}</span>
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-3">{formatPrijs(woning.prijs)}</td>
+                    <td className="whitespace-nowrap px-4 py-3">{woning.bewoonbaar ? formatOpp(woning.bewoonbaar) : "Niet vermeld"}</td>
+                    <td className="whitespace-nowrap px-4 py-3">{vraagprijsPerM2 ? `${formatPrijs(vraagprijsPerM2)}/m²` : "Niet berekenbaar"}</td>
+                    <td className="whitespace-nowrap px-4 py-3">{woning.grond ? formatOpp(woning.grond) : "Niet vermeld"}</td>
+                    <td className="px-4 py-3">{woning.epcLabel ? `Label ${woning.epcLabel}` : "Niet vermeld"}</td>
+                    <td className="min-w-52 px-4 py-3">{beringenKoopprofiel(woning)}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-sm leading-relaxed text-slate-600">
+          De prijs per m² is de vraagprijs gedeeld door de vermelde bewoonbare oppervlakte. Ze is niet berekend wanneer die oppervlakte ontbreekt en is geen schatting van de marktwaarde.
+        </p>
+      </section>
+
+      <section aria-labelledby="marktbeeld-beringen">
+        <h2 id="marktbeeld-beringen" className="mt-10 text-2xl font-extrabold tracking-tight text-brand-900">Wat leert het huidige aanbod over prijs, ruimte en energie?</h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          De vier woningen vormen geen volledige marktmeting, maar tonen wel duidelijke verschillen die je shortlist beïnvloeden. De vraagprijs, bruikbare ruimte, energieprestatie en renovatienood wijzen niet bij elk pand in dezelfde richting.
+        </p>
+        <dl className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {mediaanVraagprijs !== null && (
+            <div className="rounded-2xl border border-slate-200 bg-white p-4">
+              <dt className="text-sm font-bold text-slate-500">Mediaan vraagprijs</dt>
+              <dd className="mt-1 text-xl font-extrabold text-brand-900">{formatPrijs(mediaanVraagprijs)}</dd>
+              <dd className="mt-1 text-xs leading-relaxed text-slate-600">Midden van de vier actuele vraagprijzen, geen gemeentegemiddelde</dd>
+            </div>
+          )}
+          <div className="rounded-2xl border border-slate-200 bg-white p-4">
+            <dt className="text-sm font-bold text-slate-500">Bekende woonoppervlakte</dt>
+            <dd className="mt-1 text-xl font-extrabold text-brand-900">
+              {bekendeOppervlakte.length ? `${Math.min(...bekendeOppervlakte.map((woning) => woning.bewoonbaar))} tot ${Math.max(...bekendeOppervlakte.map((woning) => woning.bewoonbaar))} m²` : "Niet bekend"}
+            </dd>
+            <dd className="mt-1 text-xs leading-relaxed text-slate-600">Gebaseerd op {bekendeOppervlakte.length} van de {lijst.length} panden</dd>
+          </div>
+          <div className="rounded-2xl border border-slate-200 bg-white p-4">
+            <dt className="text-sm font-bold text-slate-500">EPC-label A of B</dt>
+            <dd className="mt-1 text-xl font-extrabold text-brand-900">{energiezuinig.length} van {lijst.length}</dd>
+            <dd className="mt-1 text-xs leading-relaxed text-slate-600">Vergelijk ook het verbruik en de installaties per woning</dd>
+          </div>
+          <div className="rounded-2xl border border-slate-200 bg-white p-4">
+            <dt className="text-sm font-bold text-slate-500">Renovatieplicht</dt>
+            <dd className="mt-1 text-xl font-extrabold text-brand-900">{renovatiepanden.length} {renovatiepanden.length === 1 ? "woning" : "woningen"}</dd>
+            <dd className="mt-1 text-xs leading-relaxed text-slate-600">Controleer budget, timing en haalbaarheid vóór een bod</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="kopersprofiel-beringen">
+        <h2 id="kopersprofiel-beringen" className="mt-10 text-2xl font-extrabold tracking-tight text-brand-900">Welk huis in Beringen past bij welk kopersprofiel?</h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          Voortstraat 36 past het duidelijkst bij wie energiezuinig en instapklaar wil wonen, terwijl Deurnestraat 84 vooral interessant is voor wie ruimte zoekt en bewust een renovatieproject aankan. De andere twee woningen liggen tussen die profielen in of leggen het accent op perceel en comfort.
+        </p>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+          {lijst.map((woning) => (
+            <article key={woning.id} className="rounded-2xl border border-slate-200 bg-white p-5">
+              <p className="text-sm font-bold text-accent-700">{beringenKoopprofiel(woning)}</p>
+              <h3 className="mt-1 text-lg font-extrabold text-brand-900">{woning.adres}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                {formatPrijs(woning.prijs)}, {woning.slaapkamers ? slaapkamersTekst(woning.slaapkamers) : "slaapkamers niet vermeld"}
+                {woning.bewoonbaar ? `, ${formatOpp(woning.bewoonbaar)} woonoppervlakte` : ""}
+                {woning.grond ? ` en ${formatOpp(woning.grond)} perceel` : ""}. {woning.epcLabel ? `EPC-label ${woning.epcLabel}` : "EPC niet vermeld"}
+                {woning.renovatieplicht ? " en renovatieplicht" : " zonder renovatieplicht op basis van het vermelde label"}.
+              </p>
+              <Link href={woningHref(woning)} className="mt-3 inline-flex font-bold text-brand-700 underline underline-offset-2">
+                Bekijk dit huis
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section aria-labelledby="deelgemeenten-beringen">
+        <h2 id="deelgemeenten-beringen" className="mt-10 text-2xl font-extrabold tracking-tight text-brand-900">Kies je voor Paal, Koersel, Beverlo of Beringen?</h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          Je kiest niet alleen voor de gemeente Beringen, maar voor een concreet adres in een van de vier deelgemeenten. Het huidige aanbod ligt voor het grootste deel in Paal en voor een kleiner deel in Koersel, terwijl er nu geen woning uit Beringen-centrum of Beverlo op deze pagina staat.
+        </p>
+        <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200">
+          <table className="w-full border-collapse text-left text-sm">
+            <thead className="bg-brand-50 text-brand-900">
+              <tr>
+                <th className="px-4 py-3 font-extrabold">Deelgemeente</th>
+                <th className="px-4 py-3 font-extrabold">Postcode</th>
+                <th className="px-4 py-3 font-extrabold">Actueel aanbod</th>
+                <th className="px-4 py-3 font-extrabold">Wat je nog controleert</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200 bg-white text-slate-700">
+              {deelgemeenten.map((deelgemeente) => (
+                <tr key={deelgemeente.postcode}>
+                  <td className="px-4 py-3 font-semibold text-brand-800">{deelgemeente.naam}</td>
+                  <td className="px-4 py-3">{deelgemeente.postcode}</td>
+                  <td className="px-4 py-3">{deelgemeente.woningen.length ? aantal(deelgemeente.woningen.length) : "Geen pand op dit moment"}</td>
+                  <td className="px-4 py-3">Route op het gewenste tijdstip, voorzieningen, omgevingsgeluid en plannen rond het exacte perceel</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-sm leading-relaxed text-slate-600">
+          De officiële gemeente-indeling is gecontroleerd via <a href={profiel.bron.href} className="font-medium text-brand-700 underline underline-offset-2">{profiel.bron.label}</a>. Het woonbeleidsplan van Stad Beringen behandelt Paal en Koersel bovendien als dorpen met een eigen karakter. Beoordeel daarom het adres en de directe omgeving, niet alleen de gemeentenaam.
+        </p>
+      </section>
+
+      <section aria-labelledby="bod-controle-beringen">
+        <h2 id="bod-controle-beringen" className="mt-10 text-2xl font-extrabold tracking-tight text-brand-900">Welke lokale gegevens controleer je vóór een bod in Beringen?</h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          Controleer elk adres afzonderlijk in officiële bronnen voordat je een bindend bod uitbrengt. De woningadvertentie helpt bij de eerste vergelijking, maar vervangt het vastgoedinformatiedossier, de attesten en een bouwkundige beoordeling niet.
+        </p>
+        <ol className="mt-5 grid gap-4 sm:grid-cols-2">
+          {profiel.controles.map((controle, index) => (
+            <li key={controle.href} className="rounded-2xl border border-slate-200 bg-white p-5">
+              <p className="text-sm font-bold text-accent-700">Controle {index + 1}</p>
+              <h3 className="mt-1 font-extrabold text-brand-900">{controle.titel}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-700">{controle.tekst}</p>
+              <a href={controle.href} className="mt-3 inline-block text-sm font-bold text-brand-700 underline underline-offset-2">{controle.label}</a>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-4 leading-relaxed text-slate-700">
+          Vergelijk bij een woning met label E of F ook de <Link href="/huis-verkopen-verplichtingen/epc" className="font-medium text-brand-700 underline underline-offset-2">EPC-gegevens en renovatieplicht</Link>. Leg vervolgens vast welke documenten of voorwaarden je nog nodig hebt voordat je <Link href="/bieden-op-een-huis" className="font-medium text-brand-700 underline underline-offset-2">een bod op het huis</Link> doet.
+        </p>
+      </section>
+
+      <section aria-labelledby="shortlist-beringen">
+        <h2 id="shortlist-beringen" className="mt-10 text-2xl font-extrabold tracking-tight text-brand-900">Hoe maak je in tien minuten een shortlist?</h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          Begin met je totale budget en schrap daarna alleen op harde eisen. Zo vergelijk je een goedkope renovatiewoning niet alsof ze hetzelfde woonproduct is als een energiezuinige instapklare woning.
+        </p>
+        <ol className="mt-4 list-decimal space-y-3 pl-5 text-slate-700">
+          <li>Reserveer naast de vraagprijs ruimte voor registratierechten, notariskosten en eventuele werken.</li>
+          <li>Kies eerst tussen instapklaar wonen en renoveren, want dat bepaalt je budget en timing.</li>
+          <li>Vergelijk vervolgens woonoppervlakte, perceel, EPC en ligging op dezelfde manier voor elk pand.</li>
+          <li>Open de twee beste panddetails en noteer welke attesten, plannen en antwoorden nog ontbreken.</li>
+          <li>Rijd de route naar werk, school of familie op een realistisch tijdstip en plan pas daarna een bezoek.</li>
+        </ol>
+        <p className="mt-4 text-sm leading-relaxed text-slate-600">
+          Een ruimer huis met lagere vraagprijs kan na renovatie duurder uitvallen dan een kleiner instapklaar pand. Bereken daarom vooraf <Link href="/hoeveel-spaargeld-voor-een-huis" className="font-bold text-brand-700 underline underline-offset-2">hoeveel spaargeld je voor de aankoop nodig hebt</Link>.
+        </p>
+      </section>
+
+      {kantorenLijst.length > 0 && (
+        <section aria-labelledby="makelaars-beringen">
+          <h2 id="makelaars-beringen" className="mt-10 text-2xl font-extrabold tracking-tight text-brand-900">Welke vastgoedkantoren bieden huizen aan in Beringen?</h2>
+          <p className="mt-3 leading-relaxed text-slate-700">
+            De pandkaarten koppelen elk huis aan het kantoor dat het op ons platform aanbiedt. Bekijk het kantoorprofiel om het volledige aanbod, het werkingsgebied en beschikbare contactgegevens te controleren.
+          </p>
+          <ul className="mt-4 space-y-2">
+            {kantorenLijst.slice(0, 6).map((kantoor) => (
+              <li key={kantoor.slug} className="flex flex-wrap items-center gap-2">
+                <Link href={`/kantoor/${kantoor.slug}`} className="font-medium text-brand-700 underline underline-offset-2">{kantoor.naam} in {kantoor.gemeente}</Link>
+                {kantoor.premium && <PremiumBadge />}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <div className="mt-10 rounded-2xl border border-accent-300 bg-accent-50 px-5 py-4">
+        <p className="font-extrabold text-brand-900">Nog geen passende woning gevonden?</p>
+        <p className="mt-1 text-sm leading-relaxed text-slate-700">
+          Bekijk <Link href="/huis-te-koop/limburg" className="font-bold text-brand-700 underline underline-offset-2">alle huizen te koop in Limburg</Link> of vergelijk het aanbod in een gemeente in de buurt.
+        </p>
+      </div>
+
+      {alternatieven.length > 0 && (
+        <section aria-labelledby="alternatieven-beringen">
+          <h2 id="alternatieven-beringen" className="mt-10 text-2xl font-extrabold tracking-tight text-brand-900">Welke gemeenten rond Beringen kun je vergelijken?</h2>
+          <p className="mt-3 leading-relaxed text-slate-700">
+            Vergelijk de beschikbare huizen in andere Limburgse gemeenten wanneer het huidige aanbod in Beringen niet past bij je budget, woonruimte of gewenste ligging.
+          </p>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {alternatieven.map((alternatief) => (
+              <li key={alternatief.slug}>
+                <Link href={`/huis-te-koop/limburg/${alternatief.slug}`} className="font-medium text-brand-700 underline underline-offset-2">
+                  Huizen te koop in {alternatief.naam}
+                </Link>{" "}
+                <span className="text-slate-500">({aantal(alternatief.count)})</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <ListingFaq title="Welke vragen worden vaak gesteld over huizen te koop in Beringen?" faq={faq} />
+    </>
+  );
+}
+
 // Unieke, data-gedreven content onder de listings.
 function LocatieContent({
   cat,
@@ -432,6 +757,10 @@ function LocatieContent({
   alternatieven?: { naam: string; slug: string; count: number }[];
   faq?: ListingFaqItem[];
 }) {
+  if (cat.key === "huis" && seed === "beringen" && profiel && alternatieven && faq) {
+    return <BeringenHuisContent lijst={lijst} kantorenLijst={kantorenLijst} profiel={profiel} alternatieven={alternatieven} faq={faq} />;
+  }
+
   const attest = kiesGidsen(ATTEST_GIDSEN, seed, 2);
   const leesook = kiesGidsen(LEESOOK_GIDSEN, `${seed}-lees`, 3);
   const teRenoveren = lijst.filter((w) => w.epcLabel && ["E", "F", "G"].includes(w.epcLabel));
@@ -875,8 +1204,14 @@ export function gemeenteMetadata(cat: Categorie, provincieSlug: string, gemeente
   const l = gemeenteLabels(cat, provincieSlug, gemeenteSlug);
   if (!l) return {};
   const lijst = woningenGemeenteVoor(cat, provincieSlug, gemeenteSlug);
-  const title = `${cat.meervoud} te koop in ${l.gemeente}: ${lijst.length} ${lijst.length === 1 ? "pand" : "panden"}`;
-  const description = listingDescription(cat, l.gemeente, lijst);
+  const isBeringenHuis = cat.key === "huis" && provincieSlug === "limburg" && gemeenteSlug === "beringen";
+  const title = isBeringenHuis
+    ? `Huis te koop in Beringen: ${lijst.length} woningen vergelijken`
+    : `${cat.meervoud} te koop in ${l.gemeente}: ${lijst.length} ${lijst.length === 1 ? "pand" : "panden"}`;
+  const range = prijsRange(lijst);
+  const description = isBeringenHuis && range
+    ? `Zoek je een huis te koop in Beringen? Vergelijk ${lijst.length} actuele woningen in Paal en Koersel van ${formatPrijs(range.min)} tot ${formatPrijs(range.max)} op prijs, ruimte en EPC.`.slice(0, 155)
+    : listingDescription(cat, l.gemeente, lijst);
   const path = `/${cat.prefix}/${provincieSlug}/${gemeenteSlug}`;
   return {
     title: { absolute: title },
@@ -892,13 +1227,18 @@ export function GemeenteView({ cat, provincieSlug, gemeenteSlug }: { cat: Catego
   const lijst = woningenGemeenteVoor(cat, provincieSlug, gemeenteSlug);
   const kantorenLijst = kantoren.filter((k) => k.gemeente === l.gemeente || k.regios.includes(l.gemeente));
   const profiel = cat.key === "huis" ? LOCATIEPROFIELEN[gemeenteSlug] : undefined;
-  const faq = maakGemeenteFaq(cat, l.gemeente, lijst, profiel);
+  const isBeringenHuis = cat.key === "huis" && provincieSlug === "limburg" && gemeenteSlug === "beringen";
+  const faq = isBeringenHuis ? maakBeringenFaq(lijst) : maakGemeenteFaq(cat, l.gemeente, lijst, profiel);
   const alternatieven = gemeentenVoor(cat, provincieSlug).filter((gemeente) => gemeente.slug !== gemeenteSlug).slice(0, 6);
+  const range = prijsRange(lijst);
+  const beringenSubtitle = range
+    ? `Zoek je een huis te koop in Beringen? Vergelijk ${lijst.length} actuele woningen in Paal en Koersel met vraagprijzen van ${formatPrijs(range.min)} tot ${formatPrijs(range.max)}. Bekijk eerst de panden en gebruik daarna de vergelijking op woonruimte, perceel, EPC en renovatienood.`
+    : introTekst(cat, l.gemeente, lijst);
   return (
     <ListingView
       breadcrumb={[HOME, { name: cat.label, href: `/${cat.prefix}` }, { name: l.provincie, href: `/${cat.prefix}/${provincieSlug}` }, { name: l.gemeente }]}
       title={`${cat.meervoud} te koop in ${l.gemeente}`}
-      subtitle={introTekst(cat, l.gemeente, lijst)}
+      subtitle={isBeringenHuis ? beringenSubtitle : introTekst(cat, l.gemeente, lijst)}
       path={`/${cat.prefix}/${provincieSlug}/${gemeenteSlug}`}
       woningen={lijst}
       faq={faq}
