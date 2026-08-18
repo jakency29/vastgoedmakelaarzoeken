@@ -1,5 +1,137 @@
 [
  {
+  "id": "167846",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Voortstraat 36",
+  "adres": "Voortstraat 36",
+  "gemeente": "Beringen",
+  "gemeenteSlug": "beringen",
+  "postcode": "3582",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 395000,
+  "bewoonbaar": 130,
+  "grond": 423,
+  "slaapkamers": 3,
+  "gevels": 4,
+  "bouwjaar": 2013,
+  "staat": "Uitstekende staat",
+  "parkeerplaatsen": 3,
+  "epcLabel": "A",
+  "epcVerbruik": 46,
+  "epcCode": "20260727-0003923110-RES-1",
+  "renovatieplicht": false,
+  "kadastraalInkomen": 809,
+  "bestemming": "Woongebied",
+  "overstroming": "Geen overstromingsgebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 37
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Doucheruimte",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Toilet",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 12
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 16
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 16
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 9
+   },
+   {
+    "label": "Zolder",
+    "aantal": 1,
+    "opp": 70
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": 20
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Zonnepanelen",
+   "Dubbele beglazing",
+   "PVC raamwerk",
+   "Individuele verwarming op aardgas",
+   "Volledig geïnstalleerde keuken",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op gas",
+   "Aansluiting op water",
+   "Rioolaansluiting",
+   "Regenwatertank",
+   "Brandmelder"
+  ],
+  "troeven": [
+   "Recente gezinswoning uit 2013",
+   "EPC-label A met 46 kWh/m2 per jaar",
+   "Bewoonbare oppervlakte van 130 m2",
+   "Perceel van 423 m2",
+   "3 slaapkamers",
+   "Opbergzolder van 70 m2",
+   "Zonnepanelen",
+   "3 parkeerplaatsen"
+  ],
+  "geoLat": 51.057795,
+  "geoLng": 5.2151049,
+  "beschrijving": "Deze energiezuinige en instapklare gezinswoning ligt aan de Voortstraat 36 in Beringen. De vrijstaande woning werd gebouwd in 2013 en biedt 130 m2 bewoonbare oppervlakte op een perceel van 423 m2. Winkels, scholen, openbaar vervoer en belangrijke invalswegen bevinden zich op korte afstand.\n\nOp het gelijkvloers liggen een inkomhal met gastentoilet, een lichte leefruimte met zit- en eetgedeelte, een open en volledig geïnstalleerde keuken en een praktische was- en bergruimte. De leefruimtes sluiten aan op het terras en de tuin.\n\nDe verdieping telt drie slaapkamers van 16, 12 en 9 m2 en een verzorgde badkamer met toilet. De opbergzolder van 70 m2 biedt veel extra stockageruimte. Buiten beschikt de woning over een terras van 20 m2, een tuin en drie parkeerplaatsen.\n\nHet EPC-label A en het primaire energieverbruik van 46 kWh/m2 per jaar maken de woning energiezuinig. Zonnepanelen, dubbele beglazing, PVC raamwerk en individuele verwarming op aardgas dragen bij aan het wooncomfort. Het perceel en gebouw hebben overstromingsscore A en liggen niet in een overstromingsgebied.",
+  "fotos": [
+   "/afbeeldingen/woningen/167846/1.jpg",
+   "/afbeeldingen/woningen/167846/2.jpg",
+   "/afbeeldingen/woningen/167846/3.jpg",
+   "/afbeeldingen/woningen/167846/4.jpg",
+   "/afbeeldingen/woningen/167846/5.jpg",
+   "/afbeeldingen/woningen/167846/6.jpg",
+   "/afbeeldingen/woningen/167846/7.jpg",
+   "/afbeeldingen/woningen/167846/8.jpg",
+   "/afbeeldingen/woningen/167846/9.jpg",
+   "/afbeeldingen/woningen/167846/10.jpg",
+   "/afbeeldingen/woningen/167846/11.jpg",
+   "/afbeeldingen/woningen/167846/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/beringen/house/167846",
+  "slug": "voortstraat-36-beringen-167846",
+  "toegevoegdOp": "2026-08-18"
+ },
+ {
   "id": "167717",
   "kantoorSlug": "we-invest-demervallei",
   "transactie": "te-koop",
