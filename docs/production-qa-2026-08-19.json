@@ -1,0 +1,422 @@
+{
+  "generatedAt": "2026-08-19T18:52:41.097Z",
+  "baseUrl": "https://www.vastgoedmakelaarzoeken.be",
+  "summary": {
+    "pagesChecked": 19,
+    "pagesPassed": 19,
+    "pagesFailed": 0
+  },
+  "pages": [
+    {
+      "group": "money",
+      "path": "/",
+      "url": "https://www.vastgoedmakelaarzoeken.be/",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Vastgoedmakelaars vergelijken in jouw regio",
+      "h1": "Vergelijk vastgoedmakelaars in jouw regio",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 55,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "money",
+      "path": "/kantoor",
+      "url": "https://www.vastgoedmakelaarzoeken.be/kantoor",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Vastgoedkantoren en immokantoren vergelijken",
+      "h1": "Vastgoedkantoren in jouw regio",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/kantoor",
+      "canonicalMatches": true,
+      "formCount": 0,
+      "internalLinkCount": 42,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "money",
+      "path": "/kosten-vastgoedmakelaar",
+      "url": "https://www.vastgoedmakelaarzoeken.be/kosten-vastgoedmakelaar",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Wat kost een vastgoedmakelaar bij verkoop?",
+      "h1": "Wat kost een vastgoedmakelaar bij verkoop?",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/kosten-vastgoedmakelaar",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 36,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "money",
+      "path": "/kosten-verkoop-huis",
+      "url": "https://www.vastgoedmakelaarzoeken.be/kosten-verkoop-huis",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Kosten huis verkopen in 2026: bereken je netto-opbrengst",
+      "h1": "Welke kosten betaal je bij verkoop van een huis?",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/kosten-verkoop-huis",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 47,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "money",
+      "path": "/huis-laten-schatten",
+      "url": "https://www.vastgoedmakelaarzoeken.be/huis-laten-schatten",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Huis laten schatten door een vastgoedmakelaar",
+      "h1": "Laat je huis schatten door een vastgoedmakelaar",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/huis-laten-schatten",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 38,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "money",
+      "path": "/woning-verkopen",
+      "url": "https://www.vastgoedmakelaarzoeken.be/woning-verkopen",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Woning verkopen in België: stappen, kosten en belasting",
+      "h1": "Woning verkopen in België: stappen, kosten en belasting",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/woning-verkopen",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 43,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "hub",
+      "path": "/huis-verkopen-verplichtingen",
+      "url": "https://www.vastgoedmakelaarzoeken.be/huis-verkopen-verplichtingen",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Huis verkopen: verplichte documenten en attesten 2026",
+      "h1": "Welke documenten en attesten zijn verplicht bij verkoop van een huis?",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/huis-verkopen-verplichtingen",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 46,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "opportunity",
+      "path": "/akte-verlijden",
+      "url": "https://www.vastgoedmakelaarzoeken.be/akte-verlijden",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Akte verlijden: wat gebeurt er op de dag zelf?",
+      "h1": "Akte verlijden: wat gebeurt er op de dag zelf?",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/akte-verlijden",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 32,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "opportunity",
+      "path": "/prijs-bouwgrond-berekenen",
+      "url": "https://www.vastgoedmakelaarzoeken.be/prijs-bouwgrond-berekenen",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Prijs bouwgrond berekenen in Vlaanderen",
+      "h1": "Prijs bouwgrond berekenen in Vlaanderen: formule en kosten",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/prijs-bouwgrond-berekenen",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 34,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "opportunity",
+      "path": "/bod-intrekken-huis",
+      "url": "https://www.vastgoedmakelaarzoeken.be/bod-intrekken-huis",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Bod op huis intrekken: kan dat en wat riskeer je?",
+      "h1": "Bod op een huis intrekken in België: wanneer kan het en wat zijn de gevolgen?",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/bod-intrekken-huis",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 36,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "opportunity",
+      "path": "/huis-gekocht-wat-nu",
+      "url": "https://www.vastgoedmakelaarzoeken.be/huis-gekocht-wat-nu",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Huis gekocht, wat nu? Checklist en stappen na aankoop",
+      "h1": "Huis gekocht, wat nu? Checklist en stappen na aankoop",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/huis-gekocht-wat-nu",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 40,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "office",
+      "path": "/kantoor/we-invest-demervallei",
+      "url": "https://www.vastgoedmakelaarzoeken.be/kantoor/we-invest-demervallei",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "We Invest Demervallei | Vastgoedkantoor Halen",
+      "h1": "We Invest Demervallei",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/kantoor/we-invest-demervallei",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 56,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "office",
+      "path": "/kantoor/hillewaere-vastgoed",
+      "url": "https://www.vastgoedmakelaarzoeken.be/kantoor/hillewaere-vastgoed",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Hillewaere Vastgoed | Vastgoedkantoor Turnhout",
+      "h1": "Hillewaere Vastgoed",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/kantoor/hillewaere-vastgoed",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 34,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "office",
+      "path": "/kantoor/heylen-vastgoed",
+      "url": "https://www.vastgoedmakelaarzoeken.be/kantoor/heylen-vastgoed",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Heylen Vastgoed | Vastgoedkantoor Herentals",
+      "h1": "Heylen Vastgoed",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/kantoor/heylen-vastgoed",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 34,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "province",
+      "path": "/vastgoedkantoren/limburg",
+      "url": "https://www.vastgoedmakelaarzoeken.be/vastgoedkantoren/limburg",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Vastgoedkantoor Limburg: makelaar vinden en vergelijken",
+      "h1": "Vastgoedkantoren en makelaars in Limburg: Hasselt, Genk en Beringen",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/vastgoedkantoren/limburg",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 38,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "province",
+      "path": "/vastgoedkantoren/antwerpen",
+      "url": "https://www.vastgoedmakelaarzoeken.be/vastgoedkantoren/antwerpen",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Vastgoedkantoren Antwerpen vergelijken per regio",
+      "h1": "Vastgoedkantoren in Antwerpen vergelijken",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/vastgoedkantoren/antwerpen",
+      "canonicalMatches": true,
+      "formCount": 1,
+      "internalLinkCount": 44,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "trust",
+      "path": "/privacy",
+      "url": "https://www.vastgoedmakelaarzoeken.be/privacy",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Privacybeleid | Vastgoedmakelaar Zoeken",
+      "h1": "Privacybeleid",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/privacy",
+      "canonicalMatches": true,
+      "formCount": 0,
+      "internalLinkCount": 27,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "trust",
+      "path": "/voorwaarden",
+      "url": "https://www.vastgoedmakelaarzoeken.be/voorwaarden",
+      "status": 200,
+      "expectedStatus": 200,
+      "title": "Gebruiksvoorwaarden | Vastgoedmakelaar Zoeken",
+      "h1": "Gebruiksvoorwaarden",
+      "h1Count": 1,
+      "canonical": "https://www.vastgoedmakelaarzoeken.be/voorwaarden",
+      "canonicalMatches": true,
+      "formCount": 0,
+      "internalLinkCount": 28,
+      "hasPrivacyLink": true,
+      "passed": true
+    },
+    {
+      "group": "error",
+      "path": "/qa-bestaat-niet-20260819",
+      "expectedStatus": 404,
+      "url": "https://www.vastgoedmakelaarzoeken.be/qa-bestaat-niet-20260819",
+      "status": 404,
+      "title": "Pagina niet gevonden | Vastgoedmakelaar Zoeken",
+      "h1": "Deze pagina bestaat niet meer",
+      "h1Count": 1,
+      "canonical": null,
+      "canonicalMatches": true,
+      "formCount": 0,
+      "internalLinkCount": 31,
+      "hasPrivacyLink": true,
+      "passed": true
+    }
+  ],
+  "redirects": [
+    {
+      "label": "slash",
+      "url": "https://www.vastgoedmakelaarzoeken.be/kantoor/",
+      "hops": [
+        {
+          "url": "https://www.vastgoedmakelaarzoeken.be/kantoor/",
+          "status": 301,
+          "location": "/kantoor"
+        },
+        {
+          "url": "https://www.vastgoedmakelaarzoeken.be/kantoor",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "redirectCount": 1,
+      "finalUrl": "https://www.vastgoedmakelaarzoeken.be/kantoor",
+      "finalStatus": 200
+    },
+    {
+      "label": "http-www",
+      "url": "http://www.vastgoedmakelaarzoeken.be/kantoor",
+      "hops": [
+        {
+          "url": "http://www.vastgoedmakelaarzoeken.be/kantoor",
+          "status": 308,
+          "location": "https://www.vastgoedmakelaarzoeken.be/kantoor"
+        },
+        {
+          "url": "https://www.vastgoedmakelaarzoeken.be/kantoor",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "redirectCount": 1,
+      "finalUrl": "https://www.vastgoedmakelaarzoeken.be/kantoor",
+      "finalStatus": 200
+    },
+    {
+      "label": "https-apex",
+      "url": "https://vastgoedmakelaarzoeken.be/kantoor",
+      "hops": [
+        {
+          "url": "https://vastgoedmakelaarzoeken.be/kantoor",
+          "status": 308,
+          "location": "https://www.vastgoedmakelaarzoeken.be/kantoor"
+        },
+        {
+          "url": "https://www.vastgoedmakelaarzoeken.be/kantoor",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "redirectCount": 1,
+      "finalUrl": "https://www.vastgoedmakelaarzoeken.be/kantoor",
+      "finalStatus": 200
+    },
+    {
+      "label": "http-apex-slash",
+      "url": "http://vastgoedmakelaarzoeken.be/kantoor/",
+      "hops": [
+        {
+          "url": "http://vastgoedmakelaarzoeken.be/kantoor/",
+          "status": 308,
+          "location": "https://vastgoedmakelaarzoeken.be/kantoor/"
+        },
+        {
+          "url": "https://vastgoedmakelaarzoeken.be/kantoor/",
+          "status": 308,
+          "location": "https://www.vastgoedmakelaarzoeken.be/kantoor/"
+        },
+        {
+          "url": "https://www.vastgoedmakelaarzoeken.be/kantoor/",
+          "status": 301,
+          "location": "/kantoor"
+        },
+        {
+          "url": "https://www.vastgoedmakelaarzoeken.be/kantoor",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "redirectCount": 3,
+      "finalUrl": "https://www.vastgoedmakelaarzoeken.be/kantoor",
+      "finalStatus": 200
+    },
+    {
+      "label": "legacy-asbest",
+      "url": "https://www.vastgoedmakelaarzoeken.be/asbestattest/bij-verkoop",
+      "hops": [
+        {
+          "url": "https://www.vastgoedmakelaarzoeken.be/asbestattest/bij-verkoop",
+          "status": 301,
+          "location": "/huis-verkopen-verplichtingen/asbestattest"
+        },
+        {
+          "url": "https://www.vastgoedmakelaarzoeken.be/huis-verkopen-verplichtingen/asbestattest",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "redirectCount": 1,
+      "finalUrl": "https://www.vastgoedmakelaarzoeken.be/huis-verkopen-verplichtingen/asbestattest",
+      "finalStatus": 200
+    }
+  ]
+}
