@@ -1,5 +1,127 @@
 [
  {
+  "id": "168856",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Appartement",
+  "typeUID": "flat",
+  "titel": "Guido Gezellelaan 131/1",
+  "adres": "Guido Gezellelaan 131/1",
+  "gemeente": "Heusden-Zolder",
+  "gemeenteSlug": "heusden-zolder",
+  "postcode": "3550",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 210000,
+  "bewoonbaar": 150,
+  "grond": null,
+  "slaapkamers": 3,
+  "gevels": 3,
+  "bouwjaar": "1932",
+  "staat": "Op te frissen",
+  "parkeerplaatsen": 4,
+  "epcLabel": "F",
+  "epcVerbruik": 605,
+  "epcCode": "20230517-0002895242-RES-1",
+  "renovatieplicht": true,
+  "kadastraalInkomen": 673,
+  "bestemming": "Woongebied",
+  "overstroming": "P-score A en G-score A, niet in overstromingsgebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 30
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 10
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 12
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 15
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 10
+   },
+   {
+    "label": "Veranda",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": 300
+   },
+   {
+    "label": "Garage",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Individuele verwarming op stookolie",
+   "Conforme stookolietank",
+   "Gasaansluiting aanwezig",
+   "Dubbele beglazing",
+   "Aluminium raamwerk",
+   "Volledig geïnstalleerde open keuken",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op gas",
+   "Aansluiting op water",
+   "Rioolaansluiting",
+   "Brandmelder"
+  ],
+  "troeven": [
+   "Bewoonbare oppervlakte van 150 m2",
+   "3 volwaardige slaapkamers",
+   "Vernieuwde open keuken en badkamer",
+   "Veranda en buitenruimte met exclusief gebruiksrecht",
+   "Tuinzone van ongeveer 300 m2",
+   "4 parkeerplaatsen",
+   "Centrale ligging in Heusden",
+   "Ramen en deuren vernieuwd na het huidige EPC"
+  ],
+  "geoLat": 51.02888,
+  "geoLng": 5.27272,
+  "beschrijving": "Dit ruime appartement ligt aan de Guido Gezellelaan 131/1 in Heusden-Zolder en biedt 150 m2 bewoonbare oppervlakte. Het pand bevindt zich op het gelijkvloers, telt drie volwaardige slaapkamers en beschikt over een veranda. Winkels, horeca, openbaar vervoer en andere dagelijkse voorzieningen bevinden zich in de omgeving.\n\nDe leefruimte sluit aan op een volledig vernieuwde open keuken. Ook de badkamer werd gemoderniseerd. De drie slaapkamers kunnen nog naar eigen smaak worden opgefrist. Verder zijn er een eetkamer, wasplaats en praktische bergruimte.\n\nAan de achterzijde hoort een exclusief gebruiksrecht bij een buitenruimte van ongeveer 300 m2. Die zone kan als tuin of terras worden ingericht en is bereikbaar via de veranda. Er geldt een recht van doorgang voor de buurman naar zijn garage, waarmee bij de inrichting rekening moet worden gehouden. Een garage en meerdere parkeerplaatsen zijn inbegrepen.\n\nHet appartement heeft EPC-label F met een berekend energieverbruik van 605 kWh/m2 per jaar en valt onder de Vlaamse renovatieplicht. De ramen en deuren werden na de opmaak van het huidige EPC vernieuwd en zijn dus nog niet in die score verwerkt. De verwarming werkt op stookolie, de tank is conform en er is ook een gasaansluiting aanwezig. Het perceel en gebouw hebben overstromingsscore A.",
+  "fotos": [
+   "/afbeeldingen/woningen/168856/1.jpg",
+   "/afbeeldingen/woningen/168856/2.jpg",
+   "/afbeeldingen/woningen/168856/3.jpg",
+   "/afbeeldingen/woningen/168856/4.jpg",
+   "/afbeeldingen/woningen/168856/5.jpg",
+   "/afbeeldingen/woningen/168856/6.jpg",
+   "/afbeeldingen/woningen/168856/7.jpg",
+   "/afbeeldingen/woningen/168856/8.jpg",
+   "/afbeeldingen/woningen/168856/9.jpg",
+   "/afbeeldingen/woningen/168856/10.jpg",
+   "/afbeeldingen/woningen/168856/11.jpg",
+   "/afbeeldingen/woningen/168856/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/heusden-zolder/apartment/168856",
+  "slug": "guido-gezellelaan-131-1-heusden-zolder-168856",
+  "toegevoegdOp": "2026-08-19"
+ },
+ {
   "id": "167846",
   "kantoorSlug": "we-invest-demervallei",
   "transactie": "te-koop",
