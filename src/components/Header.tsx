@@ -11,12 +11,12 @@ export function Header({ nav }: { nav: { label: string; href: string }[] }) {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
+      <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 px-4 py-3">
         <Link href="/" aria-label={site.name}>
           <Logo />
         </Link>
 
-        <nav aria-label="Hoofdnavigatie" className="hidden lg:block">
+        <nav aria-label="Hoofdnavigatie" className="hidden 2xl:block">
           <ul className="flex items-center gap-7 whitespace-nowrap text-sm font-semibold text-brand-800">
             {nav.map((item) => (
               <li key={item.href}>
@@ -43,7 +43,7 @@ export function Header({ nav }: { nav: { label: string; href: string }[] }) {
           </Link>
           <button
             type="button"
-            className="inline-flex items-center rounded-lg border border-slate-300 p-2 text-brand-800 lg:hidden"
+            className="inline-flex items-center rounded-lg border border-slate-300 p-2 text-brand-800 2xl:hidden"
             aria-label="Menu"
             aria-expanded={open}
             aria-controls="mobile-navigation"
@@ -61,8 +61,8 @@ export function Header({ nav }: { nav: { label: string; href: string }[] }) {
       </div>
 
       {open && (
-        <nav id="mobile-navigation" aria-label="Mobiele navigatie" className="border-t border-slate-200 bg-white lg:hidden">
-          <ul className="mx-auto max-w-7xl px-4 py-2 text-sm font-semibold text-brand-800">
+        <nav id="mobile-navigation" aria-label="Mobiele navigatie" className="border-t border-slate-200 bg-white 2xl:hidden">
+          <ul className="mx-auto max-w-[1500px] px-4 py-2 text-sm font-semibold text-brand-800">
             {nav.map((item) => (
               <li key={item.href} className="border-b border-slate-100 last:border-0">
                 <Link href={item.href} className="block py-3 hover:text-accent-600" onClick={() => setOpen(false)}>

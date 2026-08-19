@@ -128,6 +128,10 @@ const searchConsoleRedirects = [
 ];
 
 const nextConfig: NextConfig = {
+  // Next.js gebruikt standaard een 308 voor trailing-slash-normalisatie. De proxy
+  // handelt dit zelf af met een klassieke 301, zodat elke HTML-URL een definitieve
+  // non-slashvariant heeft en oude links in maximaal een stap worden opgeschoond.
+  skipTrailingSlashRedirect: true,
   async redirects() {
     return [
       ...movedPermanentlyRedirects.map((r) => ({

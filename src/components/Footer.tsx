@@ -40,6 +40,8 @@ export function Footer() {
               <li><Link href="/kantoor" className="hover:text-accent-400">Vastgoedkantoren</Link></li>
               <li><Link href="/werkwijze" className="hover:text-accent-400">Onze werkwijze</Link></li>
               <li><Link href="/contact" className="hover:text-accent-400">Contact</Link></li>
+              <li><Link href="/privacy" className="hover:text-accent-400">Privacybeleid</Link></li>
+              <li><Link href="/voorwaarden" className="hover:text-accent-400">Gebruiksvoorwaarden</Link></li>
               <li>
                 <a href={`mailto:${site.email}`} className="hover:text-accent-400">
                   {site.email}

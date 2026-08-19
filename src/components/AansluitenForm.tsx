@@ -5,6 +5,7 @@
 
 import { useState } from "react";
 import { submitToWeb3Forms } from "@/lib/web3forms";
+import { FormPrivacyNote } from "@/components/FormPrivacyNote";
 
 export function AansluitenForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
@@ -125,6 +126,7 @@ export function AansluitenForm() {
           Er ging iets mis. Probeer opnieuw of neem rechtstreeks contact op.
         </p>
       )}
+      <FormPrivacyNote />
     </form>
   );
 }

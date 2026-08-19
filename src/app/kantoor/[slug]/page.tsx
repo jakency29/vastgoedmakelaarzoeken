@@ -188,6 +188,33 @@ export default async function KantoorPage({ params }: Props) {
           <div className="min-w-0">
             <p className="max-w-3xl leading-relaxed text-slate-700">{k.intro}</p>
 
+            <dl className="mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-xl border border-slate-200 bg-brand-50/60 p-4">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Vestiging</dt>
+                <dd className="mt-1 font-bold text-brand-900">{k.gemeente}, {k.provincie}</dd>
+              </div>
+              <div className="rounded-xl border border-slate-200 bg-brand-50/60 p-4">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">BIV-vermelding</dt>
+                <dd className="mt-1 font-bold text-brand-900">{k.bivNummer ?? "Niet beschikbaar"}</dd>
+              </div>
+              <div className="rounded-xl border border-slate-200 bg-brand-50/60 p-4">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Vermelde diensten</dt>
+                <dd className="mt-1 font-bold text-brand-900">{k.diensten.length}</dd>
+              </div>
+              <div className="rounded-xl border border-slate-200 bg-brand-50/60 p-4">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Laatste BIV-controle</dt>
+                <dd className="mt-1 font-bold text-brand-900">
+                  {k.bivGecontroleerdOp
+                    ? new Intl.DateTimeFormat("nl-BE", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(k.bivGecontroleerdOp))
+                    : "Niet beschikbaar"}
+                </dd>
+              </div>
+            </dl>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600">
+              Lees hoe profielgegevens, reviews en commerciële badges worden behandeld in onze{" "}
+              <Link href="/werkwijze" className="font-semibold text-brand-700 underline underline-offset-2">werkwijze</Link>.
+            </p>
+
             {k.bivNummer && (
               <section className="mt-7 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
                 <h2 className="text-xl font-extrabold tracking-tight text-emerald-950">

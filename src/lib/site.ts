@@ -19,14 +19,14 @@ export const site = {
     "https://in.pinterest.com/Vastgoedmakelaarzoeken/",
   ],
   // Hoofdnavigatie (desktop + hamburger op mobiel).
-  // Basis-navigatie. De listing-links (Huis/Appartement te koop) worden dynamisch vooraan
-  // toegevoegd in de layout, enkel voor categorieen die effectief panden bevatten.
+  // Basis-navigatie. Listing-links worden in de layout achter deze kernroutes toegevoegd,
+  // en alleen voor categorieen die effectief panden bevatten.
   nav: [
-    { label: "Kennisbank", href: "/kennisbank" },
-    { label: "Woning schatten", href: "/huis-laten-schatten" },
+    { label: "Makelaar vergelijken", href: "/#leadform" },
     { label: "Kantoren", href: "/kantoor" },
-    { label: "Onze werkwijze", href: "/werkwijze" },
-    { label: "Contact", href: "/contact" },
+    { label: "Woning schatten", href: "/huis-laten-schatten" },
+    { label: "Woning verkopen", href: "/woning-verkopen" },
+    { label: "Kennisbank", href: "/kennisbank" },
   ],
 } as const;
 

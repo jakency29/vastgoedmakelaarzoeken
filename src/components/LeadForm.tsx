@@ -5,6 +5,7 @@
 
 import { useState } from "react";
 import { submitToWeb3Forms } from "@/lib/web3forms";
+import { FormPrivacyNote } from "@/components/FormPrivacyNote";
 
 const TRANSACTIES = [
   { value: "verkopen", label: "Woning verkopen" },
@@ -177,6 +178,7 @@ export function LeadForm({
         </svg>
         Gratis en vrijblijvend. Wij kunnen je aanvraag aan een of meer passende kantoren bezorgen.
       </p>
+      <FormPrivacyNote />
       <input type="hidden" name="bron" value={variant} />
       {/* Honeypot tegen spam (Web3Forms). Onzichtbaar voor bezoekers. */}
       <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} tabIndex={-1} autoComplete="off" aria-hidden="true" />

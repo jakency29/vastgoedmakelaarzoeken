@@ -36,14 +36,20 @@ export default function WerkwijzePage() {
   const gecontroleerdeKantoren = kantoren.filter(
     (kantoor) => kantoor.bivNummer && kantoor.bivBron && kantoor.bivGecontroleerdOp,
   ).length;
+  const laatsteBivControle = kantoren
+    .map((kantoor) => kantoor.bivGecontroleerdOp)
+    .filter((datum): datum is string => Boolean(datum))
+    .sort()
+    .at(-1);
   const pageSchema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "AboutPage",
     "@id": `${absoluteUrl("/werkwijze")}#page`,
     url: absoluteUrl("/werkwijze"),
     name: "Onze werkwijze",
     description: metadata.description,
     inLanguage: "nl",
+    dateModified: "2026-08-19",
     isPartOf: { "@id": `${site.domain}/#website` },
     about: [
       { "@type": "Thing", name: "Vastgoedmakelaar vergelijken" },
@@ -70,7 +76,7 @@ export default function WerkwijzePage() {
             en Brussel helpt om vastgoedkantoren te vinden en vrijblijvend voorstellen aan te vragen
             voor verkoop, verhuur of waardebepaling.
           </p>
-          <time dateTime="2026-07-28" className="mt-3 block text-sm font-semibold text-brand-700">Laatst bijgewerkt: 28 juli 2026</time>
+          <time dateTime="2026-08-19" className="mt-3 block text-sm font-semibold text-brand-700">Laatst bijgewerkt: 19 augustus 2026</time>
         </div>
       </section>
 
@@ -100,8 +106,8 @@ export default function WerkwijzePage() {
         <p className="mt-3 leading-relaxed text-slate-700">
           Een kantoorprofiel wordt samengesteld uit publiek beschikbare kantoorgegevens en informatie
           van het kantoor zelf. We vermelden onder meer de vestigingsplaats, het werkingsgebied, de
-          diensten, contactgegevens, het BIV-nummer en Google-reviews wanneer die gegevens beschikbaar
-          zijn.
+          diensten, de beschikbare BIV-vermelding en Google-reviews wanneer die gegevens beschikbaar
+          zijn. Contact met een kantoor verloopt via het formulier op het profiel.
         </p>
         <p className="mt-4 leading-relaxed text-slate-700">
           Een profiel is geen kwaliteitsgarantie of persoonlijk advies. Controleer tarieven,
@@ -172,8 +178,12 @@ export default function WerkwijzePage() {
             <p className="mt-1 text-sm text-slate-600">kantoorprofielen met BIV-bron en controledatum</p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-            <p className="text-3xl font-extrabold text-brand-900">28 juli 2026</p>
-            <p className="mt-1 text-sm text-slate-600">laatste volledige redactionele controle</p>
+            <p className="text-xl font-extrabold text-brand-900">
+              {laatsteBivControle
+                ? new Intl.DateTimeFormat("nl-BE", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(laatsteBivControle))
+                : "Niet beschikbaar"}
+            </p>
+            <p className="mt-1 text-sm text-slate-600">laatste BIV-controledatum in de profieldataset</p>
           </div>
         </div>
         <p className="mt-4 leading-relaxed text-slate-700">

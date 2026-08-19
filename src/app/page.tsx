@@ -15,9 +15,9 @@ import { getAllPages } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Vastgoedmakelaar zoeken en vergelijken | Gratis offertes" },
+  title: { absolute: "Vastgoedmakelaars vergelijken in jouw regio" },
   description:
-    "Zoek en vergelijk erkende vastgoedmakelaars in jouw gemeente. Vraag gratis en vrijblijvend offertes op voor verkopen, verhuren of je woning laten schatten.",
+    "Vergelijk vastgoedmakelaars op regio, aanpak en voorwaarden. Vraag gratis en vrijblijvend voorstellen voor verkoop, verhuur of een woningschatting.",
   alternates: { canonical: "/" },
 };
 
@@ -113,15 +113,14 @@ export default function Home() {
               Voor heel Vlaanderen en Brussel
             </span>
             <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
-              Vind en vergelijk de juiste vastgoedmakelaar
+              Vergelijk vastgoedmakelaars in jouw regio
             </h1>
             <p className="mt-5 max-w-xl text-lg text-brand-100">
-              Vastgoedmakelaar Zoeken is een Belgische vergelijkingsdienst voor eigenaars in
-              Vlaanderen en Brussel. Vraag gratis en vrijblijvend voorstellen aan voor verkoop,
-              verhuur of waardebepaling.
+              Vraag gratis en vrijblijvend voorstellen aan bij vastgoedkantoren met gecontroleerde
+              BIV-gegevens die actief zijn in jouw regio, voor verkoop, verhuur of waardebepaling.
             </p>
             <ul className="mt-6 grid gap-2.5 text-sm text-brand-100 sm:grid-cols-2">
-              {["Erkende BIV-makelaars", "Gratis en vrijblijvend", "Uit je eigen gemeente", "Vergelijk tarieven"].map((f) => (
+              {["Gecontroleerde BIV-gegevens", "Gratis en vrijblijvend", "Vlaanderen en Brussel", "Vergelijk aanpak en tarief"].map((f) => (
                 <li key={f} className="flex items-center gap-2">
                   <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent-500 text-brand-900">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
@@ -132,6 +131,12 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+            <Link
+              href="/kantoor"
+              className="mt-6 inline-flex rounded-full border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-white/15"
+            >
+              Bekijk vastgoedkantoren
+            </Link>
           </div>
 
           <div id="leadform" className="lg:justify-self-end lg:pl-6">

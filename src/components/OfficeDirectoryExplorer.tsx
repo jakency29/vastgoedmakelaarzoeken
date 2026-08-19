@@ -73,6 +73,8 @@ export function OfficeDirectoryExplorer({ offices }: { offices: OfficeDirectoryI
   const [province, setProvince] = useState("");
   const [service, setService] = useState("");
   const [sort, setSort] = useState("name");
+  const [verifiedOnly, setVerifiedOnly] = useState(false);
+  const [reviewsOnly, setReviewsOnly] = useState(false);
   const [selectedSlugs, setSelectedSlugs] = useState<string[]>([]);
 
   const provinces = useMemo(
@@ -85,6 +87,8 @@ export function OfficeDirectoryExplorer({ offices }: { offices: OfficeDirectoryI
     const matches = offices.filter((office) => {
       if (province && office.provincie !== province) return false;
       if (!providesService(office, service)) return false;
+      if (verifiedOnly && !(office.bivNummer && office.bivGecontroleerdOp)) return false;
+      if (reviewsOnly && !(office.rating && office.reviewTotal)) return false;
       if (!normalizedQuery) return true;
       return normalize(
         [
@@ -109,18 +113,20 @@ export function OfficeDirectoryExplorer({ offices }: { offices: OfficeDirectoryI
       }
       return a.naam.localeCompare(b.naam, "nl-BE");
     });
-  }, [offices, province, query, service, sort]);
+  }, [offices, province, query, reviewsOnly, service, sort, verifiedOnly]);
 
   const selectedOffices = selectedSlugs
     .map((slug) => offices.find((office) => office.slug === slug))
     .filter((office): office is OfficeDirectoryItem => Boolean(office));
-  const hasFilters = Boolean(query.trim() || province || service || sort !== "name");
+  const hasFilters = Boolean(query.trim() || province || service || verifiedOnly || reviewsOnly || sort !== "name");
 
   function clearFilters() {
     setQuery("");
     setProvince("");
     setService("");
     setSort("name");
+    setVerifiedOnly(false);
+    setReviewsOnly(false);
   }
 
   function toggleComparison(slug: string) {
@@ -210,6 +216,28 @@ export function OfficeDirectoryExplorer({ offices }: { offices: OfficeDirectoryI
               </select>
             </div>
           </div>
+
+          <fieldset className="mt-4 flex flex-wrap gap-x-6 gap-y-3">
+            <legend className="sr-only">Controleerbare profielgegevens</legend>
+            <label className="inline-flex items-center gap-2 text-sm font-semibold text-brand-800">
+              <input
+                type="checkbox"
+                checked={verifiedOnly}
+                onChange={(event) => setVerifiedOnly(event.target.checked)}
+                className="h-4 w-4 rounded border-slate-300 text-brand-700 focus:ring-brand-500"
+              />
+              Alleen profielen met gecontroleerde BIV-gegevens
+            </label>
+            <label className="inline-flex items-center gap-2 text-sm font-semibold text-brand-800">
+              <input
+                type="checkbox"
+                checked={reviewsOnly}
+                onChange={(event) => setReviewsOnly(event.target.checked)}
+                className="h-4 w-4 rounded border-slate-300 text-brand-700 focus:ring-brand-500"
+              />
+              Alleen profielen met beschikbare Google-reviewdata
+            </label>
+          </fieldset>
 
           <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
             <p className="text-sm font-semibold text-brand-800" aria-live="polite">

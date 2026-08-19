@@ -63,6 +63,12 @@ export default async function KantorenPage() {
       reviewTotal: reviews?.total,
     };
   });
+  const checkedOffices = offices.filter((office) => office.bivNummer && office.bivGecontroleerdOp);
+  const provinceCount = new Set(offices.map((office) => office.provincie)).size;
+  const latestCheck = checkedOffices
+    .map((office) => office.bivGecontroleerdOp as string)
+    .sort()
+    .at(-1);
   const directorySchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -103,11 +109,31 @@ export default async function KantorenPage() {
 
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="min-w-0">
+            <dl className="mb-10 grid gap-4 sm:grid-cols-3">
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <dt className="text-sm font-semibold text-slate-500">Kantoorprofielen</dt>
+                <dd className="mt-1 text-2xl font-extrabold text-brand-900">{offices.length}</dd>
+              </div>
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <dt className="text-sm font-semibold text-slate-500">Provincies in het overzicht</dt>
+                <dd className="mt-1 text-2xl font-extrabold text-brand-900">{provinceCount}</dd>
+              </div>
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <dt className="text-sm font-semibold text-slate-500">Profielen met BIV-bron en datum</dt>
+                <dd className="mt-1 text-2xl font-extrabold text-brand-900">{checkedOffices.length}/{offices.length}</dd>
+                {latestCheck ? (
+                  <p className="mt-1 text-xs text-slate-500">
+                    Laatste controledatum in de dataset: {new Intl.DateTimeFormat("nl-BE", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(latestCheck))}
+                  </p>
+                ) : null}
+              </div>
+            </dl>
             <OfficeDirectoryExplorer offices={offices} />
 
             <h2 className="mt-12 text-2xl font-extrabold tracking-tight text-brand-900">Welke provinciegidsen kun je bekijken?</h2>
             <p className="mt-3 max-w-2xl text-slate-700">
               De provinciegidsen bundelen kantoorprofielen en lokale informatie voor provincies waarvoor een aparte gids beschikbaar is.
+              Lees op de <Link href="/werkwijze" className="font-medium text-brand-700 underline underline-offset-2">werkwijzepagina</Link> hoe BIV-vermeldingen, reviewdata en commerciële badges worden behandeld.
             </p>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               {PROVINCIES.map((p) => (

@@ -25,29 +25,71 @@ import { VerkoopChecklist } from "./VerkoopChecklist";
 export function KantorenInProvincie({ provincie }: { provincie: string }) {
   const list = kantoren.filter((k) => k.provincie === provincie || k.regios.includes(provincie));
   if (!list.length) return null;
+  const municipalities = [...new Set(list.map((k) => k.gemeente))].sort((a, b) => a.localeCompare(b, "nl-BE"));
+  const checkedDates = list.map((k) => k.bivGecontroleerdOp).filter((date): date is string => Boolean(date)).sort();
+  const latestCheck = checkedDates.at(-1);
+  const serviceGroups = [
+    { label: "Verkoop", terms: ["verkoop", "verkopen"] },
+    { label: "Verhuur", terms: ["verhuur"] },
+    { label: "Schatting", terms: ["schatting", "waardebepaling"] },
+    { label: "Nieuwbouw", terms: ["nieuwbouw"] },
+  ];
+  const mostCommonService = serviceGroups
+    .map((group) => ({
+      label: group.label,
+      count: list.filter((office) => {
+        const services = office.diensten.join(" ").toLocaleLowerCase("nl-BE");
+        return group.terms.some((term) => services.includes(term));
+      }).length,
+    }))
+    .sort((a, b) => b.count - a.count)[0];
   return (
-    <div className="my-8 grid gap-4 sm:grid-cols-2">
-      {list.map((k) => (
-        <Link
-          key={k.slug}
-          href={`/kantoor/${k.slug}`}
-          className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 no-underline shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
-        >
-          <span className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
-            {k.foto ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={k.foto} alt={`${k.naam} logo`} loading="lazy" className="max-h-full max-w-full object-contain p-1" />
-            ) : (
-              <span className="text-lg font-extrabold text-brand-200">{k.naam.slice(0, 1)}</span>
-            )}
-          </span>
-          <span className="min-w-0">
-            <span className="block font-bold text-brand-900 group-hover:text-brand-700">{k.naam}</span>
-            <span className="block text-sm text-slate-500">{k.gemeente}, {k.provincie}</span>
-          </span>
-        </Link>
-      ))}
-    </div>
+    <section className="my-8" aria-label={`Controleerbare kantoordata voor ${provincie}`}>
+      <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="rounded-xl border border-slate-200 bg-brand-50/60 p-4">
+          <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Kantoren</dt>
+          <dd className="mt-1 text-xl font-extrabold text-brand-900">{list.length}</dd>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-brand-50/60 p-4">
+          <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Vestigingsgemeenten</dt>
+          <dd className="mt-1 text-sm font-bold text-brand-900">{municipalities.join(", ")}</dd>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-brand-50/60 p-4">
+          <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Meest vermelde dienst</dt>
+          <dd className="mt-1 text-sm font-bold text-brand-900">{mostCommonService.label} ({mostCommonService.count}/{list.length})</dd>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-brand-50/60 p-4">
+          <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">Laatste BIV-controle</dt>
+          <dd className="mt-1 text-sm font-bold text-brand-900">
+            {latestCheck
+              ? new Intl.DateTimeFormat("nl-BE", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(latestCheck))
+              : "Niet beschikbaar"}
+          </dd>
+        </div>
+      </dl>
+      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+        {list.map((k) => (
+          <Link
+            key={k.slug}
+            href={`/kantoor/${k.slug}`}
+            className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 no-underline shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
+          >
+            <span className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+              {k.foto ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={k.foto} alt={`${k.naam} logo`} loading="lazy" className="max-h-full max-w-full object-contain p-1" />
+              ) : (
+                <span className="text-lg font-extrabold text-brand-200">{k.naam.slice(0, 1)}</span>
+              )}
+            </span>
+            <span className="min-w-0">
+              <span className="block font-bold text-brand-900 group-hover:text-brand-700">{k.naam}</span>
+              <span className="block text-sm text-slate-500">{k.gemeente}, {k.provincie}</span>
+            </span>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }
 

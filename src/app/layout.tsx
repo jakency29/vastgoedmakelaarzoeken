@@ -35,8 +35,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   // Listing-links (Huis/Appartement te koop) enkel tonen als er panden zijn.
   const nav = [
-    ...actieveCategorieen().map((c) => ({ label: c.label, href: `/${c.prefix}` })),
     ...site.nav,
+    ...actieveCategorieen().map((c) => ({ label: c.label, href: `/${c.prefix}` })),
   ];
   return (
     <html lang={site.lang} className={`h-full ${jakarta.variable}`}>

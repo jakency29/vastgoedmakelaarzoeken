@@ -6,6 +6,7 @@
 
 import { useState } from "react";
 import { submitToWeb3Forms } from "@/lib/web3forms";
+import { FormPrivacyNote } from "@/components/FormPrivacyNote";
 
 export function DienstLeadForm({ dienst, cta, slug }: { dienst: string; cta: string; slug?: string }) {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
@@ -86,6 +87,7 @@ export function DienstLeadForm({ dienst, cta, slug }: { dienst: string; cta: str
       {status === "error" && (
         <p className="mt-2 text-sm text-red-700" role="alert">Er ging iets mis. Probeer opnieuw.</p>
       )}
+      <FormPrivacyNote />
     </form>
   );
 }

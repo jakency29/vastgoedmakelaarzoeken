@@ -40,6 +40,9 @@ function toSlug(ref) {
 const files = walk(CONTENT_DIR);
 const validSlugs = new Set(files.map(fileToSlug));
 validSlugs.add(""); // homepage
+for (const appRoute of ["kantoor", "kennisbank", "werkwijze", "contact", "privacy", "voorwaarden", "huis-te-koop", "appartement-te-koop"]) {
+  validSlugs.add(appRoute);
+}
 
 const errors = [];
 
@@ -57,6 +60,7 @@ for (const file of files) {
     .map((line) =>
       line
         .replace(/(?:src|href)=["'][^"']+["']/g, "")
+        .replace(/\bid:\s*["'][^"']+["']/g, "")
         .replace(/\]\([^)]+\)/g, "]"),
     );
   if (languageLines.some((line) => UNACCENTED_RE.test(line))) {
@@ -89,7 +93,11 @@ for (const file of files) {
   const linkRe = /\]\((\/[^)\s#]*)\)|href=["'](\/[^"'#]*)["']/g;
   let m;
   while ((m = linkRe.exec(content)) !== null) {
-    const target = toSlug(m[1] ?? m[2]);
+    const rawTarget = m[1] ?? m[2];
+    if (rawTarget !== "/" && rawTarget.endsWith("/")) {
+      errors.push(`${rel} bevat een interne link met trailing slash: '${rawTarget}'.`);
+    }
+    const target = toSlug(rawTarget);
     if (!validSlugs.has(target))
       errors.push(`${rel} bevat een gebroken interne link naar '/${target}'.`);
   }

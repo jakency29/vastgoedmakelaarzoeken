@@ -1,0 +1,80 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { site } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: { absolute: "Privacybeleid | Vastgoedmakelaar Zoeken" },
+  description: "Lees welke gegevens Vastgoedmakelaar Zoeken via formulieren verwerkt, waarom dat gebeurt en welke privacyrechten je kunt uitoefenen.",
+  alternates: { canonical: "/privacy" },
+  robots: { index: false, follow: true },
+};
+
+export default function PrivacyPage() {
+  return (
+    <main>
+      <header className="border-b border-slate-200 bg-brand-50/60">
+        <div className="mx-auto max-w-4xl px-4 py-10">
+          <nav aria-label="Broodkruimel" className="text-sm text-slate-500">
+            <Link href="/" className="hover:text-brand-700 hover:underline">Home</Link>
+            <span aria-hidden="true" className="px-2 text-slate-300">/</span>
+            <span aria-current="page" className="font-medium text-brand-800">Privacybeleid</span>
+          </nav>
+          <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">Privacybeleid</h1>
+          <p className="mt-3 max-w-3xl text-lg leading-relaxed text-slate-700">
+            Vastgoedmakelaar Zoeken verwerkt de gegevens die je zelf via een formulier bezorgt om je
+            vraag te beantwoorden of aan een passend vastgoedkantoor door te sturen.
+          </p>
+          <time dateTime="2026-08-19" className="mt-3 block text-sm font-semibold text-brand-700">Bijgewerkt op 19 augustus 2026</time>
+        </div>
+      </header>
+
+      <article className="mx-auto max-w-4xl px-4 py-12 text-slate-700">
+        <h2 className="text-2xl font-extrabold text-brand-900">Wie verwerkt je gegevens?</h2>
+        <p className="mt-3 leading-relaxed">
+          Vastgoedmakelaar Zoeken beheert deze website en is het eerste aanspreekpunt voor vragen over
+          de verwerking. Je bereikt ons via <a href={`mailto:${site.email}`} className="font-semibold text-brand-700 underline underline-offset-2">{site.email}</a>.
+        </p>
+
+        <h2 className="mt-10 text-2xl font-extrabold text-brand-900">Welke gegevens verzamelen we?</h2>
+        <p className="mt-3 leading-relaxed">Afhankelijk van het formulier gaat het om naam, e-mailadres, telefoonnummer, postcode, adres van het pand, type aanvraag en de informatie die je zelf in het bericht invult. Technische spamcontrole kan ook formuliergegevens verwerken.</p>
+
+        <h2 className="mt-10 text-2xl font-extrabold text-brand-900">Waarom en met wie verwerken we die gegevens?</h2>
+        <p className="mt-3 leading-relaxed">
+          We gebruiken de gegevens om je aanvraag te verwerken, vragen te beantwoorden, een aangevraagd
+          prijsvoorstel mogelijk te maken en misbruik van formulieren te beperken. Een aanvraag voor een
+          vastgoedmakelaar kan worden bezorgd aan een of meer kantoren die bij de gekozen regio of het
+          geselecteerde profiel passen. We verkopen de formuliergegevens niet als adressenbestand.
+        </p>
+        <p className="mt-3 leading-relaxed">
+          Formulieren worden technisch verstuurd via Web3Forms. Volgens de gepubliceerde documentatie
+          bewaart Web3Forms geen formulierinzendingen. Controleer voor details ook het actuele
+          <a href="https://web3forms.com/privacy" className="ml-1 font-semibold text-brand-700 underline underline-offset-2">privacybeleid van Web3Forms</a>.
+        </p>
+
+        <h2 className="mt-10 text-2xl font-extrabold text-brand-900">Hoelang bewaren we gegevens?</h2>
+        <p className="mt-3 leading-relaxed">
+          We bewaren persoonsgegevens niet langer dan nodig voor de behandeling en opvolging van de
+          aanvraag, en langer wanneer een wettelijke verplichting of een lopend geschil dat vereist.
+          De ontvanger van een doorgestuurde aanvraag is verantwoordelijk voor de eigen verdere verwerking.
+        </p>
+
+        <h2 className="mt-10 text-2xl font-extrabold text-brand-900">Welke rechten heb je?</h2>
+        <p className="mt-3 leading-relaxed">
+          Je kunt vragen om inzage, verbetering, verwijdering of beperking van je persoonsgegevens en
+          bezwaar maken tegen een verwerking. Mail je verzoek naar {site.email}. We kunnen om voldoende
+          informatie vragen om je identiteit en de betrokken aanvraag te controleren.
+        </p>
+        <p className="mt-3 leading-relaxed">
+          Je kunt ook een klacht indienen bij de
+          <a href="https://www.gegevensbeschermingsautoriteit.be/" className="ml-1 font-semibold text-brand-700 underline underline-offset-2">Belgische Gegevensbeschermingsautoriteit</a>.
+        </p>
+
+        <h2 className="mt-10 text-2xl font-extrabold text-brand-900">Gebruikt de site marketingcookies?</h2>
+        <p className="mt-3 leading-relaxed">
+          De huidige websitecode plaatst geen eigen advertentie- of analysetrackers. Wanneer dat verandert,
+          moet deze verklaring worden aangepast en wordt waar nodig vooraf toestemming gevraagd.
+        </p>
+      </article>
+    </main>
+  );
+}
