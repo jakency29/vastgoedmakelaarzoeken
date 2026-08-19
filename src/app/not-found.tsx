@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Pagina niet gevonden",
+  description: "Deze pagina bestaat niet of is verplaatst.",
+  alternates: null,
+  robots: { index: false, follow: false },
+};
 
 const routes = [
   { href: "/", label: "Vastgoedmakelaars vergelijken" },
