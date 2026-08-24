@@ -1438,7 +1438,7 @@ export const BOUWGROND_PRIJZEN_2025: BouwgrondGemeentePrijs[] = [
 ];
 
 export const BOUWGROND_PRIJZEN_BRON = {
-  naam: "HOGENT, Bouwgrondprijzen in Vlaanderen, rapport 4",
+  naam: "HOGENT, Bouwgrondprijzen in Vlaanderen",
   jaar: 2025,
   gepubliceerdOp: "maart 2026",
   url: "https://www.hogent.be/sites/hogent/assets/Rapport4_Bouwgronden_update2026_def.pdf",
