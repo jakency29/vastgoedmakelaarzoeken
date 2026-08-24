@@ -8,6 +8,7 @@ import Image from "next/image";
 import { kantoren } from "@/lib/kantoren";
 import { DienstCTA } from "./DienstCTA";
 import {
+  BouwgrondGemeenteCalculator,
   EpcFBudgetCalculator,
   HuurcontractOpzegCalculator,
   MakelaarskostenCalculator,
@@ -407,6 +408,7 @@ export const mdxComponents = {
   KantorenInProvincie,
   KantorenInRegio,
   DienstCTA,
+  BouwgrondGemeenteCalculator,
   MakelaarskostenCalculator,
   OnroerendeVoorheffingCalculator,
   NettoOpbrengstCalculator,

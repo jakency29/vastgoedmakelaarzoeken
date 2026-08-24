@@ -1,10 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import {
+  BOUWGROND_PRIJZEN_2025,
+  BOUWGROND_PRIJZEN_BRON,
+} from "@/data/bouwgrond-prijzen-2025";
 
 const currency = new Intl.NumberFormat("nl-BE", {
   style: "currency",
   currency: "EUR",
+  maximumFractionDigits: 0,
+});
+
+const currencyPerSquareMeter = new Intl.NumberFormat("nl-BE", {
+  style: "currency",
+  currency: "EUR",
+  minimumFractionDigits: 0,
   maximumFractionDigits: 0,
 });
 
@@ -74,6 +85,153 @@ function Result({
       <p className={emphasis ? "text-sm text-brand-100" : "text-sm text-slate-500"}>{label}</p>
       <p className="mt-1 text-xl font-extrabold">{currency.format(value)}</p>
     </div>
+  );
+}
+
+export function BouwgrondGemeenteCalculator() {
+  const [selectedCode, setSelectedCode] = useState("");
+  const [surface, setSurface] = useState("500");
+  const [search, setSearch] = useState("");
+  const selected = BOUWGROND_PRIJZEN_2025.find((entry) => entry.code === selectedCode);
+  const area = numberFrom(surface, 50_000);
+  const rows = useMemo(() => {
+    const normalized = search.trim().toLocaleLowerCase("nl-BE");
+    if (!normalized) return BOUWGROND_PRIJZEN_2025;
+    return BOUWGROND_PRIJZEN_2025.filter((entry) =>
+      entry.gemeente.toLocaleLowerCase("nl-BE").includes(normalized),
+    );
+  }, [search]);
+
+  const selectGemeente = (code: string) => {
+    setSelectedCode(code);
+    document.getElementById("bouwgrond-gemeente-calculator")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
+  return (
+    <section
+      id="bouwgrond-gemeente-calculator"
+      className="my-10 scroll-mt-24 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6"
+    >
+      <p className="text-xs font-bold uppercase tracking-wide text-brand-600">Gemeentelijke referentie 2025</p>
+      <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-900">
+        Wat is de bouwgrondprijs per gemeente?
+      </h2>
+      <p className="mt-3 leading-relaxed text-slate-700">
+        Kies een gemeente en vul je perceeloppervlakte in. De calculator gebruikt de mediaanprijs per m²
+        uit {BOUWGROND_PRIJZEN_BRON.naam}, met transactiedata tot en met {BOUWGROND_PRIJZEN_BRON.jaar}.
+      </p>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <label htmlFor="bouwgrond-gemeente" className="block">
+          <span className="text-sm font-semibold text-brand-900">Gemeente</span>
+          <select
+            id="bouwgrond-gemeente"
+            value={selectedCode}
+            onChange={(event) => setSelectedCode(event.target.value)}
+            className="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-3 text-base font-semibold text-brand-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+          >
+            <option value="">Kies een gemeente met volledige 2025-data</option>
+            {BOUWGROND_PRIJZEN_2025.map((entry) => (
+              <option key={entry.code} value={entry.code}>
+                {entry.gemeente}
+              </option>
+            ))}
+          </select>
+        </label>
+        <Field
+          id="bouwgrond-oppervlakte"
+          label="Perceeloppervlakte"
+          value={surface}
+          onChange={setSurface}
+          step="25"
+          suffix="m²"
+        />
+      </div>
+
+      {selected ? (
+        <div className="mt-6">
+          <p className="text-sm font-semibold text-brand-900">
+            {selected.gemeente}: mediaan {currencyPerSquareMeter.format(selected.mediaan)} per m² in 2025.
+          </p>
+          <div className="mt-3 grid gap-3 sm:grid-cols-3" aria-live="polite">
+            <Result label="Onderste kwartiel" value={area * selected.p25} />
+            <Result label="Mediaan referentiebedrag" value={area * selected.mediaan} emphasis />
+            <Result label="Bovenste kwartiel" value={area * selected.p75} />
+          </div>
+          <p className="mt-4 text-xs leading-relaxed text-slate-600">
+            Dit is een statistische benchmark voor {area || 0} m², geen waardebepaling van jouw perceel.
+            Bouwvoorschriften, ontsluiting, vorm, bodem, ligging en bouwrijpe staat kunnen de prijs sterk wijzigen.
+          </p>
+        </div>
+      ) : (
+        <p className="mt-6 rounded-xl border border-dashed border-brand-300 bg-white p-4 text-sm text-slate-700">
+          Selecteer een gemeente om de mediaanprijs en de spreiding tussen het onderste en bovenste kwartiel te zien.
+        </p>
+      )}
+
+      <div className="mt-8 border-t border-brand-200 pt-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h3 className="text-lg font-extrabold text-brand-900">Tabel met gemeentelijke bouwgrondprijzen</h3>
+            <p className="mt-1 text-sm text-slate-700">
+              Alleen gemeenten met Q25, mediaan en Q75 in de bron zijn opgenomen. Ontbrekende data krijgt geen provinciale vervanging.
+            </p>
+          </div>
+          <label htmlFor="zoek-bouwgrond-gemeente" className="block sm:w-72">
+            <span className="sr-only">Zoek gemeente</span>
+            <input
+              id="zoek-bouwgrond-gemeente"
+              type="search"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Zoek een gemeente"
+              className="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-brand-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+            />
+          </label>
+        </div>
+        <div className="mt-4 max-h-[34rem] overflow-auto rounded-xl border border-slate-200 bg-white">
+          <table className="min-w-full text-sm">
+            <caption className="sr-only">Bouwgrondprijzen per gemeente volgens HOGENT-transactiedata uit 2025</caption>
+            <thead className="sticky top-0 bg-brand-50 text-left text-brand-900">
+              <tr>
+                <th scope="col" className="border-b border-slate-200 px-4 py-3 font-bold">Gemeente</th>
+                <th scope="col" className="border-b border-slate-200 px-4 py-3 text-right font-bold">Q25 per m²</th>
+                <th scope="col" className="border-b border-slate-200 px-4 py-3 text-right font-bold">Mediaan per m²</th>
+                <th scope="col" className="border-b border-slate-200 px-4 py-3 text-right font-bold">Q75 per m²</th>
+                <th scope="col" className="border-b border-slate-200 px-4 py-3 font-bold"><span className="sr-only">Bereken</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((entry) => (
+                <tr key={entry.code} className="hover:bg-slate-50">
+                  <td className="border-b border-slate-100 px-4 py-2.5 font-semibold text-brand-900">{entry.gemeente}</td>
+                  <td className="border-b border-slate-100 px-4 py-2.5 text-right">{currencyPerSquareMeter.format(entry.p25)}</td>
+                  <td className="border-b border-slate-100 px-4 py-2.5 text-right font-bold">{currencyPerSquareMeter.format(entry.mediaan)}</td>
+                  <td className="border-b border-slate-100 px-4 py-2.5 text-right">{currencyPerSquareMeter.format(entry.p75)}</td>
+                  <td className="border-b border-slate-100 px-4 py-2.5 text-right">
+                    <button
+                      type="button"
+                      onClick={() => selectGemeente(entry.code)}
+                      className="rounded-lg px-2 py-1 text-xs font-bold text-brand-700 underline underline-offset-2 hover:text-brand-900 focus:outline-none focus:ring-2 focus:ring-brand-300"
+                    >
+                      Bereken
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p className="mt-4 text-xs leading-relaxed text-slate-600">
+        Bron: <a className="font-semibold text-brand-700 underline underline-offset-2" href={BOUWGROND_PRIJZEN_BRON.url} target="_blank" rel="noreferrer">{BOUWGROND_PRIJZEN_BRON.naam}, rapport 4, gepubliceerd {BOUWGROND_PRIJZEN_BRON.gepubliceerdOp}</a>.
+        De bron sluit restpercelen uit op basis van oppervlakte en vorm. Raadpleeg een deskundige voor een dossiergebonden waardering.
+      </p>
+    </section>
   );
 }
 

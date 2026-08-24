@@ -5,6 +5,7 @@ description: "Bereken de prijs van bouwgrond in Vlaanderen met de formule opperv
 intent: "informational"
 type: "Article"
 updated: "2026-08-24"
+answerNote: "De gemeentelijke tabel toont HOGENT-kwartielen uit transactiedata van 2025. Gebruik de mediaan als eerste benchmark, niet als waardebepaling van een specifiek perceel."
 about:
   - name: "Bouwgrond"
   - name: "Vastgoedprijs in Vlaanderen"
@@ -13,6 +14,7 @@ mentions:
   - name: "Vastgoedmakelaar"
     sameAs:
       - https://nl.wikipedia.org/wiki/Vastgoedmakelaar
+  - name: "HOGENT"
 breadcrumbs:
   - name: "Home"
     slug: ""
@@ -29,6 +31,8 @@ faq:
     a: "Een aankoop duurt meestal 3 tot 4 maanden tussen compromis en notariële akte. In die periode gebeuren administratieve controles en de financieringsprocedure."
   - q: "Moet je altijd een landmeter inschakelen bij aankoop?"
     a: "Nee. Een landmeter wordt vooral ingeschakeld wanneer de perceelgrenzen onduidelijk zijn of wanneer een grond wordt opgesplitst in meerdere kavels."
+  - q: "Waar komen de gemeentelijke prijzen in de tabel vandaan?"
+    a: "De tabel gebruikt Q25, mediaan en Q75 van bouwgrondtransacties uit 2025 in het HOGENT-rapport van maart 2026. Gemeenten zonder volledige kwartieldata staan niet in de tabel en krijgen geen provinciaal gemiddelde als vervanging."
 related:
   - { label: "Registratierechten in Vlaanderen", slug: "registratierechten" }
   - { label: "Notariskosten bij verkoop van een huis", slug: "notariskosten-verkoop-huis" }
@@ -38,6 +42,8 @@ related:
 De prijs van bouwgrond bereken je met een eenvoudige formule: perceeloppervlakte in vierkante meter maal een onderbouwde lokale prijs per vierkante meter. Die prijs verschilt sterk per gemeente, ligging en bebouwbaarheid. Bovenop de grondprijs komen registratierechten, notariskosten en dossierkosten, die de totale kost merkbaar verhogen. Hieronder lees je hoe je de basisprijs berekent, welke factoren de waarde bepalen, welke bijkomende kosten je moet optellen en hoe je een realistische marktwaarde inschat. Wil je zekerheid over de waarde van een specifiek perceel, vraag dan een waardebepaling of schatting van je grond bij een erkende vastgoedmakelaar.
 
 <Afbeelding src="/afbeeldingen/prijs-bouwgrond-berekenen/prijs-bouwgrond-berekenen.jpg" alt="Prijs bouwgrond berekenen" w="900" h="514" hero />
+
+<BouwgrondGemeenteCalculator />
 
 ## Hoe kan je de prijs van bouwgrond berekenen?
 
