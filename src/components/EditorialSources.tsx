@@ -52,6 +52,7 @@ function hasVisibleSources(page: ContentPage) {
 function sourcesFor(page: ContentPage): Source[] {
   const haystack = `${page.slug} ${page.title} ${page.description}`.toLowerCase();
 
+  if (haystack.includes("asbest") && /(huur|verhuur)/.test(haystack)) return [ASBEST, VERHUREN];
   if (haystack.includes("asbest")) return [ASBEST, VERKOPEN];
   if (/(registratie|belasting|schenking|erfenis|nalatenschap|successie)/.test(haystack)) {
     return [VERKOOPRECHT, KOPEN];

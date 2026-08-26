@@ -52,6 +52,7 @@ export type PageFrontmatter = {
   intent?: Intent;
   visualType?: VisualType; // optionele override voor de intentiegestuurde template
   introInHeader?: boolean; // toon de vrije openingsalinea's direct onder de H1
+  descriptionInHeader?: boolean; // toon de meta description onder de H1, standaard true
   answerNote?: string; // belangrijke uitzondering of toepassingscontext bij het directe antwoord
   editorial?: EditorialInfo; // zichtbare uitgever, controlebasis en redactionele toelichting
   silo?: string; // hub-slug, bijv. "asbestattest"

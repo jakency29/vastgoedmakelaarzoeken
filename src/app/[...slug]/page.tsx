@@ -150,9 +150,9 @@ export default async function ContentPage({ params }: Props) {
                     <p className="mt-2 text-sm leading-relaxed text-slate-500">{page.editorial.note}</p>
                   ) : null}
                 </div>
-              ) : (
+              ) : page.descriptionInHeader !== false ? (
                 <p className="mt-3 max-w-2xl text-lg text-slate-600">{page.description}</p>
-              )}
+              ) : null}
             </div>
             {page.headerImage ? (
               <figure className="min-w-0 overflow-hidden rounded-2xl border border-brand-200 bg-brand-900 shadow-sm">
