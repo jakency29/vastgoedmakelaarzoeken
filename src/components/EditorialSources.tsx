@@ -30,6 +30,16 @@ const ASBEST: Source = {
   href: "https://ovam.vlaanderen.be/asbestattest",
 };
 
+const WALLONIE_ASBEST: Source = {
+  label: "Service public de Wallonie over asbest en afvalbeheer",
+  href: "https://environnement.wallonie.be/home/gestion-environnementale/dechets/gestion-des-dechets/amiante.html",
+};
+
+const FEDERAL_ASBEST: Source = {
+  label: "FOD Werkgelegenheid over de federale asbestinventaris",
+  href: "https://emploi.belgique.be/fr/themes/bien-etre-au-travail/agents-chimiques-cancerigenes-mutagenes-et-reprotoxiques-et-agents-11",
+};
+
 const VERHUREN: Source = {
   label: "Vlaanderen.be over verhuren op de privémarkt",
   href: "https://www.vlaanderen.be/bouwen-wonen-en-energie/huren-en-verhuren/een-huis-of-appartement-verhuren-op-de-privemarkt",
@@ -52,6 +62,9 @@ function hasVisibleSources(page: ContentPage) {
 function sourcesFor(page: ContentPage): Source[] {
   const haystack = `${page.slug} ${page.title} ${page.description}`.toLowerCase();
 
+  if (haystack.includes("asbest") && /(walloni|waals)/.test(haystack)) {
+    return [WALLONIE_ASBEST, FEDERAL_ASBEST];
+  }
   if (haystack.includes("asbest") && /(huur|verhuur)/.test(haystack)) return [ASBEST, VERHUREN];
   if (haystack.includes("asbest")) return [ASBEST, VERKOPEN];
   if (/(registratie|belasting|schenking|erfenis|nalatenschap|successie)/.test(haystack)) {

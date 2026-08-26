@@ -10,6 +10,7 @@
     "lint": "eslint",
     "check:content": "node scripts/check-content.mjs",
     "check:methodiek": "node scripts/check-content-methodiek.mjs",
+    "score:methodiek": "node scripts/score-content-methodiek.mjs",
     "check:migration": "node scripts/check-domain-migration-readiness.mjs",
     "audit:links": "node scripts/generate-internal-link-audit.mjs",
     "qa:production": "node scripts/run-production-qa.mjs"
