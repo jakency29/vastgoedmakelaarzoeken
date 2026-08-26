@@ -31,8 +31,7 @@ export default function PrivacyPage() {
       <article className="mx-auto max-w-4xl px-4 py-12 text-slate-700">
         <h2 className="text-2xl font-extrabold text-brand-900">Wie verwerkt je gegevens?</h2>
         <p className="mt-3 leading-relaxed">
-          Vastgoedmakelaar Zoeken beheert deze website en is het eerste aanspreekpunt voor vragen over
-          de verwerking. Je bereikt ons via <a href={`mailto:${site.email}`} className="font-semibold text-brand-700 underline underline-offset-2">{site.email}</a>.
+          Vastgoedmakelaarzoeken.com is eigendom van {site.owner.legalName}, gevestigd aan {site.owner.streetAddress}, {site.owner.postalCode} {site.owner.addressLocality}. {site.owner.legalName} is het eerste aanspreekpunt voor vragen over de verwerking. Je bereikt ons via <a href={`mailto:${site.email}`} className="font-semibold text-brand-700 underline underline-offset-2">{site.email}</a>.
         </p>
 
         <h2 className="mt-10 text-2xl font-extrabold text-brand-900">Welke gegevens verzamelen we?</h2>

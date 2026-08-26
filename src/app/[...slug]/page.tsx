@@ -24,6 +24,8 @@ import { CommercialNextStep } from "@/components/CommercialNextStep";
 import { DirectAnswer } from "@/components/DirectAnswer";
 import { EditorialSources } from "@/components/EditorialSources";
 import { PracticalExample } from "@/components/PracticalExample";
+import { AuthorCard } from "@/components/AuthorCard";
+import { site } from "@/lib/site";
 
 export const dynamicParams = false;
 
@@ -50,6 +52,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       ...(page.image ? { images: [{ url: page.image, alt: page.headerImageAlt ?? page.h1 }] } : {}),
     },
+    ...(page.type === "Article"
+      ? { authors: [{ name: site.author.name, url: site.author.path }] }
+      : {}),
   };
 }
 
@@ -161,6 +166,7 @@ export default async function ContentPage({ params }: Props) {
             <div className="max-w-none">{content}</div>
             <PracticalExample page={page} />
             <EditorialSources page={page} />
+            <AuthorCard page={page} />
             <CommercialNextStep page={page} />
             {page.faq?.length ? <Faq items={page.faq} /> : null}
             {page.related?.length ? <RelatedLinks items={page.related} /> : null}

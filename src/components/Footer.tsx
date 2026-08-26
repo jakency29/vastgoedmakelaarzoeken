@@ -50,9 +50,17 @@ export function Footer() {
             </ul>
           </nav>
         </div>
-        <p className="mt-12 border-t border-white/10 pt-6 text-xs text-brand-300">
-          {site.name}. Vergelijk vastgoedmakelaars in België.
-        </p>
+        <div className="mt-12 border-t border-white/10 pt-6 text-xs leading-relaxed text-brand-300">
+          <p>{site.name}. Vergelijk vastgoedmakelaars in België.</p>
+          <p className="mt-2">
+            Vastgoedmakelaarzoeken.com is eigendom van{" "}
+            <a href={site.owner.url} className="font-semibold text-brand-100 hover:text-accent-400">
+              {site.owner.name}
+            </a>
+            , {site.owner.streetAddress}, {site.owner.postalCode} {site.owner.addressLocality}.
+            Ondernemingsnummer {site.owner.enterpriseNumber}. BTW {site.owner.vatID}.
+          </p>
+        </div>
       </div>
     </footer>
   );

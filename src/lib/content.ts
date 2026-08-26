@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import type { ContentPage, PageFrontmatter } from "./types";
+import { site } from "./site";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
@@ -45,6 +46,16 @@ function normalize(data: Record<string, unknown>): Record<string, unknown> {
       : list;
   fm.about = fixEntities(fm.about);
   fm.mentions = fixEntities(fm.mentions);
+
+  // Alle kennisbankartikelen zijn geschreven door Jan Kenis. De centrale
+  // normalisatie houdt oude frontmatter compatibel en voorkomt uiteenlopende
+  // auteursnamen in zichtbare bylines, metadata en structured data.
+  if (fm.type === "Article") {
+    fm.editorial = {
+      ...((fm.editorial as Record<string, unknown> | undefined) ?? {}),
+      author: site.author.name,
+    };
+  }
 
   return fm;
 }

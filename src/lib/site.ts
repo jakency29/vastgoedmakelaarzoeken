@@ -18,6 +18,24 @@ export const site = {
   locale: "nl_BE",
   region: "BE",
   email: configuredEmail,
+  owner: {
+    name: "JAKENCY BV",
+    legalName: "JAKENCY BV",
+    url: "https://jakency.com",
+    streetAddress: "Geenrodestraat 6",
+    postalCode: "3560",
+    addressLocality: "Lummen",
+    addressCountry: "BE",
+    enterpriseNumber: "0682.755.680",
+    vatID: "BE 0682.755.680",
+  },
+  author: {
+    name: "Jan Kenis",
+    path: "/auteur/jan-kenis",
+    profileUrl: "https://jakency.com/jan-kenis",
+    linkedinUrl: "https://www.linkedin.com/in/jan-kenis-2a40a028/",
+    jobTitle: "Oprichter van Jakency en SEO-, GEO- en AI-consultant",
+  },
   // Korte omschrijving van de dienst. Beschrijft wat de bezoeker doet, geen beloftes.
   description:
     "Belgische vergelijkingsdienst voor eigenaars die vastgoedmakelaars in Vlaanderen en Brussel willen vergelijken voor verkoop, verhuur of waardebepaling.",

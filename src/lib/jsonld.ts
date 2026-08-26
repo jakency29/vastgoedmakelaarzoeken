@@ -6,6 +6,46 @@ import type { ContentPage, Entity } from "./types";
 
 const ORG_ID = `${site.domain}/#organization`;
 const WEBSITE_ID = `${site.domain}/#website`;
+const OWNER_ORG_ID = `${site.owner.url}/#organization`;
+const AUTHOR_ID = `${absoluteUrl(site.author.path)}#person`;
+
+export function ownerOrganizationSchema() {
+  return {
+    "@type": "Organization",
+    "@id": OWNER_ORG_ID,
+    name: site.owner.name,
+    legalName: site.owner.legalName,
+    url: site.owner.url,
+    taxID: site.owner.enterpriseNumber,
+    vatID: site.owner.vatID,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: site.owner.streetAddress,
+      postalCode: site.owner.postalCode,
+      addressLocality: site.owner.addressLocality,
+      addressCountry: site.owner.addressCountry,
+    },
+  };
+}
+
+export function personSchema() {
+  return {
+    "@type": "Person",
+    "@id": AUTHOR_ID,
+    name: site.author.name,
+    url: absoluteUrl(site.author.path),
+    sameAs: [site.author.profileUrl, site.author.linkedinUrl],
+    jobTitle: site.author.jobTitle,
+    worksFor: { "@id": OWNER_ORG_ID },
+    knowsAbout: [
+      "Zoekmachineoptimalisatie",
+      "Generative Engine Optimization",
+      "Websitearchitectuur",
+      "Leadgeneratie",
+      "Vastgoedcontent voor Belgische eigenaars",
+    ],
+  };
+}
 
 // Herbruikbare BreadcrumbList voor niet-MDX-pagina's (kantoren, overzichten).
 export function breadcrumbListSchema(items: { name: string; path: string }[]) {
@@ -42,6 +82,7 @@ export function organizationSchema() {
     url: site.domain,
     description: site.description,
     email: site.email,
+    parentOrganization: { "@id": OWNER_ORG_ID },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
@@ -65,6 +106,7 @@ export function websiteSchema() {
     url: site.domain,
     inLanguage: site.lang,
     publisher: { "@id": ORG_ID },
+    copyrightHolder: { "@id": OWNER_ORG_ID },
   };
 }
 
@@ -72,7 +114,12 @@ export function websiteSchema() {
 export function globalGraph() {
   return {
     "@context": "https://schema.org",
-    "@graph": [organizationSchema(), websiteSchema()],
+    "@graph": [
+      ownerOrganizationSchema(),
+      organizationSchema(),
+      websiteSchema(),
+      personSchema(),
+    ],
   };
 }
 
@@ -125,7 +172,7 @@ function mainSchema(page: ContentPage) {
       "@type": "Article",
       ...base,
       mainEntityOfPage: url,
-      author: { "@id": ORG_ID },
+      author: { "@id": AUTHOR_ID },
       publisher: { "@id": ORG_ID },
       ...(page.image ? { image: absoluteUrl(page.image) } : {}),
       ...(page.published ? { datePublished: page.published } : {}),
@@ -173,4 +220,19 @@ export function pageGraph(page: ContentPage) {
     faqSchema(page),
   ].filter(Boolean);
   return { "@context": "https://schema.org", "@graph": graph };
+}
+
+export function authorProfilePageSchema() {
+  const url = absoluteUrl(site.author.path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${url}#page`,
+    url,
+    name: `${site.author.name}, auteur van de kennisbank`,
+    inLanguage: site.lang,
+    isPartOf: { "@id": WEBSITE_ID },
+    mainEntity: { "@id": AUTHOR_ID },
+    about: { "@id": AUTHOR_ID },
+  };
 }

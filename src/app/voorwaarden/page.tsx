@@ -29,7 +29,12 @@ export default function VoorwaardenPage() {
       </header>
 
       <article className="mx-auto max-w-4xl px-4 py-12 text-slate-700">
-        <h2 className="text-2xl font-extrabold text-brand-900">Wat biedt het platform?</h2>
+        <h2 className="text-2xl font-extrabold text-brand-900">Wie is eigenaar van de website?</h2>
+        <p className="mt-3 leading-relaxed">
+          Vastgoedmakelaarzoeken.com is eigendom van {site.owner.legalName}, {site.owner.streetAddress}, {site.owner.postalCode} {site.owner.addressLocality}. Ondernemingsnummer {site.owner.enterpriseNumber}, btw-nummer {site.owner.vatID}.
+        </p>
+
+        <h2 className="mt-10 text-2xl font-extrabold text-brand-900">Wat biedt het platform?</h2>
         <p className="mt-3 leading-relaxed">
           {site.name} publiceert kennisbankartikelen, kantoorprofielen en vastgoedaanbod en laat bezoekers
           aanvragen indienen voor onder meer verkoop, verhuur, schatting en woningattesten. Het platform

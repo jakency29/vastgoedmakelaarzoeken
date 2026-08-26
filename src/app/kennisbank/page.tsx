@@ -6,6 +6,7 @@ import { getAllPages } from "@/lib/content";
 import { JsonLd } from "@/components/JsonLd";
 import { KnowledgeBankExplorer, type KnowledgeGroup } from "@/components/KnowledgeBankExplorer";
 import { breadcrumbListSchema } from "@/lib/jsonld";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: "Kennisbank: gidsen over kopen, verkopen en verhuren" },
@@ -58,6 +59,20 @@ export default function KennisbankPage() {
           <p className="mt-3 max-w-2xl text-lg text-slate-600">
             Alle gidsen over kopen, verkopen, verhuren en verbouwen in België, gebundeld per thema.
             Vind snel het juiste antwoord op je vastgoedvraag.
+          </p>
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-600">
+            De artikelen zijn geschreven en inhoudelijk bijgewerkt door{" "}
+            <Link href={site.author.path} className="font-semibold text-brand-700 underline underline-offset-2">
+              {site.author.name}
+            </Link>
+            , oprichter van Jakency. Bekijk ook zijn{" "}
+            <a
+              href={site.author.linkedinUrl}
+              className="font-semibold text-brand-700 underline underline-offset-2"
+            >
+              LinkedIn-profiel
+            </a>
+            .
           </p>
         </div>
       </section>
