@@ -61,6 +61,7 @@ for (const file of files) {
       line
         .replace(/(?:src|href)=["'][^"']+["']/g, "")
         .replace(/\bid:\s*["'][^"']+["']/g, "")
+        .replace(/\bslug:\s*["'][^"']+["']/g, "")
         .replace(/\]\([^)]+\)/g, "]"),
     );
   if (languageLines.some((line) => UNACCENTED_RE.test(line))) {
