@@ -1,13 +1,23 @@
-// Site-brede configuratie. Pas domein/branding hier aan; alles verwijst hiernaar.
+// Site-brede configuratie. De .be blijft standaard actief. Bij de domeinmigratie
+// schakelt één publieke omgevingsvariabele canonicals, sitemap, robots en schema om.
+
+const legacyDomain = "https://www.vastgoedmakelaarzoeken.be";
+const configuredDomain = (process.env.NEXT_PUBLIC_SITE_URL || legacyDomain).replace(/\/+$/, "");
+const configuredEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@vastgoedmakelaarzoeken.be";
+
+if (!/^https:\/\/[^/]+$/.test(configuredDomain)) {
+  throw new Error("NEXT_PUBLIC_SITE_URL moet een volledige HTTPS-oorsprong zonder pad zijn.");
+}
 
 export const site = {
   name: "Vastgoedmakelaar Zoeken",
   shortName: "VastgoedmakelaarZoeken",
-  domain: "https://www.vastgoedmakelaarzoeken.be",
+  domain: configuredDomain,
+  legacyDomain,
   lang: "nl",
   locale: "nl_BE",
   region: "BE",
-  email: "info@vastgoedmakelaarzoeken.be",
+  email: configuredEmail,
   // Korte omschrijving van de dienst. Beschrijft wat de bezoeker doet, geen beloftes.
   description:
     "Belgische vergelijkingsdienst voor eigenaars die vastgoedmakelaars in Vlaanderen en Brussel willen vergelijken voor verkoop, verhuur of waardebepaling.",

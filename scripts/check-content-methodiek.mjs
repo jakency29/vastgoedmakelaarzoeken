@@ -27,6 +27,24 @@ function words(value) {
   return value.trim().split(/\s+/).filter(Boolean).length;
 }
 
+function meaningfulTokens(value) {
+  return new Set(
+    value
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9\s]/g, " ")
+      .split(/\s+/)
+      .filter((token) => token.length >= 4),
+  );
+}
+
+function jaccard(left, right) {
+  const intersection = [...left].filter((token) => right.has(token)).length;
+  const union = new Set([...left, ...right]).size;
+  return union === 0 ? 0 : intersection / union;
+}
+
 function openingParagraph(body) {
   const lines = body.trimStart().split(/\r?\n/);
   const boundary = lines.findIndex((line) => /^##\s|^<[A-Z]/.test(line.trim()));
@@ -53,14 +71,36 @@ const pages = walk(CONTENT_DIR)
 const failures = [];
 const counters = {
   pages: pages.length,
+  missingPageJob: 0,
   missingEntity: 0,
+  missingEditorialProof: 0,
   weakIntro: 0,
+  duplicateIntro: 0,
   nonQuestionH2: 0,
   missingContextLink: 0,
   missingSource: 0,
   weakFaq: 0,
   missingDecisionAid: 0,
+  productionLanguage: 0,
 };
+
+const similarIntros = new Map();
+for (let leftIndex = 0; leftIndex < pages.length; leftIndex += 1) {
+  const left = pages[leftIndex];
+  const leftTokens = meaningfulTokens(openingParagraph(left.body));
+  if (leftTokens.size < 25) continue;
+
+  for (let rightIndex = leftIndex + 1; rightIndex < pages.length; rightIndex += 1) {
+    const right = pages[rightIndex];
+    const rightTokens = meaningfulTokens(openingParagraph(right.body));
+    if (rightTokens.size < 25) continue;
+    const similarity = jaccard(leftTokens, rightTokens);
+    if (similarity < 0.82) continue;
+
+    similarIntros.set(left.slug, { slug: right.slug, similarity });
+    similarIntros.set(right.slug, { slug: left.slug, similarity });
+  }
+}
 
 for (const page of pages) {
   const intro = openingParagraph(page.body);
@@ -68,9 +108,19 @@ for (const page of pages) {
   const rest = bodyAfterIntro(page.body);
   const pageFailures = [];
 
+  if (!page.data.intent || !page.data.type) {
+    counters.missingPageJob += 1;
+    pageFailures.push("primary intent of paginatype ontbreekt");
+  }
+
   if (!Array.isArray(page.data.about) || page.data.about.length === 0) {
     counters.missingEntity += 1;
     pageFailures.push("centrale entity ontbreekt");
+  }
+
+  if (!page.data.updated || !page.data.editorial?.author) {
+    counters.missingEditorialProof += 1;
+    pageFailures.push("auteur of controledatum ontbreekt");
   }
 
   if (
@@ -81,6 +131,14 @@ for (const page of pages) {
   ) {
     counters.weakIntro += 1;
     pageFailures.push("intro is niet direct of niet compact");
+  }
+
+  if (similarIntros.has(page.slug)) {
+    counters.duplicateIntro += 1;
+    const match = similarIntros.get(page.slug);
+    pageFailures.push(
+      `intro lijkt te sterk op ${match.slug} (${Math.round(match.similarity * 100)}%)`,
+    );
   }
 
   const invalidHeadings = headings.filter((heading) => !heading.endsWith("?"));
@@ -118,6 +176,15 @@ for (const page of pages) {
   if (!hasDecisionAid) {
     counters.missingDecisionAid += 1;
     pageFailures.push("beslis-, proces- of controlehulp ontbreekt");
+  }
+
+  if (
+    /\b(dit artikel is geoptimaliseerd voor|de seo-intentie|gsc-signaal|deze pagina target|zoekwoordtarget|contentbrief|productienotitie)\b/i.test(
+      page.body,
+    )
+  ) {
+    counters.productionLanguage += 1;
+    pageFailures.push("interne SEO- of productietaal staat zichtbaar in de pagina");
   }
 
   if (pageFailures.length) {

@@ -306,6 +306,20 @@ export function DecisionBox({ title, children }: { title: string; children: Reac
   );
 }
 
+// Compact bronkader direct onder het korte antwoord. Het maakt de primaire
+// controlebasis zichtbaar vóór veranderlijke bedragen, termijnen of regels.
+export function SourceNote({ label, href }: { label: string; href: string }) {
+  return (
+    <aside className="my-6 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm leading-relaxed text-slate-700">
+      <span className="font-bold text-brand-900">Primaire controlebron: </span>
+      <a href={href} rel="noopener noreferrer" className="font-medium text-brand-700 underline underline-offset-2">
+        {label}
+      </a>
+      <span>. Controleer veranderlijke bedragen, termijnen en voorwaarden opnieuw voor je beslist.</span>
+    </aside>
+  );
+}
+
 // Inline call-to-action naar het leadformulier.
 export function OfferteCheck({ children }: { children?: React.ReactNode }) {
   return (
@@ -404,6 +418,7 @@ export const mdxComponents = {
   td: (p: ComponentProps<"td">) => <td className="border-b border-slate-100 px-4 py-2.5 align-top" {...p} />,
   TipBlock,
   DecisionBox,
+  SourceNote,
   OfferteCheck,
   KantorenInProvincie,
   KantorenInRegio,

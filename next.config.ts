@@ -2,6 +2,20 @@ import type { NextConfig } from "next";
 import fs from "node:fs";
 import path from "node:path";
 
+const LEGACY_MIGRATION_HOSTS = [
+  "vastgoedmakelaarzoeken.be",
+  "www.vastgoedmakelaarzoeken.be",
+];
+
+const configuredMigrationTargetHost = process.env.MIGRATION_TARGET_HOST?.trim().toLowerCase();
+if (
+  configuredMigrationTargetHost &&
+  !/^[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?$/.test(configuredMigrationTargetHost)
+) {
+  throw new Error("MIGRATION_TARGET_HOST moet een geldige hostnaam zonder protocol of pad zijn.");
+}
+const migrationTargetHost = configuredMigrationTargetHost || null;
+
 // Woning-detailpagina's verhuisden van /woning/<slug> naar /<categorie>/<slug>.
 // 301-redirect elke oude woning-URL naar de nieuwe categorie-URL.
 const HUIS_TYPES = ["house", "exceptional_house", "maison_de_maitre", "country-house"];
@@ -32,6 +46,31 @@ const launchRedirects = [
 // definitief naar de gekozen canonieke pagina verhuist.
 const movedPermanentlyRedirects = [
   { from: "/asbestattest/bij-verkoop", to: "/huis-verkopen-verplichtingen/asbestattest" },
+  // Pre-migratieconsolidaties. Deze routes overlapten inhoudelijk of boden geen
+  // aantoonbaar unieke lokale waarde. De bronbestanden blijven tijdelijk noindex
+  // voor controle en rollback, terwijl verkeer één inhoudelijke eigenaar krijgt.
+  { from: "/hypothecaire-volmacht", to: "/hypothecair-mandaat" },
+  { from: "/renovatieplicht-bestaande-woning", to: "/renovatieplicht-2030" },
+  { from: "/asbestattest/verplicht", to: "/asbestattest" },
+  { from: "/asbestattest/vanaf-wanneer", to: "/asbestattest" },
+  { from: "/asbestattest/wetgeving", to: "/asbestattest" },
+  { from: "/asbestattest/wie", to: "/asbestattest" },
+  { from: "/asbestattest/antwerpen", to: "/asbestattest" },
+  { from: "/asbestattest/brugge", to: "/asbestattest" },
+  { from: "/asbestattest/dendermonde", to: "/asbestattest" },
+  { from: "/asbestattest/gent", to: "/asbestattest" },
+  { from: "/asbestattest/hasselt", to: "/asbestattest" },
+  { from: "/asbestattest/herentals", to: "/asbestattest" },
+  { from: "/asbestattest/leuven", to: "/asbestattest" },
+  { from: "/asbestattest/lier", to: "/asbestattest" },
+  { from: "/asbestattest/limburg", to: "/asbestattest" },
+  { from: "/asbestattest/lokeren", to: "/asbestattest" },
+  { from: "/asbestattest/oost-vlaanderen", to: "/asbestattest" },
+  { from: "/asbestattest/oudenaarde", to: "/asbestattest" },
+  { from: "/asbestattest/sint-niklaas", to: "/asbestattest" },
+  { from: "/asbestattest/turnhout", to: "/asbestattest" },
+  { from: "/asbestattest/vlaams-brabant", to: "/asbestattest" },
+  { from: "/asbestattest/west-vlaanderen", to: "/asbestattest" },
 ];
 
 // Redirects op basis van Google Search Console-data van 28 juli 2026.
@@ -127,6 +166,27 @@ const searchConsoleRedirects = [
   { from: "/vastgoedkantoren/west-vlaanderen", to: "/kantoor" },
 ];
 
+const allPathRedirects = [
+  ...movedPermanentlyRedirects,
+  ...launchRedirects,
+  ...searchConsoleRedirects,
+  ...woningRedirects,
+];
+
+// Next.js verwerkt next.config-redirects vóór de proxy. Zonder deze hostregels
+// zou een oude .be-URL met een gewijzigd pad eerst binnen .be verhuizen en pas
+// daarna naar .com gaan. Deze regels combineren host en pad in één klassieke 301.
+const legacyMigrationRedirects = migrationTargetHost
+  ? LEGACY_MIGRATION_HOSTS.flatMap((host) =>
+      allPathRedirects.map((redirect) => ({
+        source: redirect.from,
+        has: [{ type: "host" as const, value: host }],
+        destination: `https://${migrationTargetHost}${redirect.to}`,
+        statusCode: 301 as const,
+      })),
+    )
+  : [];
+
 const nextConfig: NextConfig = {
   // Next.js gebruikt standaard een 308 voor trailing-slash-normalisatie. De proxy
   // handelt dit zelf af met een klassieke 301, zodat elke HTML-URL een definitieve
@@ -134,6 +194,7 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
   async redirects() {
     return [
+      ...legacyMigrationRedirects,
       ...movedPermanentlyRedirects.map((r) => ({
         source: r.from,
         destination: r.to,

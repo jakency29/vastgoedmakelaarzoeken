@@ -1,5 +1,9 @@
 # Forensische spambeleid-audit, 24 augustus 2026
 
+## Aanvulling van 26 augustus 2026
+
+De blijvende release-, cohort-, entity-, lokale evidence- en meetregels staan in [de aanvullende SEO-, GEO- en spamupdate-regels](./seo-spam-update-aanvullende-regels-2026-08-26.md). Die aanvulling onderscheidt officiële Google-regels, eigen observaties, tests, hypotheses en interne guardrails. De historische vaststellingen hieronder blijven ongewijzigd.
+
 ## Besluit
 
 De daling volgt nauw op de August 2026 Spam Update, maar Google Search Console toont geen handmatige actie en geen beveiligingsprobleem. De huidige hypothese is daarom een algoritmische domeinbrede herwaardering, niet een handmatige straf.

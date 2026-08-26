@@ -4,21 +4,19 @@
 
 import type { Metadata } from "next";
 import Image from "next/image";
-import Script from "next/script";
 import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 
 import { getAllSlugParams, getPageBySlug } from "@/lib/content";
 import { pageGraph } from "@/lib/jsonld";
-import { dienstCtaLabel, dienstVoorSlug } from "@/lib/dienst-cta";
+import { dienstVoorSlug } from "@/lib/dienst-cta";
 import { splitMdxIntro } from "@/lib/mdx-intro";
 import { pageVisualConfig } from "@/lib/page-visual";
 import { mdxComponents } from "@/components/mdx";
 import { JsonLd } from "@/components/JsonLd";
 import { LeadForm } from "@/components/LeadForm";
 import { DienstLeadForm } from "@/components/DienstLeadForm";
-import { DienstCTA } from "@/components/DienstCTA";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Faq } from "@/components/Faq";
@@ -92,9 +90,6 @@ export default async function ContentPage({ params }: Props) {
   ]);
   const content = bodyResult.content;
   const introContent = introResult?.content;
-  // CTA-knop (Typeform) op kennisbank-artikels, niet op de kantoren-directorypagina's.
-  const showCta = !page.slug.startsWith("vastgoedkantoren/");
-  const ctaLabel = dienstCtaLabel(page.slug);
   const showProminentForm = showForm && visual.prominentForm;
   const showDeferredForm = showForm && !visual.prominentForm;
   const form = dienst ? (
@@ -187,7 +182,6 @@ export default async function ContentPage({ params }: Props) {
           )}
 
           <div className={`min-w-0 lg:order-1 ${visual.contentWidth}`}>
-            {showCta && visual.prominentForm && page.showTopCta !== false && <DienstCTA label={ctaLabel} />}
             {introContent && !introInHeader && (
               <DirectAnswer note={page.answerNote} updated={page.updated}>
                 {introContent}
@@ -197,7 +191,6 @@ export default async function ContentPage({ params }: Props) {
             <PracticalExample page={page} />
             <EditorialSources page={page} />
             <CommercialNextStep page={page} />
-            {showCta && <DienstCTA label={ctaLabel} />}
             {page.faq?.length ? <Faq items={page.faq} /> : null}
             {page.related?.length ? <RelatedLinks items={page.related} /> : null}
             {showDeferredForm && (
@@ -221,7 +214,6 @@ export default async function ContentPage({ params }: Props) {
         </div>
       </div>
 
-        <Script src="https://embed.typeform.com/next/embed.js" strategy="lazyOnload" />
         <JsonLd data={pageGraph(page)} />
       </article>
     </main>
