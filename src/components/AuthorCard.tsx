@@ -3,7 +3,10 @@ import type { ContentPage } from "@/lib/types";
 import { site } from "@/lib/site";
 
 export function AuthorCard({ page }: { page: ContentPage }) {
-  if (page.type !== "Article") return null;
+  // De kennisbank bevat naast Article ook enkele gidsen met WebPage- of
+  // Service-schema. Toon de auteur op elke pagina die in het kennisbankoverzicht
+  // staat, maar niet op uitgesloten of regionale kantoorlandingspagina's.
+  if (page.noindex || page.slug.startsWith("vastgoedkantoren/")) return null;
 
   return (
     <section aria-labelledby="article-author" className="mt-10 rounded-2xl border border-brand-200 bg-brand-50/60 p-6">
