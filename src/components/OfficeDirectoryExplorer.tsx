@@ -337,15 +337,19 @@ export function OfficeDirectoryExplorer({ offices }: { offices: OfficeDirectoryI
             const checkedOn = formatCheckDate(office.bivGecontroleerdOp);
             return (
               <article key={office.slug} className="flex min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-                <div className="relative flex h-40 items-center justify-center border-b border-slate-100 bg-slate-50 p-4">
+                <Link
+                  href={`/kantoor/${office.slug}`}
+                  aria-label={`Bekijk het profiel van ${office.naam}`}
+                  className="group relative flex h-40 items-center justify-center border-b border-slate-100 bg-slate-50 p-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
+                >
                   {office.premium && <PremiumBadge className="absolute left-3 top-3" />}
                   {office.foto ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={office.foto} alt={`${office.naam} logo`} loading="lazy" className="max-h-full max-w-full object-contain" />
+                    <img src={office.foto} alt={`${office.naam} logo`} loading="lazy" className="max-h-full max-w-full object-contain transition-transform group-hover:scale-[1.03]" />
                   ) : (
                     <span className="text-center text-xl font-extrabold text-brand-200">{office.naam}</span>
                   )}
-                </div>
+                </Link>
 
                 <div className="flex flex-1 flex-col p-5">
                   <div className="flex items-start justify-between gap-3">
