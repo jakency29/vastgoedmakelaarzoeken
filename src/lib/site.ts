@@ -32,6 +32,7 @@ export const site = {
   author: {
     name: "Jan Kenis",
     path: "/auteur/jan-kenis",
+    image: "/afbeeldingen/auteurs/jan-kenis.png",
     profileUrl: "https://jakency.com/jan-kenis",
     linkedinUrl: "https://www.linkedin.com/in/jan-kenis-2a40a028/",
     jobTitle: "Oprichter van Jakency en SEO-, GEO- en AI-consultant",

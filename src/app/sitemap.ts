@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const kennisbank = { url: absoluteUrl("/kennisbank"), changeFrequency: "weekly" as const, priority: 0.7 };
   const werkwijze = { url: absoluteUrl("/werkwijze"), changeFrequency: "monthly" as const, priority: 0.6 };
   const auteur = { url: absoluteUrl("/auteur/jan-kenis"), changeFrequency: "monthly" as const, priority: 0.5 };
+  const overOns = { url: absoluteUrl("/over-ons"), changeFrequency: "monthly" as const, priority: 0.5 };
 
   const pages = getAllPages()
     .filter((p) => !p.noindex)
@@ -54,5 +55,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...woningen.map((w) => ({ url: absoluteUrl(woningHref(w)), changeFrequency: "weekly" as const, priority: 0.6 })),
   ];
 
-  return [home, kennisbank, werkwijze, auteur, ...pages, ...kantoorPages, ...woningPages];
+  return [home, kennisbank, werkwijze, auteur, overOns, ...pages, ...kantoorPages, ...woningPages];
 }

@@ -166,9 +166,9 @@ export default async function ContentPage({ params }: Props) {
             <div className="max-w-none">{content}</div>
             <PracticalExample page={page} />
             <EditorialSources page={page} />
-            <AuthorCard page={page} />
             <CommercialNextStep page={page} />
             {page.faq?.length ? <Faq items={page.faq} /> : null}
+            <AuthorCard page={page} />
             {page.related?.length ? <RelatedLinks items={page.related} /> : null}
             {showDeferredForm && (
               <section id="leadform" className="mt-12 border-t border-slate-200 pt-10">

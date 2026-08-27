@@ -34,6 +34,7 @@ export function personSchema() {
     "@id": AUTHOR_ID,
     name: site.author.name,
     url: absoluteUrl(site.author.path),
+    image: absoluteUrl(site.author.image),
     sameAs: [site.author.profileUrl, site.author.linkedinUrl],
     jobTitle: site.author.jobTitle,
     worksFor: { "@id": OWNER_ORG_ID },
@@ -234,5 +235,24 @@ export function authorProfilePageSchema() {
     isPartOf: { "@id": WEBSITE_ID },
     mainEntity: { "@id": AUTHOR_ID },
     about: { "@id": AUTHOR_ID },
+  };
+}
+
+export function aboutPageSchema() {
+  const url = absoluteUrl("/over-ons");
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${url}#page`,
+    url,
+    name: "Over Vastgoedmakelaar Zoeken",
+    description: `Vastgoedmakelaarzoeken.com is eigendom van ${site.owner.legalName} en helpt Belgische eigenaars vastgoedinformatie en vastgoedkantoren te vergelijken.`,
+    inLanguage: site.lang,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: [
+      { "@id": ORG_ID },
+      { "@id": OWNER_ORG_ID },
+      { "@id": AUTHOR_ID },
+    ],
   };
 }

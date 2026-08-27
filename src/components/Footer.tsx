@@ -39,6 +39,7 @@ export function Footer() {
               <li><Link href="/kennisbank" className="hover:text-accent-400">Kennisbank</Link></li>
               <li><Link href="/kantoor" className="hover:text-accent-400">Vastgoedkantoren</Link></li>
               <li><Link href="/werkwijze" className="hover:text-accent-400">Onze werkwijze</Link></li>
+              <li><Link href="/over-ons" className="hover:text-accent-400">Over ons</Link></li>
               <li><Link href="/contact" className="hover:text-accent-400">Contact</Link></li>
               <li><Link href="/privacy" className="hover:text-accent-400">Privacybeleid</Link></li>
               <li><Link href="/voorwaarden" className="hover:text-accent-400">Gebruiksvoorwaarden</Link></li>
