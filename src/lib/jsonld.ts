@@ -1,4 +1,4 @@
-// JSON-LD builders. Globaal: Organization + WebSite. Per pagina: WebPage/Article/Service,
+// JSON-LD builders. Globaal: WebSite. Per pagina: WebPage/Article/Service,
 // BreadcrumbList en FAQPage. Volgt de structured-data-regels uit de SEO-playbook.
 
 import { site, absoluteUrl } from "./site";
@@ -37,7 +37,7 @@ export function personSchema() {
     image: absoluteUrl(site.author.image),
     sameAs: [site.author.profileUrl, site.author.linkedinUrl],
     jobTitle: site.author.jobTitle,
-    worksFor: { "@id": OWNER_ORG_ID },
+    affiliation: { "@id": OWNER_ORG_ID },
     knowsAbout: [
       "Zoekmachineoptimalisatie",
       "Generative Engine Optimization",
@@ -84,6 +84,7 @@ export function organizationSchema() {
     description: site.description,
     email: site.email,
     parentOrganization: { "@id": OWNER_ORG_ID },
+    founder: { "@id": AUTHOR_ID },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
@@ -111,16 +112,19 @@ export function websiteSchema() {
   };
 }
 
-// Globale graph in de root layout (1 script-tag site-wide).
+// De root layout bevat alleen de WebSite-entiteit. Organisaties en personen
+// worden uitsluitend toegevoegd op pagina's waar ze inhoudelijk zichtbaar zijn.
 export function globalGraph() {
   return {
     "@context": "https://schema.org",
-    "@graph": [
-      ownerOrganizationSchema(),
-      organizationSchema(),
-      websiteSchema(),
-      personSchema(),
-    ],
+    "@graph": [websiteSchema()],
+  };
+}
+
+export function homeOrganizationGraph() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [ownerOrganizationSchema(), organizationSchema()],
   };
 }
 
@@ -216,6 +220,7 @@ function supplementalServiceSchema(page: ContentPage) {
 export function pageGraph(page: ContentPage) {
   const graph = [
     mainSchema(page),
+    page.type === "Article" ? personSchema() : null,
     supplementalServiceSchema(page),
     breadcrumbSchema(page),
     faqSchema(page),
@@ -225,8 +230,7 @@ export function pageGraph(page: ContentPage) {
 
 export function authorProfilePageSchema() {
   const url = absoluteUrl(site.author.path);
-  return {
-    "@context": "https://schema.org",
+  const profilePage = {
     "@type": "ProfilePage",
     "@id": `${url}#page`,
     url,
@@ -236,12 +240,15 @@ export function authorProfilePageSchema() {
     mainEntity: { "@id": AUTHOR_ID },
     about: { "@id": AUTHOR_ID },
   };
+  return {
+    "@context": "https://schema.org",
+    "@graph": [profilePage, personSchema()],
+  };
 }
 
 export function aboutPageSchema() {
   const url = absoluteUrl("/over-ons");
-  return {
-    "@context": "https://schema.org",
+  const aboutPage = {
     "@type": "AboutPage",
     "@id": `${url}#page`,
     url,
@@ -254,5 +261,9 @@ export function aboutPageSchema() {
       { "@id": OWNER_ORG_ID },
       { "@id": AUTHOR_ID },
     ],
+  };
+  return {
+    "@context": "https://schema.org",
+    "@graph": [aboutPage, ownerOrganizationSchema(), organizationSchema()],
   };
 }

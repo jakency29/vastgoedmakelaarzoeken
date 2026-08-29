@@ -26,7 +26,7 @@ export default function JanKenisPage() {
           <p className="mt-5 text-xs font-bold uppercase tracking-wide text-brand-600">Auteur van de kennisbank</p>
           <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-brand-900 sm:text-4xl">Jan Kenis</h1>
           <p className="mt-3 max-w-3xl text-lg leading-relaxed text-slate-700">
-            Jan Kenis is oprichter van Jakency en schrijft en onderhoudt de kennisbank van Vastgoedmakelaar Zoeken.
+            Jan Kenis is oprichter van Vastgoedmakelaarzoeken.com en schrijft en onderhoudt de kennisbank van het platform.
           </p>
         </div>
       </header>

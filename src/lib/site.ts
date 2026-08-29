@@ -35,7 +35,7 @@ export const site = {
     image: "/afbeeldingen/auteurs/jan-kenis.png",
     profileUrl: "https://jakency.com/jan-kenis",
     linkedinUrl: "https://www.linkedin.com/in/jan-kenis-2a40a028/",
-    jobTitle: "Oprichter van Jakency en SEO-, GEO- en AI-consultant",
+    jobTitle: "Oprichter van Vastgoedmakelaarzoeken.com",
   },
   // Korte omschrijving van de dienst. Beschrijft wat de bezoeker doet, geen beloftes.
   description:

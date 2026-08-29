@@ -13,6 +13,7 @@ import { woningenVoor, CATEGORIES } from "@/lib/woningen";
 import { kantoren } from "@/lib/kantoren";
 import { getAllPages } from "@/lib/content";
 import { site } from "@/lib/site";
+import { homeOrganizationGraph } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: { absolute: "Vastgoedmakelaars vergelijken in jouw regio" },
@@ -397,6 +398,7 @@ export default function Home() {
       </section>
 
       <JsonLd data={faqSchema} />
+      <JsonLd data={homeOrganizationGraph()} />
     </main>
   );
 }
