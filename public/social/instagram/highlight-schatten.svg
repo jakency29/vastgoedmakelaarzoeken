@@ -1,0 +1,10 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1080" fill="#081543"/>
+  <circle cx="540" cy="540" r="360" fill="#0b1e5b" stroke="#f9a41a" stroke-width="26"/>
+
+    <circle cx="540" cy="540" r="225" fill="#ffffff"/>
+    <text x="540" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="330" font-weight="700" fill="#0b1e5b">&#8364;</text>
+    <path d="M355 340 H725" stroke="#f9a41a" stroke-width="36" stroke-linecap="round"/>
+
+  <title>Highlight Schatten</title>
+</svg>

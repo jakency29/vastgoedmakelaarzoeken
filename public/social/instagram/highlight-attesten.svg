@@ -1,0 +1,11 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1080" fill="#081543"/>
+  <circle cx="540" cy="540" r="360" fill="#0b1e5b" stroke="#f9a41a" stroke-width="26"/>
+
+    <rect x="365" y="300" width="350" height="460" rx="30" fill="#ffffff"/>
+    <path d="M445 430 H635 M445 515 H635 M445 600 H565" stroke="#0b1e5b" stroke-width="30" stroke-linecap="round"/>
+    <circle cx="675" cy="680" r="105" fill="#f9a41a"/>
+    <path d="M625 680 L660 715 L730 640" fill="none" stroke="#0b1e5b" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <title>Highlight Attesten</title>
+</svg>

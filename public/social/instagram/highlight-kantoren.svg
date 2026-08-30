@@ -1,0 +1,17 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1080" fill="#081543"/>
+  <circle cx="540" cy="540" r="360" fill="#0b1e5b" stroke="#f9a41a" stroke-width="26"/>
+
+    <rect x="330" y="370" width="420" height="360" rx="24" fill="#ffffff"/>
+    <path d="M300 370 L540 265 L780 370 Z" fill="#f9a41a"/>
+    <g fill="#0b1e5b">
+      <rect x="385" y="430" width="75" height="75" rx="8"/>
+      <rect x="502" y="430" width="75" height="75" rx="8"/>
+      <rect x="620" y="430" width="75" height="75" rx="8"/>
+      <rect x="385" y="545" width="75" height="75" rx="8"/>
+      <rect x="620" y="545" width="75" height="75" rx="8"/>
+      <rect x="500" y="565" width="80" height="165" rx="8"/>
+    </g>
+
+  <title>Highlight Kantoren</title>
+</svg>

@@ -1,0 +1,10 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1080" fill="#081543"/>
+  <circle cx="540" cy="540" r="360" fill="#0b1e5b" stroke="#f9a41a" stroke-width="26"/>
+
+    <path d="M330 515 L540 335 L750 515" fill="none" stroke="#f9a41a" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M380 500 V720 H700 V500" fill="#ffffff"/>
+    <path d="M465 620 L525 680 L650 545" fill="none" stroke="#0b1e5b" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <title>Highlight Verkopen</title>
+</svg>

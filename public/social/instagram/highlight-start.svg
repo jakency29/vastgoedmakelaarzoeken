@@ -1,0 +1,9 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1080" fill="#081543"/>
+  <circle cx="540" cy="540" r="360" fill="#0b1e5b" stroke="#f9a41a" stroke-width="26"/>
+
+    <path d="M390 350 L735 540 L390 730 Z" fill="#ffffff"/>
+    <circle cx="540" cy="540" r="250" fill="none" stroke="#f9a41a" stroke-width="30"/>
+
+  <title>Highlight Start</title>
+</svg>

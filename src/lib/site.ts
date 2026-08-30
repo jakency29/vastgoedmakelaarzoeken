@@ -44,7 +44,7 @@ export const site = {
   // Officiële socialeprofielen (voedt Organization.sameAs in de structured data).
   socials: [
     "https://www.facebook.com/vastgoedmakelaarzoeken/",
-    "https://www.instagram.com/vastgoedmakelaarzoeken/",
+    "https://www.instagram.com/vastgoedmakelaarzoeken.be/",
     "https://in.pinterest.com/Vastgoedmakelaarzoeken/",
   ],
   // Hoofdnavigatie (desktop + hamburger op mobiel).
