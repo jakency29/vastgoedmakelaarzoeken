@@ -245,6 +245,30 @@ export const kantoren: Kantoor[] = [
     bivGecontroleerdOp: "2026-07-28",
     foto: "/afbeeldingen/kantoren/homerun.jpg",
   },
+  {
+    slug: "swevers-real-estate",
+    naam: "Swevers Real Estate",
+    makelaar: "Marc Swevers",
+    seoTitle: "Swevers Real Estate Beringen: diensten en contact",
+    seoDescription:
+      "Bekijk Swevers Real Estate in Beringen: diensten, BIV-erkenning, werkgebied en contact voor verkoop, aankoop of een schatting in Limburg.",
+    gemeente: "Beringen",
+    provincie: "Limburg",
+    provincieSlug: "limburg",
+    intro:
+      "Swevers Real Estate is een vastgoedkantoor met hoofdzetel in Beringen en vestigingen in Hasselt, Heusden-Zolder en Borgloon. Het kantoor begeleidt eigenaars en kopers bij verkoop, aankoop, schatting en vastgoedadvies in Limburg.",
+    diensten: ["Woning verkopen", "Aankoopbegeleiding", "Gratis schatting", "Vastgoedadvies"],
+    regios: ["Beringen", "Hasselt", "Heusden-Zolder", "Borgloon", "Limburg"],
+    adres: "Hoogstraat 8",
+    postcode: "3580",
+    telefoon: "011 25 51 55",
+    email: "immo@swevers.be",
+    website: "https://www.swevers.be/",
+    bivNummer: "502259",
+    bivHouder: "Marc Swevers",
+    bivBron: "https://www.biv.be/vastgoedmakelaars/marc-swevers-502259",
+    bivGecontroleerdOp: "2026-09-01",
+  },
 ];
 
 export function getKantoor(slug: string): Kantoor | undefined {
