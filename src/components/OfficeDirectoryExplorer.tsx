@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { PremiumBadge } from "@/components/PremiumBadge";
 import { Rating } from "@/components/Rating";
+import { compareOffices, type OfficeSort } from "@/lib/office-order";
 
 export type OfficeDirectoryItem = {
   slug: string;
@@ -15,6 +16,7 @@ export type OfficeDirectoryItem = {
   diensten: string[];
   regios: string[];
   premium: boolean;
+  toegevoegdOp?: string;
   bivNummer?: string;
   bivGecontroleerdOp?: string;
   rating?: number;
@@ -72,7 +74,7 @@ export function OfficeDirectoryExplorer({ offices }: { offices: OfficeDirectoryI
   const [query, setQuery] = useState("");
   const [province, setProvince] = useState("");
   const [service, setService] = useState("");
-  const [sort, setSort] = useState("name");
+  const [sort, setSort] = useState<OfficeSort>("newest");
   const [verifiedOnly, setVerifiedOnly] = useState(false);
   const [reviewsOnly, setReviewsOnly] = useState(false);
   const [selectedSlugs, setSelectedSlugs] = useState<string[]>([]);
@@ -102,29 +104,19 @@ export function OfficeDirectoryExplorer({ offices }: { offices: OfficeDirectoryI
       ).includes(normalizedQuery);
     });
 
-    return [...matches].sort((a, b) => {
-      if (sort === "reviews") {
-        return (b.reviewTotal ?? -1) - (a.reviewTotal ?? -1) || a.naam.localeCompare(b.naam, "nl-BE");
-      }
-      if (sort === "rating") {
-        return (b.rating ?? -1) - (a.rating ?? -1)
-          || (b.reviewTotal ?? -1) - (a.reviewTotal ?? -1)
-          || a.naam.localeCompare(b.naam, "nl-BE");
-      }
-      return a.naam.localeCompare(b.naam, "nl-BE");
-    });
+    return [...matches].sort((a, b) => compareOffices(a, b, sort));
   }, [offices, province, query, reviewsOnly, service, sort, verifiedOnly]);
 
   const selectedOffices = selectedSlugs
     .map((slug) => offices.find((office) => office.slug === slug))
     .filter((office): office is OfficeDirectoryItem => Boolean(office));
-  const hasFilters = Boolean(query.trim() || province || service || verifiedOnly || reviewsOnly || sort !== "name");
+  const hasFilters = Boolean(query.trim() || province || service || verifiedOnly || reviewsOnly || sort !== "newest");
 
   function clearFilters() {
     setQuery("");
     setProvince("");
     setService("");
-    setSort("name");
+    setSort("newest");
     setVerifiedOnly(false);
     setReviewsOnly(false);
   }
@@ -207,9 +199,10 @@ export function OfficeDirectoryExplorer({ offices }: { offices: OfficeDirectoryI
               <select
                 id="kantoor-sorteren"
                 value={sort}
-                onChange={(event) => setSort(event.target.value)}
+                onChange={(event) => setSort(event.target.value as OfficeSort)}
                 className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-brand-900 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
               >
+                <option value="newest">Nieuwste eerst</option>
                 <option value="name">Naam A tot Z</option>
                 <option value="reviews">Meeste Google-reviews</option>
                 <option value="rating">Hoogste Google-score</option>

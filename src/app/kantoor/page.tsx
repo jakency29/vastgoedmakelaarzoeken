@@ -10,6 +10,7 @@ import { OfficeDirectoryExplorer, type OfficeDirectoryItem } from "@/components/
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbListSchema, faqPageSchema } from "@/lib/jsonld";
 import { absoluteUrl } from "@/lib/site";
+import { compareOffices } from "@/lib/office-order";
 
 export const metadata: Metadata = {
   title: { absolute: "Vastgoedkantoren en immokantoren vergelijken" },
@@ -57,12 +58,13 @@ export default async function KantorenPage() {
       diensten: k.diensten,
       regios: k.regios,
       premium: Boolean(k.premium),
+      toegevoegdOp: k.toegevoegdOp,
       bivNummer: k.bivNummer,
       bivGecontroleerdOp: k.bivGecontroleerdOp,
       rating: reviews?.rating,
       reviewTotal: reviews?.total,
     };
-  });
+  }).sort((a, b) => compareOffices(a, b, "newest"));
   const checkedOffices = offices.filter((office) => office.bivNummer && office.bivGecontroleerdOp);
   const provinceCount = new Set(offices.map((office) => office.provincie)).size;
   const latestCheck = checkedOffices
@@ -77,11 +79,11 @@ export default async function KantorenPage() {
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: kantoren.length,
-      itemListElement: kantoren.map((k, index) => ({
+      itemListElement: offices.map((office, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        name: k.naam,
-        url: absoluteUrl(`/kantoor/${k.slug}`),
+        name: office.naam,
+        url: absoluteUrl(`/kantoor/${office.slug}`),
       })),
     },
   };

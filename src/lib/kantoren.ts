@@ -24,6 +24,7 @@ export type Kantoor = {
   foto?: string; // lokaal pad onder /afbeeldingen/kantoren/
   googlePlaceId?: string; // Google Place ID voor het ophalen van reviews
   premium?: boolean; // premium partner: toont overal een badge
+  toegevoegdOp?: string; // ISO-datum voor sortering in het kantooroverzicht
   seoTitle?: string;
   seoDescription?: string;
 };
@@ -248,6 +249,7 @@ export const kantoren: Kantoor[] = [
   {
     slug: "swevers-real-estate",
     googlePlaceId: "ChIJBanmhN07wUcR23s35e1OFp0",
+    toegevoegdOp: "2026-09-01",
     naam: "Swevers Real Estate",
     makelaar: "Marc Swevers",
     seoTitle: "Swevers Real Estate Beringen: diensten en contact",
