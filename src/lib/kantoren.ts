@@ -247,6 +247,7 @@ export const kantoren: Kantoor[] = [
   },
   {
     slug: "swevers-real-estate",
+    googlePlaceId: "ChIJBanmhN07wUcR23s35e1OFp0",
     naam: "Swevers Real Estate",
     makelaar: "Marc Swevers",
     seoTitle: "Swevers Real Estate Beringen: diensten en contact",
@@ -268,6 +269,7 @@ export const kantoren: Kantoor[] = [
     bivHouder: "Marc Swevers",
     bivBron: "https://www.biv.be/vastgoedmakelaars/marc-swevers-502259",
     bivGecontroleerdOp: "2026-09-01",
+    foto: "/afbeeldingen/kantoren/swevers-real-estate.svg",
   },
 ];
 
