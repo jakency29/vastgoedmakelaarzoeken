@@ -1,0 +1,1592 @@
+{
+  "source": "https://www.immokantorenoverzicht.be/Limburg/",
+  "collectedOn": "2026-09-01",
+  "province": "Limburg",
+  "total": 264,
+  "candidates": [
+    {
+      "address": "Tongersesteenweg 50, 3730 Hoeselt",
+      "city": "Hoeselt",
+      "name": "Av-vastgoed Bvba",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Av-vastgoed+Bvba_8310"
+    },
+    {
+      "address": "Guldenbodemlaan 37, 3840 Borgloon",
+      "city": "Borgloon",
+      "name": "AXPERTISE Vastgoed & Advies",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-AXPERTISE+Vastgoed+%26+Advies_11179"
+    },
+    {
+      "address": "Naamsevest 80, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "Century21 ImmoK Sint Truiden",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Century21+ImmoK+Sint+Truiden_9813"
+    },
+    {
+      "address": "Dorpsplein 38, 3520 Zonhoven",
+      "city": "Zonhoven",
+      "name": "Claar Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Claar+Vastgoed_11111"
+    },
+    {
+      "address": "Bilzersteenweg 45B/B1, 3730 Hoeselt",
+      "city": "Hoeselt",
+      "name": "ERA Connect",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-ERA+Connect_9763"
+    },
+    {
+      "address": "Bosstraat 92, 3680 Maaseik",
+      "city": "Maaseik",
+      "name": "ERA IMPACT Maaseik",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-ERA+IMPACT+Maaseik_9769"
+    },
+    {
+      "address": "Schurhoven 40, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "ERA NOBIS Sint-Truiden",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-ERA+NOBIS+Sint-Truiden_9776"
+    },
+    {
+      "address": "Guffenslaan 15, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Found & Baker Properties Limburg",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Found+%26+Baker+Properties+Limburg_10563"
+    },
+    {
+      "address": "Guffenslaan 44, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Gsk Projecten",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Gsk+Projecten_2819"
+    },
+    {
+      "address": "Binnensingel 70 / 2, 3920 Lommel",
+      "city": "Lommel",
+      "name": "Het Bedrijfskantoor",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Het+Bedrijfskantoor_10593"
+    },
+    {
+      "address": "Luikersteenweg 159, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Het Vastgoedkantoor Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Het+Vastgoedkantoor+Hasselt_10611"
+    },
+    {
+      "address": "Solferinostraat 40/3, 3583 Paal",
+      "city": "Paal",
+      "name": "Home Deluxe",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Home+Deluxe_1693"
+    },
+    {
+      "address": "Smisstraat 2, 3920 Lommel",
+      "city": "Lommel",
+      "name": "Hozimmo - Admon Hozi",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Hozimmo+-+Admon+Hozi_11174"
+    },
+    {
+      "address": "Snoekweyerstraat 3, 3600 Genk",
+      "city": "Genk",
+      "name": "Hustings bouwgroep",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Hustings+bouwgroep_3126"
+    },
+    {
+      "address": "Sint-Truidersteenweg 66, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Immo Minnaert & C",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Minnaert+%26+C_10726"
+    },
+    {
+      "address": "Nierstraat 26, 3590 Diepenbeek",
+      "city": "Diepenbeek",
+      "name": "Immorestau Bvba",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immorestau+Bvba_11182"
+    },
+    {
+      "address": "Opitterstraat 30, 3960 Bree",
+      "city": "Bree",
+      "name": "immosign+ Bree",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-immosign%2B+Bree_9949"
+    },
+    {
+      "address": "Kolonel Dusartplein 28B, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Living Stone Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Living+Stone+Hasselt_9997"
+    },
+    {
+      "address": "Kempische Steenweg 21A, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Matisimmo Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Matisimmo+Hasselt_9942"
+    },
+    {
+      "address": "Bretheistraat 123 bus 6, 3600 Genk",
+      "city": "Genk",
+      "name": "Onroerend Goed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Onroerend+Goed_10847"
+    },
+    {
+      "address": "Neerstraat 5, 3560 Lummen",
+      "city": "Lummen",
+      "name": "Sabien Vinck Vastgoed BVBA",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Sabien+Vinck+Vastgoed+BVBA_6324"
+    },
+    {
+      "address": "Halveweg 112, 3520 Zonhoven",
+      "city": "Zonhoven",
+      "name": "SBC Vastgoed Zonhoven",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-SBC+Vastgoed+Zonhoven_11113"
+    },
+    {
+      "address": "Heuvenstraat 83/2, 3520 Zonhoven",
+      "city": "Zonhoven",
+      "name": "Schraepen Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Schraepen+Vastgoed_11110"
+    },
+    {
+      "address": "Koudenbergstraat 2C, 3630 Maasmechelen",
+      "city": "Maasmechelen",
+      "name": "Sensimmo Maasmechelen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Sensimmo+Maasmechelen_9939"
+    },
+    {
+      "address": "Kloosterstraat 10/1, 3910 Pelt",
+      "city": "Pelt",
+      "name": "Vastgoed C - Pelt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoed+C+-+Pelt_9945"
+    },
+    {
+      "address": "Reppelerweg 187, 3950 Bocholt",
+      "city": "Bocholt",
+      "name": "Vrolix Immo&Bouw",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vrolix+Immo%26Bouw_11178"
+    },
+    {
+      "address": "Bammestraat 55, 3740 Bilzen",
+      "city": "Bilzen",
+      "name": "4Sale Vastgoed Palmaers",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-4Sale+Vastgoed+Palmaers_362"
+    },
+    {
+      "address": "Weg naar As 23, 3600 Genk",
+      "city": "Genk",
+      "name": "Artes Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Artes+Vastgoed_9936"
+    },
+    {
+      "address": "Lommelsebaan 1, 3940 Hechtel-Eksel",
+      "city": "Hechtel-Eksel",
+      "name": "Engel & Völkers Noord-Limburg",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Engel+%26+V%C3%B6lkers+Noord-Limburg_9956"
+    },
+    {
+      "address": "Dieplaan 11, 3600 Genk",
+      "city": "Genk",
+      "name": "Hermania",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Hermania_2963"
+    },
+    {
+      "address": "Daalstraat 1, 3690 Zutendaal",
+      "city": "Zutendaal",
+      "name": "Hermania by Polygon",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Hermania+by+Polygon_9938"
+    },
+    {
+      "address": "Dorpsstraat 40, 3520 Zonhoven",
+      "city": "Zonhoven",
+      "name": "idylia",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-idylia_10646"
+    },
+    {
+      "address": "Zangstraat 37, 3830 Wellen",
+      "city": "Wellen",
+      "name": "Immo Hertogen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Hertogen_3700"
+    },
+    {
+      "address": "Dorpsstraat 15, 3950 Bocholt",
+      "city": "Bocholt",
+      "name": "immosign+ Bocholt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-immosign%2B+Bocholt_9948"
+    },
+    {
+      "address": "Papenstraat 5, 3840 Borgloon",
+      "city": "Borgloon",
+      "name": "Marc Swevers Immobiliën Borgloon",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Marc+Swevers+Immobili%C3%ABn+Borgloon_10078"
+    },
+    {
+      "address": "Luikersteenweg 395, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "N3 VASTGOED",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-N3+VASTGOED_5796"
+    },
+    {
+      "address": "Dorpsstraat 2, 3900 Pelt",
+      "city": "Pelt",
+      "name": "Pelter Makelaardij",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Pelter+Makelaardij_5800"
+    },
+    {
+      "address": "Haag 122, 3930 Achel",
+      "city": "Achel",
+      "name": "t Huys Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-t+Huys+Vastgoed_11187"
+    },
+    {
+      "address": "Koerselsebaan 21/bus 1, 3550 Heusden-Zolder",
+      "city": "Heusden-Zolder",
+      "name": "Theunis Vastgoed Bvba",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Theunis+Vastgoed+Bvba_8701"
+    },
+    {
+      "address": "Gerdingerpoort 22B, 3960 Bree",
+      "city": "Bree",
+      "name": "Van Dommelen Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Van+Dommelen+Vastgoed_10274"
+    },
+    {
+      "address": "Eind 37, 3930 Achel",
+      "city": "Achel",
+      "name": "Vastgoed Nele Coenjaerts",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoed+Nele+Coenjaerts_11186"
+    },
+    {
+      "address": "Schepen Dejonghstraat 29, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "Aktimmo",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Aktimmo_435"
+    },
+    {
+      "address": "Grendelbaan 78, 3590 Diepenbeek",
+      "city": "Diepenbeek",
+      "name": "Albert Diepenbeek",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Albert+Diepenbeek_9907"
+    },
+    {
+      "address": "Schalmstraat 2, 3600 Genk",
+      "city": "Genk",
+      "name": "BC Immo",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-BC+Immo_11183"
+    },
+    {
+      "address": "Ridderstraat 20, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Boes & Boes",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Boes+%26+Boes_2179"
+    },
+    {
+      "address": "Guido Gezellelaan 44, 3550 Heusden-Zolder",
+      "city": "Heusden-Zolder",
+      "name": "CENTURY 21 Animo Heusden-Zolder",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-CENTURY+21+Animo+Heusden-Zolder_129"
+    },
+    {
+      "address": "Emiel Van Dorenlaan 76, 3600 Genk",
+      "city": "Genk",
+      "name": "Consimmo Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Consimmo+Vastgoed_10257"
+    },
+    {
+      "address": "Hoogdorpsstraat 20A, 3570 Alken",
+      "city": "Alken",
+      "name": "Era Nobis Alken",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Era+Nobis+Alken_9775"
+    },
+    {
+      "address": "Kempische Steenweg 398, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "ERA Nobis Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-ERA+Nobis+Hasselt_24"
+    },
+    {
+      "address": "Heuvenstraat 23, 3520 Zonhoven",
+      "city": "Zonhoven",
+      "name": "ERA Nobis Zonhoven",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-ERA+Nobis+Zonhoven_9624"
+    },
+    {
+      "address": "Leopoldlaan 39, 3900 Pelt",
+      "city": "Pelt",
+      "name": "ERA Tournier Pelt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-ERA+Tournier+Pelt_29"
+    },
+    {
+      "address": "Lanklaarsesteenweg 21, 3665 As",
+      "city": "As",
+      "name": "Frère Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Fr%C3%A8re+Vastgoed_10260"
+    },
+    {
+      "address": "Ekselsebaan 17, 3990 Peer",
+      "city": "Peer",
+      "name": "Houthandel Rooyackers",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Houthandel+Rooyackers_6309"
+    },
+    {
+      "address": "Rijtenstraat 39, 3920 Lommel",
+      "city": "Lommel",
+      "name": "Immo Novas",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Novas_3872"
+    },
+    {
+      "address": "Dorpsstraat 28B/1, 3830 Wellen",
+      "city": "Wellen",
+      "name": "IMMO VSW",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-IMMO+VSW_11115"
+    },
+    {
+      "address": "Rozenkranslaan 114, 3600 Genk",
+      "city": "Genk",
+      "name": "Immo-center",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo-center_10267"
+    },
+    {
+      "address": "Rechtestraat 11 A, 3620 Veldwezelt",
+      "city": "Veldwezelt",
+      "name": "ImmoFair",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-ImmoFair_8708"
+    },
+    {
+      "address": "Kloosterpoort 20, 3960 Bree",
+      "city": "Bree",
+      "name": "Klaps Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Klaps+Vastgoed_3397"
+    },
+    {
+      "address": "Hoogstraat 8, 3580 Beringen",
+      "city": "Beringen",
+      "name": "Marc Swevers Immobiliën Beringen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Marc+Swevers+Immobili%C3%ABn+Beringen_10076"
+    },
+    {
+      "address": "Havermarkt 34, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Marc Swevers Immobiliën Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Marc+Swevers+Immobili%C3%ABn+Hasselt_10077"
+    },
+    {
+      "address": "Kloosterstraat 4, 3740 Bilzen",
+      "city": "Bilzen",
+      "name": "Matisimmo Bilzen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Matisimmo+Bilzen_9941"
+    },
+    {
+      "address": "Maasheide 28, 3580 Beringen",
+      "city": "Beringen",
+      "name": "Nancy Aerts Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Nancy+Aerts+Vastgoed_10241"
+    },
+    {
+      "address": "Kerkhovensesteenweg 447, 3920 Lommel",
+      "city": "Lommel",
+      "name": "Savemak Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Savemak+Vastgoed_8692"
+    },
+    {
+      "address": "Martelarenlaan 28a, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Vastgoed Valkenborgh",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoed+Valkenborgh_8695"
+    },
+    {
+      "address": "Kremerstraat 16, 3520 Zonhoven",
+      "city": "Zonhoven",
+      "name": "Axion Expert",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Axion+Expert_134"
+    },
+    {
+      "address": "Marktstraat 4, 3600 Genk",
+      "city": "Genk",
+      "name": "Dewaele - Genk",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Dewaele+-+Genk_9703"
+    },
+    {
+      "address": "Markt 20, 3740 Bilzen",
+      "city": "Bilzen",
+      "name": "Ellimmo Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Ellimmo+Vastgoed_10500"
+    },
+    {
+      "address": "Binnensingel 70 / 2, 3920 Lommel",
+      "city": "Lommel",
+      "name": "Het Huiskantoor Lommel",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Het+Huiskantoor+Lommel_10115"
+    },
+    {
+      "address": "Koolmijnlaan 147, 3580 Koersel",
+      "city": "Koersel",
+      "name": "Het Vastgoedkantoor Beringen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Het+Vastgoedkantoor+Beringen_10603"
+    },
+    {
+      "address": "Sint-Willibrordusplein 19/2, 3550 Heusden-Zolder",
+      "city": "Heusden-Zolder",
+      "name": "Immo Plees",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Plees_9542"
+    },
+    {
+      "address": "Bleumerpoort 2, 3680 Maaseik",
+      "city": "Maaseik",
+      "name": "NV Janssen Maasbrug",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-NV+Janssen+Maasbrug_4365"
+    },
+    {
+      "address": "Venlosesteenweg 56, 3640 Kinrooi",
+      "city": "Kinrooi",
+      "name": "Aendekerk estate",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Aendekerk+estate_7901"
+    },
+    {
+      "address": "Bleumerstraat 91, 3680 Maaseik",
+      "city": "Maaseik",
+      "name": "Dewaele - Maaseik",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Dewaele+-+Maaseik_9713"
+    },
+    {
+      "address": "Veearts Strauvenlaan 2, 3540 Herk-de-Stad",
+      "city": "Herk-de-Stad",
+      "name": "ERA Nobis Herk-de-Stad",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-ERA+Nobis+Herk-de-Stad_504"
+    },
+    {
+      "address": "Buitensingel 27, 3920 Lommel",
+      "city": "Lommel",
+      "name": "ERA Tournier Lommel",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-ERA+Tournier+Lommel_28"
+    },
+    {
+      "address": "Schuttershofstraat 23, 3620 Neerharen",
+      "city": "Neerharen",
+      "name": "Eurinvesco",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Eurinvesco_2301"
+    },
+    {
+      "address": "Thonissenlaan 118, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Immo Limburgs Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Limburgs+Vastgoed_4907"
+    },
+    {
+      "address": "Maaseikerlaan 100, 3680 Maaseik",
+      "city": "Maaseik",
+      "name": "Immoké",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immok%C3%A9_3770"
+    },
+    {
+      "address": "Eikenenweg 58, 3520 Zonhoven",
+      "city": "Zonhoven",
+      "name": "Jansen Real Estate Zonhoven",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Jansen+Real+Estate+Zonhoven_8687"
+    },
+    {
+      "address": "Bochtlaan 32A, 3600 Genk",
+      "city": "Genk",
+      "name": "Jurimex",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Jurimex_3390"
+    },
+    {
+      "address": "Europalaan 70, 3600 Genk",
+      "city": "Genk",
+      "name": "Nina Bruno Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Nina+Bruno+Vastgoed_11185"
+    },
+    {
+      "address": "André Dumontlaan 210, 3600 Genk",
+      "city": "Genk",
+      "name": "Steegmans Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Steegmans+Vastgoed_6343"
+    },
+    {
+      "address": "Bilzersteenweg 86, 3700 Tongeren",
+      "city": "Tongeren",
+      "name": "Vastgoed Centrale",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoed+Centrale_6406"
+    },
+    {
+      "address": "Kerkstraat 19, 3910 Pelt",
+      "city": "Pelt",
+      "name": "Vastgoed Fransen & Co",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoed+Fransen+%26+Co_2531"
+    },
+    {
+      "address": "Kolonel Dusartplein 21, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "VDV Van der Veken - Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-VDV+Van+der+Veken+-+Vastgoed_4937"
+    },
+    {
+      "address": "Stationsstraat 42, 3970 Leopoldsburg",
+      "city": "Leopoldsburg",
+      "name": "We Invest Leopoldsburg",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-We+Invest+Leopoldsburg_11052"
+    },
+    {
+      "address": "Koeltorenlaan 11/3, 3550 Heusden-Zolder",
+      "city": "Heusden-Zolder",
+      "name": "Alterimmo",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Alterimmo_5898"
+    },
+    {
+      "address": "Grotstraat 3, 3665 As",
+      "city": "As",
+      "name": "Colson Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Colson+Vastgoed_290"
+    },
+    {
+      "address": "Grotestraat 33/bus 1, 3600 Genk",
+      "city": "Genk",
+      "name": "ERA Nobis Genk",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-ERA+Nobis+Genk_27"
+    },
+    {
+      "address": "Koning Albertlaan 13a, 3680 Maaseik",
+      "city": "Maaseik",
+      "name": "Goyens Segers Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Goyens+Segers+Vastgoed_9950"
+    },
+    {
+      "address": "Abeelplein 15, 3840 Borgloon",
+      "city": "Borgloon",
+      "name": "Het Immohuis",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Het+Immohuis_2979"
+    },
+    {
+      "address": "Genkersteenweg 167, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Immo Cosemans",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Cosemans_8703"
+    },
+    {
+      "address": "Lillerbaan 138, 3950 Bocholt",
+      "city": "Bocholt",
+      "name": "Immo Ginis",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Ginis_10243"
+    },
+    {
+      "address": "Pliniuswal 1, 3700 Tongeren",
+      "city": "Tongeren",
+      "name": "Kleine Landeigendom",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Kleine+Landeigendom_4633"
+    },
+    {
+      "address": "Sint-Jobstraat 60/4, 3550 Heusden-Zolder",
+      "city": "Heusden-Zolder",
+      "name": "Marc Swevers Immobiliën Heusden-Zolder",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Marc+Swevers+Immobili%C3%ABn+Heusden-Zolder_4707"
+    },
+    {
+      "address": "Berglaan 40, 3600 Genk",
+      "city": "Genk",
+      "name": "Sensimmo Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Sensimmo+Vastgoed_6521"
+    },
+    {
+      "address": "Hasseltsesteenweg 17, 3580 Beringen",
+      "city": "Beringen",
+      "name": "SINDICO",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-SINDICO_4040"
+    },
+    {
+      "address": "Rijksweg 388, 3630 Maasmechelen",
+      "city": "Maasmechelen",
+      "name": "vastgoed martin moesen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-vastgoed+martin+moesen_8699"
+    },
+    {
+      "address": "Hulststraat 63, 3630 Maasmechelen",
+      "city": "Maasmechelen",
+      "name": "VDB Wonen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-VDB+Wonen_7416"
+    },
+    {
+      "address": "Bosstraat 54, 3560 Lummen",
+      "city": "Lummen",
+      "name": "Center26",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Center26_1048"
+    },
+    {
+      "address": "Bevrijdingsplein 7, 3970 Leopoldsburg",
+      "city": "Leopoldsburg",
+      "name": "Dreamhome",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Dreamhome_1993"
+    },
+    {
+      "address": "Stationswal 5, 3960 Bree",
+      "city": "Bree",
+      "name": "ERA IMPACT Bree",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-ERA+IMPACT+Bree_25"
+    },
+    {
+      "address": "Hertog Janplein 13 bus 1, 3920 Lommel",
+      "city": "Lommel",
+      "name": "Geebelen Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Geebelen+Vastgoed_11173"
+    },
+    {
+      "address": "Stationsstraat 50, 3620 Lanaken",
+      "city": "Lanaken",
+      "name": "immo Jongen & Meuwissen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-immo+Jongen+%26+Meuwissen_4472"
+    },
+    {
+      "address": "Tipstraat 116 bus 2, 3740 Bilzen",
+      "city": "Bilzen",
+      "name": "Immo Vadis",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Vadis_10748"
+    },
+    {
+      "address": "Slakweidestraat 38, 3630 Maasmechelen",
+      "city": "Maasmechelen",
+      "name": "Landi projectontwikkeling",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Landi+projectontwikkeling_4755"
+    },
+    {
+      "address": "Tegelrijstraat 40/A, 3850 Nieuwerkerken",
+      "city": "Nieuwerkerken",
+      "name": "Anita Vandevoort",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Anita+Vandevoort_7240"
+    },
+    {
+      "address": "Herkenrodesingel 4, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Ciril",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Ciril_1932"
+    },
+    {
+      "address": "Galgeneinde 6, 3550 Heusden-Zolder",
+      "city": "Heusden-Zolder",
+      "name": "ERA DE PIRAMIDE Heusden-Zolder",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-ERA+DE+PIRAMIDE+Heusden-Zolder_9620"
+    },
+    {
+      "address": "Tongersestraat 3, 3740 Bilzen",
+      "city": "Bilzen",
+      "name": "Essensio Vastgoed Bilzen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Essensio+Vastgoed+Bilzen_10553"
+    },
+    {
+      "address": "Sint-Martinusplein 1, 3600 Genk",
+      "city": "Genk",
+      "name": "Heylen Vastgoed Genk",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Heylen+Vastgoed+Genk_9684"
+    },
+    {
+      "address": "Maastrichtersteenweg 93, 3770 Riemst",
+      "city": "Riemst",
+      "name": "Immo Janssen Marres",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Janssen+Marres_3744"
+    },
+    {
+      "address": "Koolmijnlaan 10, 3580 Beringen",
+      "city": "Beringen",
+      "name": "IMMO-C2 Beringen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-IMMO-C2+Beringen_9934"
+    },
+    {
+      "address": "Kerkstraat 10, 3930 Hamont",
+      "city": "Hamont",
+      "name": "Immopunt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immopunt_11188"
+    },
+    {
+      "address": "Pliniuswal 23, 3700 Tongeren",
+      "city": "Tongeren",
+      "name": "LEROI IMMOBILIEN BVBA",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-LEROI+IMMOBILIEN+BVBA_4857"
+    },
+    {
+      "address": "Visserijstraat 8, 3590 Diepenbeek",
+      "city": "Diepenbeek",
+      "name": "Millennium Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Millennium+Vastgoed_11181"
+    },
+    {
+      "address": "Rijksweg 235, 3650 Dilsen-Stokkem",
+      "city": "Dilsen-Stokkem",
+      "name": "N78 Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-N78+Vastgoed_5476"
+    },
+    {
+      "address": "Vliegveldlaan 130, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "Poulus Realty",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Poulus+Realty_8698"
+    },
+    {
+      "address": "Hoogstraat 160, 3665 As",
+      "city": "As",
+      "name": "Telen Vastgoedmakelaar",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Telen+Vastgoedmakelaar_6878"
+    },
+    {
+      "address": "Hasseltsebaan 2, 3940 Hechtel-Eksel",
+      "city": "Hechtel-Eksel",
+      "name": "Vastgoed C Hechtel-Eksel",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoed+C+Hechtel-Eksel_3709"
+    },
+    {
+      "address": "Bospoort 8, 3680 Maaseik",
+      "city": "Maaseik",
+      "name": "Beneca Vastgoed Maaseik",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Beneca+Vastgoed+Maaseik_590"
+    },
+    {
+      "address": "Koning Albertlaan 97-99, 3620 Lanaken",
+      "city": "Lanaken",
+      "name": "Christoffels vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Christoffels+vastgoed_1176"
+    },
+    {
+      "address": "Thonissenlaan 96, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Dewaele - Hasselt verkoop",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Dewaele+-+Hasselt+verkoop_9706"
+    },
+    {
+      "address": "Diestersteenweg 196, 3510 Kermt",
+      "city": "Kermt",
+      "name": "Domo Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Domo+Vastgoed_9412"
+    },
+    {
+      "address": "Thonissenlaan 82, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Hillewaere Vastgoed Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Hillewaere+Vastgoed+Hasselt_9872"
+    },
+    {
+      "address": "Veldstraat 5, 3690 Zutendaal",
+      "city": "Zutendaal",
+      "name": "Immo Dufour",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Dufour_3596"
+    },
+    {
+      "address": "Broedersstraat 8, 3600 Genk",
+      "city": "Genk",
+      "name": "Immo Labadia",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Labadia_10685"
+    },
+    {
+      "address": "Diesterstraat 101/1, 3980 Tessenderlo",
+      "city": "Tessenderlo",
+      "name": "IMMO-C2 Tessenderlo",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-IMMO-C2+Tessenderlo_3453"
+    },
+    {
+      "address": "Bevrijdingsplein 4, 3970 Leopoldsburg",
+      "city": "Leopoldsburg",
+      "name": "Janssen and Janssen Leopoldsburg",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Janssen+and+Janssen+Leopoldsburg_8581"
+    },
+    {
+      "address": "Ploegdries 55 Bus1, 3920 Lommel",
+      "city": "Lommel",
+      "name": "Jeba Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Jeba+Vastgoed_10775"
+    },
+    {
+      "address": "Plattestraat 30 A, 3830 Wellen",
+      "city": "Wellen",
+      "name": "JM Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-JM+Vastgoed_8691"
+    },
+    {
+      "address": "Koning Albertlaan 6, 3680 Maaseik",
+      "city": "Maaseik",
+      "name": "Nicole Janssen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Nicole+Janssen_5547"
+    },
+    {
+      "address": "Rijksweg 427, 3630 Maasmechelen",
+      "city": "Maasmechelen",
+      "name": "Orange Real Estate",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Orange+Real+Estate_5665"
+    },
+    {
+      "address": "Sint-Truidersteenweg 123, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "De Limburgse Huizenwinkel",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-De+Limburgse+Huizenwinkel_1680"
+    },
+    {
+      "address": "Kerkstraat 1, 3920 Lommel",
+      "city": "Lommel",
+      "name": "Frank Mann Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Frank+Mann+Vastgoed_2529"
+    },
+    {
+      "address": "Kerkstraat 3, 3920 Lommel",
+      "city": "Lommel",
+      "name": "Heylen Vastgoed Lommel",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Heylen+Vastgoed+Lommel_9689"
+    },
+    {
+      "address": "Wijngaardstraat 8, 3740 Bilzen",
+      "city": "Bilzen",
+      "name": "Immo P & A",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+P+%26+A_3902"
+    },
+    {
+      "address": "Kaulillerdorp 57, 3950 Kaulille",
+      "city": "Kaulille",
+      "name": "Vastgoed C - Bocholt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoed+C+-+Bocholt_8431"
+    },
+    {
+      "address": "Sprinkelestraat 75, 3690 Zutendaal",
+      "city": "Zutendaal",
+      "name": "VastgoedBoutique",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-VastgoedBoutique_10957"
+    },
+    {
+      "address": "Dieplaan 67, 3600 Genk",
+      "city": "Genk",
+      "name": "Vastgoedkantoor Marvy",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoedkantoor+Marvy_3688"
+    },
+    {
+      "address": "Havermarkt 22, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Vestio Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vestio+Vastgoed_6442"
+    },
+    {
+      "address": "Bocholterkiezel 30/0/2, 3960 Bree",
+      "city": "Bree",
+      "name": "B-Immo Bree",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-B-Immo+Bree_10381"
+    },
+    {
+      "address": "Rijschoolstraat 46, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "Geel blauw immobilën",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Geel+blauw+immobil%C3%ABn_2603"
+    },
+    {
+      "address": "Kerkstraat 2, 3910 Neerpelt",
+      "city": "Neerpelt",
+      "name": "Het Huiskantoor Pelt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Het+Huiskantoor+Pelt_10605"
+    },
+    {
+      "address": "Onze Lieve Vrouwstraat 23, 3740 Bilzen",
+      "city": "Bilzen",
+      "name": "HPlus Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-HPlus+Vastgoed_11176"
+    },
+    {
+      "address": "Langerenstraat 1, 3680 Neeroeteren",
+      "city": "Neeroeteren",
+      "name": "Immobiliën Johan Telen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immobili%C3%ABn+Johan+Telen_3320"
+    },
+    {
+      "address": "Joseph Smeetslaan 36, 3630 Maasmechelen",
+      "city": "Maasmechelen",
+      "name": "Jemar & co",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Jemar+%26+co_3934"
+    },
+    {
+      "address": "Dorpsstraat 34, 3590 Diepenbeek",
+      "city": "Diepenbeek",
+      "name": "Palmers",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Palmers_4319"
+    },
+    {
+      "address": "Rietkolk 30, 3920 Lommel",
+      "city": "Lommel",
+      "name": "Vanden Boer Concept",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vanden+Boer+Concept_7190"
+    },
+    {
+      "address": "Koning Albertlaan 18, 3910 Neerpelt",
+      "city": "Neerpelt",
+      "name": "Vastgoedservice Neerpelt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoedservice+Neerpelt_7386"
+    },
+    {
+      "address": "Stationswal 28, 3960 Bree",
+      "city": "Bree",
+      "name": "Beneca Vastgoed Bree",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Beneca+Vastgoed+Bree_8688"
+    },
+    {
+      "address": "Pastoor Raeymaekersstraat 25/11, 3600 Genk",
+      "city": "Genk",
+      "name": "EHI Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-EHI+Vastgoed_11184"
+    },
+    {
+      "address": "Koolmijnlaan 34, 3580 Beringen",
+      "city": "Beringen",
+      "name": "ERA De Piramide Beringen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-ERA+De+Piramide+Beringen_23"
+    },
+    {
+      "address": "Plankstraat 13, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "Gilen Real Estate",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Gilen+Real+Estate_5483"
+    },
+    {
+      "address": "Rodeheide 2, 3980 Tessenderlo",
+      "city": "Tessenderlo",
+      "name": "Immo VL Tessenderlo",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+VL+Tessenderlo_4126"
+    },
+    {
+      "address": "Dorpsstraat 53, 3900 Pelt",
+      "city": "Pelt",
+      "name": "Immo-Eibo bvba",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo-Eibo+bvba_3613"
+    },
+    {
+      "address": "Witte Torenwal 8, 3960 Bree",
+      "city": "Bree",
+      "name": "Immo-Top",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo-Top_11172"
+    },
+    {
+      "address": "Lepelstraat 60/A, 3920 Lommel",
+      "city": "Lommel",
+      "name": "Limbo bvba",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Limbo+bvba_4903"
+    },
+    {
+      "address": "Clockemstraat 19, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "RT Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-RT+Vastgoed_6342"
+    },
+    {
+      "address": "Sint-Katarinalaan 7, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Vastgoed & Advies",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoed+%26+Advies_6392"
+    },
+    {
+      "address": "Vrijthof 7, 3700 Tongeren",
+      "city": "Tongeren",
+      "name": "Confideo Immo",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Confideo+Immo_396"
+    },
+    {
+      "address": "Maastrichtersteenweg 8, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Dewaele - Hasselt verhuur",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Dewaele+-+Hasselt+verhuur_9705"
+    },
+    {
+      "address": "Houtmolenstraat 66, 3900 Pelt",
+      "city": "Pelt",
+      "name": "Els Lenaerts Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Els+Lenaerts+Vastgoed_183"
+    },
+    {
+      "address": "Achttiende Oogstwal 6, 3700 Tongeren",
+      "city": "Tongeren",
+      "name": "Goedgevonden Tongeren",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Goedgevonden+Tongeren_2710"
+    },
+    {
+      "address": "Gouverneur Roppesingel 53, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Hacosi",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Hacosi_2882"
+    },
+    {
+      "address": "de Schiervellaan 13, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Heylen Vastgoed Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Heylen+Vastgoed+Hasselt_9685"
+    },
+    {
+      "address": "Minderbroedersstraat 18, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "Imanex",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Imanex_3210"
+    },
+    {
+      "address": "Herreweg 20, 3740 Bilzen",
+      "city": "Bilzen",
+      "name": "Immo Pauly",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Pauly_3915"
+    },
+    {
+      "address": "Hertog Jan Plein 22, 3920 Lommel",
+      "city": "Lommel",
+      "name": "Pellettieri Lommel",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Pellettieri+Lommel_10885"
+    },
+    {
+      "address": "Violetstraat 15, 3580 Beringen",
+      "city": "Beringen",
+      "name": "Wonen in Limburg - kantoor Beringen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Wonen+in+Limburg+-+kantoor+Beringen_9887"
+    },
+    {
+      "address": "Sint-Truidersteenweg 151, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Govimmo",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Govimmo_2747"
+    },
+    {
+      "address": "Luikersteenweg 5, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Immo Land",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Land_216"
+    },
+    {
+      "address": "Stationsstraat 24/1, 3600 Genk",
+      "city": "Genk",
+      "name": "Immo Lantmeeters Genk",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Lantmeeters+Genk_9935"
+    },
+    {
+      "address": "Breugelweg 105, 3900 Pelt",
+      "city": "Pelt",
+      "name": "Interservice",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Interservice_4254"
+    },
+    {
+      "address": "Kempische Kaai 75, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Laud",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Laud_4698"
+    },
+    {
+      "address": "Paalsesteenweg 323, 3583 Paal",
+      "city": "Paal",
+      "name": "Ria Poel Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Ria+Poel+Vastgoed_6251"
+    },
+    {
+      "address": "Stationsstraat 2, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "Tineke Van Roey Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Tineke+Van+Roey+Vastgoed_6968"
+    },
+    {
+      "address": "Bijvaerdeweg 44, 3660 Opglabbeek",
+      "city": "Opglabbeek",
+      "name": "Clé Vastgoedadvies",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Cl%C3%A9+Vastgoedadvies_1233"
+    },
+    {
+      "address": "Beekomstraat 7, 3740 Bilzen",
+      "city": "Bilzen",
+      "name": "Facade Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Facade+Vastgoed_2373"
+    },
+    {
+      "address": "Kempische Steenweg 89, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Immo Lantmeeters Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Lantmeeters+Hasselt_3790"
+    },
+    {
+      "address": "Guffenslaan 108/bus 0.01, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Immo Top Invest",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Top+Invest_4035"
+    },
+    {
+      "address": "Broekhofstraat 1, 3650 Dilsen-Stokkem",
+      "city": "Dilsen-Stokkem",
+      "name": "Lumaro Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Lumaro+Vastgoed_5034"
+    },
+    {
+      "address": "De Schiervellaan 22 b1, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Pellettieri Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Pellettieri+Hasselt_10878"
+    },
+    {
+      "address": "Proosterbosstraat 130, 3630 Maasmechelen",
+      "city": "Maasmechelen",
+      "name": "An-immo Bvba",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-An-immo+Bvba_463"
+    },
+    {
+      "address": "Kerkstraat 1, 3910 Neerpelt",
+      "city": "Neerpelt",
+      "name": "Welzijnsregio Noord-Limburg",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Welzijnsregio+Noord-Limburg_6625"
+    },
+    {
+      "address": "Maastrichtersteenweg 31, 3680 Maaseik",
+      "city": "Maaseik",
+      "name": "Wil  Maaseik (huur)",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Wil++Maaseik+%28huur%29_9894"
+    },
+    {
+      "address": "Langstraat 31, 3630 Maasmechelen",
+      "city": "Maasmechelen",
+      "name": "Wil Maasmechelen (huur)",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Wil+Maasmechelen+%28huur%29_9891"
+    },
+    {
+      "address": "Dorpsstraat 30 bus 1, 3730 Hoeselt",
+      "city": "Hoeselt",
+      "name": "Zaken- & Immokantoor Goffin",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Zaken-+%26+Immokantoor+Goffin_2716"
+    },
+    {
+      "address": "Genkersteenweg 426/A, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Group Inc.nv",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Group+Inc.nv_2806"
+    },
+    {
+      "address": "Hassaluthdreef 2A, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Immo Trading",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Trading_4043"
+    },
+    {
+      "address": "Naamsevest 78, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "Immo Vesta Realtors BVBA",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Vesta+Realtors+BVBA_4114"
+    },
+    {
+      "address": "Heerstraat 63, 3910 Pelt",
+      "city": "Pelt",
+      "name": "Kantoor Geebelen-Exelmans",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Kantoor+Geebelen-Exelmans_2320"
+    },
+    {
+      "address": "Beringersteenweg 19, 3550 Heusden-Zolder",
+      "city": "Heusden-Zolder",
+      "name": "Truyens vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Truyens+vastgoed_7864"
+    },
+    {
+      "address": "Gouverneur Roppesingel 133, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Wil Hasselt (huur)",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Wil+Hasselt+%28huur%29_9889"
+    },
+    {
+      "address": "Halhei 28, 3550 Heusden",
+      "city": "Heusden",
+      "name": "Groep Aathos",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Groep+Aathos_2782"
+    },
+    {
+      "address": "Keuveldstraat 4, 3670 Meeuwen-Gruitrode",
+      "city": "Meeuwen-Gruitrode",
+      "name": "Immo JJ Oudsbergen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+JJ+Oudsbergen_10049"
+    },
+    {
+      "address": "Genkersteenweg 426, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Limburgs Verhuurkantoor",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Limburgs+Verhuurkantoor_4908"
+    },
+    {
+      "address": "Molenstraat 13, 3600 Genk",
+      "city": "Genk",
+      "name": "Pantelis Group NV",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Pantelis+Group+NV_5716"
+    },
+    {
+      "address": "Mosselerlaan 36, 3600 Genk",
+      "city": "Genk",
+      "name": "Wil Genk (koop)",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Wil+Genk+%28koop%29_9890"
+    },
+    {
+      "address": "Havermarkt 45, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Kolmont",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Kolmont_4660"
+    },
+    {
+      "address": "Gorsemweg 53, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "Wil Sint-Truiden (huur)",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Wil+Sint-Truiden+%28huur%29_9893"
+    },
+    {
+      "address": "Riemsterweg 284, 3740 Bilzen",
+      "city": "Bilzen",
+      "name": "KANTOOR JACKERS",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-KANTOOR+JACKERS_6148"
+    },
+    {
+      "address": "Centrum-Zuid 3053, 3530 Houthalen",
+      "city": "Houthalen",
+      "name": "Group GL International nv",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Group+GL+International+nv_6371"
+    },
+    {
+      "address": "Kloosterstraat 1, 3600 Genk",
+      "city": "Genk",
+      "name": "Hayen-Paris Genk",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Hayen-Paris+Genk_2894"
+    },
+    {
+      "address": "Hoogstraat 35, 3960 Bree",
+      "city": "Bree",
+      "name": "Het Huiskantoor Bree",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Het+Huiskantoor+Bree_10596"
+    },
+    {
+      "address": "Bosstraat 57, 3950 Bocholt",
+      "city": "Bocholt",
+      "name": "Meestergoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Meestergoed_11177"
+    },
+    {
+      "address": "Dorpsstraat 49 / 4, 3830 Wellen",
+      "city": "Wellen",
+      "name": "Syndicus Lismont",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Syndicus+Lismont_3811"
+    },
+    {
+      "address": "Iers Kruisstraat 41, 3770 Riemst",
+      "city": "Riemst",
+      "name": "Vision Vastgoed International BVBA",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vision+Vastgoed+International+BVBA_7610"
+    },
+    {
+      "address": "Eivalstraat 29 A, 3830 Wellen",
+      "city": "Wellen",
+      "name": "Vastgoed Vogels bvba",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoed+Vogels+bvba_6461"
+    },
+    {
+      "address": "Vennestraat 118, 3600 Genk",
+      "city": "Genk",
+      "name": "Dynamic Invest",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Dynamic+Invest_2045"
+    },
+    {
+      "address": "Kramerslaan 13 bus 0.2, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Limburgse Wooncentrale",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Limburgse+Wooncentrale_4906"
+    },
+    {
+      "address": "Grotestraat 65, 3600 Genk",
+      "city": "Genk",
+      "name": "Wil Genk (huur)",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Wil+Genk+%28huur%29_9892"
+    },
+    {
+      "address": "Ilgatlaan 3, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Syncura Syndicus Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Syncura+Syndicus+Hasselt_10034"
+    },
+    {
+      "address": "Ringlaan 20, 3530 Houthalen-Helchteren",
+      "city": "Houthalen-Helchteren",
+      "name": "Wil Houthalen-Helchteren (huur)",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Wil+Houthalen-Helchteren+%28huur%29_9886"
+    },
+    {
+      "address": "Sint-Truiderstraat 11 bus 1, 3700 Tongeren",
+      "city": "Tongeren",
+      "name": "Bimmoco",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Bimmoco_7967"
+    },
+    {
+      "address": "Herkenrodesingel 16, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Anadyr Consult",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Anadyr+Consult_8142"
+    },
+    {
+      "address": "Hendrik van Veldekesingel 150/bus 38, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Immo Swennen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Swennen_4015"
+    },
+    {
+      "address": "Bosdel 54 bus 4, 3600 Genk",
+      "city": "Genk",
+      "name": "Leondite Zakenkantoor bvba",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Leondite+Zakenkantoor+bvba_3434"
+    },
+    {
+      "address": "Grote Markt 18, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Vastgoedservice Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoedservice+Hasselt_8498"
+    },
+    {
+      "address": "Hoekstraat 70, 3910 Pelt",
+      "city": "Pelt",
+      "name": "Wil Pelt (huur)",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Wil+Pelt+%28huur%29_9888"
+    },
+    {
+      "address": "Binnenhof 4, 3630 Maasmechelen",
+      "city": "Maasmechelen",
+      "name": "Autonoom Gemeentebedrijf Maasmechelen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Autonoom+Gemeentebedrijf+Maasmechelen_8298"
+    },
+    {
+      "address": "Putstraat 32, 3620 Lanaken",
+      "city": "Lanaken",
+      "name": "Bogaerts Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Bogaerts+Vastgoed_718"
+    },
+    {
+      "address": "Kabricht 7 3, 3770 Riemst",
+      "city": "Riemst",
+      "name": "Boon Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Boon+Vastgoed_738"
+    },
+    {
+      "address": "Valkstraat 14, 3990 Peer",
+      "city": "Peer",
+      "name": "Capelle Didier",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Capelle+Didier_466"
+    },
+    {
+      "address": "Corda 1, 2.12, Kempische Steenweg 293, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Ceusters Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Ceusters+Hasselt_9885"
+    },
+    {
+      "address": "Dokter Haubenlaan 3, 3630 Maasmechelen",
+      "city": "Maasmechelen",
+      "name": "Europ Invest",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Europ+Invest_2322"
+    },
+    {
+      "address": "Markt 3 5, 3990 Peer",
+      "city": "Peer",
+      "name": "Focus Homes",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Focus+Homes_2483"
+    },
+    {
+      "address": "Thonissenlaan 27 bus 1, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Goed Gevonden Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Goed+Gevonden+Hasselt_10576"
+    },
+    {
+      "address": "Rijksweg 457 6, 3630 Maasmechelen",
+      "city": "Maasmechelen",
+      "name": "Home Invest",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Home+Invest_3058"
+    },
+    {
+      "address": "Maastrichtersteenweg 13, 3770 Riemst",
+      "city": "Riemst",
+      "name": "Immo  Duchateau",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo++Duchateau_8705"
+    },
+    {
+      "address": "Sint-Martenplein 6, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "Immo Groep 5 Sint-Truiden",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Groep+5+Sint-Truiden_9629"
+    },
+    {
+      "address": "Weg naar Bree 21 1, 3660 Opglabbeek",
+      "city": "Opglabbeek",
+      "name": "Immo International",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+International_3729"
+    },
+    {
+      "address": "Processieweg 60, 3560 Lummen",
+      "city": "Lummen",
+      "name": "Immo JJ Lummen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+JJ+Lummen_10051"
+    },
+    {
+      "address": "Haasbosstraat 24, 3900 Pelt",
+      "city": "Pelt",
+      "name": "Immo JJ Pelt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+JJ+Pelt_10050"
+    },
+    {
+      "address": "Bilzerbaan 140, 3620 Veldwezelt",
+      "city": "Veldwezelt",
+      "name": "Immo Jone",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Jone_3348"
+    },
+    {
+      "address": "Hasseltsesteenweg 10, 3720 Kortessem",
+      "city": "Kortessem",
+      "name": "Immo Promadev",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Promadev_5992"
+    },
+    {
+      "address": "Thonissenlaan 78, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "IMMO SP Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-IMMO+SP+Hasselt_9932"
+    },
+    {
+      "address": "Stationsstraat 7B, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "Immo Trudo",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immo+Trudo_4045"
+    },
+    {
+      "address": "Dorpsstraat 28A bus 7, 3830 Wellen",
+      "city": "Wellen",
+      "name": "Immowel Wellen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Immowel+Wellen_11114"
+    },
+    {
+      "address": "Ridder Portmansstraat 3, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Jansen Real Estate Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Jansen+Real+Estate+Hasselt_9947"
+    },
+    {
+      "address": "Smedenlaan 28, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Janssen en Janssen - Vitrine Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Janssen+en+Janssen+-+Vitrine+Hasselt_10786"
+    },
+    {
+      "address": "Mommersbosweg 41, 3520 Zonhoven",
+      "city": "Zonhoven",
+      "name": "Mano Immo Zonhoven",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Mano+Immo+Zonhoven_11112"
+    },
+    {
+      "address": "Industrieweg Noord 1118 1, 3660 Opglabbeek",
+      "city": "Opglabbeek",
+      "name": "Marian NV",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Marian+NV_5177"
+    },
+    {
+      "address": "Waterstraat 35, 3770 Riemst",
+      "city": "Riemst",
+      "name": "Maripa",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Maripa_5190"
+    },
+    {
+      "address": "Weg naar Zwartberg 87, 3660 Oudsbergen",
+      "city": "Oudsbergen",
+      "name": "Matisimmo Oudsbergen",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Matisimmo+Oudsbergen_9943"
+    },
+    {
+      "address": "Boshoeve 11, 3990 Peer",
+      "city": "Peer",
+      "name": "Operational Management Services",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Operational+Management+Services_5653"
+    },
+    {
+      "address": "Wulpenstraat 20, 3550 Heusden-Zolder",
+      "city": "Heusden-Zolder",
+      "name": "Profinimmo",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Profinimmo_320"
+    },
+    {
+      "address": "Koolmijnlaan 28, 3550 Heusden-Zolder",
+      "city": "Heusden-Zolder",
+      "name": "Sensimmo Heusden-Zolder",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Sensimmo+Heusden-Zolder_9940"
+    },
+    {
+      "address": "Kerkstraat 31/2, 3560 Lummen",
+      "city": "Lummen",
+      "name": "SMimmo",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-SMimmo_8704"
+    },
+    {
+      "address": "Bochtlaan 4/02, 3600 Genk",
+      "city": "Genk",
+      "name": "Som Vastgoed Genk",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Som+Vastgoed+Genk_11108"
+    },
+    {
+      "address": "Het Dorlik 16, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Som Vastgoed Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Som+Vastgoed+Hasselt_11109"
+    },
+    {
+      "address": "Heirstraat 373A, 3630 Maasmechelen",
+      "city": "Maasmechelen",
+      "name": "Terwingen Immobilien",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Terwingen+Immobilien_6894"
+    },
+    {
+      "address": "Zander Leënstraat 64 bus 2, 3665 As",
+      "city": "As",
+      "name": "Tirio",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Tirio_11175"
+    },
+    {
+      "address": "Halveweg 59 B1, 3520 Zonhoven",
+      "city": "Zonhoven",
+      "name": "Van Briel Immo Projects",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Van+Briel+Immo+Projects_7164"
+    },
+    {
+      "address": "Bessemerstraat 454, 3620 Lanaken",
+      "city": "Lanaken",
+      "name": "Vastgoed C - Lanaken",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoed+C+-+Lanaken_9944"
+    },
+    {
+      "address": "Rode Kruisweg 1, 3520 Zonhoven",
+      "city": "Zonhoven",
+      "name": "Vastgoed C - Zonhoven",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoed+C+-+Zonhoven_9946"
+    },
+    {
+      "address": "Villerspark 5 2, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Vastgoed Lamfert",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoed+Lamfert_6413"
+    },
+    {
+      "address": "De Roosen 44, 3910 Neerpelt",
+      "city": "Neerpelt",
+      "name": "Vastgoed Vangrinsven",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoed+Vangrinsven_7394"
+    },
+    {
+      "address": "Breendonkstraat 22, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "Vastgoed Visie",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoed+Visie_7398"
+    },
+    {
+      "address": "Luikersteenweg 63, 3800 Sint-Truiden",
+      "city": "Sint-Truiden",
+      "name": "Vastgoedservice Sint-Truiden",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vastgoedservice+Sint-Truiden_8499"
+    },
+    {
+      "address": "Elfde Novemberwal 16, 3700 Tongeren",
+      "city": "Tongeren",
+      "name": "VDC Vastgoed",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-VDC+Vastgoed_11091"
+    },
+    {
+      "address": "Winterslagstraat 90, 3600 Genk",
+      "city": "Genk",
+      "name": "Vill'art",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Vill%27art_6991"
+    },
+    {
+      "address": "Bokrijkseweg 150, 3500 Hasselt",
+      "city": "Hasselt",
+      "name": "Wilgimmo Hasselt",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Wilgimmo+Hasselt_10059"
+    },
+    {
+      "address": "Vlutterstraat 29, 3920 Lommel",
+      "city": "Lommel",
+      "name": "Woon-en Adviescenter BVBA",
+      "sourceUrl": "https://www.immokantorenoverzicht.be/immo-Woon-en+Adviescenter+BVBA_6020"
+    }
+  ]
+}

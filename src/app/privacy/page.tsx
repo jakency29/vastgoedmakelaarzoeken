@@ -24,7 +24,7 @@ export default function PrivacyPage() {
             Vastgoedmakelaar Zoeken verwerkt de gegevens die je zelf via een formulier bezorgt om je
             vraag te beantwoorden of aan een passend vastgoedkantoor door te sturen.
           </p>
-          <time dateTime="2026-08-19" className="mt-3 block text-sm font-semibold text-brand-700">Bijgewerkt op 19 augustus 2026</time>
+          <time dateTime="2026-09-01" className="mt-3 block text-sm font-semibold text-brand-700">Bijgewerkt op 1 september 2026</time>
         </div>
       </header>
 
@@ -36,6 +36,27 @@ export default function PrivacyPage() {
 
         <h2 className="mt-10 text-2xl font-extrabold text-brand-900">Welke gegevens verzamelen we?</h2>
         <p className="mt-3 leading-relaxed">Afhankelijk van het formulier gaat het om naam, e-mailadres, telefoonnummer, postcode, adres van het pand, type aanvraag en de informatie die je zelf in het bericht invult. Technische spamcontrole kan ook formuliergegevens verwerken.</p>
+        <p className="mt-3 leading-relaxed">
+          Voor gratis kantoorvermeldingen kunnen we openbare bedrijfsgegevens verwerken, zoals de
+          kantoornaam, het vestigingsadres, een algemeen zakelijk e-mailadres, telefoonnummer,
+          website, BIV-vermelding en andere controleerbare bedrijfsinformatie.
+        </p>
+
+        <h2 className="mt-10 text-2xl font-extrabold text-brand-900">Gratis kantoorvermeldingen en eenmalige kennisgeving</h2>
+        <p className="mt-3 leading-relaxed">
+          Kandidaten voor een gratis vermelding kunnen afkomstig zijn uit openbare bedrijvengidsen,
+          de officiële website van het kantoor en het openbare BIV-register. We controleren gegevens
+          vóór publicatie en gebruiken alleen een algemeen bedrijfsadres, zoals info@, contact@ of
+          immo@, om het kantoor eenmalig over de gratis vermelding te informeren. Persoonlijke
+          werkadressen op naam gebruiken we hiervoor niet zonder voorafgaande toestemming.
+        </p>
+        <p className="mt-3 leading-relaxed">
+          Waar de AVG van toepassing is, baseren we deze beperkte verwerking op ons gerechtvaardigde
+          belang om de bedrijvengids actueel te houden en het betrokken kantoor transparant te
+          informeren. Elk kantoor kan kosteloos bezwaar maken door op het bericht te antwoorden of
+          te mailen naar {site.email}. Na bezwaar stoppen we de communicatie en bewaren we alleen de
+          minimale gegevens die nodig zijn om dat bezwaar te respecteren.
+        </p>
 
         <h2 className="mt-10 text-2xl font-extrabold text-brand-900">Waarom en met wie verwerken we die gegevens?</h2>
         <p className="mt-3 leading-relaxed">
@@ -55,6 +76,12 @@ export default function PrivacyPage() {
           We bewaren persoonsgegevens niet langer dan nodig voor de behandeling en opvolging van de
           aanvraag, en langer wanneer een wettelijke verplichting of een lopend geschil dat vereist.
           De ontvanger van een doorgestuurde aanvraag is verantwoordelijk voor de eigen verdere verwerking.
+        </p>
+        <p className="mt-3 leading-relaxed">
+          Niet-geverifieerde kandidaten voor kantoorvermeldingen worden uiterlijk binnen twaalf
+          maanden opnieuw gecontroleerd of verwijderd. Gegevens over een eenmalige kennisgeving
+          bewaren we maximaal vierentwintig maanden. Een minimaal suppressierecord kan langer worden
+          bewaard om een afmelding blijvend te respecteren.
         </p>
 
         <h2 className="mt-10 text-2xl font-extrabold text-brand-900">Welke rechten heb je?</h2>
