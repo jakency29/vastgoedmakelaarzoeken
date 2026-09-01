@@ -273,6 +273,31 @@ export const kantoren: Kantoor[] = [
     bivGecontroleerdOp: "2026-09-01",
     foto: "/afbeeldingen/kantoren/swevers-real-estate.svg",
   },
+  {
+    slug: "axpertise-vastgoed-advies",
+    toegevoegdOp: "2026-09-01",
+    naam: "AXPERTISE Vastgoed & Advies",
+    makelaar: "Seppe Schaepkens",
+    seoTitle: "AXPERTISE Vastgoed & Advies Borgloon: contact",
+    seoDescription:
+      "Bekijk AXPERTISE Vastgoed & Advies in Borgloon: contactgegevens, BIV-erkenning en begeleiding bij vastgoed in Limburg.",
+    gemeente: "Borgloon",
+    provincie: "Limburg",
+    provincieSlug: "limburg",
+    intro:
+      "AXPERTISE Vastgoed & Advies is een vastgoedkantoor in Borgloon. Het kantoor vermeldt begeleiding bij de aan- en verkoop van vastgoed, waardebepalingen en plaatsbeschrijvingen.",
+    diensten: ["Woning verkopen", "Woning kopen", "Waardebepaling", "Plaatsbeschrijving"],
+    regios: ["Borgloon", "Tongeren-Borgloon", "Limburg"],
+    adres: "Guldenbodemlaan 37",
+    postcode: "3840",
+    telefoon: "0471 22 00 95",
+    email: "info@axpertise.be",
+    website: "https://www.axpertise.be/",
+    bivNummer: "508363",
+    bivHouder: "Seppe Schaepkens",
+    bivBron: "https://www.axpertise.be/",
+    bivGecontroleerdOp: "2026-09-01",
+  },
 ];
 
 export function getKantoor(slug: string): Kantoor | undefined {
