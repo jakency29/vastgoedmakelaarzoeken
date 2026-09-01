@@ -11,6 +11,7 @@ import { WoningCard } from "@/components/WoningCard";
 import { PremiumBadge } from "@/components/PremiumBadge";
 import { woningenVoor, CATEGORIES } from "@/lib/woningen";
 import { kantoren } from "@/lib/kantoren";
+import { compareOffices } from "@/lib/office-order";
 import { getAllPages } from "@/lib/content";
 import { site } from "@/lib/site";
 import { homeOrganizationGraph } from "@/lib/jsonld";
@@ -59,6 +60,10 @@ const FAQ = [
     a: "Voor heel Vlaanderen en Brussel. Je vindt erkende vastgoedmakelaars en immokantoren in je eigen gemeente en de ruimere regio.",
   },
 ];
+
+const homepageKantoren = [...kantoren].sort((a, b) =>
+  compareOffices({ ...a, premium: Boolean(a.premium) }, { ...b, premium: Boolean(b.premium) }, "newest"),
+);
 
 function getArticleImage(body: string) {
   const hero = body.match(/<Afbeelding\s+[^>]*src=["']([^"']+)["'][^>]*\bhero\b[^>]*\/?\s*>/);
@@ -240,7 +245,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {kantoren.slice(0, 8).map((k) => (
+          {homepageKantoren.slice(0, 8).map((k) => (
             <Link
               key={k.slug}
               href={`/kantoor/${k.slug}`}
