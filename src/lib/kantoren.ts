@@ -275,6 +275,7 @@ export const kantoren: Kantoor[] = [
   },
   {
     slug: "axpertise-vastgoed-advies",
+    googlePlaceId: "ChIJpy_T9yccwUcR1rjU_prgRHI",
     toegevoegdOp: "2026-09-01",
     naam: "AXPERTISE Vastgoed & Advies",
     makelaar: "Seppe Schaepkens",
