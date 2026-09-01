@@ -298,6 +298,7 @@ export const kantoren: Kantoor[] = [
     bivHouder: "Seppe Schaepkens",
     bivBron: "https://www.axpertise.be/",
     bivGecontroleerdOp: "2026-09-01",
+    foto: "/afbeeldingen/kantoren/axpertise-vastgoed-advies.png",
   },
   {
     slug: "av-vastgoed",
@@ -324,6 +325,7 @@ export const kantoren: Kantoor[] = [
     bivHouder: "Adam Vandersmissen",
     bivBron: "https://av-vastgoed.be/",
     bivGecontroleerdOp: "2026-09-01",
+    foto: "/afbeeldingen/kantoren/av-vastgoed.png",
   },
   {
     slug: "claar-vastgoed",
@@ -349,6 +351,7 @@ export const kantoren: Kantoor[] = [
     bivNummer: "514588",
     bivBron: "https://claarvastgoed.be/",
     bivGecontroleerdOp: "2026-09-01",
+    foto: "/afbeeldingen/kantoren/claar-vastgoed.png",
   },
 ];
 
