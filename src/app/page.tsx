@@ -122,8 +122,13 @@ export default function Home() {
               Vergelijk vastgoedmakelaars in jouw regio
             </h1>
             <p className="mt-5 max-w-xl text-lg text-brand-100">
-              Vraag gratis en vrijblijvend voorstellen aan bij vastgoedkantoren met gecontroleerde
-              BIV-gegevens die actief zijn in jouw regio, voor verkoop, verhuur of waardebepaling.
+              Vastgoedmakelaar Zoeken is een Belgische vergelijkingsdienst voor eigenaars die
+              vastgoedmakelaars in Vlaanderen en Brussel helpt vergelijken. Vraag gratis en
+              vrijblijvend voorstellen aan voor verkoop, verhuur of waardebepaling.
+            </p>
+            <p className="mt-3 max-w-xl text-sm text-brand-200">
+              Op het platform staan momenteel {kantoren.length} kantoorprofielen met publiek
+              beschikbare contact- en profielgegevens.
             </p>
             <ul className="mt-6 grid gap-2.5 text-sm text-brand-100 sm:grid-cols-2">
               {["Gecontroleerde BIV-gegevens", "Gratis en vrijblijvend", "Vlaanderen en Brussel", "Vergelijk aanpak en tarief"].map((f) => (

@@ -31,6 +31,8 @@ const stappen = [
   },
 ];
 
+const laatstBijgewerkt = "2026-09-01";
+
 export default function WerkwijzePage() {
   const kennisbankPaginaCount = getAllPages().filter((page) => !page.noindex).length;
   const gecontroleerdeKantoren = kantoren.filter(
@@ -49,7 +51,7 @@ export default function WerkwijzePage() {
     name: "Onze werkwijze",
     description: metadata.description,
     inLanguage: "nl",
-    dateModified: "2026-08-19",
+    dateModified: laatstBijgewerkt,
     isPartOf: { "@id": `${site.domain}/#website` },
     about: [
       { "@type": "Thing", name: "Vastgoedmakelaar vergelijken" },
@@ -76,7 +78,7 @@ export default function WerkwijzePage() {
             en Brussel helpt om vastgoedkantoren te vinden en vrijblijvend voorstellen aan te vragen
             voor verkoop, verhuur of waardebepaling.
           </p>
-          <time dateTime="2026-08-19" className="mt-3 block text-sm font-semibold text-brand-700">Laatst bijgewerkt: 19 augustus 2026</time>
+          <time dateTime={laatstBijgewerkt} className="mt-3 block text-sm font-semibold text-brand-700">Laatst bijgewerkt: 1 september 2026</time>
         </div>
       </section>
 
