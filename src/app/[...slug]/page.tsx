@@ -29,6 +29,13 @@ import { site } from "@/lib/site";
 
 export const dynamicParams = false;
 
+const contentDateFormatter = new Intl.DateTimeFormat("nl-BE", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
 export function generateStaticParams() {
   return getAllSlugParams();
 }
@@ -129,6 +136,11 @@ export default async function ContentPage({ params }: Props) {
               ) : (
                 <p className="mt-3 max-w-2xl text-lg text-slate-600">{page.description}</p>
               )}
+              {page.updated ? (
+                <time dateTime={page.updated} className="mt-3 block text-sm font-medium text-slate-500">
+                  Inhoud gecontroleerd op {contentDateFormatter.format(new Date(page.updated))}
+                </time>
+              ) : null}
             </div>
             {page.headerImage ? (
               <figure className="min-w-0 overflow-hidden rounded-2xl border border-brand-200 bg-brand-900 shadow-sm">

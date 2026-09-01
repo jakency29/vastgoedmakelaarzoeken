@@ -169,6 +169,15 @@ function mainSchema(page: ContentPage) {
     isPartOf: { "@id": WEBSITE_ID },
     ...(page.about?.length ? { about: page.about.map(thing) } : {}),
     ...(page.mentions?.length ? { mentions: page.mentions.map(thing) } : {}),
+    ...(page.editorial?.sourceLabel && page.editorial.sourceUrl
+      ? {
+          isBasedOn: {
+            "@type": "WebPage",
+            name: page.editorial.sourceLabel,
+            url: page.editorial.sourceUrl,
+          },
+        }
+      : {}),
     ...(page.updated ? { dateModified: page.updated } : {}),
   };
 
