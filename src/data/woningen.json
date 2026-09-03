@@ -1,5 +1,132 @@
 [
  {
+  "id": "170252",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Jeugdstraat 18",
+  "adres": "Jeugdstraat 18",
+  "gemeente": "Beringen",
+  "gemeenteSlug": "beringen",
+  "postcode": "3583",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 495000,
+  "bewoonbaar": 193,
+  "grond": 1840,
+  "slaapkamers": 3,
+  "gevels": 4,
+  "bouwjaar": 1978,
+  "staat": "Grotendeels vernieuwd; badkamer en toilet af te werken",
+  "parkeerplaatsen": 3,
+  "epcLabel": "C",
+  "epcVerbruik": 246,
+  "epcCode": "20260825-0003940575-RES-1",
+  "renovatieplicht": false,
+  "kadastraalInkomen": 1259,
+  "bestemming": "Woongebied",
+  "overstroming": "P-score D en G-score D; raadpleeg het overstromingsrapport bij het kantoor",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 37
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": 159
+   },
+   {
+    "label": "Toilet",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 16
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 15
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 16
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 25
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Zonnepanelen van 5.900 Wp",
+   "Dubbele beglazing",
+   "Vloerverwarming",
+   "Vernieuwd dak",
+   "Voorbereid op verwarming met een warmtepomp",
+   "Houten raamwerk",
+   "Stookolietank",
+   "Regenwaterput van minstens 10.000 liter",
+   "Septic tank",
+   "Brandmelder"
+  ],
+  "troeven": [
+   "Perceel van 1.840 m2 in een doodlopende straat",
+   "3 slaapkamers en 193 m2 woonoppervlakte",
+   "Volledig onderkelderd: 159 m2 kelder",
+   "Zonnepanelen en vloerverwarming",
+   "EPC C: 246 kWh/m2 per jaar",
+   "Tuin, terras en 3 parkeerplaatsen"
+  ],
+  "geoLat": 51.03615,
+  "geoLng": 5.1722,
+  "beschrijving": "Deze vrijstaande woning aan de Jeugdstraat 18 in Paal, een deelgemeente van Beringen, wordt aangeboden door Niels Wouters van We Invest Demervallei voor 495.000 euro. Het huis uit 1978 ligt in een doodlopende straat, op een perceel van 1.840 m2. De opgegeven woonoppervlakte bedraagt 193 m2, met drie slaapkamers en drie parkeerplaatsen.\n\nVolgens het kantoor zijn het dak en de keuken vernieuwd en werden vloerverwarming en zonnepanelen met een vermogen van 5.900 Wp geplaatst. De woning is voorbereid op verwarming met een warmtepomp. De badkamer en het toilet moeten nog verder worden afgewerkt. De slaapkamers meten volgens de opgegeven indeling 16, 12 en 9 m2.\n\nHet huis is volledig onderkelderd op straatniveau. De kelder van 159 m2 biedt ruimte voor opslag, hobby's of een werkruimte. Verder zijn er een wasplaats van 16 m2, een bergzolder, een tuin en een terras. Volgens de beschrijving van het kantoor is een regenwaterput van minstens 10.000 liter aanwezig.\n\nHet EPC vermeldt label C en een berekend energieverbruik van 246 kWh/m2 per jaar. Het kantoor vermeldt dat er geen renovatieverplichting geldt en omschrijft de woning als asbestveilig. Vraag de bijbehorende attesten op om de concrete vaststellingen en eventuele aandachtspunten te controleren.\n\nDe brongegevens vermelden P-score D en G-score D. Raadpleeg daarom het overstromingsrapport en bespreek de perceel- en gebouwinformatie met het kantoor voordat je een bod doet. De stedenbouwkundige bestemming is woongebied en de bron vermeldt een bouwvergunning.",
+  "fotos": [
+   "/afbeeldingen/woningen/170252/1.jpg",
+   "/afbeeldingen/woningen/170252/2.jpg",
+   "/afbeeldingen/woningen/170252/3.jpg",
+   "/afbeeldingen/woningen/170252/4.jpg",
+   "/afbeeldingen/woningen/170252/5.jpg",
+   "/afbeeldingen/woningen/170252/6.jpg",
+   "/afbeeldingen/woningen/170252/7.jpg",
+   "/afbeeldingen/woningen/170252/8.jpg",
+   "/afbeeldingen/woningen/170252/9.jpg",
+   "/afbeeldingen/woningen/170252/10.jpg",
+   "/afbeeldingen/woningen/170252/11.jpg",
+   "/afbeeldingen/woningen/170252/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/beringen-paal/house/170252",
+  "slug": "jeugdstraat-18-beringen-170252",
+  "toegevoegdOp": "2026-09-03"
+ },
+ {
   "id": "168856",
   "kantoorSlug": "we-invest-demervallei",
   "transactie": "te-koop",
