@@ -317,7 +317,14 @@ export default async function KantoorPage({ params }: Props) {
               </>
             )}
 
-            {reviews ? <Reviews data={reviews} placeId={k.googlePlaceId} naam={k.naam} /> : null}
+            {reviews ? (
+              <Reviews
+                data={reviews}
+                placeId={k.googlePlaceId}
+                naam={k.naam}
+                verborgenRatings={k.verborgenReviewRatings}
+              />
+            ) : null}
 
             <Faq items={faq} />
             <RelatedLinks items={related} />

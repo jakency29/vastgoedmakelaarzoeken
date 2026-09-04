@@ -8,14 +8,16 @@ export function Reviews({
   placeId,
   naam,
   max = 4,
+  verborgenRatings = [],
 }: {
   data: PlaceReviews;
   placeId?: string;
   naam: string;
   max?: number;
+  verborgenRatings?: number[];
 }) {
   if (!data.total) return null;
-  const reviews = data.reviews.slice(0, max);
+  const reviews = data.reviews.filter((review) => !verborgenRatings.includes(review.rating)).slice(0, max);
   const allUrl = placeId ? `https://search.google.com/local/reviews?placeid=${placeId}` : undefined;
 
   return (

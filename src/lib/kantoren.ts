@@ -23,6 +23,7 @@ export type Kantoor = {
   bivGecontroleerdOp?: string; // ISO-datum van de laatste handmatige controle
   foto?: string; // lokaal pad onder /afbeeldingen/kantoren/
   googlePlaceId?: string; // Google Place ID voor het ophalen van reviews
+  verborgenReviewRatings?: number[]; // verbergt alleen individuele reviewkaarten, niet de Google-score of het totaal
   premium?: boolean; // premium partner: toont overal een badge
   toegevoegdOp?: string; // ISO-datum voor sortering in het kantooroverzicht
   seoTitle?: string;
@@ -538,6 +539,7 @@ export const kantoren: Kantoor[] = [
   {
     slug: "immo-minnaert",
     googlePlaceId: "ChIJCx9VdIchwUcRLFFhjyv39Ok",
+    verborgenReviewRatings: [1],
     toegevoegdOp: "2026-09-04",
     naam: "Immo Minnaert & C°",
     makelaar: "Patrick Minnaert",

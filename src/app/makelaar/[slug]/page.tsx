@@ -145,7 +145,14 @@ export default async function MakelaarPage({ params }: Props) {
               </>
             )}
 
-            {reviews && k ? <Reviews data={reviews} placeId={k.googlePlaceId} naam={k.naam} /> : null}
+            {reviews && k ? (
+              <Reviews
+                data={reviews}
+                placeId={k.googlePlaceId}
+                naam={k.naam}
+                verborgenRatings={k.verborgenReviewRatings}
+              />
+            ) : null}
           </div>
 
           <aside className="lg:order-2">
