@@ -593,6 +593,7 @@ export const kantoren: Kantoor[] = [
   },
   {
     slug: "living-stone-hasselt",
+    googlePlaceId: "ChIJgbb-QFkhwUcR3ITixIO_60c",
     toegevoegdOp: "2026-09-05",
     naam: "Living Stone Hasselt",
     gemeente: "Hasselt",
@@ -611,9 +612,11 @@ export const kantoren: Kantoor[] = [
     bivHouder: "Living Stone bv",
     bivBron: "https://living-stone.be/vastgoedhuizen/vastgoedhuis-hasselt",
     bivGecontroleerdOp: "2026-09-05",
+    foto: "/afbeeldingen/kantoren/living-stone-hasselt.svg",
   },
   {
     slug: "matisimmo-hasselt",
+    googlePlaceId: "ChIJbW12J38hwUcRQNr9VB76Soo",
     toegevoegdOp: "2026-09-05",
     naam: "Matisimmo Hasselt",
     gemeente: "Hasselt",
@@ -632,9 +635,11 @@ export const kantoren: Kantoor[] = [
     bivHouder: "Kristof Borrenberghs",
     bivBron: "https://matisimmo.be/nl/contacteer-ons",
     bivGecontroleerdOp: "2026-09-05",
+    foto: "/afbeeldingen/kantoren/matisimmo-hasselt.png",
   },
   {
     slug: "onroerend-goed-genk",
+    googlePlaceId: "ChIJnUEmmivZwEcR-81SmLlqtuQ",
     toegevoegdOp: "2026-09-05",
     naam: "Onroerend Goed Genk",
     gemeente: "Genk",
@@ -653,6 +658,7 @@ export const kantoren: Kantoor[] = [
     bivHouder: "Kinou Goossens",
     bivBron: "https://onroerendgoedtekoop.be/nl/contact",
     bivGecontroleerdOp: "2026-09-05",
+    foto: "/afbeeldingen/kantoren/onroerend-goed-genk.png",
   },
 ];
 
