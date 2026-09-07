@@ -1,5 +1,136 @@
 [
  {
+  "id": "170319",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Ulfortstraat 73",
+  "adres": "Ulfortstraat 73",
+  "gemeente": "Beringen",
+  "gemeenteSlug": "beringen",
+  "postcode": "3581",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 689000,
+  "bewoonbaar": 267,
+  "grond": 8247,
+  "slaapkamers": 3,
+  "gevels": 4,
+  "bouwjaar": 2001,
+  "staat": "Goede staat",
+  "parkeerplaatsen": 9,
+  "epcLabel": "B",
+  "epcVerbruik": 113,
+  "epcCode": "20260902-0003945750-RES-1",
+  "renovatieplicht": null,
+  "kadastraalInkomen": 1335,
+  "bestemming": "Woongebied met landelijk karakter",
+  "overstroming": "P-score B en G-score A; volgens de bron niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 61
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Kruipkelder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Toilet",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 13
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 32
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 9
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 38
+   },
+   {
+    "label": "Veranda",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 2,
+    "opp": 96
+   }
+  ],
+  "eigenschappen": [
+   "40 zonnepanelen",
+   "Dubbele beglazing",
+   "Open haard",
+   "Volledig geïnstalleerde keuken",
+   "PVC raamwerk",
+   "Rioolaansluiting",
+   "Stookolietank",
+   "Septic tank",
+   "Brandmelder"
+  ],
+  "troeven": [
+   "Perceel van 8.247 m2",
+   "267 m2 woonoppervlakte",
+   "Drie slaapkamers van 21, 21 en 19 m2",
+   "Eigen weiland en vijf omheinde paddocks",
+   "Zwemvijver en overdekt terras",
+   "Inpandige en dubbele vrijstaande garage"
+  ],
+  "geoLat": 51.07805,
+  "geoLng": 5.21146,
+  "beschrijving": "Deze vrijstaande woning aan de Ulfortstraat 73 in Beverlo, een deelgemeente van Beringen, wordt aangeboden door Roos Raedschelders van We Invest Demervallei voor 689.000 euro. Het huis werd gebouwd in 2001 en staat op een perceel van 8.247 m2. De opgegeven woonoppervlakte bedraagt 267 m2.\n\nDe woning heeft drie slaapkamers van 21, 21 en 19 m2, een badkamer, twee toiletten, een keuken van 13 m2, een eetkamer van 32 m2 en een woonkamer van 38 m2. Daarnaast zijn er een wasplaats, veranda, kruipkelder en twee zolderruimtes.\n\nHet perceel omvat volgens het kantoor een tuin, een zwemvijver, een eigen weiland en vijf omheinde paddocks. Voor voertuigen en materiaal zijn er een inpandige garage en een dubbele vrijstaande garage. Het overdekte terras sluit aan op de woning en heeft volgens de opgegeven indeling een oppervlakte van 96 m2.\n\nHet EPC vermeldt label B en een berekend energieverbruik van 113 kWh/m2 per jaar. Verder zijn er volgens het kantoor 40 zonnepanelen aanwezig. Vraag het kantoor naar de keuringsattesten, de technische staat en de voorwaarden die bij de installatie horen.\n\nDe brongegevens vermelden P-score B en G-score A en duiden het pand aan als niet gelegen in overstromingsgevoelig gebied. De stedenbouwkundige bestemming is woongebied met landelijk karakter. De bron vermeldt een bouwvergunning en een verkavelingsvergunning. Laat alle attesten en stedenbouwkundige informatie vóór een bindend bod controleren door je notaris.",
+  "fotos": [
+   "/afbeeldingen/woningen/170319/1.jpg",
+   "/afbeeldingen/woningen/170319/2.jpg",
+   "/afbeeldingen/woningen/170319/3.jpg",
+   "/afbeeldingen/woningen/170319/4.jpg",
+   "/afbeeldingen/woningen/170319/5.jpg",
+   "/afbeeldingen/woningen/170319/6.jpg",
+   "/afbeeldingen/woningen/170319/7.jpg",
+   "/afbeeldingen/woningen/170319/8.jpg",
+   "/afbeeldingen/woningen/170319/9.jpg",
+   "/afbeeldingen/woningen/170319/10.jpg",
+   "/afbeeldingen/woningen/170319/11.jpg",
+   "/afbeeldingen/woningen/170319/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/beringen/house/170319",
+  "slug": "ulfortstraat-73-beringen-170319",
+  "toegevoegdOp": "2026-09-07"
+ },
+ {
   "id": "170252",
   "kantoorSlug": "we-invest-demervallei",
   "transactie": "te-koop",
