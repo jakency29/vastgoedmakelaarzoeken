@@ -663,6 +663,7 @@ export const kantoren: Kantoor[] = [
   {
     slug: "domo-vastgoed",
     googlePlaceId: "ChIJcd20rSIjwUcR1TbX-wGHQ8Q",
+    verborgenReviewRatings: [1],
     toegevoegdOp: "2026-09-09",
     naam: "Domo Vastgoed",
     gemeente: "Kermt",
