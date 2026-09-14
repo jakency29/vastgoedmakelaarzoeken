@@ -19,6 +19,8 @@ import { RelatedLinks } from "@/components/RelatedLinks";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbListSchema, faqPageSchema } from "@/lib/jsonld";
 import { absoluteUrl } from "@/lib/site";
+import { KantoorPubliekeInzichten, KantoorPubliekeVergelijking } from "@/components/KantoorInzichten";
+import { vergelijkbareKantoren } from "@/lib/kantoor-inzichten";
 
 export const dynamicParams = false;
 
@@ -57,9 +59,7 @@ function buildFaq(k: Kantoor) {
 }
 
 function buildRelated(k: Kantoor) {
-  const zelfde = kantoren.filter((o) => o.slug !== k.slug && o.provincie === k.provincie);
-  const rest = kantoren.filter((o) => o.slug !== k.slug && o.provincie !== k.provincie);
-  const others = [...zelfde, ...rest].slice(0, 2);
+  const others = vergelijkbareKantoren(k, kantoren).map(v => v.kantoor);
   return [
     ...others.map((o) => ({ label: `${o.naam} in ${o.gemeente}`, slug: `kantoor/${o.slug}` })),
     { label: "Kosten van een vastgoedmakelaar", slug: "kosten-vastgoedmakelaar" },
@@ -111,7 +111,7 @@ export default async function KantoorPage({ params }: Props) {
             ratingValue: reviews.rating,
             reviewCount: reviews.total,
           },
-          review: reviews.reviews.slice(0, 5).map((r) => ({
+          review: reviews.reviews.filter(r => !k.verborgenReviewRatings?.includes(r.rating)).slice(0, 4).map((r) => ({
             "@type": "Review",
             author: { "@type": "Person", name: r.author },
             reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 },
@@ -253,6 +253,8 @@ export default async function KantoorPage({ params }: Props) {
               </section>
             )}
 
+            <KantoorPubliekeInzichten kantoor={k} />
+
             {aanbod.length > 0 && (
               <>
                 <h2 className="mt-8 text-2xl font-extrabold tracking-tight text-brand-900">Woningen te koop bij {k.naam}</h2>
@@ -325,6 +327,8 @@ export default async function KantoorPage({ params }: Props) {
                 verborgenRatings={k.verborgenReviewRatings}
               />
             ) : null}
+
+            <KantoorPubliekeVergelijking kantoor={k} kandidaten={kantoren} />
 
             <Faq items={faq} />
             <RelatedLinks items={related} />
