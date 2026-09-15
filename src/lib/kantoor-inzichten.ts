@@ -298,6 +298,17 @@ export const kantoorInzichten: Record<string, KantoorInzichten> = {
       { titel: "Aankoop met aandacht voor renovatie", tekst: "De aankoopbegeleiding vermeldt advies over de staat van de woning en renovatiemogelijkheden, naast zoeken, onderhandelen en afronden.", vraag: "Hoe diep gaat die beoordeling en welke onderzoeken vragen een afzonderlijke expert?", bron: 0 },
     ],
   },
+  "sensimmo-genk": {
+    onderwerpen: ["verkoop", "verhuur", "schatting", "nieuwbouw"],
+    bronnen: [
+      { url: "https://www.sensimmo.be/contact", label: "Sensimmo: vestiging Genk en openingsuren", geraadpleegdOp: "2026-09-15" },
+      { url: "https://www.sensimmo.be/nl-be", label: "Sensimmo: waardebepaling en projectadvies", geraadpleegdOp: "2026-09-15" },
+    ],
+    inzichten: [
+      { titel: "Ontvangst in Genk", tekst: "Voor Berglaan 40 in Genk vermeldt Sensimmo openingsuren van maandag tot donderdag van 09.30 tot 18.00 uur en vrijdag tot 16.00 uur. Buiten de openingsuren is ontvangst op afspraak mogelijk. Dit verschilt van Maasmechelen, waar uitsluitend op afspraak wordt gewerkt.", vraag: "Wie behandelt mijn dossier in Genk en wanneer kan ik met die medewerker afspreken?", bron: 0 },
+      { titel: "Waardebepaling en projectadvies", tekst: "Sensimmo biedt een gratis, vrijblijvende waardebepaling aan en beschrijft daarnaast financieel en commercieel advies bij vastgoedprojecten. Vraag vooraf welke onderdelen in een schatting of afzonderlijke adviesopdracht zijn inbegrepen.", vraag: "Ontvang ik een schriftelijke waardebepaling en welke bijkomende projectanalyse wordt apart aangerekend?", bron: 1 },
+    ],
+  },
   "sensimmo-maasmechelen": {
     onderwerpen: ["verkoop", "verhuur", "schatting", "nieuwbouw"],
     bronnen: [bron("https://www.sensimmo.be/nl-be", "Sensimmo: projectadvies en vestiging Maasmechelen")],

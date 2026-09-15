@@ -10,7 +10,7 @@ const kantoor = slug => {
 };
 
 test("Elk inzicht heeft een bestaand kantoor, een publieke bron en een vaste raadpleegdatum", () => {
-  assert.equal(Object.keys(kantoorInzichten).length, 35);
+  assert.equal(Object.keys(kantoorInzichten).length, 36);
   for (const [slug, gegevens] of Object.entries(kantoorInzichten)) {
     const k = kantoor(slug);
     assert.ok(gegevens.onderwerpen.length > 0);
@@ -39,6 +39,24 @@ test("Onbekende en nog niet onderzochte kantoren hebben een veilige lege toestan
   assert.deepEqual(vergelijkbareKantoren(kantoor("hermania-genk"), []), []);
   assert.deepEqual(vergelijkbareKantoren(kantoor("hermania-genk"), kantoren, 0), []);
   assert.deepEqual(vergelijkbareKantoren(kantoor("hermania-genk"), kantoren, -1), []);
+});
+
+test("Sensimmo Genk heeft eigen vestigingsgegevens, reviewkoppeling en actuele bronnen", () => {
+  const genk = kantoor("sensimmo-genk");
+  const maasmechelen = kantoor("sensimmo-maasmechelen");
+  assert.equal(kantoren.filter(k => k.slug === genk.slug).length, 1);
+  assert.equal(genk.adres, "Berglaan 40");
+  assert.equal(genk.postcode, "3600");
+  assert.equal(genk.gemeente, "Genk");
+  assert.equal(genk.email, "info@sensimmo.be");
+  assert.equal(genk.googlePlaceId, "ChIJV4WOkyzZwEcRFmVp2fxiCaM");
+  assert.notEqual(genk.googlePlaceId, maasmechelen.googlePlaceId);
+  assert.equal(genk.verborgenReviewRatings, undefined);
+  assert.equal(genk.foto, "/afbeeldingen/kantoren/sensimmo.svg");
+  assert.equal(genk.bivHouder, "Mustafa Sak");
+  assert.equal(genk.bivGecontroleerdOp, "2026-09-15");
+  assert.match(genk.intro, /hoofdkantoor/);
+  assert.ok(getKantoorInzichten(genk.slug).bronnen.every(b => b.geraadpleegdOp === "2026-09-15"));
 });
 
 test("Vergelijking bevat geen eigen profiel, ononderzocht kantoor of andere provincie", () => {
