@@ -17,6 +17,8 @@ import { breadcrumbListSchema } from "@/lib/jsonld";
 import { Faq } from "@/components/Faq";
 import { absoluteUrl } from "@/lib/site";
 import type { FaqItem } from "@/lib/types";
+import { getWoningAdrescheck } from "@/lib/woning-adreschecks";
+import { WoningAdresCheck } from "@/components/WoningAdresCheck";
 
 export function woningMetadata(w: Woning): Metadata {
   const isAppartement = categorieVanWoning(w)?.key === "appartement";
@@ -158,6 +160,7 @@ export async function WoningDetailView({ w }: { w: Woning }) {
   const nearby = await getNearby(w.geoLat, w.geoLng);
   const faq = woningFaq(w);
   const isAppartement = cat?.key === "appartement";
+  const adrescheck = getWoningAdrescheck(w);
   const vergelijkbareWoningen = cat
     ? woningenGemeenteVoor(cat, w.provincieSlug, w.gemeenteSlug).filter((woning) => woning.id !== w.id).slice(0, 3)
     : [];
@@ -174,7 +177,11 @@ export async function WoningDetailView({ w }: { w: Woning }) {
   const stedenbouw: { label: string; value: string }[] = [];
   if (w.bestemming) stedenbouw.push({ label: "Stedenbouwkundige bestemming", value: w.bestemming });
   stedenbouw.push({ label: "Stedenbouwkundige vergunning", value: w.vergunning ? "Aanwezig" : "Niet vermeld" });
-  if (w.overstroming) stedenbouw.push({ label: "Overstromingsgevoeligheid", value: w.overstroming });
+  if (adrescheck) {
+    stedenbouw.push({ label: "Overstromingsscores volgens de woningfiche", value: `P-score ${adrescheck.pScore ?? "onbekend"} / G-score ${adrescheck.gScore ?? "onbekend"}. Zie de adrescheck voor bron en uitleg.` });
+  } else if (w.overstroming) {
+    stedenbouw.push({ label: "Overstromingsgevoeligheid", value: w.overstroming });
+  }
   if (w.kadastraalInkomen) stedenbouw.push({ label: "Kadastraal inkomen", value: `€ ${w.kadastraalInkomen.toLocaleString("nl-BE")}` });
 
   return (
@@ -254,6 +261,8 @@ export async function WoningDetailView({ w }: { w: Woning }) {
                 </div>
               </>
             )}
+
+            {adrescheck && <WoningAdresCheck check={adrescheck} />}
 
             {w.indeling.length > 0 && (
               <>
