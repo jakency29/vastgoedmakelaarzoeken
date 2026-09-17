@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import { existsSync } from "node:fs";
 import { kantoren } from "../src/lib/kantoren.ts";
 import { kantoorInzichten, getKantoorInzichten, vergelijkbareKantoren, formatBronDatum } from "../src/lib/kantoor-inzichten.ts";
 
@@ -10,7 +11,7 @@ const kantoor = slug => {
 };
 
 test("Elk inzicht heeft een bestaand kantoor, een publieke bron en een vaste raadpleegdatum", () => {
-  assert.equal(Object.keys(kantoorInzichten).length, 36);
+  assert.equal(Object.keys(kantoorInzichten).length, 39);
   for (const [slug, gegevens] of Object.entries(kantoorInzichten)) {
     const k = kantoor(slug);
     assert.ok(gegevens.onderwerpen.length > 0);
@@ -57,6 +58,30 @@ test("Sensimmo Genk heeft eigen vestigingsgegevens, reviewkoppeling en actuele b
   assert.equal(genk.bivGecontroleerdOp, "2026-09-15");
   assert.match(genk.intro, /hoofdkantoor/);
   assert.ok(getKantoorInzichten(genk.slug).bronnen.every(b => b.geraadpleegdOp === "2026-09-15"));
+});
+
+test("De batch van 17 september bevat drie afzonderlijke vestigingen met logo en eigen reviews", () => {
+  const batch = [
+    ["immo-hertogen", "Zangstraat 37", "3830", "immo.hertogen@telenet.be", "ChIJD08oIvoewUcRGK_AfP_dxmE"],
+    ["immosign-plus-bocholt", "Dorpsstraat 15", "3950", "info@immosign-plus.be", "ChIJOxdZJ-LVwEcR4GixpaobbNM"],
+    ["swevers-real-estate-borgloon", "Papenstraat 5", "3840", "immo@swevers.be", "ChIJoeJJlDAdwUcRYJCQZl62phQ"],
+  ];
+  for (const [slug, adres, postcode, email, placeId] of batch) {
+    const k = kantoor(slug);
+    assert.equal(kantoren.filter(o => o.slug === slug).length, 1);
+    assert.equal(kantoren.filter(o => o.googlePlaceId === placeId).length, 1);
+    assert.equal(k.adres, adres);
+    assert.equal(k.postcode, postcode);
+    assert.equal(k.email, email);
+    assert.equal(k.googlePlaceId, placeId);
+    assert.equal(k.verborgenReviewRatings, undefined);
+    assert.equal(k.toegevoegdOp, "2026-09-17");
+    assert.ok(k.intro.includes(adres));
+    assert.ok(existsSync(new URL(`../public${k.foto}`, import.meta.url)));
+    assert.ok(getKantoorInzichten(slug).bronnen.every(b => b.geraadpleegdOp === "2026-09-17"));
+  }
+  assert.notEqual(kantoor("immosign-plus-bocholt").googlePlaceId, kantoor("immosign-plus-bree").googlePlaceId);
+  assert.notEqual(kantoor("swevers-real-estate-borgloon").googlePlaceId, kantoor("swevers-real-estate").googlePlaceId);
 });
 
 test("Vergelijking bevat geen eigen profiel, ononderzocht kantoor of andere provincie", () => {

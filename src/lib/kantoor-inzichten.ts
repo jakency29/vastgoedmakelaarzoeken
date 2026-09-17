@@ -298,6 +298,38 @@ export const kantoorInzichten: Record<string, KantoorInzichten> = {
       { titel: "Aankoop met aandacht voor renovatie", tekst: "De aankoopbegeleiding vermeldt advies over de staat van de woning en renovatiemogelijkheden, naast zoeken, onderhandelen en afronden.", vraag: "Hoe diep gaat die beoordeling en welke onderzoeken vragen een afzonderlijke expert?", bron: 0 },
     ],
   },
+  "immo-hertogen": {
+    onderwerpen: ["verkoop", "aankoop", "verhuur", "schatting"],
+    bronnen: [
+      { url: "https://immohertogen.be/verkopen/", label: "Immo Hertogen: waardebepaling en verkoopaanpak", geraadpleegdOp: "2026-09-17" },
+      { url: "https://immohertogen.be/contact/", label: "Immo Hertogen: team en erkenningen", geraadpleegdOp: "2026-09-17" },
+    ],
+    inzichten: [
+      { titel: "Schatting met plaatsbezoek", tekst: "Immo Hertogen beschrijft een gratis, vrijblijvende waardebepaling met een bezoek aan de woning. De verkoopaanpak omvat daarna presentatie, promotie, begeleide bezoeken en onderhandelingen tot de verkoopakte.", vraag: "Welke vergelijkingspanden onderbouwen mijn waardebepaling en welke publiciteit is inbegrepen in de opdracht?", bron: 0 },
+      { titel: "Ook energiedeskundigheid vermeld", tekst: "De contactpagina vermeldt Rudiger Hertogen naast vastgoedmakelaar ook als energiedeskundige type A. Die vermelding betekent niet automatisch dat de opmaak van een EPC in een verkoopopdracht is inbegrepen.", vraag: "Wie maakt het EPC op voor mijn woning en wordt die dienst afzonderlijk aangerekend?", bron: 1 },
+    ],
+  },
+  "immosign-plus-bocholt": {
+    onderwerpen: ["verkoop", "verhuur", "schatting", "nieuwbouw"],
+    bronnen: [
+      { url: "https://immosign-plus.be/nl", label: "Immosign+: vestigingen, afspraken en nieuwbouwprojecten", geraadpleegdOp: "2026-09-17" },
+    ],
+    inzichten: [
+      { titel: "Bocholt op afspraak", tekst: "Immosign+ vermeldt voor Bocholt het kantoor aan Dorpsstraat 15. Zowel deze vestiging als Bree werkt uitsluitend op afspraak, zodat er tijd voor het dossier kan worden gereserveerd.", vraag: "Wie ontvangt mij in Bocholt en welke documenten zijn nodig voor ons eerste gesprek?", bron: 0 },
+      { titel: "Nieuwbouwprojecten in de regio", tekst: "De website presenteert nieuwbouw naast verkoop en verhuur van bestaande woningen. In het projectoverzicht staat onder meer De Schoener in Bocholt, terwijl andere projecten uitdrukkelijk als uitverkocht worden aangeduid.", vraag: "Welke woningen zijn vandaag nog beschikbaar en wie licht de plannen, afwerking en aankoopvoorwaarden toe?", bron: 0 },
+    ],
+  },
+  "swevers-real-estate-borgloon": {
+    onderwerpen: ["verkoop", "aankoop", "schatting"],
+    bronnen: [
+      { url: "https://www.swevers.be/kantoren/makelaar-borgloon/489203", label: "Swevers: vestiging Borgloon en openingsuren", geraadpleegdOp: "2026-09-17" },
+      { url: "https://www.swevers.be/", label: "Swevers: online schatting en persoonlijk plaatsbezoek", geraadpleegdOp: "2026-09-17" },
+    ],
+    inzichten: [
+      { titel: "Lokaal kantoor voor Haspengouw", tekst: "Swevers presenteert Borgloon als vestiging voor Haspengouw. Voor Papenstraat 5 vermeldt de kantoorwebsite ontvangst van maandag tot vrijdag van 9 tot 18 uur; in het weekend wordt op afspraak gewerkt.", vraag: "Welke medewerker van Borgloon kent mijn buurt en wordt mijn vaste aanspreekpunt?", bron: 0 },
+      { titel: "Online indicatie of advies aan huis", tekst: "Swevers biedt via Claire een gratis online schatting aan en vermeldt daarnaast persoonlijk advies van een makelaar aan huis. Een online uitkomst is niet hetzelfde als een onderbouwde vraagprijs na een plaatsbezoek.", vraag: "Hoe toetst het team in Borgloon de online indicatie aan de staat van mijn woning en vergelijkbare panden?", bron: 1 },
+    ],
+  },
   "sensimmo-genk": {
     onderwerpen: ["verkoop", "verhuur", "schatting", "nieuwbouw"],
     bronnen: [
