@@ -11,7 +11,7 @@ const kantoor = slug => {
 };
 
 test("Elk inzicht heeft een bestaand kantoor, een publieke bron en een vaste raadpleegdatum", () => {
-  assert.equal(Object.keys(kantoorInzichten).length, 39);
+  assert.equal(Object.keys(kantoorInzichten).length, 42);
   for (const [slug, gegevens] of Object.entries(kantoorInzichten)) {
     const k = kantoor(slug);
     assert.ok(gegevens.onderwerpen.length > 0);
@@ -82,6 +82,33 @@ test("De batch van 17 september bevat drie afzonderlijke vestigingen met logo en
   }
   assert.notEqual(kantoor("immosign-plus-bocholt").googlePlaceId, kantoor("immosign-plus-bree").googlePlaceId);
   assert.notEqual(kantoor("swevers-real-estate-borgloon").googlePlaceId, kantoor("swevers-real-estate").googlePlaceId);
+});
+
+test("De batch van 18 september heeft eigen logo's, reviews en actuele brongegevens", () => {
+  const batch = [
+    ["n3-vastgoed", "Luikersteenweg 395", "3800", "info@n3vastgoed.be", "ChIJC9n-l1EawUcR5-rQIPCLkKQ"],
+    ["pelter-makelaardij", "Dorpsstraat 2", "3900", "info@peltermakelaardij.be", "ChIJcUiQkjErwUcRYG-9MmoO4Co"],
+    ["t-huys-vastgoed", "Haag 122", "3930", "info@thuysvastgoed.be", "ChIJT3-IUhXVxkcRaYUxdr0F_So"],
+  ];
+  for (const [slug, adres, postcode, email, placeId] of batch) {
+    const k = kantoor(slug);
+    assert.equal(kantoren.filter(o => o.slug === slug).length, 1);
+    assert.equal(kantoren.filter(o => o.googlePlaceId === placeId).length, 1);
+    assert.equal(k.adres, adres);
+    assert.equal(k.postcode, postcode);
+    assert.equal(k.email, email);
+    assert.equal(k.googlePlaceId, placeId);
+    assert.equal(k.verborgenReviewRatings, undefined);
+    assert.equal(k.toegevoegdOp, "2026-09-18");
+    assert.equal(k.bivGecontroleerdOp, "2026-09-18");
+    assert.ok(k.intro.includes(adres));
+    assert.ok(existsSync(new URL(`../public${k.foto}`, import.meta.url)));
+    assert.ok(getKantoorInzichten(slug).bronnen.every(b => b.geraadpleegdOp === "2026-09-18"));
+    assert.equal(k.makelaar, undefined, "Het logo mag niet als portret worden benoemd");
+  }
+  assert.match(kantoor("pelter-makelaardij").intro, /Bevestig het bezoekadres vooraf/);
+  assert.ok(!getKantoorInzichten("n3-vastgoed").onderwerpen.includes("verhuur"));
+  assert.equal(kantoor("t-huys-vastgoed").naam, "'t Huys Vastgoed");
 });
 
 test("Vergelijking bevat geen eigen profiel, ononderzocht kantoor of andere provincie", () => {

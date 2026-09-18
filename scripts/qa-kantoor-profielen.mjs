@@ -16,10 +16,10 @@ for (const slug of slugs) {
   const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1];
   assert.ok(main, slug);
   assert.equal([...main.matchAll(/<h1\b/g)].length, 1, slug);
-  assert.ok(main.includes(kantoor.naam), slug);
-  assert.ok(main.includes(kantoor.adres), slug);
+  assert.ok(main.includes(escapeHtml(kantoor.naam)), slug);
+  assert.ok(kantoor.adres && main.includes(escapeHtml(kantoor.adres)), slug);
   assert.ok(main.includes(`src="${kantoor.foto}"`), slug);
-  assert.ok(main.includes(`alt="${kantoor.naam} logo"`), slug);
+  assert.ok(main.includes(`alt="${escapeHtml(kantoor.naam)} logo"`), slug);
   const reviews = main.match(/<section[^>]*aria-labelledby="reviews"[^>]*>([\s\S]*?)<\/section>/)?.[1];
   assert.ok(reviews, `Geen reviews: ${slug}`);
   assert.ok(reviews.includes(`placeid=${kantoor.googlePlaceId}`), slug);
@@ -51,4 +51,8 @@ async function read(path) {
   const response = await fetch(`${base}${path}`, { signal: AbortSignal.timeout(60000) });
   assert.equal(response.status, 200, path);
   return response.text();
+}
+
+function escapeHtml(value) {
+  return value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#x27;");
 }

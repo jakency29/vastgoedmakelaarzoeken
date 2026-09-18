@@ -298,6 +298,38 @@ export const kantoorInzichten: Record<string, KantoorInzichten> = {
       { titel: "Aankoop met aandacht voor renovatie", tekst: "De aankoopbegeleiding vermeldt advies over de staat van de woning en renovatiemogelijkheden, naast zoeken, onderhandelen en afronden.", vraag: "Hoe diep gaat die beoordeling en welke onderzoeken vragen een afzonderlijke expert?", bron: 0 },
     ],
   },
+  "n3-vastgoed": {
+    onderwerpen: ["verkoop", "schatting", "nieuwbouw", "bedrijfsvastgoed"],
+    bronnen: [
+      { url: "https://www.groepn.be/over-ons/n3-vastgoed", label: "N3 Vastgoed: verkoopfocus, werkgebied en projectadvies", geraadpleegdOp: "2026-09-18" },
+    ],
+    inzichten: [
+      { titel: "Verkoop als expliciete focus", tekst: "N3 Vastgoed omschrijft zijn specialisatie als de verkoop van residentieel vastgoed en bedrijfsvastgoed in Midden- en Zuid-Limburg. Bij woningen noemt het kantoor begeleiding van waardeschatting tot notariële akte.", vraag: "Welke vergelijkbare verkopen in mijn buurt onderbouwen de voorgestelde vraagprijs?", bron: 0 },
+      { titel: "Ook advies voor projectontwikkelaars", tekst: "Naast bestaande panden vermeldt N3 advies en verkoop voor nieuwbouwprojecten en projectgronden. Daarbij beschrijft het kantoor dat het meedenkt over de vraag van kandidaat-kopers.", vraag: "Welke analyse van de lokale vraag en welke verkoopbegeleiding zijn in mijn projectopdracht inbegrepen?", bron: 0 },
+    ],
+  },
+  "pelter-makelaardij": {
+    onderwerpen: ["verkoop", "aankoop", "verhuur", "schatting", "nieuwbouw"],
+    bronnen: [
+      { url: "https://www.peltermakelaardij.be/nl/onze-aanpak", label: "Pelter Makelaardij: waardebepaling en dossierbegeleiding", geraadpleegdOp: "2026-09-18" },
+      { url: "https://www.peltermakelaardij.be/nl/contact", label: "Pelter Makelaardij: contactadres en bezoek op afspraak", geraadpleegdOp: "2026-09-18" },
+    ],
+    inzichten: [
+      { titel: "Van waardebepaling tot overeenkomst", tekst: "Pelter beschrijft een vrijblijvende waardebepaling, samenstelling van het verkoop- of verhuurdossier, publiciteit, bezoeken en onderhandelingen. Ook contractopmaak en begeleiding bij de notaris worden vermeld.", vraag: "Welke documenten, publiciteitskosten en begeleiding zijn precies in mijn offerte opgenomen?", bron: 0 },
+      { titel: "Bezoekadres vooraf bevestigen", tekst: "De eigen contactpagina vermeldt Dorpsstraat 2 in Pelt en vraagt bezoekers om vooraf een afspraak te maken. Laat het kantoor bij die afspraak ook het actuele bezoekadres bevestigen.", vraag: "Op welk adres word ik ontvangen en welke documenten breng ik mee naar ons eerste gesprek?", bron: 1 },
+    ],
+  },
+  "t-huys-vastgoed": {
+    onderwerpen: ["verkoop", "verhuur", "aankoop", "schatting"],
+    bronnen: [
+      { url: "https://thuysvastgoed.be/nl/contact", label: "'t Huys Vastgoed: adres en ontvangst op afspraak", geraadpleegdOp: "2026-09-18" },
+      { url: "https://thuysvastgoed.be/nl/wie-zijn-wij", label: "'t Huys Vastgoed: taakverdeling en werkgebied", geraadpleegdOp: "2026-09-18" },
+    ],
+    inzichten: [
+      { titel: "Altijd eerst een afspraak", tekst: "'t Huys Vastgoed ontvangt aan Haag 122 uitsluitend op afspraak, ook tijdens de vermelde kantooruren. Volgens de contactpagina kunnen afspraken in overleg buiten die uren plaatsvinden.", vraag: "Wanneer kan ik mijn dossier bespreken en wie ontvangt mij op kantoor?", bron: 0 },
+      { titel: "Makelaardij en dossierondersteuning", tekst: "De teampagina beschrijft Erik Schultinks werk bij verkoop, verhuur en aankoop. Greet Schuurmans ondersteunt de commerciële en administratieve taken, waaronder contact rond plaatsbezoeken en sleuteloverdracht.", vraag: "Wie doet de bezichtigingen en wie houdt mij op de hoogte van de administratieve voortgang?", bron: 1 },
+    ],
+  },
   "immo-hertogen": {
     onderwerpen: ["verkoop", "aankoop", "verhuur", "schatting"],
     bronnen: [
