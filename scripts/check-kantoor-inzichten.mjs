@@ -11,7 +11,7 @@ const kantoor = slug => {
 };
 
 test("Elk inzicht heeft een bestaand kantoor, een publieke bron en een vaste raadpleegdatum", () => {
-  assert.equal(Object.keys(kantoorInzichten).length, 42);
+  assert.equal(Object.keys(kantoorInzichten).length, 45);
   for (const [slug, gegevens] of Object.entries(kantoorInzichten)) {
     const k = kantoor(slug);
     assert.ok(gegevens.onderwerpen.length > 0);
@@ -109,6 +109,34 @@ test("De batch van 18 september heeft eigen logo's, reviews en actuele brongegev
   assert.match(kantoor("pelter-makelaardij").intro, /Bevestig het bezoekadres vooraf/);
   assert.ok(!getKantoorInzichten("n3-vastgoed").onderwerpen.includes("verhuur"));
   assert.equal(kantoor("t-huys-vastgoed").naam, "'t Huys Vastgoed");
+});
+
+test("De batch van 21 september heeft drie unieke profielen met logo, reviews en primaire bronnen", () => {
+  const batch = [
+    ["theunis-vastgoed", "Koerselsebaan 21 bus 1", "3550", "info@theunisvastgoed.be", "ChIJQdxxzSUlwUcRzpj3N1tyCno", "504388"],
+    ["van-dommelen-vastgoed", "Gerdingerpoort 22B", "3960", "info@vandommelenvastgoed.be", "ChIJP5nnzbbTwEcRj4xkQc31mtg", "511033"],
+    ["vastgoed-nele-coenjaerts", "Eind 37", "3930", "info@vastgoedcoenjaerts.be", "ChIJZUYEXzHVxkcRY-43ZVMKNC8", "512197"],
+  ];
+  for (const [slug, adres, postcode, email, placeId, biv] of batch) {
+    const k = kantoor(slug);
+    assert.equal(kantoren.filter(o => o.slug === slug).length, 1);
+    assert.equal(kantoren.filter(o => o.googlePlaceId === placeId).length, 1);
+    assert.equal(k.adres, adres);
+    assert.equal(k.postcode, postcode);
+    assert.equal(k.email, email);
+    assert.equal(k.googlePlaceId, placeId);
+    assert.equal(k.bivNummer, biv);
+    assert.equal(k.verborgenReviewRatings, undefined);
+    assert.equal(k.toegevoegdOp, "2026-09-21");
+    assert.equal(k.bivGecontroleerdOp, "2026-09-21");
+    assert.ok(k.intro.includes(adres));
+    assert.ok(existsSync(new URL(`../public${k.foto}`, import.meta.url)));
+    assert.ok(getKantoorInzichten(slug).bronnen.every(b => b.geraadpleegdOp === "2026-09-21"));
+    assert.equal(k.makelaar, undefined, "Een kantoorlogo is geen makelaarsportret");
+    assert.doesNotMatch(k.intro, /[\u2013\u2014]/);
+    assert.ok((k.seoTitle ?? `${k.naam} | Vastgoedkantoor ${k.gemeente}`).length <= 65);
+    if (k.seoDescription) assert.ok(k.seoDescription.length <= 155);
+  }
 });
 
 test("Vergelijking bevat geen eigen profiel, ononderzocht kantoor of andere provincie", () => {

@@ -298,6 +298,39 @@ export const kantoorInzichten: Record<string, KantoorInzichten> = {
       { titel: "Aankoop met aandacht voor renovatie", tekst: "De aankoopbegeleiding vermeldt advies over de staat van de woning en renovatiemogelijkheden, naast zoeken, onderhandelen en afronden.", vraag: "Hoe diep gaat die beoordeling en welke onderzoeken vragen een afzonderlijke expert?", bron: 0 },
     ],
   },
+  "theunis-vastgoed": {
+    onderwerpen: ["verkoop", "verhuur", "schatting", "nieuwbouw"],
+    bronnen: [
+      { url: "https://www.theunisvastgoed.be/gratis-schatting/", label: "Theunis Vastgoed: schattingsverslag en vervolgafspraak", geraadpleegdOp: "2026-09-21" },
+      { url: "https://www.theunisvastgoed.be/verkopen/", label: "Theunis Vastgoed: verkoopdossier, presentatie en opvolging", geraadpleegdOp: "2026-09-21" },
+    ],
+    inzichten: [
+      { titel: "Schattingsverslag met nabespreking", tekst: "Theunis Vastgoed beschrijft een kennismakingsgesprek, een waardebepaling met verschillende methodes en een vervolgafspraak om het schattingsverslag en de verkoopstrategie te bespreken.", vraag: "Welke marktgegevens en vergelijkingspanden worden in mijn schattingsverslag opgenomen?", bron: 0 },
+      { titel: "Van attesten tot nutsvoorzieningen", tekst: "De verkoopaanpak vermeldt het aanvragen van attesten en documenten, fotografie door een vaste fotograaf, begeleide bezoeken en regelmatige dossierupdates. Ook afstemming met de notaris en overdracht van nutsvoorzieningen worden genoemd.", vraag: "Welke attesten en publiciteitskosten zijn inbegrepen en wie volgt mijn dossier tot de overdracht op?", bron: 1 },
+    ],
+  },
+  "van-dommelen-vastgoed": {
+    onderwerpen: ["verkoop", "verhuur", "schatting", "nieuwbouw"],
+    bronnen: [
+      { url: "https://vandommelenvastgoed.be/over-ons/", label: "Van Dommelen Vastgoed: bemiddeling en eigen projectontwikkeling", geraadpleegdOp: "2026-09-21" },
+      { url: "https://vandommelenvastgoed.be/contact/", label: "Van Dommelen Vastgoed: bezoek op afspraak in Bree", geraadpleegdOp: "2026-09-21" },
+    ],
+    inzichten: [
+      { titel: "Bemiddeling en projecten in eigen beheer", tekst: "Van Dommelen Vastgoed beschrijft naast vastgoedadvies en verkoop ook de ontwikkeling en verkoop van eigen nieuwbouwprojecten. De website noemt zowel casco projecten als begeleiding naar een volledig afgewerkte woning.", vraag: "Treedt het kantoor bij dit pand op als bemiddelaar of als ontwikkelaar, en welke afwerking is inbegrepen?", bron: 0 },
+      { titel: "Vrijblijvend gesprek op afspraak", tekst: "Het kantoor aan Gerdingerpoort 22B in Bree werkt volgens de contactpagina uitsluitend op afspraak. Een eerste gesprek wordt als vrijblijvend omschreven, zodat de situatie van de klant kan worden besproken.", vraag: "Wie bespreekt mijn eigendom met mij en welke documenten zijn nuttig voor het eerste gesprek?", bron: 1 },
+    ],
+  },
+  "vastgoed-nele-coenjaerts": {
+    onderwerpen: ["verkoop", "verhuur", "schatting"],
+    bronnen: [
+      { url: "https://www.vastgoedcoenjaerts.be/aanpak", label: "Vastgoed Nele Coenjaerts: stappen van het verkooptraject", geraadpleegdOp: "2026-09-21" },
+      { url: "https://www.vastgoedcoenjaerts.be/", label: "Vastgoed Nele Coenjaerts: zoekwensen voor kandidaat-kopers", geraadpleegdOp: "2026-09-21" },
+    ],
+    inzichten: [
+      { titel: "Een verkooptraject in acht stappen", tekst: "De aanpak loopt volgens de kantoorwebsite van een persoonlijk gesprek en vrijblijvende waardebepaling tot het verkoopdossier, bezichtigingen, onderhandelingen, verkoopovereenkomst en begeleiding bij de notaris.", vraag: "Welke documenten worden voor mijn woning verzameld en welke externe kosten betaal ik afzonderlijk?", bron: 0 },
+      { titel: "Zoekprofiel met concrete woonwensen", tekst: "Kandidaat-kopers kunnen op de website hun zoekwensen doorgeven, zoals budget, postcodes, slaapkamers, oppervlakte, tuin en een voorkeur voor gelijkvloers wonen. Dat maakt de aanvraag specifieker dan een algemeen contactbericht.", vraag: "Hoe worden mijn zoekcriteria opgevolgd en krijg ik bericht zodra een passend pand beschikbaar komt?", bron: 1 },
+    ],
+  },
   "n3-vastgoed": {
     onderwerpen: ["verkoop", "schatting", "nieuwbouw", "bedrijfsvastgoed"],
     bronnen: [
