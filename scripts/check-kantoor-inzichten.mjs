@@ -11,7 +11,7 @@ const kantoor = slug => {
 };
 
 test("Elk inzicht heeft een bestaand kantoor, een publieke bron en een vaste raadpleegdatum", () => {
-  assert.equal(Object.keys(kantoorInzichten).length, 45);
+  assert.equal(Object.keys(kantoorInzichten).length, 48);
   for (const [slug, gegevens] of Object.entries(kantoorInzichten)) {
     const k = kantoor(slug);
     assert.ok(gegevens.onderwerpen.length > 0);
@@ -137,6 +137,35 @@ test("De batch van 21 september heeft drie unieke profielen met logo, reviews en
     assert.ok((k.seoTitle ?? `${k.naam} | Vastgoedkantoor ${k.gemeente}`).length <= 65);
     if (k.seoDescription) assert.ok(k.seoDescription.length <= 155);
   }
+});
+
+test("De batch van 22 september gebruikt actuele vestigingen, officiële logo's en ongefilterde reviewkoppelingen", () => {
+  const batch = [
+    ["aktimmo", "Luikersteenweg 54E bus 004", "3800", "info@aktimmo.be", "ChIJmczzN0sXwUcR9NU1aX8Q4c4", "502577"],
+    ["albert-diepenbeek", "Grendelbaan 78", "3590", "diepenbeek@albert.immo", "ChIJ32AVKFTfwEcRBGh6aYYMJOE", "514134"],
+    ["bc-immo", "Schalmstraat 2", "3600", "info@bcimmo.be", "ChIJ4Xt9G-ffwEcRp9vozCjmBwo", "511657"],
+  ];
+  for (const [slug, adres, postcode, email, placeId, biv] of batch) {
+    const k = kantoor(slug);
+    assert.equal(kantoren.filter(o => o.slug === slug).length, 1);
+    assert.equal(kantoren.filter(o => o.googlePlaceId === placeId).length, 1);
+    assert.equal(k.adres, adres);
+    assert.equal(k.postcode, postcode);
+    assert.equal(k.email, email);
+    assert.equal(k.googlePlaceId, placeId);
+    assert.equal(k.bivNummer, biv);
+    assert.equal(k.verborgenReviewRatings, undefined);
+    assert.equal(k.toegevoegdOp, "2026-09-22");
+    assert.equal(k.bivGecontroleerdOp, "2026-09-22");
+    assert.ok(k.intro.includes(adres));
+    assert.ok(existsSync(new URL(`../public${k.foto}`, import.meta.url)));
+    assert.ok(getKantoorInzichten(slug).bronnen.every(b => b.geraadpleegdOp === "2026-09-22"));
+    assert.equal(k.makelaar, undefined, "Een kantoorlogo is geen makelaarsportret");
+    assert.doesNotMatch(k.intro, /[\u2013\u2014]/);
+    assert.ok((k.seoTitle ?? `${k.naam} | Vastgoedkantoor ${k.gemeente}`).length <= 65);
+  }
+  assert.doesNotMatch(kantoor("aktimmo").intro, /Schepen Dejonghstraat/);
+  assert.equal(kantoor("albert-diepenbeek").bivHouder, "Nathalie Poelmans");
 });
 
 test("Vergelijking bevat geen eigen profiel, ononderzocht kantoor of andere provincie", () => {

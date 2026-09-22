@@ -298,6 +298,37 @@ export const kantoorInzichten: Record<string, KantoorInzichten> = {
       { titel: "Aankoop met aandacht voor renovatie", tekst: "De aankoopbegeleiding vermeldt advies over de staat van de woning en renovatiemogelijkheden, naast zoeken, onderhandelen en afronden.", vraag: "Hoe diep gaat die beoordeling en welke onderzoeken vragen een afzonderlijke expert?", bron: 0 },
     ],
   },
+  "aktimmo": {
+    onderwerpen: ["verkoop", "verhuur", "schatting", "beheer", "expertise"],
+    bronnen: [
+      { url: "https://aktimmo.be/nl/wat-doen-we", label: "Aktimmo: verhuur, beheer en herbestemmingsadvies", geraadpleegdOp: "2026-09-22" },
+    ],
+    inzichten: [
+      { titel: "Verhuur met of zonder beheer", tekst: "Aktimmo beschrijft begeleiding bij huurderselectie, huuradvies en het juridische luik van de verhuring. De dienstenpagina maakt expliciet onderscheid tussen verhuur met en zonder beheer.", vraag: "Omvat mijn offerte alleen de verhuring of ook het beheer, en welke taken vallen daar precies onder?", bron: 0 },
+      { titel: "Herbestemming als afzonderlijke adviesvraag", tekst: "Voor panden die een andere invulling kunnen krijgen, vermeldt Aktimmo advies over herbestemming, haalbaarheid en marktpotentieel. Die beschrijving is geen bevestiging dat een bepaald plan vergund of rendabel zal zijn.", vraag: "Welke haalbaarheidsanalyse ontvang ik en welke onderdelen moeten nog door een architect of overheid worden getoetst?", bron: 0 },
+    ],
+  },
+  "albert-diepenbeek": {
+    onderwerpen: ["verkoop", "verhuur", "schatting", "bedrijfsvastgoed"],
+    bronnen: [
+      { url: "https://albert.immo/nl/office/diepenbeek", label: "Albert Diepenbeek: lokaal team en waardebepaling", geraadpleegdOp: "2026-09-22" },
+    ],
+    inzichten: [
+      { titel: "Herkenbaar lokaal team", tekst: "De vestigingspagina noemt Nathalie Poelmans en Geert Vertongen als kantoordirecteurs en vastgoedmakelaars-bemiddelaars. Oliver Teetzmann wordt afzonderlijk als stagiair vermeld, met eigen contactgegevens en BIV-vermelding.", vraag: "Wie wordt mijn vaste aanspreekpunt in Diepenbeek en wie neemt de bezichtigingen en dossieropvolging op zich?", bron: 0 },
+      { titel: "Gratis waardebepaling met plaatsbezoek", tekst: "In de vestigingsspecifieke FAQ beschrijft Albert Diepenbeek een gratis en vrijblijvende waardebepaling tijdens een plaatsbezoek, met advies over de actuele marktwaarde en verkoopstrategie.", vraag: "Welke vergelijkbare panden onderbouwen de waardebepaling en krijg ik de voorgestelde verkoopstrategie op papier?", bron: 0 },
+    ],
+  },
+  "bc-immo": {
+    onderwerpen: ["verkoop", "verhuur", "aankoop", "schatting", "beheer", "nieuwbouw"],
+    bronnen: [
+      { url: "https://www.bcimmo.be/nl/diensten/verhuren-met-bc-immo", label: "BC Immo: verhuur en rentmeesterschap", geraadpleegdOp: "2026-09-22" },
+      { url: "https://www.bcimmo.be/nl/diensten", label: "BC Immo: aankoop- en projectbegeleiding", geraadpleegdOp: "2026-09-22" },
+    ],
+    inzichten: [
+      { titel: "Verhuren en daarna laten beheren", tekst: "BC Immo beschrijft screening en selectie van kandidaat-huurders. Daarnaast biedt het rentmeesterschap aan, met dagelijks beheer van het pand en contact met de huurder. Dit gaat verder dan alleen een huurder zoeken.", vraag: "Welke beheertaken, kosten en afspraken over reparaties worden afzonderlijk vastgelegd?", bron: 0 },
+      { titel: "Ook begeleiding aan koperszijde", tekst: "Naast verkoop en verhuur vermeldt BC Immo aankoopbegeleiding, samenstelling van dossiers en coördinatie van projectontwikkelingen. De dienstenpagina legt niet vast welke prestaties standaard bij een opdracht horen.", vraag: "Welke controles en begeleiding zijn voor mijn aankoop of project inbegrepen, en wat wordt apart aangerekend?", bron: 1 },
+    ],
+  },
   "theunis-vastgoed": {
     onderwerpen: ["verkoop", "verhuur", "schatting", "nieuwbouw"],
     bronnen: [
