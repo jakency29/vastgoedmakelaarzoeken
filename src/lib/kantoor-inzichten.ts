@@ -298,6 +298,38 @@ export const kantoorInzichten: Record<string, KantoorInzichten> = {
       { titel: "Aankoop met aandacht voor renovatie", tekst: "De aankoopbegeleiding vermeldt advies over de staat van de woning en renovatiemogelijkheden, naast zoeken, onderhandelen en afronden.", vraag: "Hoe diep gaat die beoordeling en welke onderzoeken vragen een afzonderlijke expert?", bron: 0 },
     ],
   },
+  "boes-en-boes": {
+    onderwerpen: ["verkoop", "verhuur", "schatting"],
+    bronnen: [
+      { url: "https://www.boesenboes.be/nl/over-ons/", label: "Boes & Boes: team en discrete verkoop", geraadpleegdOp: "2026-09-24" },
+      { url: "https://www.boesenboes.be/nl/diensten/verkoop/", label: "Boes & Boes: analyse voor de verkoopopdracht", geraadpleegdOp: "2026-09-24" },
+    ],
+    inzichten: [
+      { titel: "Ook verkoop zonder openbare publiciteit", tekst: "Boes & Boes vermeldt discrete verkooptrajecten waarbij koper en verkoper worden samengebracht zonder publieke bekendmaking. Dit is een aangeboden werkwijze, geen garantie op een verkoop of een bepaalde prijs.", vraag: "Wanneer adviseren jullie een discreet traject en hoe vergelijken jullie het bereik met een openbare verkoopcampagne?", bron: 0 },
+      { titel: "Analyse vóór de verkoopopdracht", tekst: "Het stappenplan onderscheidt een eerste plaatsbezoek en een tweede afspraak met waardebepaling, vastgoedanalyse en verkoopstrategie. Pas daarna beslist de eigenaar of die een verkoopmandaat tekent.", vraag: "Welke vergelijkbare verkopen en kosten worden in die analyse besproken, en ontvang ik ze schriftelijk?", bron: 1 },
+    ],
+  },
+  "animo-vastgoed": {
+    onderwerpen: ["verkoop", "verhuur", "schatting"],
+    bronnen: [
+      { url: "https://www.animovastgoed.be/gratis-schatting/", label: "Animo Vastgoed: schatting met telefonische opvolging", geraadpleegdOp: "2026-09-24" },
+      { url: "https://www.animovastgoed.be/over-ons/", label: "Animo Vastgoed: begeleiding en marketing", geraadpleegdOp: "2026-09-24" },
+    ],
+    inzichten: [
+      { titel: "Schattingsaanvraag met terugbelmoment", tekst: "De schattingspagina vraagt om je telefoonnummer en bereikbaarheid. Animo beschrijft vervolgens een telefoongesprek met aanvullende vragen. Het formulier levert dus niet meteen een automatische woningwaarde op.", vraag: "Volgt er voor een definitief verkoopadvies ook een plaatsbezoek en een vergelijking met recente verkopen?", bron: 0 },
+      { titel: "Begeleiding en marketing samen afstemmen", tekst: "Animo vermeldt persoonlijke begeleiding tot de sleuteloverdracht en professionele marketing. De algemene beschrijving specificeert niet welke beelden, publiciteitskanalen en kosten standaard bij een opdracht horen.", vraag: "Welke marketingprestaties en opvolgmomenten staan in mijn offerte, en wie blijft mijn aanspreekpunt?", bron: 1 },
+    ],
+  },
+  "consimmo-vastgoed": {
+    onderwerpen: ["verkoop", "verhuur", "schatting"],
+    bronnen: [
+      { url: "https://consimmo.be/nl/onze-werkwijze", label: "Consimmo Vastgoed: presentatie, dossier en nazorg", geraadpleegdOp: "2026-09-24" },
+    ],
+    inzichten: [
+      { titel: "Woningpresentatie als aparte voorbereiding", tekst: "Consimmo beschrijft homestyling vóór de professionele fotosessie en vermeldt een virtuele tour. Daarna volgen publicatie op vastgoedportalen en sociale media. Vraag na hoe die voorbereiding voor jouw pand wordt ingevuld.", vraag: "Welke styling, fotografie en virtuele rondleiding zijn inbegrepen, en welke voorbereiding doe ik zelf?", bron: 0 },
+      { titel: "Opvolging tot na de akte", tekst: "De werkwijze omvat het verzamelen van documenten, overdracht van het verkoopdossier aan de notaris en hulp bij nutsvoorzieningen. Daarbij noemt het kantoor ook de meterstanden van onder meer water, elektriciteit en aardgas.", vraag: "Wie plant de meteropname en sleuteloverdracht, en welke documenten en externe kosten blijven mijn verantwoordelijkheid?", bron: 0 },
+    ],
+  },
   "aktimmo": {
     onderwerpen: ["verkoop", "verhuur", "schatting", "beheer", "expertise"],
     bronnen: [

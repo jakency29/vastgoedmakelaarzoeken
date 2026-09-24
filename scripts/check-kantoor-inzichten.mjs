@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { kantoren } from "../src/lib/kantoren.ts";
 import { kantoorInzichten, getKantoorInzichten, vergelijkbareKantoren, formatBronDatum } from "../src/lib/kantoor-inzichten.ts";
 
@@ -11,7 +11,7 @@ const kantoor = slug => {
 };
 
 test("Elk inzicht heeft een bestaand kantoor, een publieke bron en een vaste raadpleegdatum", () => {
-  assert.equal(Object.keys(kantoorInzichten).length, 48);
+  assert.equal(Object.keys(kantoorInzichten).length, 51);
   for (const [slug, gegevens] of Object.entries(kantoorInzichten)) {
     const k = kantoor(slug);
     assert.ok(gegevens.onderwerpen.length > 0);
@@ -166,6 +166,38 @@ test("De batch van 22 september gebruikt actuele vestigingen, officiële logo's 
   }
   assert.doesNotMatch(kantoor("aktimmo").intro, /Schepen Dejonghstraat/);
   assert.equal(kantoor("albert-diepenbeek").bivHouder, "Nathalie Poelmans");
+});
+
+test("De batch van 24 september heeft actuele namen, logo's en eigen reviewprofielen", () => {
+  const batch = [
+    ["boes-en-boes", "Ridderstraat 20", "3500", "info@boesenboes.be", "ChIJ8eEiw4AhwUcR6WSxPc3foAY", "505653"],
+    ["animo-vastgoed", "Guido Gezellelaan 44", "3550", "info@animovastgoed.be", "ChIJgZLc9xYlwUcR-vx0zlX9gPs", "507001"],
+    ["consimmo-vastgoed", "Emiel Van Dorenlaan 76", "3600", "info@consimmo.be", "ChIJsb5h9zPZwEcRq2wY0Srynjw", "511231"],
+  ];
+  for (const [slug, adres, postcode, email, placeId, biv] of batch) {
+    const k = kantoor(slug);
+    assert.equal(kantoren.filter(o => o.slug === slug).length, 1);
+    assert.equal(kantoren.filter(o => o.googlePlaceId === placeId).length, 1);
+    assert.equal(k.adres, adres);
+    assert.equal(k.postcode, postcode);
+    assert.equal(k.email, email);
+    assert.equal(k.googlePlaceId, placeId);
+    assert.equal(k.bivNummer, biv);
+    assert.equal(k.verborgenReviewRatings, undefined);
+    assert.equal(k.toegevoegdOp, "2026-09-24");
+    assert.equal(k.bivGecontroleerdOp, "2026-09-24");
+    assert.ok(k.intro.includes(adres));
+    assert.ok(existsSync(new URL(`../public${k.foto}`, import.meta.url)));
+    assert.ok(getKantoorInzichten(slug).bronnen.every(b => b.geraadpleegdOp === "2026-09-24"));
+    assert.equal(k.makelaar, undefined);
+    assert.doesNotMatch(k.intro, /[\u2013\u2014]/);
+    assert.ok((k.seoTitle ?? `${k.naam} | Vastgoedkantoor ${k.gemeente}`).length <= 65);
+  }
+  assert.equal(kantoor("animo-vastgoed").naam, "Animo Vastgoed");
+  assert.equal(kantoor("boes-en-boes").bivHouder, "Julie Boes");
+  assert.equal(kantoor("consimmo-vastgoed").bivHouder, "Melih Isleyen");
+  const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
+  assert.match(css, /img\[src="\/afbeeldingen\/kantoren\/consimmo-vastgoed\.png"\]\s*\{[^}]*background-color:/);
 });
 
 test("Vergelijking bevat geen eigen profiel, ononderzocht kantoor of andere provincie", () => {
