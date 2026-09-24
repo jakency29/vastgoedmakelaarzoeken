@@ -1,5 +1,138 @@
 [
  {
+  "id": "166345",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Stijn Streuvelsstraat 24",
+  "adres": "Stijn Streuvelsstraat 24",
+  "gemeente": "Beringen",
+  "gemeenteSlug": "beringen",
+  "postcode": "3583",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 519000,
+  "bewoonbaar": 175,
+  "grond": 482,
+  "slaapkamers": 3,
+  "gevels": 4,
+  "bouwjaar": 2010,
+  "staat": "Goede staat",
+  "parkeerplaatsen": 3,
+  "epcLabel": "A",
+  "epcVerbruik": 50,
+  "epcCode": "20260908-0003949699-RES-1",
+  "renovatieplicht": null,
+  "kadastraalInkomen": null,
+  "bestemming": "Woongebied",
+  "overstroming": "P-score C en G-score A; volgens de bron niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 39
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Bureau",
+    "aantal": 1,
+    "opp": 8
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": 70
+   },
+   {
+    "label": "Toilet",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 12.5
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 17.38
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 11
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 32
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Balkon",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "18 zonnepanelen",
+   "Thuisbatterij",
+   "Dubbele beglazing",
+   "Airconditioning",
+   "Open haard",
+   "Volledig geïnstalleerde keuken",
+   "Huisautomatisering",
+   "Gasverwarming",
+   "Aluminium raamwerk",
+   "Rioolaansluiting",
+   "Brandmelder"
+  ],
+  "troeven": [
+   "EPC A: 50 kWh/m2 per jaar",
+   "18 zonnepanelen en een thuisbatterij",
+   "Drie slaapkamers en een bureau",
+   "Volledig onderkelderd met 70 m2 kelderruimte",
+   "Omheinde tuin, terras en balkon",
+   "Centrum van Paal"
+  ],
+  "geoLat": 51.04203,
+  "geoLng": 5.17511,
+  "beschrijving": "Deze vrijstaande woning aan de Stijn Streuvelsstraat 24 in Paal, een deelgemeente van Beringen, wordt aangeboden door Roos Raedschelders van We Invest Demervallei voor 519.000 euro. Het huis werd gebouwd in 2010 en staat op een perceel van 482 m2. De opgegeven woonoppervlakte bedraagt 175 m2.\n\nDe woning heeft drie slaapkamers van 14, 13 en 12 m2, een badkamer, twee toiletten en een bureau van 8 m2. De woonkamer van 32 m2 sluit aan op de eetkamer en open keuken. Verder is er een wasplaats met doucheruimte.\n\nHet huis is volledig onderkelderd en beschikt over 70 m2 kelderruimte. De kelder is vanuit de tuin bereikbaar. Buiten zijn er een omheinde tuin, een recent aangelegd terras, een balkon bij de verdieping en een ruime fietsenstalling. De bron vermeldt drie parkeerplaatsen.\n\nHet EPC vermeldt label A en een berekend energieverbruik van 50 kWh/m2 per jaar. Volgens het kantoor zijn er 18 zonnepanelen, een thuisbatterij en airconditioning aanwezig. Vraag de keuringsattesten, technische gegevens en eventuele voorwaarden bij deze installaties op.\n\nDe brongegevens vermelden P-score C en G-score A en duiden het pand aan als niet gelegen in overstromingsgevoelig gebied. De stedenbouwkundige bestemming is woongebied. De bron vermeldt een bouwvergunning en een verkavelingsvergunning. Laat alle attesten en stedenbouwkundige informatie vóór een bindend bod controleren door je notaris.",
+  "fotos": [
+   "/afbeeldingen/woningen/166345/1.jpg",
+   "/afbeeldingen/woningen/166345/2.jpg",
+   "/afbeeldingen/woningen/166345/3.jpg",
+   "/afbeeldingen/woningen/166345/4.jpg",
+   "/afbeeldingen/woningen/166345/5.jpg",
+   "/afbeeldingen/woningen/166345/6.jpg",
+   "/afbeeldingen/woningen/166345/7.jpg",
+   "/afbeeldingen/woningen/166345/8.jpg",
+   "/afbeeldingen/woningen/166345/9.jpg",
+   "/afbeeldingen/woningen/166345/10.jpg",
+   "/afbeeldingen/woningen/166345/11.jpg",
+   "/afbeeldingen/woningen/166345/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/paal-3583/house/166345",
+  "slug": "stijn-streuvelsstraat-24-beringen-166345",
+  "toegevoegdOp": "2026-09-24"
+ },
+ {
   "id": "170319",
   "kantoorSlug": "we-invest-demervallei",
   "transactie": "te-koop",
