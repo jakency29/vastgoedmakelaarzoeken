@@ -235,6 +235,181 @@ export function BouwgrondGemeenteCalculator() {
   );
 }
 
+export function LandbouwgrondWaardeCalculator() {
+  const [surface, setSurface] = useState("1");
+  const [unit, setUnit] = useState<"ha" | "m2">("ha");
+  const [lowerReference, setLowerReference] = useState("54355");
+  const [middleReference, setMiddleReference] = useState("68934");
+  const [upperReference, setUpperReference] = useState("83233");
+  const [ownershipShare, setOwnershipShare] = useState("33.33");
+  const [sellingCosts, setSellingCosts] = useState("0");
+
+  const enteredSurface = numberFrom(surface, 100_000_000);
+  const hectares = unit === "ha" ? enteredSurface : enteredSurface / 10_000;
+  const share = numberFrom(ownershipShare, 100);
+  const costs = numberFrom(sellingCosts);
+  const references = [
+    { label: "Lagere provinciale oriëntatie", value: numberFrom(lowerReference) },
+    { label: "Vlaams gemiddelde", value: numberFrom(middleReference) },
+    { label: "Hogere provinciale oriëntatie", value: numberFrom(upperReference) },
+  ];
+  const hasValidOrder = references[0].value <= references[1].value
+    && references[1].value <= references[2].value;
+  const canCalculate = hectares > 0
+    && share > 0
+    && references.every((reference) => reference.value > 0)
+    && hasValidOrder;
+
+  const changeUnit = (nextUnit: "ha" | "m2") => {
+    if (nextUnit === unit) return;
+    if (enteredSurface > 0) {
+      const convertedSurface = nextUnit === "m2"
+        ? enteredSurface * 10_000
+        : enteredSurface / 10_000;
+      setSurface(String(convertedSurface));
+    }
+    setUnit(nextUnit);
+  };
+
+  const results = references.map((reference) => {
+    const parcelValue = hectares * reference.value;
+    const grossShare = parcelValue * (share / 100);
+    const netShare = Math.max(parcelValue - costs, 0) * (share / 100);
+    return { ...reference, parcelValue, grossShare, netShare };
+  });
+
+  return (
+    <section
+      id="landbouwgrond-waarde-calculator"
+      className="my-10 scroll-mt-24 rounded-2xl border border-brand-200 bg-brand-50/60 p-5 sm:p-6"
+    >
+      <p className="text-xs font-bold uppercase tracking-wide text-brand-600">Interactieve waardevork</p>
+      <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-brand-900">
+        Bereken de waarde en je aandeel in de landbouwgrond
+      </h2>
+      <p className="mt-3 leading-relaxed text-slate-700">
+        Vul de oppervlakte, drie referentieprijzen en je eigendomsaandeel in. De startwaarden zijn de
+        laagste provinciale gemiddelde prijs, het Vlaamse gemiddelde en de hoogste provinciale gemiddelde
+        prijs uit de officiële cijfers voor 2024. Vervang ze voor een betere raming door lokale
+        vergelijkingsprijzen voor vrije of verpachte grond.
+      </p>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <Field
+          id="landbouwgrond-oppervlakte"
+          label="Oppervlakte van het hele perceel"
+          value={surface}
+          onChange={setSurface}
+          step={unit === "ha" ? "0.01" : "100"}
+          suffix={unit === "ha" ? "ha" : "m²"}
+        />
+        <label htmlFor="landbouwgrond-eenheid" className="block">
+          <span className="text-sm font-semibold text-brand-900">Eenheid</span>
+          <select
+            id="landbouwgrond-eenheid"
+            value={unit}
+            onChange={(event) => changeUnit(event.target.value as "ha" | "m2")}
+            className="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-3 text-base font-semibold text-brand-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+          >
+            <option value="ha">Hectare</option>
+            <option value="m2">Vierkante meter</option>
+          </select>
+        </label>
+        <Field
+          id="landbouwgrond-lagere-referentie"
+          label="Lagere referentieprijs"
+          value={lowerReference}
+          onChange={setLowerReference}
+          step="100"
+          suffix="€/ha"
+        />
+        <Field
+          id="landbouwgrond-midden-referentie"
+          label="Centrale referentieprijs"
+          value={middleReference}
+          onChange={setMiddleReference}
+          step="100"
+          suffix="€/ha"
+        />
+        <Field
+          id="landbouwgrond-hogere-referentie"
+          label="Hogere referentieprijs"
+          value={upperReference}
+          onChange={setUpperReference}
+          step="100"
+          suffix="€/ha"
+        />
+        <Field
+          id="landbouwgrond-aandeel"
+          label="Jouw aandeel in de eigendom"
+          value={ownershipShare}
+          onChange={setOwnershipShare}
+          step="0.01"
+          suffix="%"
+        />
+        <Field
+          id="landbouwgrond-verkoopkosten"
+          label="Totale verkoopkosten voor alle eigenaars"
+          value={sellingCosts}
+          onChange={setSellingCosts}
+          step="100"
+          suffix="€"
+        />
+      </div>
+
+      {!hasValidOrder ? (
+        <p role="alert" className="mt-5 rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950">
+          Zet de drie referentieprijzen in oplopende volgorde: lager, centraal en hoger.
+        </p>
+      ) : canCalculate ? (
+        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white" aria-live="polite">
+          <table className="min-w-full text-sm">
+            <caption className="sr-only">
+              Raming van de perceelwaarde en het eigendomsaandeel bij drie referentieprijzen
+            </caption>
+            <thead className="bg-brand-50 text-left text-brand-900">
+              <tr>
+                <th scope="col" className="border-b border-slate-200 px-4 py-3 font-bold">Scenario</th>
+                <th scope="col" className="border-b border-slate-200 px-4 py-3 text-right font-bold">Hele perceel</th>
+                <th scope="col" className="border-b border-slate-200 px-4 py-3 text-right font-bold">Jouw bruto aandeel</th>
+                <th scope="col" className="border-b border-slate-200 px-4 py-3 text-right font-bold">Na ingevoerde kosten</th>
+              </tr>
+            </thead>
+            <tbody>
+              {results.map((result, index) => (
+                <tr key={result.label} className={index === 1 ? "bg-brand-50/50" : undefined}>
+                  <th scope="row" className="border-b border-slate-100 px-4 py-3 font-semibold text-brand-900">
+                    {result.label}
+                    <span className="mt-0.5 block text-xs font-normal text-slate-500">
+                      {currency.format(result.value)} per hectare
+                    </span>
+                  </th>
+                  <td className="border-b border-slate-100 px-4 py-3 text-right font-semibold">{currency.format(result.parcelValue)}</td>
+                  <td className="border-b border-slate-100 px-4 py-3 text-right">{currency.format(result.grossShare)}</td>
+                  <td className="border-b border-slate-100 px-4 py-3 text-right font-bold text-brand-900">{currency.format(result.netShare)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <p className="mt-5 rounded-xl border border-dashed border-brand-300 bg-white p-4 text-sm text-slate-700">
+          Vul een oppervlakte, drie positieve referentieprijzen en een eigendomsaandeel groter dan nul in.
+        </p>
+      )}
+
+      <p className="mt-4 text-xs leading-relaxed text-slate-600">
+        De kosten worden eerst van de geraamde totaalwaarde afgetrokken en daarna volgens je aandeel verdeeld.
+        Deze rekenhulp is geen schattingsverslag. Bestemming, pacht, voorkooprecht, bodemkwaliteit,
+        perceelvorm, bereikbaarheid en lokale vraag kunnen de verkoopwaarde sterk wijzigen.
+      </p>
+      <p className="mt-2 text-xs leading-relaxed text-slate-600">
+        Bron startwaarden: <a className="font-semibold text-brand-700 underline underline-offset-2" href="https://landbouwcijfers.vlaanderen.be/landbouw/totale-landbouw/grondprijzen" target="_blank" rel="noreferrer">Agentschap Landbouw en Zeevisserij, grondprijzen 2024, bijgewerkt op 28 januari 2026</a>.
+      </p>
+    </section>
+  );
+}
+
 export function MakelaarskostenCalculator() {
   const [salePrice, setSalePrice] = useState("300000");
   const [percentage, setPercentage] = useState("3");
