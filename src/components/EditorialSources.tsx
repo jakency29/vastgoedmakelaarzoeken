@@ -90,21 +90,35 @@ function editorialSourceFor(page: ContentPage): Source | null {
   return { label: page.editorial.sourceLabel, href: page.editorial.sourceUrl };
 }
 
+// De naam van de instantie uit een bronlabel ("OVAM over het asbestattest" -> "OVAM").
+// Zo noemt de sectie de concrete bevoegde instantie per onderwerp in plaats van een
+// generieke zin die op elke pagina identiek is.
+function instantieUit(label: string): string {
+  return label.split(/\s+over\s+/i)[0].trim();
+}
+
+function natuurlijkeLijst(items: string[]): string {
+  const uniek = items.filter((v, i) => items.indexOf(v) === i);
+  if (uniek.length <= 1) return uniek[0] ?? "";
+  return `${uniek.slice(0, -1).join(", ")} en ${uniek[uniek.length - 1]}`;
+}
+
 export function EditorialSources({ page }: { page: ContentPage }) {
   if (hasVisibleSources(page)) return null;
   const sources = [editorialSourceFor(page), ...sourcesFor(page)]
     .filter((source): source is Source => Boolean(source))
     .filter((source, index, all) => all.findIndex((candidate) => candidate.href === source.href) === index);
 
+  const instanties = natuurlijkeLijst(sources.map((source) => instantieUit(source.label)));
+
   return (
     <section className="mt-10 border-t border-slate-200 pt-8">
       <h2 className="text-xl font-extrabold tracking-tight text-brand-900">
-        Waar controleer je actuele regels en beroepsgegevens?
+        Waar controleer je de actuele regels voor dit onderwerp?
       </h2>
       <p className="mt-3 leading-relaxed text-slate-700">
-        Actuele regels en beroepsgegevens controleer je bij de bevoegde overheid of officiële
-        beroepsorganisatie. De redactioneel geraadpleegde bron en aanvullende primaire bronnen
-        sluiten aan bij dit onderwerp:
+        Voor dit onderwerp controleer je de actuele regels en beroepsgegevens rechtstreeks bij{" "}
+        {instanties}. De geraadpleegde en aanvullende primaire bronnen staan hieronder:
       </p>
       <ul className="mt-3 space-y-2">
         {sources.map((source) => (
