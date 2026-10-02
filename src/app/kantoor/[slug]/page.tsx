@@ -43,13 +43,51 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+// Natuurlijke opsomming: "a, b en c".
+function lijst(items: string[]): string {
+  if (items.length <= 1) return items[0] ?? "";
+  return `${items.slice(0, -1).join(", ")} en ${items[items.length - 1]}`;
+}
+
+function kleineLetter(s: string): string {
+  return s ? s.charAt(0).toLowerCase() + s.slice(1) : s;
+}
+
+// Unieke, crawlbare prozabeschrijving uit de bestaande velden van het kantoor.
+// Geen verzonnen gegevens: alleen plaats, provincie, makelaar, diensten, regio en BIV.
+// De diensten en regio verschillen per kantoor, zodat de tekst niet louter een
+// sjabloon met een vervangen naam is.
+function buildOver(k: Kantoor): string[] {
+  const diensten = lijst(k.diensten.map(kleineLetter));
+  const p1 =
+    `Voor eigenaars, kopers en huurders in ${k.gemeente} en omgeving verzorgt ${k.naam} ${diensten}.` +
+    (k.makelaar ? ` ${k.makelaar} is het aanspreekpunt voor nieuwe dossiers.` : "");
+  const gebied = k.regios.length
+    ? `Het kantoor is vooral actief in ${lijst(k.regios)}.`
+    : `Het kantoor is actief in ${k.gemeente} en de ruimere regio.`;
+  const erkenning = k.bivNummer
+    ? ` Als vastgoedmakelaar is ${k.naam} erkend bij het BIV onder nummer ${k.bivNummer}${k.bivHouder ? `, op naam van ${k.bivHouder}` : ""}.`
+    : ` Controleer de erkenning van de makelaar die je dossier behandelt zelf in de BIV-databank.`;
+  return [p1, gebied + erkenning];
+}
+
 function buildFaq(k: Kantoor) {
   const faq = [
+    {
+      q: `Is ${k.naam} een erkend vastgoedkantoor?`,
+      a: k.bivNummer
+        ? `Ja. ${k.naam} is erkend bij het Beroepsinstituut van Vastgoedmakelaars (BIV) onder nummer ${k.bivNummer}${k.bivHouder ? `, op naam van ${k.bivHouder}` : ""}. Je kan de erkenning zelf nazien in de BIV-databank op biv.be.`
+        : `${k.naam} vermeldt zich als vastgoedkantoor in ${k.gemeente}. Controleer de BIV-erkenning van de makelaar die je dossier behandelt altijd zelf in de BIV-databank op biv.be.`,
+    },
     {
       q: `Welke diensten biedt ${k.naam} aan?`,
       a: `${k.naam} biedt onder meer ${k.diensten.slice(0, 5).join(", ")}. Vraag een offerte aan om aanbod en tarief te vergelijken met andere kantoren.`,
     },
     { q: `In welke regio is ${k.naam} actief?`, a: `${k.naam} is actief in ${k.regios.join(", ")}.` },
+    {
+      q: `Wat kost ${k.naam} bij de verkoop van een woning?`,
+      a: `Er is geen wettelijk tarief voor een vastgoedmakelaar. In Vlaanderen ligt de commissie meestal tussen 2% en 4% van de verkoopprijs, exclusief btw. Vraag via deze pagina een vrijblijvende offerte en vergelijk tarief en aanpak.`,
+    },
   ];
   faq.push({
     q: `Hoe neem ik contact op met ${k.naam}?`,
@@ -73,6 +111,7 @@ export default async function KantoorPage({ params }: Props) {
 
   const url = absoluteUrl(`/kantoor/${k.slug}`);
   const faq = buildFaq(k);
+  const over = buildOver(k);
   const related = buildRelated(k);
   const reviews = await getPlaceReviews(k.googlePlaceId);
   const makelaar = getMakelaarByKantoor(k.slug);
@@ -187,6 +226,13 @@ export default async function KantoorPage({ params }: Props) {
         <div className="grid gap-10 lg:grid-cols-[1fr_360px]">
           <div className="min-w-0">
             <p className="max-w-3xl leading-relaxed text-slate-700">{k.intro}</p>
+
+            <section className="mt-6">
+              <h2 className="text-2xl font-extrabold tracking-tight text-brand-900">Over {k.naam}</h2>
+              {over.map((p, i) => (
+                <p key={i} className="mt-3 max-w-3xl leading-relaxed text-slate-700">{p}</p>
+              ))}
+            </section>
 
             <dl className="mt-6 grid gap-3 sm:grid-cols-2">
               <div className="rounded-xl border border-slate-200 bg-brand-50/60 p-4">
