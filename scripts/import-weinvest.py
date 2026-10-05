@@ -15,6 +15,8 @@ MAX_W = 1200
 
 SOURCES = {
     "we-invest-demervallei": [
+        "https://weinvest.be/nl-BE/property/for-sale/beringen/house/172635",
+        "https://weinvest.be/nl-BE/property/for-sale/herk-de-stad/house/172497",
         "https://weinvest.be/nl-BE/property/for-sale/beringen/house/166222",
         "https://weinvest.be/nl-BE/property/for-sale/herk-de-stad/house/164431",
         "https://weinvest.be/nl-BE/property/for-sale/lummen/house/165685",
@@ -46,7 +48,8 @@ SPACE = {"bed_room": "Slaapkamer", "bath_room": "Badkamer", "shower_room": "Douc
          "dressing": "Dressing", "entrance_hall": "Inkomhal", "night_hall": "Nachthal", "living": "Leefruimte",
          "garden_house": "Tuinhuis"}
 LAND = {"RURAL_RESIDENTIAL_AREA": "Woongebied met landelijk karakter", "RESIDENTIAL_AREA": "Woongebied", "LIVING_ZONE": "Woongebied",
-        "RECREATION_AREA": "Recreatiegebied", "AGRICULTURAL_AREA": "Agrarisch gebied", "INDUSTRIAL_AREA": "Industriegebied"}
+        "EXTENSION_LIVING_ZONE": "Woonuitbreidingsgebied", "RECREATION_AREA": "Recreatiegebied",
+        "AGRICULTURAL_AREA": "Agrarisch gebied", "INDUSTRIAL_AREA": "Industriegebied"}
 FLOOD = {"NOT_FLOOD_AREA": "Niet in overstromingsgevoelig gebied", "POSSIBLE_FLOOD_AREA": "Mogelijk overstromingsgevoelig",
          "EFFECTIVE_FLOOD_AREA": "Effectief overstromingsgevoelig"}
 PARKING_TYPES = {"garage", "parking", "carport"}
@@ -65,7 +68,7 @@ def clean(s):
     s = re.sub(r"<[^>]+>", " ", s or "")
     s = html.unescape(s).replace("—", " ").replace("–", "-").replace("²", "2")
     # Knip de CTA/branding-staart weg (contactoproep + kantoornaam).
-    s = re.split(r"\s*(?:Interesse of|Contacteer ons|We Invest Demervallei)", s)[0]
+    s = re.split(r"\s*(?:Interesse of|Meer info of een bezoek|Contacteer ons|We Invest Demervallei)", s)[0]
     s = re.sub(r"\s+", " ", s)
     s = re.sub(r"\s+([.,;:!?])", r"\1", s)  # geen spatie voor leestekens
     return s.strip()
@@ -82,7 +85,8 @@ def main():
         with open(data_path, encoding="utf-8") as f:
             existing = json.load(f)
     existing_by_id = {str(item.get("id")): item for item in existing}
-    out = [item for item in existing if str(item.get("id")) not in only_ids] if only_ids else []
+    untouched = [item for item in existing if str(item.get("id")) not in only_ids]
+    out = []
     for kantoor, urls in SOURCES.items():
         for u in urls:
             if only_ids and u.rstrip("/").split("/")[-1] not in only_ids:
@@ -106,7 +110,7 @@ def main():
                 g["aantal"] += 1
                 if s.get("area"):
                     g["opp"] += s["area"]
-            indeling = [{"label": SPACE.get(t, t), "aantal": g["aantal"], "opp": g["opp"] or None}
+            indeling = [{"label": SPACE.get(t, t), "aantal": g["aantal"], "opp": round(g["opp"], 2) if g["opp"] else None}
                         for t, g in groups.items() if t]
             bed = p.get("bedroomCount") or groups.get("bed_room", {}).get("aantal", 0)
             parking = p.get("parkingCount") or sum(g["aantal"] for t, g in groups.items() if t in PARKING_TYPES)
@@ -149,6 +153,15 @@ def main():
                 except Exception:
                     continue
 
+            flood = FLOOD.get(cb.get("floodingAreaType"), "")
+            if cb.get("pScore") or cb.get("gScore"):
+                scores = f"P-score {cb.get('pScore') or 'onbekend'} en G-score {cb.get('gScore') or 'onbekend'}"
+                flood = f"{scores}; {flood.lower()}" if flood else scores
+
+            epc_code = cb.get("energyCertificateCode")
+            if isinstance(epc_code, str):
+                epc_code = epc_code.strip()
+
             record = {
                 "id": pid, "kantoorSlug": kantoor,
                 "transactie": "te-koop" if p.get("transactionType") == "for-sale" else "te-huur",
@@ -161,11 +174,11 @@ def main():
                 "parkeerplaatsen": parking,
                 "epcLabel": (cb.get("energyCertificateScore") or "").upper() or None,
                 "epcVerbruik": cb.get("yearlySpecificEnergyConsumptionPerSqm"),
-                "epcCode": cb.get("energyCertificateCode"),
+                "epcCode": epc_code,
                 "renovatieplicht": cb.get("hasRenovationObligation"),
                 "kadastraalInkomen": cb.get("cadastralIncome"),
                 "bestemming": LAND.get(cb.get("landDesignation"), ""),
-                "overstroming": FLOOD.get(cb.get("floodingAreaType"), ""),
+                "overstroming": flood,
                 "vergunning": bool(cb.get("hasBuildingPermission")),
                 "indeling": indeling, "eigenschappen": eigenschappen, "troeven": troeven[:6],
                 "geoLat": p.get("geoLat"), "geoLng": p.get("geoLong"),
@@ -180,10 +193,14 @@ def main():
                 record["toegevoegdOp"] = date.today().isoformat()
             out.append(record)
             print(f"OK {pid} {gemeente} EPC {out[-1]['epcLabel']} | {len(indeling)} ruimtes | {len(eigenschappen)} kenmerken | {len(photo_paths)} foto's")
-    out.sort(key=lambda r: (r["provincie"], r["gemeente"]))
+    if only_ids:
+        out.extend(untouched)
+    else:
+        out.sort(key=lambda r: (r["provincie"], r["gemeente"]))
     os.makedirs(os.path.join(ROOT, "src", "data"), exist_ok=True)
     with open(data_path, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
+        f.write("\n")
     print(f"\n{len(out)} woningen -> src/data/woningen.json")
 
 if __name__ == "__main__":

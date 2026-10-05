@@ -1,5 +1,255 @@
 [
  {
+  "id": "172635",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Schorheidestraat 1",
+  "adres": "Schorheidestraat 1",
+  "gemeente": "Beringen",
+  "gemeenteSlug": "beringen",
+  "postcode": "3583",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 299000,
+  "bewoonbaar": 163,
+  "grond": 1040,
+  "slaapkamers": 3,
+  "gevels": 4,
+  "bouwjaar": "1973",
+  "staat": "Te renoveren",
+  "parkeerplaatsen": 4,
+  "epcLabel": "F",
+  "epcVerbruik": 530,
+  "epcCode": "20261001-0003966895-RES-2",
+  "renovatieplicht": true,
+  "kadastraalInkomen": null,
+  "bestemming": "Woongebied met landelijk karakter",
+  "overstroming": "P-score A en G-score A; niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 32.58
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 1,
+    "opp": 163
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Toilet",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 14.77
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 11.67
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 38.14
+   },
+   {
+    "label": "Veranda",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": 1040
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Verwarming op stookolie",
+   "Conforme stookolietank",
+   "Aansluiting op water",
+   "Rioolaansluiting",
+   "Septic tank",
+   "Brandmelder"
+  ],
+  "troeven": [
+   "Perceel van 1.040 m2",
+   "163 m2 bewoonbare oppervlakte",
+   "Drie slaapkamers op het gelijkvloers",
+   "Zolder van 163 m2 met uitbreidingsmogelijkheden",
+   "Inpandige garage en parkeergelegenheid",
+   "Open bebouwing nabij het centrum van Paal"
+  ],
+  "geoLat": 51.04758,
+  "geoLng": 5.14155,
+  "beschrijving": "Deze vrijstaande renovatiewoning aan de Schorheidestraat 1 in Paal, Beringen, wordt aangeboden door We Invest Demervallei voor 299.000 euro. Het huis werd gebouwd in 1973 en staat op een perceel van 1.040 m2. De opgegeven bewoonbare oppervlakte bedraagt 163 m2.\n\nDe woning is volledig gelijkvloers ingedeeld en telt drie slaapkamers van 15,32, 8,63 en 8,63 m2. Daarnaast zijn er een badkamer, twee toiletten, een keuken van 14,77 m2, een woonkamer van 38,14 m2 en een wasplaats van 11,67 m2. De inpandige garage biedt bijkomende berg- en parkeerruimte.\n\nDe zolder heeft volgens de bron een oppervlakte van 163 m2 en kan, binnen de technische en vergunningsmogelijkheden, worden ingericht als extra leefruimte. Buiten zijn er een tuin, terras en meerdere parkeerplaatsen. De open bebouwing ligt nabij het centrum van Paal, de Paalse Plas en de verbinding met de E313.\n\nHet EPC vermeldt label F en een berekend energieverbruik van 530 kWh/m2 per jaar. De Vlaamse renovatieplicht is van toepassing. De woning wordt verwarmd op stookolie en de bron vermeldt een conforme stookolietank. Vraag het EPC, de elektrische keuring en de technische documenten op voordat je renovatiekosten begroot.\n\nDe brongegevens vermelden P-score A en G-score A en duiden het pand aan als niet gelegen in overstromingsgevoelig gebied. De stedenbouwkundige bestemming is woongebied met landelijk karakter en de bron vermeldt een bouwvergunning. Laat de attesten en stedenbouwkundige informatie vóór een bindend bod controleren door je notaris.",
+  "fotos": [
+   "/afbeeldingen/woningen/172635/1.jpg",
+   "/afbeeldingen/woningen/172635/2.jpg",
+   "/afbeeldingen/woningen/172635/3.jpg",
+   "/afbeeldingen/woningen/172635/4.jpg",
+   "/afbeeldingen/woningen/172635/5.jpg",
+   "/afbeeldingen/woningen/172635/6.jpg",
+   "/afbeeldingen/woningen/172635/7.jpg",
+   "/afbeeldingen/woningen/172635/8.jpg",
+   "/afbeeldingen/woningen/172635/9.jpg",
+   "/afbeeldingen/woningen/172635/10.jpg",
+   "/afbeeldingen/woningen/172635/11.jpg",
+   "/afbeeldingen/woningen/172635/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/beringen/house/172635",
+  "slug": "schorheidestraat-1-beringen-172635",
+  "toegevoegdOp": "2026-10-05"
+ },
+ {
+  "id": "172497",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Neerstraat 31",
+  "adres": "Neerstraat 31",
+  "gemeente": "Herk-de-Stad",
+  "gemeenteSlug": "herk-de-stad",
+  "postcode": "3540",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 565000,
+  "bewoonbaar": 151,
+  "grond": 28.19,
+  "slaapkamers": 3,
+  "gevels": 4,
+  "bouwjaar": "1961",
+  "staat": "Zo goed als nieuw",
+  "parkeerplaatsen": 7,
+  "epcLabel": "C",
+  "epcVerbruik": 262,
+  "epcCode": "20260911-0003952146-RES-1",
+  "renovatieplicht": false,
+  "kadastraalInkomen": null,
+  "bestemming": "Woonuitbreidingsgebied",
+  "overstroming": "P-score C en G-score C; niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 48
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Toilet",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 15
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 8.5
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 12
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 20
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Individuele verwarming op gas",
+   "Dubbele beglazing",
+   "Toegankelijk voor personen met beperkte mobiliteit",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op gas",
+   "Aansluiting op water",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "PVC raamwerk",
+   "Volledig geïnstalleerde open keuken",
+   "Asbestvrij volgens de bron",
+   "Gerenoveerd in 2018"
+  ],
+  "troeven": [
+   "Gerenoveerd in 2018",
+   "151 m2 bewoonbare oppervlakte",
+   "Drie slaapkamers",
+   "Inpandige garage en parkeergelegenheid",
+   "Achterliggende weide en zuidgerichte tuin",
+   "EPC-label C zonder renovatieplicht"
+  ],
+  "geoLat": 50.96152,
+  "geoLng": 5.18023,
+  "beschrijving": "Deze vrijstaande woning aan de Neerstraat 31 in Schulen, Herk-de-Stad, wordt aangeboden door We Invest Demervallei voor 565.000 euro. Het huis dateert uit 1961, werd in 2018 gerenoveerd en heeft volgens de bron 151 m2 bewoonbare oppervlakte.\n\nDe woning telt drie slaapkamers van 19, 16 en 13 m2, een badkamer, een douchekamer en een toilet. De woonkamer van 20 m2 sluit aan op de eetkamer en de volledig geïnstalleerde open keuken van 15 m2. Verder zijn er een wasplaats van 12 m2 en een inpandige garage. De bron vermeldt ook de mogelijkheid om een vrij beroep uit te oefenen. Controleer daarvoor de geldende voorschriften.\n\nAchter de woning ligt een groene zone met een achterliggende weide. De tuin en het terras zijn zuidgericht. De advertentie vermeldt meerdere parkeerplaatsen. We Invest geeft voor de grondoppervlakte 28,19 m2 op, maar die invoer lijkt niet aan te sluiten bij de beschreven achterliggende weide. Vraag daarom vóór een bod het kadastrale plan en de correcte perceeloppervlakte aan het kantoor of de notaris.\n\nHet EPC vermeldt label C en een berekend energieverbruik van 262 kWh/m2 per jaar. Volgens de bron geldt geen renovatieplicht en is de woning asbestvrij. De woning heeft individuele gasverwarming, dubbele beglazing en PVC raamwerk. Vraag de attesten en renovatiedocumenten op om de uitgevoerde werken te controleren.\n\nDe brongegevens vermelden P-score C en G-score C en duiden het pand aan als niet gelegen in overstromingsgevoelig gebied. De stedenbouwkundige bestemming is woonuitbreidingsgebied en de bron vermeldt een bouwvergunning. Laat de bestemming, de perceelgegevens en alle attesten vóór een bindend bod controleren door je notaris.",
+  "fotos": [
+   "/afbeeldingen/woningen/172497/1.jpg",
+   "/afbeeldingen/woningen/172497/2.jpg",
+   "/afbeeldingen/woningen/172497/3.jpg",
+   "/afbeeldingen/woningen/172497/4.jpg",
+   "/afbeeldingen/woningen/172497/5.jpg",
+   "/afbeeldingen/woningen/172497/6.jpg",
+   "/afbeeldingen/woningen/172497/7.jpg",
+   "/afbeeldingen/woningen/172497/8.jpg",
+   "/afbeeldingen/woningen/172497/9.jpg",
+   "/afbeeldingen/woningen/172497/10.jpg",
+   "/afbeeldingen/woningen/172497/11.jpg",
+   "/afbeeldingen/woningen/172497/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/herk-de-stad/house/172497",
+  "slug": "neerstraat-31-herk-de-stad-172497",
+  "toegevoegdOp": "2026-10-05"
+ },
+ {
   "id": "166345",
   "kantoorSlug": "we-invest-demervallei",
   "transactie": "te-koop",
