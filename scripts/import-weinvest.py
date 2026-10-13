@@ -15,6 +15,9 @@ MAX_W = 1200
 
 SOURCES = {
     "we-invest-demervallei": [
+        "https://weinvest.be/nl-BE/property/for-sale/beringen-paal/house/173158",
+        "https://weinvest.be/nl-BE/property/for-sale/beringen-paal/house/173268",
+        "https://weinvest.be/nl-BE/property/for-sale/herk-de-stad/house/172933",
         "https://weinvest.be/nl-BE/property/for-sale/beringen/house/172635",
         "https://weinvest.be/nl-BE/property/for-sale/herk-de-stad/house/172497",
         "https://weinvest.be/nl-BE/property/for-sale/beringen/house/166222",
@@ -68,7 +71,7 @@ def clean(s):
     s = re.sub(r"<[^>]+>", " ", s or "")
     s = html.unescape(s).replace("—", " ").replace("–", "-").replace("²", "2")
     # Knip de CTA/branding-staart weg (contactoproep + kantoornaam).
-    s = re.split(r"\s*(?:Interesse of|Meer info of een bezoek|Contacteer ons|We Invest Demervallei)", s)[0]
+    s = re.split(r"\s*(?:Interesse of|Meer info of een bezoek|Neem gerust contact|Contacteer ons|We Invest Demervallei)", s)[0]
     s = re.sub(r"\s+", " ", s)
     s = re.sub(r"\s+([.,;:!?])", r"\1", s)  # geen spatie voor leestekens
     return s.strip()

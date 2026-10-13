@@ -1,5 +1,398 @@
 [
  {
+  "id": "173158",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Meldertsesteenweg 70",
+  "adres": "Meldertsesteenweg 70",
+  "gemeente": "Beringen",
+  "gemeenteSlug": "beringen",
+  "postcode": "3583",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 369000,
+  "bewoonbaar": 168,
+  "grond": 475,
+  "slaapkamers": 4,
+  "gevels": 3,
+  "bouwjaar": "1968",
+  "staat": "Goede staat",
+  "parkeerplaatsen": 6,
+  "epcLabel": "C",
+  "epcVerbruik": 241,
+  "epcCode": "20261002-0003967331-RES-1",
+  "renovatieplicht": null,
+  "kadastraalInkomen": null,
+  "bestemming": "Woongebied",
+  "overstroming": "P-score A en G-score A",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 4,
+    "opp": 53.78
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Toilet",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 9.76
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 11.42
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 3.38
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 16.59
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": 475
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": null
+   }
+  ],
+  "eigenschappen": [
+   "Dubbele beglazing",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op gas",
+   "Aansluiting op water",
+   "Watertank (L)",
+   "Rioolaansluiting",
+   "Brandmelder",
+   "PVC raamwerk",
+   "Gasverwarming",
+   "Volledig geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "168 m2 bewoonbare oppervlakte",
+   "Vier slaapkamers",
+   "Inpandige garage en aparte garagebox",
+   "Tuin en terras",
+   "EPC-label C",
+   "Centrum van Paal nabij de E313"
+  ],
+  "geoLat": 51.03473,
+  "geoLng": 5.16922,
+  "beschrijving": "Deze halfopen gezinswoning aan de Meldertsesteenweg 70 in Paal wordt aangeboden voor 369.000 euro. Het huis werd gebouwd in 1968, volgens de advertentie volledig gerenoveerd in 2000 en biedt 168 m2 bewoonbare oppervlakte op een perceel van 475 m2.\n\nOp het gelijkvloers sluiten de woonkamer, eetkamer en halfopen keuken op elkaar aan. Verder zijn er een apart toilet, een inpandige garage en een praktische wasruimte. De verdieping telt vier slaapkamers met samen 53,78 m2 en een badkamer met bad en wastafel. De zolder biedt bijkomende bergruimte.\n\nAchter en naast de woning liggen een tuin en terras. Naast de inpandige garage zijn ook een aparte garagebox en een tuinhuis aanwezig. De bron vermeldt zes parkeerplaatsen in totaal.\n\nDe woning heeft EPC-label C met een berekend energieverbruik van 241 kWh/m2 per jaar. Ze beschikt volgens de bron over individuele gasverwarming, dubbele beglazing, PVC raamwerk en een volledig geïnstalleerde keuken. Vraag het EPC en de keuringsdocumenten op om de technische toestand te beoordelen.\n\nDe brongegevens vermelden P-score A en G-score A. De stedenbouwkundige bestemming is woongebied en de bron vermeldt een bouwvergunning. De woning ligt in het centrum van Paal, met winkels, scholen, openbaar vervoer en de verbinding naar de E313 in de omgeving. Laat de attesten en stedenbouwkundige informatie vóór een bindend bod controleren door je notaris.",
+  "fotos": [
+   "/afbeeldingen/woningen/173158/1.jpg",
+   "/afbeeldingen/woningen/173158/2.jpg",
+   "/afbeeldingen/woningen/173158/3.jpg",
+   "/afbeeldingen/woningen/173158/4.jpg",
+   "/afbeeldingen/woningen/173158/5.jpg",
+   "/afbeeldingen/woningen/173158/6.jpg",
+   "/afbeeldingen/woningen/173158/7.jpg",
+   "/afbeeldingen/woningen/173158/8.jpg",
+   "/afbeeldingen/woningen/173158/9.jpg",
+   "/afbeeldingen/woningen/173158/10.jpg",
+   "/afbeeldingen/woningen/173158/11.jpg",
+   "/afbeeldingen/woningen/173158/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/beringen-paal/house/173158",
+  "slug": "meldertsesteenweg-70-beringen-173158",
+  "toegevoegdOp": "2026-10-13"
+ },
+ {
+  "id": "173268",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Schaffensesteenweg 99",
+  "adres": "Schaffensesteenweg 99",
+  "gemeente": "Beringen",
+  "gemeenteSlug": "beringen",
+  "postcode": "3583",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 559000,
+  "bewoonbaar": 270,
+  "grond": 2081,
+  "slaapkamers": 3,
+  "gevels": 3,
+  "bouwjaar": "2012",
+  "staat": "Zo goed als nieuw",
+  "parkeerplaatsen": 12,
+  "epcLabel": null,
+  "epcVerbruik": null,
+  "epcCode": null,
+  "renovatieplicht": null,
+  "kadastraalInkomen": null,
+  "bestemming": "Woongebied met landelijk karakter",
+  "overstroming": "P-score C en G-score A; niet in overstromingsgevoelig gebied",
+  "vergunning": true,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 3,
+    "opp": 54.51
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Zolder",
+    "aantal": 1,
+    "opp": 56
+   },
+   {
+    "label": "Toilet",
+    "aantal": 2,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 24
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 25
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": 19.34
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 16.8
+   },
+   {
+    "label": "Veranda",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": 2081
+   },
+   {
+    "label": "Terras",
+    "aantal": 2,
+    "opp": 44
+   }
+  ],
+  "eigenschappen": [
+   "Dubbele beglazing",
+   "Open haard",
+   "Deurbel",
+   "Video deurbel",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op gas",
+   "Aansluiting op water",
+   "Watertank (L)",
+   "Rioolaansluiting",
+   "Huisautomatisering",
+   "Brandmelder",
+   "Aluminium raamwerk",
+   "Gasverwarming",
+   "Geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "270 m2 bewoonbare oppervlakte",
+   "Perceel van 2.081 m2",
+   "Drie slaapkamers en zolder van 56 m2",
+   "Zuidgericht overdekt terras",
+   "Dubbele carport, serre en omheinde weide",
+   "Twaalf parkeerplaatsen volgens de bron"
+  ],
+  "geoLat": 51.03637,
+  "geoLng": 5.15526,
+  "beschrijving": "Deze halfopen woning aan de Schaffensesteenweg 99 in Paal wordt aangeboden voor 559.000 euro. Het huis werd gebouwd in 2012 en biedt 270 m2 bewoonbare oppervlakte op een perceel van 2.081 m2.\n\nHet gelijkvloers omvat een inkomhal met gastentoilet, een ruime leefruimte, een open keuken van 24 m2, een inpandige garage, een berging en een wasplaats met inloopdouche. Op de verdieping liggen drie slaapkamers met samen 54,51 m2 en een badkamer met ligbad, inloopdouche, toilet en dubbele wastafel. Een vaste trap leidt naar de zolder van 56 m2. Een eventuele inrichting als extra kamer blijft afhankelijk van de technische en vergunningsmogelijkheden.\n\nBuiten zijn er een zuidgericht overdekt terras, een tuinberging met overdekte lounge, een serre, een dubbele carport en een omheinde weide. De brede oprit en andere parkeerzones bieden volgens de bron plaats aan twaalf voertuigen.\n\nDe advertentietekst noemt EPC-label A, maar in de gestructureerde brongegevens die bij de import beschikbaar waren, stonden geen EPC-score, energieverbruik of certificaatcode. Vraag daarom het officiële EPC en de bijbehorende technische documenten op voordat je de energieprestatie beoordeelt. De bron vermeldt wel dubbele beglazing, aluminium raamwerk, gasverwarming en huisautomatisering.\n\nDe brongegevens vermelden P-score C en G-score A en duiden het pand aan als niet gelegen in overstromingsgevoelig gebied. De stedenbouwkundige bestemming is woongebied met landelijk karakter en de bron vermeldt een bouwvergunning. Winkels, scholen, openbaar vervoer, de E313 en het station van Diest liggen in de ruimere omgeving. Laat alle attesten en stedenbouwkundige informatie vóór een bindend bod controleren door je notaris.",
+  "fotos": [
+   "/afbeeldingen/woningen/173268/1.jpg",
+   "/afbeeldingen/woningen/173268/2.jpg",
+   "/afbeeldingen/woningen/173268/3.jpg",
+   "/afbeeldingen/woningen/173268/4.jpg",
+   "/afbeeldingen/woningen/173268/5.jpg",
+   "/afbeeldingen/woningen/173268/6.jpg",
+   "/afbeeldingen/woningen/173268/7.jpg",
+   "/afbeeldingen/woningen/173268/8.jpg",
+   "/afbeeldingen/woningen/173268/9.jpg",
+   "/afbeeldingen/woningen/173268/10.jpg",
+   "/afbeeldingen/woningen/173268/11.jpg",
+   "/afbeeldingen/woningen/173268/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/beringen-paal/house/173268",
+  "slug": "schaffensesteenweg-99-beringen-173268",
+  "toegevoegdOp": "2026-10-13"
+ },
+ {
+  "id": "172933",
+  "kantoorSlug": "we-invest-demervallei",
+  "transactie": "te-koop",
+  "type": "Huis",
+  "typeUID": "house",
+  "titel": "Korpse straat 59",
+  "adres": "Korpse straat 59",
+  "gemeente": "Herk-de-Stad",
+  "gemeenteSlug": "herk-de-stad",
+  "postcode": "3540",
+  "provincie": "Limburg",
+  "provincieSlug": "limburg",
+  "prijs": 475000,
+  "bewoonbaar": 217,
+  "grond": 2985.79,
+  "slaapkamers": 4,
+  "gevels": 4,
+  "bouwjaar": "1983",
+  "staat": "Goede staat",
+  "parkeerplaatsen": 3,
+  "epcLabel": "D",
+  "epcVerbruik": 332,
+  "epcCode": "20260407-0003832462-RES-1",
+  "renovatieplicht": null,
+  "kadastraalInkomen": 974,
+  "bestemming": "",
+  "overstroming": "P-score D en G-score A",
+  "vergunning": false,
+  "indeling": [
+   {
+    "label": "Slaapkamer",
+    "aantal": 4,
+    "opp": 44
+   },
+   {
+    "label": "Badkamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Bureau",
+    "aantal": 1,
+    "opp": 9
+   },
+   {
+    "label": "Douchekamer",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Kelder",
+    "aantal": 1,
+    "opp": 33
+   },
+   {
+    "label": "Toilet",
+    "aantal": 3,
+    "opp": null
+   },
+   {
+    "label": "Keuken",
+    "aantal": 1,
+    "opp": 14
+   },
+   {
+    "label": "Eetkamer",
+    "aantal": 1,
+    "opp": 27
+   },
+   {
+    "label": "Wasplaats",
+    "aantal": 1,
+    "opp": null
+   },
+   {
+    "label": "Woonkamer",
+    "aantal": 1,
+    "opp": 26
+   },
+   {
+    "label": "Tuin",
+    "aantal": 1,
+    "opp": 2400
+   },
+   {
+    "label": "Terras",
+    "aantal": 1,
+    "opp": 30
+   }
+  ],
+  "eigenschappen": [
+   "Zonnepanelen",
+   "Individueel verwarming",
+   "Dubbele beglazing",
+   "Alarm",
+   "Open haard",
+   "TV-lijn",
+   "Telefoonlijn",
+   "Aansluiting op elektriciteit",
+   "Aansluiting op gas",
+   "Aansluiting op water",
+   "Brandmelder",
+   "Aluminium raamwerk",
+   "Gasverwarming",
+   "VS geïnstalleerd keuken"
+  ],
+  "troeven": [
+   "217 m2 bewoonbare oppervlakte",
+   "Vier slaapkamers",
+   "Perceel van 2.985,79 m2 volgens de brondata",
+   "Westgericht, deels overdekt terras",
+   "Vernieuwd dak en 18 zonnepanelen",
+   "Kelder, inpandige garage en carport"
+  ],
+  "geoLat": 50.92657,
+  "geoLng": 5.14591,
+  "beschrijving": "Deze vrijstaande woning aan de Korpse straat 59 in Donk, Herk-de-Stad, wordt aangeboden voor 475.000 euro. Het huis werd gebouwd in 1983 en biedt 217 m2 bewoonbare oppervlakte. De gestructureerde brondata vermelden een perceel van 2.985,79 m2, terwijl de advertentietekst afgerond circa 30 are noemt.\n\nOp het gelijkvloers bevinden zich een inkomhal met gastentoilet en vestiaire, een woonkamer met speksteenkachel, een eetruimte, een bureau van 9 m2, een keuken van 14 m2, een wasplaats en een inpandige garage. De verdieping telt vier slaapkamers met samen 44 m2 en een badkamer met bad, douche, toilet en dubbele wastafel. De woning is voor ongeveer de helft onderkelderd en de bron vermeldt 33 m2 kelderruimte.\n\nDe tuin bevat fruitbomen, leilindes en knotwilgen. Het westgerichte terras is deels overdekt. Achteraan grenst het perceel volgens de advertentie aan de Melsterbeek en achterliggende weilanden. Een carport met berging zorgt voor bijkomende parkeer- en opslagruimte.\n\nDe woning heeft EPC-label D met een berekend energieverbruik van 332 kWh/m2 per jaar. Volgens de advertentie werd het dak in 2023 vernieuwd en zijn er 18 zonnepanelen met groenestroomcertificaten tot 2029. Vraag het EPC, de facturen, keuringsattesten en voorwaarden van de installatie op om deze gegevens te controleren.\n\nDe brongegevens vermelden P-score D en G-score A. Bekijk daarom het overstromingsrapport van het perceel en bespreek de watergevoeligheid met het kantoor en je notaris. De gestructureerde bron vermeldt geen stedenbouwkundige bestemming of bouwvergunning. Vraag die informatie en de overige verkoopattesten op vóór een bindend bod.",
+  "fotos": [
+   "/afbeeldingen/woningen/172933/1.jpg",
+   "/afbeeldingen/woningen/172933/2.jpg",
+   "/afbeeldingen/woningen/172933/3.jpg",
+   "/afbeeldingen/woningen/172933/4.jpg",
+   "/afbeeldingen/woningen/172933/5.jpg",
+   "/afbeeldingen/woningen/172933/6.jpg",
+   "/afbeeldingen/woningen/172933/7.jpg",
+   "/afbeeldingen/woningen/172933/8.jpg",
+   "/afbeeldingen/woningen/172933/9.jpg",
+   "/afbeeldingen/woningen/172933/10.jpg",
+   "/afbeeldingen/woningen/172933/11.jpg",
+   "/afbeeldingen/woningen/172933/12.jpg"
+  ],
+  "bron": "https://weinvest.be/nl-BE/property/for-sale/herk-de-stad/house/172933",
+  "slug": "korpse-straat-59-herk-de-stad-172933",
+  "toegevoegdOp": "2026-10-13"
+ },
+ {
   "id": "172635",
   "kantoorSlug": "we-invest-demervallei",
   "transactie": "te-koop",
