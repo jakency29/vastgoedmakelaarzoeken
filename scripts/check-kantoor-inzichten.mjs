@@ -11,7 +11,7 @@ const kantoor = slug => {
 };
 
 test("Elk inzicht heeft een bestaand kantoor, een publieke bron en een vaste raadpleegdatum", () => {
-  assert.equal(Object.keys(kantoorInzichten).length, 51);
+  assert.equal(Object.keys(kantoorInzichten).length, 55);
   for (const [slug, gegevens] of Object.entries(kantoorInzichten)) {
     const k = kantoor(slug);
     assert.ok(gegevens.onderwerpen.length > 0);
@@ -198,6 +198,49 @@ test("De batch van 24 september heeft actuele namen, logo's en eigen reviewprofi
   assert.equal(kantoor("consimmo-vastgoed").bivHouder, "Melih Isleyen");
   const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
   assert.match(css, /img\[src="\/afbeeldingen\/kantoren\/consimmo-vastgoed\.png"\]\s*\{[^}]*background-color:/);
+});
+
+test("GVE Immobiliën heeft vier vestigingen in Vlaams-Brabant met eigen reviewkoppeling en primaire bronnen", () => {
+  const batch = [
+    ["gve-immobilien-leuven", "Dirk Boutslaan 4", "3000", "Leuven", "ChIJO9BGn9lgwUcRtfYozWPSqnc"],
+    ["gve-immobilien-tienen", "Goossensvest 1A", "3300", "Tienen", "ChIJrXGO8mtswUcR21NWve2cWq4"],
+    ["gve-immobilien-aarschot", "Leuvensesteenweg 25", "3200", "Aarschot", "ChIJ9_vz9NVdwUcRfgpy2QqHu-s"],
+    ["gve-immobilien-bertem", "Gemeenteplein 3", "3060", "Bertem", "ChIJwyB17sRhwUcRPOr6Ka-Y2OM"],
+  ];
+  for (const [slug, adres, postcode, gemeente, placeId] of batch) {
+    const k = kantoor(slug);
+    assert.equal(kantoren.filter(o => o.slug === slug).length, 1);
+    assert.equal(kantoren.filter(o => o.googlePlaceId === placeId).length, 1);
+    assert.equal(k.naam, `GVE Immobiliën ${gemeente}`);
+    assert.equal(k.adres, adres);
+    assert.equal(k.postcode, postcode);
+    assert.equal(k.gemeente, gemeente);
+    assert.equal(k.provincie, "Vlaams-Brabant");
+    assert.equal(k.provincieSlug, "vlaams-brabant");
+    assert.equal(k.email, "info@immogve.be");
+    assert.equal(k.telefoon, "016 56 56 14");
+    assert.equal(k.googlePlaceId, placeId);
+    assert.equal(k.bivNummer, "503132");
+    assert.equal(k.bivHouder, "Kristof Van Eycken");
+    assert.equal(k.bivBron, "https://www.immogve.be/contact");
+    assert.equal(k.premium, undefined, "Basisprofiel, geen premium");
+    assert.equal(k.verborgenReviewRatings, undefined);
+    assert.equal(k.toegevoegdOp, "2026-10-14");
+    assert.equal(k.bivGecontroleerdOp, "2026-10-14");
+    assert.equal(k.foto, "/afbeeldingen/kantoren/gve-immobilien.svg");
+    assert.equal(k.website, `https://www.immogve.be/contact/immo-gve-${gemeente.toLowerCase()}`);
+    assert.ok(k.intro.includes(`${adres}, ${postcode} ${gemeente}`));
+    assert.match(k.intro, /Immo GVE/);
+    assert.ok(existsSync(new URL(`../public${k.foto}`, import.meta.url)));
+    assert.ok(getKantoorInzichten(slug).bronnen.every(b => b.geraadpleegdOp === "2026-10-14"));
+    assert.equal(k.makelaar, undefined, "Een kantoorlogo is geen makelaarsportret");
+    assert.doesNotMatch(JSON.stringify(k), /[\u2013\u2014]/);
+    assert.ok(k.seoTitle.length <= 60);
+    assert.ok(k.seoDescription.length <= 155);
+  }
+  assert.match(kantoor("gve-immobilien-tienen").intro, /Op Google staat deze vestiging vermeld als Goossensvest 1;/);
+  const logo = readFileSync(new URL("../public/afbeeldingen/kantoren/gve-immobilien.svg", import.meta.url), "utf8");
+  assert.doesNotMatch(logo, /<script|\son\w+=|href=|<image|<foreignObject/i);
 });
 
 test("Vergelijking bevat geen eigen profiel, ononderzocht kantoor of andere provincie", () => {

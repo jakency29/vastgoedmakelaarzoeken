@@ -298,6 +298,50 @@ export const kantoorInzichten: Record<string, KantoorInzichten> = {
       { titel: "Aankoop met aandacht voor renovatie", tekst: "De aankoopbegeleiding vermeldt advies over de staat van de woning en renovatiemogelijkheden, naast zoeken, onderhandelen en afronden.", vraag: "Hoe diep gaat die beoordeling en welke onderzoeken vragen een afzonderlijke expert?", bron: 0 },
     ],
   },
+  "gve-immobilien-leuven": {
+    onderwerpen: ["verkoop", "verhuur", "schatting", "nieuwbouw", "beheer"],
+    bronnen: [
+      { url: "https://www.immogve.be/contact/immo-gve-leuven", label: "Immo GVE Leuven: werkgebied en waardebepaling", geraadpleegdOp: "2026-10-14" },
+      { url: "https://www.immogve.be/gratis-schatting", label: "GVE Immobiliën: schattingsverslag en verkoopstappen", geraadpleegdOp: "2026-10-14" },
+    ],
+    inzichten: [
+      { titel: "Waardebepaling met Leuvense referenties", tekst: "De vestigingspagina beschrijft een gratis en vrijblijvende waardebepaling op basis van recente transacties in Leuven, de ligging, het type en de staat van het pand, en onder meer het EPC, het asbestattest en de renovatieplicht. Het kantoor noemt het centrum, Heverlee, Kessel-Lo, Wilsele en Wijgmaal als lokale markt.", vraag: "Welke recente verkopen in mijn deelgemeente gebruiken jullie als vergelijking, en ontvang ik die onderbouwing schriftelijk?", bron: 0 },
+      { titel: "Eerst de eigen website, daarna de portalen", tekst: "Na de schatting volgt volgens GVE een afspraak om het schattingsverslag toe te lichten. Bij een verkoopopdracht vraagt het kantoor de attesten op en komt er een fotograaf langs. De woning wordt eerst op de eigen website en bij ingeschreven zoekers gelanceerd, en enkele dagen later op externe sites zoals Immoscoop, Immoweb en Zimmo.", vraag: "Hoeveel dagen zitten er tussen de lancering op jullie website en de publicatie op de portalen, en hoe worden de bezoeken in die periode gepland?", bron: 1 },
+    ],
+  },
+  "gve-immobilien-tienen": {
+    onderwerpen: ["verkoop", "verhuur", "schatting", "nieuwbouw", "beheer"],
+    bronnen: [
+      { url: "https://www.immogve.be/contact/immo-gve-tienen", label: "Immo GVE Tienen: diensten en ontvangst op afspraak", geraadpleegdOp: "2026-10-14" },
+      { url: "https://www.immogve.be/diensten/rentmeesterschap", label: "GVE Immobiliën: drie vormen van rentmeesterschap", geraadpleegdOp: "2026-10-14" },
+    ],
+    inzichten: [
+      { titel: "Tienen op afspraak", tekst: "Voor Goossensvest 1A in Tienen vermeldt GVE ontvangst van maandag tot zaterdag op afspraak. De vestigingspagina noemt verkoop, verhuur en rentmeesterschap, met dagelijks beheer, onderhoud en administratie als onderdelen van het volledige rentmeesterschap.", vraag: "Wie ontvangt mij in Tienen en welk teamlid volgt mijn dossier daarna op?", bron: 0 },
+      { titel: "Rentmeesterschap in drie beheervormen", tekst: "De rentmeesterschapspagina onderscheidt administratief, financieel-juridisch en technisch beheer. GVE werkt daarvoor met de app Rentio, waarin huurders meldingen kunnen doen. De pagina noemt onder meer de plaatsbeschrijving, de controle van huurbetalingen en indexatie, en een jaarlijkse controle van het pand.", vraag: "Welke beheervorm neem ik af, welke taken horen daarbij en hoe wordt elke vorm aangerekend?", bron: 1 },
+    ],
+  },
+  "gve-immobilien-aarschot": {
+    onderwerpen: ["verkoop", "verhuur", "schatting", "nieuwbouw", "beheer"],
+    bronnen: [
+      { url: "https://www.immogve.be/contact/immo-gve-aarschot", label: "Immo GVE Aarschot: werkgebied en waardebepaling", geraadpleegdOp: "2026-10-14" },
+      { url: "https://www.immogve.be/diensten/verhuren", label: "GVE Immobiliën: verhuurtraject tot de intrek", geraadpleegdOp: "2026-10-14" },
+    ],
+    inzichten: [
+      { titel: "Aarschot en de omliggende deelgemeenten", tekst: "De vestigingspagina noemt Aarschot centrum, Langdorp, Gelrode, Rillaar en Begijnendijk als lokale markt. De gratis waardebepaling houdt volgens die pagina rekening met recente verkopen in Aarschot, de ligging, het type en de staat van het pand, het EPC en de renovatieplicht.", vraag: "Welke vergelijkbare verkopen in mijn deelgemeente onderbouwen de voorgestelde vraagprijs?", bron: 0 },
+      { titel: "Verhuren tot de huurder intrekt", tekst: "GVE beschrijft bij verhuur een gratis huurprijsbepaling, publiciteit, begeleide bezoeken, screening van kandidaten en een huurovereenkomst, tot de nieuwe huurder intrekt. Het beheer na de intrek valt onder het afzonderlijke rentmeesterschap.", vraag: "Stopt mijn verhuuropdracht bij de intrek van de huurder, of sluit ik daarna ook een rentmeesterschap af?", bron: 1 },
+    ],
+  },
+  "gve-immobilien-bertem": {
+    onderwerpen: ["verkoop", "verhuur", "schatting", "nieuwbouw", "beheer"],
+    bronnen: [
+      { url: "https://www.immogve.be/contact/immo-gve-bertem", label: "Immo GVE Bertem: vestiging en openingsuren", geraadpleegdOp: "2026-10-14" },
+      { url: "https://www.immogve.be/diensten/nieuwbouw", label: "GVE Immobiliën: begeleiding van nieuwbouwprojecten", geraadpleegdOp: "2026-10-14" },
+    ],
+    inzichten: [
+      { titel: "Korte openingsuren in Bertem", tekst: "Voor Gemeenteplein 3 in Bertem vermeldt GVE openingsuren op maandag, woensdag en vrijdag van 10u00 tot 12u30. Op dinsdag, donderdag en zaterdag is ontvangst op afspraak. Plan een gesprek daarom vooraf in.", vraag: "Wanneer kan ik in Bertem langskomen en wie bespreekt daar mijn eigendom met mij?", bron: 0 },
+      { titel: "Nieuwbouw in twee trajecten", tekst: "Voor projectontwikkelaars onderscheidt GVE een voortraject, met advies over onder meer de economische optimalisatie en de indeling van het project, en een koop- of huurtraject waarin het kantoor de units verkoopt of verhuurt. Dat omvat ook verkoop op plan.", vraag: "Begeleidt GVE mijn project al in het voortraject of alleen bij de verkoop van de units, en hoe is de vergoeding per fase opgebouwd?", bron: 1 },
+    ],
+  },
   "boes-en-boes": {
     onderwerpen: ["verkoop", "verhuur", "schatting"],
     bronnen: [
