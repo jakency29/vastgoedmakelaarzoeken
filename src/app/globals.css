@@ -47,3 +47,11 @@ img[src="/afbeeldingen/kantoren/consimmo-vastgoed.png"] {
   border-radius: 0.25rem;
   padding: 0.25rem;
 }
+
+/* Het officiële Immo Beguin-logo uit de websiteheader is crème en lichtblauw,
+   gemaakt voor een donkere kop. Zelfde aanpak als bij Consimmo. */
+img[src="/afbeeldingen/kantoren/immo-beguin.svg"] {
+  background-color: var(--color-brand-900);
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+}

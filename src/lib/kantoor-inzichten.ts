@@ -342,6 +342,50 @@ export const kantoorInzichten: Record<string, KantoorInzichten> = {
       { titel: "Nieuwbouw in twee trajecten", tekst: "Voor projectontwikkelaars onderscheidt GVE een voortraject, met advies over onder meer de economische optimalisatie en de indeling van het project, en een koop- of huurtraject waarin het kantoor de units verkoopt of verhuurt. Dat omvat ook verkoop op plan.", vraag: "Begeleidt GVE mijn project al in het voortraject of alleen bij de verkoop van de units, en hoe is de vergoeding per fase opgebouwd?", bron: 1 },
     ],
   },
+  "immo-beguin-ronse": {
+    onderwerpen: ["verkoop", "schatting", "nieuwbouw", "bedrijfsvastgoed"],
+    bronnen: [
+      { url: "https://www.immobeguin.be/kantoor-ronse", label: "Immo Beguin Ronse: eerste kantoor en regio", geraadpleegdOp: "2026-10-15" },
+      { url: "https://www.immobeguin.be/verkopen", label: "Immo Beguin: verkooptraject in vier stappen", geraadpleegdOp: "2026-10-15" },
+    ],
+    inzichten: [
+      { titel: "Eerste kantoor, gericht op de Vlaamse Ardennen", tekst: "Volgens de vestigingspagina opende Sophie Beguin in 2009 haar eerste vastgoedkantoor aan de Grote Markt in Ronse, van waaruit Immo Beguin later uitbreidde naar andere kantoren. De pagina koppelt het team in Ronse aan de vastgoedmarkt in de Vlaamse Ardennen en biedt een gratis en vrijblijvende schatting aan.", vraag: "Welke makelaar van het kantoor in Ronse volgt woningen in mijn gemeente op, en welke vergelijkbare verkopen in de Vlaamse Ardennen kan die toelichten?", bron: 0 },
+      { titel: "Waardebepaling bij een tweede afspraak", tekst: "Immo Beguin beschrijft een verkooptraject in vier stappen. Eerst komt een makelaar uit de buurt kennismaken en de woning bekijken. Bij een tweede afspraak volgen de waardebepaling, een analyse en een voorgestelde verkoopstrategie. De samenwerking start pas na ondertekening van het mandaat.", vraag: "Ontvang ik de waardebepaling en de analyse schriftelijk, en welke duur en voorwaarden staan in het mandaat dat daarna volgt?", bron: 1 },
+    ],
+  },
+  "immo-beguin-waregem": {
+    onderwerpen: ["verkoop", "schatting", "nieuwbouw", "bedrijfsvastgoed"],
+    bronnen: [
+      { url: "https://www.immobeguin.be/kantoor-waregem", label: "Immo Beguin Waregem: vestiging en aangekondigde verhuis", geraadpleegdOp: "2026-10-15" },
+      { url: "https://www.immobeguin.be/dna", label: "Immo Beguin: marketing en begeleiding volgens het eigen DNA", geraadpleegdOp: "2026-10-15" },
+    ],
+    inzichten: [
+      { titel: "Verhuis naar een groter kantoor aangekondigd", tekst: "De vestigingspagina vermeldt het kantoor aan Roterijstraat 202 en kondigt aan dat Immo Beguin Waregem binnenkort naar een groter kantoor verhuist. Een nieuw adres of een verhuisdatum staat niet op de pagina.", vraag: "Op welk adres vindt mijn afspraak in Waregem plaats, en blijft hetzelfde team mijn dossier na de verhuis opvolgen?", bron: 0 },
+      { titel: "Beeldmateriaal, advertenties en Early Bird", tekst: "Immo Beguin noemt professionele fotografie, video, dronebeelden, social advertising, Early Bird, vastgoedportalen en het eigen netwerk als onderdelen van de marketing. Administratie, planning, bezoeken en onderhandelingen neemt het kantoor volgens dezelfde pagina volledig over. Wat Early Bird precies inhoudt, wordt daar niet uitgelegd.", vraag: "Welke van deze marketingmiddelen zijn inbegrepen voor mijn woning, en wat betekent een Early Bird-lancering voor de timing van publicaties en bezoeken?", bron: 1 },
+    ],
+  },
+  "immo-beguin-kortrijk": {
+    onderwerpen: ["verkoop", "schatting", "nieuwbouw", "bedrijfsvastgoed"],
+    bronnen: [
+      { url: "https://www.immobeguin.be/kantoor-kortrijk", label: "Immo Beguin Kortrijk: kantoor op het Plein", geraadpleegdOp: "2026-10-15" },
+      { url: "https://www.immobeguin.be/over-ons", label: "Immo Beguin: lokale kantoren, ondersteuning en bereikbaarheid", geraadpleegdOp: "2026-10-15" },
+    ],
+    inzichten: [
+      { titel: "Kantoor op het Plein, algemene contactgegevens", tekst: "De vestigingspagina situeert het kantoor op Plein 16 in het centrum van Kortrijk, als uitvalsbasis voor Kortrijk en de ruimere regio. Op die pagina staan het algemene telefoonnummer en het algemene e-mailadres van Immo Beguin, geen rechtstreekse gegevens van een makelaar in Kortrijk.", vraag: "Wie van het team in Kortrijk wordt mijn vaste aanspreekpunt, en hoe bereik ik die persoon rechtstreeks?", bron: 0 },
+      { titel: "Per woning een WhatsApp-groep", tekst: "Immo Beguin vermeldt dat het voor iedere woning een WhatsApp-groep gebruikt voor directe communicatie. Volgens dezelfde pagina worden de makelaars ondersteund door medewerkers voor marketing, wetgeving, administratie, boekhouding en organisatie, en kunnen panden via de lokale kantoren op zichtlocaties worden geafficheerd.", vraag: "Wie zit er in de WhatsApp-groep van mijn woning, en welke afspraken en documenten bevestigt het kantoor daarnaast schriftelijk?", bron: 1 },
+    ],
+  },
+  "immo-beguin-deinze": {
+    onderwerpen: ["verkoop", "schatting", "nieuwbouw", "bedrijfsvastgoed"],
+    bronnen: [
+      { url: "https://www.immobeguin.be/kantoor-deinze", label: "Immo Beguin Deinze: werkgebied in de Leiestreek", geraadpleegdOp: "2026-10-15" },
+      { url: "https://www.immobeguin.be/verkopen", label: "Immo Beguin: staging, marketing en juridische ondersteuning", geraadpleegdOp: "2026-10-15" },
+    ],
+    inzichten: [
+      { titel: "Deinze en de ruime Leiestreek", tekst: "Volgens de vestigingspagina begeleidt het team vanuit Gentstraat 14 kopers en verkopers in Deinze en de ruime Leiestreek. De pagina biedt een gratis en vrijblijvende schatting aan, maar noemt geen afzonderlijke deelgemeenten of buurgemeenten als werkgebied.", vraag: "Welke deelgemeenten en buurgemeenten rond Deinze volgt dit kantoor zelf op, en wie voert daar de bezoeken uit?", bron: 0 },
+      { titel: "Fysieke en digitale staging", tekst: "Op de verkooppagina vermeldt Immo Beguin fysieke staging en een AI-tool voor staging die het kantoor gratis ter beschikking stelt. Daarnaast noemt de pagina in-house marketing via sociale media, advertenties en e-mail, en eigen juridische ondersteuning bij contracten en documenten.", vraag: "Wordt mijn woning fysiek of digitaal aangekleed, en hoe wordt in de advertentie duidelijk welke beelden digitaal bewerkt zijn?", bron: 1 },
+    ],
+  },
   "boes-en-boes": {
     onderwerpen: ["verkoop", "verhuur", "schatting"],
     bronnen: [

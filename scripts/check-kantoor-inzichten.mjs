@@ -11,7 +11,7 @@ const kantoor = slug => {
 };
 
 test("Elk inzicht heeft een bestaand kantoor, een publieke bron en een vaste raadpleegdatum", () => {
-  assert.equal(Object.keys(kantoorInzichten).length, 55);
+  assert.equal(Object.keys(kantoorInzichten).length, 59);
   for (const [slug, gegevens] of Object.entries(kantoorInzichten)) {
     const k = kantoor(slug);
     assert.ok(gegevens.onderwerpen.length > 0);
@@ -241,6 +241,62 @@ test("GVE Immobiliën heeft vier vestigingen in Vlaams-Brabant met eigen reviewk
   assert.match(kantoor("gve-immobilien-tienen").intro, /Op Google staat deze vestiging vermeld als Goossensvest 1;/);
   const logo = readFileSync(new URL("../public/afbeeldingen/kantoren/gve-immobilien.svg", import.meta.url), "utf8");
   assert.doesNotMatch(logo, /<script|\son\w+=|href=|<image|<foreignObject/i);
+});
+
+test("Immo Beguin heeft vier vestigingen in Oost- en West-Vlaanderen met eigen reviewkoppeling en primaire bronnen", () => {
+  const batch = [
+    ["immo-beguin-ronse", "Grote Markt 35", "9600", "Ronse", "Oost-Vlaanderen", "ChIJ3Y1-a9UEw0cRg6HXNHNus-8"],
+    ["immo-beguin-waregem", "Roterijstraat 202", "8790", "Waregem", "West-Vlaanderen", "ChIJR0-LMjg_w0cRHwpgtCm0cAE"],
+    ["immo-beguin-kortrijk", "Plein 16", "8500", "Kortrijk", "West-Vlaanderen", "ChIJUYgQh6Y7w0cRIxfbUtNCWqg"],
+    ["immo-beguin-deinze", "Gentstraat 14", "9800", "Deinze", "Oost-Vlaanderen", "ChIJL-x6bLdrw0cR0guJ8qGchss"],
+  ];
+  for (const [slug, adres, postcode, gemeente, provincie, placeId] of batch) {
+    const k = kantoor(slug);
+    assert.equal(kantoren.filter(o => o.slug === slug).length, 1);
+    assert.equal(kantoren.filter(o => o.googlePlaceId === placeId).length, 1);
+    assert.equal(k.naam, `Immo Beguin ${gemeente}`);
+    assert.equal(k.adres, adres);
+    assert.equal(k.postcode, postcode);
+    assert.equal(k.gemeente, gemeente);
+    assert.equal(k.provincie, provincie);
+    assert.equal(k.provincieSlug, undefined, "Nog geen provinciegids voor Oost- of West-Vlaanderen");
+    assert.ok(k.regios.includes(provincie));
+    assert.equal(k.email, "info@immobeguin.be");
+    assert.equal(k.telefoon, "0486 60 66 00");
+    assert.equal(k.googlePlaceId, placeId);
+    assert.equal(k.bivNummer, "504850");
+    assert.equal(k.bivHouder, "Sophie Beguin");
+    assert.equal(k.bivBron, "https://www.immobeguin.be/contact");
+    assert.equal(k.premium, undefined, "Basisprofiel, geen premium");
+    assert.equal(k.verborgenReviewRatings, undefined);
+    assert.equal(k.toegevoegdOp, "2026-10-15");
+    assert.equal(k.bivGecontroleerdOp, "2026-10-15");
+    assert.equal(k.foto, "/afbeeldingen/kantoren/immo-beguin.svg");
+    assert.equal(k.website, `https://www.immobeguin.be/kantoor-${gemeente.toLowerCase()}`);
+    assert.ok(k.intro.includes(`${adres}, ${postcode} ${gemeente}`));
+    assert.ok(existsSync(new URL(`../public${k.foto}`, import.meta.url)));
+    assert.ok(getKantoorInzichten(slug).bronnen.every(b => b.geraadpleegdOp === "2026-10-15"));
+    assert.equal(k.makelaar, undefined, "Een kantoorlogo is geen makelaarsportret");
+    assert.doesNotMatch(JSON.stringify(k), /[–—]/);
+    assert.doesNotMatch(JSON.stringify(getKantoorInzichten(slug)), /20\.000|\+35|100%/, "Geen marketingcijfers van de kantoorwebsite");
+    assert.ok(k.seoTitle.length <= 60);
+    assert.ok(k.seoDescription.length <= 155);
+  }
+  assert.match(kantoor("immo-beguin-ronse").intro, /hoofdkantoor/);
+  assert.match(kantoor("immo-beguin-waregem").intro, /binnenkort naar een groter kantoor/);
+  assert.match(kantoor("immo-beguin-waregem").intro, /postcode 8793/);
+  const vergelijkingWaregem = vergelijkbareKantoren(kantoor("immo-beguin-waregem"), kantoren);
+  assert.deepEqual(vergelijkingWaregem.map(v => v.kantoor.slug), ["immo-beguin-kortrijk"], "Leiestreek over de provinciegrens telt niet");
+  const logo = readFileSync(new URL("../public/afbeeldingen/kantoren/immo-beguin.svg", import.meta.url), "utf8");
+  assert.doesNotMatch(logo, /<script|\son\w+=|href=|<image|<foreignObject/i);
+  const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
+  assert.match(css, /img\[src="\/afbeeldingen\/kantoren\/immo-beguin\.svg"\]\s*\{[^}]*background-color:/);
+});
+
+test("Een provincielink op een kantoorprofiel wijst altijd naar een bestaande provinciegids", () => {
+  for (const k of kantoren.filter(o => o.provincieSlug)) {
+    assert.ok(existsSync(new URL(`../content/vastgoedkantoren/${k.provincieSlug}.mdx`, import.meta.url)), `${k.slug}: geen gids voor ${k.provincieSlug}`);
+  }
 });
 
 test("Vergelijking bevat geen eigen profiel, ononderzocht kantoor of andere provincie", () => {
