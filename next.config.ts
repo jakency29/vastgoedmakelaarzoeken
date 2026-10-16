@@ -45,6 +45,11 @@ const launchRedirects = [
 // Gebruik een klassieke 301 voor inhoudelijke consolidaties waarbij de oude URL
 // definitief naar de gekozen canonieke pagina verhuist.
 const movedPermanentlyRedirects = [
+  // Kantoorprofielen zonder toestemming van het kantoor, verwijderd op 16 oktober 2026.
+  // Het profiel bestaat niet meer; bezoekers en oude links gaan naar het kantorenoverzicht.
+  { from: "/kantoor/era-connect", to: "/kantoor" },
+  { from: "/kantoor/era-impact-maaseik", to: "/kantoor" },
+  { from: "/kantoor/era-nobis-sint-truiden", to: "/kantoor" },
   { from: "/asbestattest/bij-verkoop", to: "/huis-verkopen-verplichtingen/asbestattest" },
   // Pre-migratieconsolidaties. Deze routes overlapten inhoudelijk of boden geen
   // aantoonbaar unieke lokale waarde. De bronbestanden blijven tijdelijk noindex

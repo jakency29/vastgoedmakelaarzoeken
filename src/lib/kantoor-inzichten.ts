@@ -146,30 +146,6 @@ export const kantoorInzichten: Record<string, KantoorInzichten> = {
       { titel: "Voorbereiding tot notariële afhandeling", tekst: "De kantoorpagina vermeldt begeleiding bij verkoop en verhuur, aandacht voor documenten zoals het EPC en publicatie van het aanbod. Voor verkoop wordt begeleiding tot bij de notaris beschreven.", vraag: "Welke voorbereiding nemen jullie over en welke documentkosten blijven voor mij?", bron: 0 },
     ],
   },
-  "era-connect": {
-    onderwerpen: ["verkoop", "verhuur", "schatting", "aankoop"],
-    bronnen: [bron("https://www.era.be/nl/era-connect", "ERA CONNECT: lokaal werkgebied en diensten")],
-    inzichten: [
-      { titel: "Expliciet lokaal werkgebied", tekst: "ERA CONNECT noemt Hoeselt, Bilzen, Tongeren en Riemst als zijn werkgebied. De lokale pagina biedt aparte ingangen voor verkoop, verhuur en waardebepaling.", vraag: "Welke medewerker heeft recente dossiers met mijn woningtype in mijn gemeente?", bron: 0 },
-      { titel: "Lokale begeleiding binnen een netwerk", tekst: "De pagina koppelt een eigen team en lokaal aanbod aan de informatie en stappenplannen van ERA. Netwerkinformatie is niet hetzelfde als een concrete offerte van de lokale vestiging.", vraag: "Welke ERA-diensten zijn daadwerkelijk in mijn lokale opdracht inbegrepen?", bron: 0 },
-    ],
-  },
-  "era-impact-maaseik": {
-    onderwerpen: ["verkoop", "verhuur", "schatting", "aankoop", "nieuwbouw"],
-    bronnen: [bron("https://www.era.be/nl/era-impact", "ERA IMPACT: kantoren en regionaal aanbod")],
-    inzichten: [
-      { titel: "Samenwerking tussen Bree en Maaseik", tekst: "ERA IMPACT vermeldt vestigingen in Bree en Maaseik en noemt ook Bocholt, Peer, Oudsbergen en Kinrooi in het werkgebied.", vraag: "Vanuit welke vestiging worden de bezoeken en de opvolging van mijn pand georganiseerd?", bron: 0 },
-      { titel: "Ook een traject voor nieuwbouw", tekst: "Naast verkoop, verhuur en waardebepaling heeft de lokale ERA IMPACT-pagina een ingang voor ontwikkelen en nieuwbouw.", vraag: "Gaat de begeleiding over een bestaand pand, aankoop op plan of de ontwikkeling van mijn grond?", bron: 0 },
-    ],
-  },
-  "era-nobis-sint-truiden": {
-    onderwerpen: ["verkoop", "verhuur", "schatting", "aankoop", "nieuwbouw"],
-    bronnen: [bron("https://www.era.be/nl/era-nobis", "ERA NOBIS: organisatie en vestigingen")],
-    inzichten: [
-      { titel: "Vestiging binnen een kantorengroep", tekst: "De ERA NOBIS-website vermeldt Sint-Truiden naast onder meer Alken, Genk, Hasselt, Herk-de-Stad en Zonhoven. De centrale pagina beschrijft de diensten van de groep.", vraag: "Wie is mijn contactpersoon in Sint-Truiden en wat wordt met andere vestigingen gedeeld?", bron: 0 },
-      { titel: "Verkoop, verhuur en ontwikkelen", tekst: "De dienstenrubriek maakt onderscheid tussen bestaande eigendommen verkopen of verhuren, waardebepaling en een traject voor ontwikkelen en nieuwbouw.", vraag: "Welk team en welke opdracht passen bij mijn bestaande woning of nieuwbouwproject?", bron: 0 },
-    ],
-  },
   "found-baker-properties-limburg": {
     onderwerpen: ["verkoop", "verhuur", "nieuwbouw"],
     bronnen: [bron("https://www.found-baker.com/nl/limburg", "Found & Baker: kantoor Limburg en publicatiekanalen")],

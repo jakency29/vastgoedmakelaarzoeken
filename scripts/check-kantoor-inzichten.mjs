@@ -11,7 +11,7 @@ const kantoor = slug => {
 };
 
 test("Elk inzicht heeft een bestaand kantoor, een publieke bron en een vaste raadpleegdatum", () => {
-  assert.equal(Object.keys(kantoorInzichten).length, 59);
+  assert.equal(Object.keys(kantoorInzichten).length, 56);
   for (const [slug, gegevens] of Object.entries(kantoorInzichten)) {
     const k = kantoor(slug);
     assert.ok(gegevens.onderwerpen.length > 0);
@@ -344,4 +344,15 @@ test("Datum is Nederlands en het gepubliceerde tarief houdt zijn context", () =>
   assert.match(tarief, /3% inclusief btw/);
   assert.match(tarief, /maatwerkvoorwaarden/);
   assert.match(tarief, /geen persoonlijke offerte/);
+});
+
+test("Kantoren zonder toestemming blijven weg en leiden naar het overzicht", () => {
+  const verwijderd = ["era-connect", "era-impact-maaseik", "era-nobis-sint-truiden"];
+  const config = readFileSync(new URL("../next.config.ts", import.meta.url), "utf8");
+  for (const slug of verwijderd) {
+    assert.equal(kantoren.some(k => k.slug === slug), false, `${slug} staat nog in kantoren`);
+    assert.equal(slug in kantoorInzichten, false, `${slug} heeft nog inzichten`);
+    assert.ok(config.includes(`{ from: "/kantoor/${slug}", to: "/kantoor" }`), `redirect voor ${slug} ontbreekt`);
+  }
+  assert.equal(kantoren.some(k => /^ERA/i.test(k.naam)), false, "er staat opnieuw een ERA-kantoor op de site");
 });
