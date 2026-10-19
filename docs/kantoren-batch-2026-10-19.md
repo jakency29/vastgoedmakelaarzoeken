@@ -97,3 +97,12 @@ Scores staan alleen in deze notitie; het platform toont ze pas wanneer het ze ze
 ### Status
 
 Lokaal gecommit op `main`, niet gepusht. Na akkoord van de operator volgen de push, de livecontrole en een aanvulling van dit document.
+
+## Bijsturing 19 oktober 2026 (operator)
+
+- Nieuwpoort is voorlopig niet gepubliceerd: geen Google-bedrijfsprofiel, geen eigen vestigingspagina, en het
+  persbericht van 6 augustus zegt alleen dat het kantoor "dit jaar" opent. Toevoegen zodra Sophie Beguin bevestigt
+  dat het open is. Gegevens om dan te hergebruiken: Lombardsijdestraat 1, 8620 Nieuwpoort, telefoon 0486 60 66 00.
+- De zin boven het kantorenblok op de homepage is "Erkende kantoren op ons platform." geworden (was: "uit heel
+  Vlaanderen"), omdat er nu ook Henegouwse vestigingen op staan. De andere teksten die de scope "Vlaanderen en
+  Brussel" noemen, blijven voorlopig staan; beslissing van de operator volgt.

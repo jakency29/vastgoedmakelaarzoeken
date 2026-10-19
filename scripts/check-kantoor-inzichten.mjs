@@ -11,7 +11,7 @@ const kantoor = slug => {
 };
 
 test("Elk inzicht heeft een bestaand kantoor, een publieke bron en een vaste raadpleegdatum", () => {
-  assert.equal(Object.keys(kantoorInzichten).length, 60);
+  assert.equal(Object.keys(kantoorInzichten).length, 59);
   for (const [slug, gegevens] of Object.entries(kantoorInzichten)) {
     const k = kantoor(slug);
     assert.ok(gegevens.onderwerpen.length > 0);
@@ -290,19 +290,18 @@ test("Immo Beguin heeft vier vestigingen in Oost- en West-Vlaanderen met eigen r
   assert.doesNotMatch(waregem, /verhuis/i);
   assert.equal(getKantoorInzichten("immo-beguin-waregem").bronnen[0].geraadpleegdOp, "2026-10-19");
   const vergelijkingWaregem = vergelijkbareKantoren(kantoor("immo-beguin-waregem"), kantoren);
-  assert.deepEqual(vergelijkingWaregem.map(v => v.kantoor.slug), ["immo-beguin-kortrijk", "immo-beguin-nieuwpoort"], "Leiestreek over de provinciegrens telt niet");
+  assert.deepEqual(vergelijkingWaregem.map(v => v.kantoor.slug), ["immo-beguin-kortrijk"], "Leiestreek over de provinciegrens telt niet");
   const logo = readFileSync(new URL("../public/afbeeldingen/kantoren/immo-beguin.svg", import.meta.url), "utf8");
   assert.doesNotMatch(logo, /<script|\son\w+=|href=|<image|<foreignObject/i);
   const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
   assert.match(css, /img\[src="\/afbeeldingen\/kantoren\/immo-beguin\.svg"\]\s*\{[^}]*background-color:/);
 });
 
-test("Immo Beguin heeft vier extra vestigingen in Henegouwen en Nieuwpoort met primaire bronnen", () => {
+test("Immo Beguin heeft drie extra vestigingen in Henegouwen met primaire bronnen, Nieuwpoort nog niet", () => {
   const batch = [
     ["immo-beguin-lessen", "Lessen", "Lessen (Lessines)", "Porte d'Ogy 78", "7860", "Henegouwen", "ChIJO8DVoZGpw0cRpHYx-9L9HHA", "https://www.immobeguin.be/kantoor-lessen"],
     ["immo-beguin-doornik", "Doornik", "Doornik (Tournai)", "Place de Lille 22", "7500", "Henegouwen", "ChIJz1tnZcLfwkcRtUJgRLMvRVw", "https://www.immobeguin.be/kantoor-doornik"],
     ["immo-beguin-moeskroen", "Moeskroen", "Moeskroen (Mouscron)", "Rue du Bois de Boulogne 1/3", "7700", "Henegouwen", "ChIJ0ZwOGp0lw0cRcZuWAjW7Xb0", "https://www.immobeguin.be/kantoor-moeskroen"],
-    ["immo-beguin-nieuwpoort", "Nieuwpoort", "Nieuwpoort", "Lombardsijdestraat 1", "8620", "West-Vlaanderen", undefined, "https://www.immobeguin.be/contact"],
   ];
   for (const [slug, plaats, gemeente, adres, postcode, provincie, placeId, website] of batch) {
     const k = kantoor(slug);
@@ -411,4 +410,11 @@ test("Kantoren zonder toestemming blijven weg en leiden naar het overzicht", () 
     assert.ok(config.includes(`{ from: "/kantoor/${slug}", to: "/kantoor" }`), `redirect voor ${slug} ontbreekt`);
   }
   assert.equal(kantoren.some(k => /^ERA/i.test(k.naam)), false, "er staat opnieuw een ERA-kantoor op de site");
+});
+
+test("Immo Beguin Nieuwpoort staat er niet op tot de opening bevestigd is", () => {
+  // Beslissing operator 19-10-2026: geen Google-profiel, geen eigen vestigingspagina,
+  // opening niet bevestigd. Pas toevoegen na bevestiging door Sophie Beguin.
+  assert.equal(kantoren.some(k => k.slug === "immo-beguin-nieuwpoort"), false);
+  assert.equal("immo-beguin-nieuwpoort" in kantoorInzichten, false);
 });

@@ -1050,32 +1050,6 @@ export const kantoren: Kantoor[] = [
     bivGecontroleerdOp: "2026-10-19",
     foto: "/afbeeldingen/kantoren/immo-beguin.svg",
   },
-  // Nieuwpoort heeft (nog) geen eigen vestigingspagina op immobeguin.be en geen
-  // Google-bedrijfsprofiel: de contactpagina is de website, er is geen googlePlaceId.
-  {
-    slug: "immo-beguin-nieuwpoort",
-    toegevoegdOp: "2026-10-19",
-    naam: "Immo Beguin Nieuwpoort",
-    seoTitle: "Immo Beguin Nieuwpoort: vastgoedkantoor en contact",
-    seoDescription:
-      "Bekijk Immo Beguin aan de Lombardsijdestraat in Nieuwpoort: verkoop van woningen en commercieel vastgoed, gratis schatting, BIV-vermelding en contact.",
-    gemeente: "Nieuwpoort",
-    provincie: "West-Vlaanderen",
-    intro:
-      "Immo Beguin Nieuwpoort is de vestiging van Immo Beguin aan Lombardsijdestraat 1, 8620 Nieuwpoort. Volgens de kantoorwebsite koos Immo Beguin voor Nieuwpoort omdat het de voorbije jaren steeds vaker de vraag kreeg om vastgoed aan de kust te verkopen. Het kantoor begeleidt de verkoop van woningen en commercieel vastgoed en biedt een gratis schatting aan. Daarnaast heeft Immo Beguin onder meer kantoren in Waregem, Kortrijk en Ronse.",
-    diensten: ["Woning verkopen", "Gratis schatting", "Nieuwbouw", "Commercieel vastgoed", "Fysieke en AI-staging"],
-    regios: ["Nieuwpoort", "Belgische kust", "West-Vlaanderen"],
-    adres: "Lombardsijdestraat 1",
-    postcode: "8620",
-    telefoon: "0486 60 66 00",
-    email: "info@immobeguin.be",
-    website: "https://www.immobeguin.be/contact",
-    bivNummer: "504850",
-    bivHouder: "Sophie Beguin",
-    bivBron: "https://www.immobeguin.be/contact",
-    bivGecontroleerdOp: "2026-10-19",
-    foto: "/afbeeldingen/kantoren/immo-beguin.svg",
-  },
   {
     slug: "boes-en-boes",
     googlePlaceId: "ChIJ8eEiw4AhwUcR6WSxPc3foAY",

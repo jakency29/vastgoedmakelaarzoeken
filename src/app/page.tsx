@@ -243,7 +243,7 @@ export default function Home() {
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-3xl font-extrabold tracking-tight text-brand-900">Vastgoedkantoren</h2>
-            <p className="mt-2 text-slate-600">Erkende kantoren uit heel Vlaanderen op ons platform.</p>
+            <p className="mt-2 text-slate-600">Erkende kantoren op ons platform.</p>
           </div>
           <Link href="/kantoor" className="hidden shrink-0 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-brand-800 hover:border-brand-300 sm:inline-block">
             Alle kantoren

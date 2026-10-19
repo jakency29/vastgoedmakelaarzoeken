@@ -395,17 +395,6 @@ export const kantoorInzichten: Record<string, KantoorInzichten> = {
       { titel: "Bod uitbrengen met een aankoopbelofte", tekst: "Voor kopers stelt Immo Beguin een document ter beschikking om een bod uit te brengen: de aankoopbelofte. Je vult ze volledig in en bezorgt ze terug via je makelaar of via het algemene e-mailadres van het kantoor.", vraag: "Vanaf wanneer is mijn ondertekende aankoopbelofte bindend, en kan ik er een opschortende voorwaarde voor mijn lening in opnemen?", bron: 1 },
     ],
   },
-  "immo-beguin-nieuwpoort": {
-    onderwerpen: ["verkoop", "schatting", "nieuwbouw", "bedrijfsvastgoed"],
-    bronnen: [
-      { url: "https://www.immobeguin.be/insights/nieuw-kantoor-nieuwpoort", label: "Immo Beguin: bericht over het nieuwe kantoor in Nieuwpoort", geraadpleegdOp: "2026-10-19" },
-      { url: "https://www.immobeguin.be/verkopen", label: "Immo Beguin: onderhandelen en ontzorgen bij een verkoop", geraadpleegdOp: "2026-10-19" },
-    ],
-    inzichten: [
-      { titel: "Vaste uitvalsbasis aan de kust", tekst: "In een bericht van 6 augustus 2026 op de kantoorwebsite kondigt Immo Beguin een vestiging aan de Lombardsijdestraat 1 in Nieuwpoort aan, de stad waar zaakvoerder Sophie Beguin opgroeide. Volgens dat bericht kreeg het kantoor de voorbije jaren steeds vaker de vraag om vastgoed aan de kust te verkopen en wilde het daar een vaste uitvalsbasis.", vraag: "Is het kantoor in Nieuwpoort al dagelijks open, en welke makelaar volgt verkopen aan de kust op?", bron: 0 },
-      { titel: "Onderhandelen en ontzorgen", tekst: "Volgens de verkooppagina zijn de makelaars van Immo Beguin getraind in onderhandelen en zoeken ze op een menselijke manier naar de juiste overeenkomst. Dezelfde pagina noemt het ontzorgen van verkoper en koper, van de eerste schatting tot het compromis, als rode draad van de aanpak.", vraag: "Hoe meldt de makelaar mij elk bod, en beslis ik zelf over elk tegenbod voor de compromis wordt opgesteld?", bron: 1 },
-    ],
-  },
   "boes-en-boes": {
     onderwerpen: ["verkoop", "verhuur", "schatting"],
     bronnen: [
