@@ -332,11 +332,11 @@ export const kantoorInzichten: Record<string, KantoorInzichten> = {
   "immo-beguin-waregem": {
     onderwerpen: ["verkoop", "schatting", "nieuwbouw", "bedrijfsvastgoed"],
     bronnen: [
-      { url: "https://www.immobeguin.be/kantoor-waregem", label: "Immo Beguin Waregem: vestiging en aangekondigde verhuis", geraadpleegdOp: "2026-10-15" },
+      { url: "https://www.immobeguin.be/kantoor-waregem", label: "Immo Beguin Waregem: vestiging in de Roterijstraat", geraadpleegdOp: "2026-10-19" },
       { url: "https://www.immobeguin.be/dna", label: "Immo Beguin: marketing en begeleiding volgens het eigen DNA", geraadpleegdOp: "2026-10-15" },
     ],
     inzichten: [
-      { titel: "Verhuis naar een groter kantoor aangekondigd", tekst: "De vestigingspagina vermeldt het kantoor aan Roterijstraat 202 en kondigt aan dat Immo Beguin Waregem binnenkort naar een groter kantoor verhuist. Een nieuw adres of een verhuisdatum staat niet op de pagina.", vraag: "Op welk adres vindt mijn afspraak in Waregem plaats, en blijft hetzelfde team mijn dossier na de verhuis opvolgen?", bron: 0 },
+      { titel: "Vestiging in de Roterijstraat", tekst: "Volgens de vestigingspagina bouwde Immo Beguin vanuit de vestiging in de Roterijstraat de voorbije jaren zijn aanwezigheid in Waregem en de ruime regio uit. Het woningaanbod op die pagina staat onder de noemer Leiestreek, en de pagina vermeldt openingsuren op weekdagen van 9 tot 18 uur en op zaterdag van 9 tot 12 uur.", vraag: "Welke makelaar van het team in Waregem volgt woningen in mijn deelgemeente op, en hoe maak ik een afspraak op kantoor?", bron: 0 },
       { titel: "Beeldmateriaal, advertenties en Early Bird", tekst: "Immo Beguin noemt professionele fotografie, video, dronebeelden, social advertising, Early Bird, vastgoedportalen en het eigen netwerk als onderdelen van de marketing. Administratie, planning, bezoeken en onderhandelingen neemt het kantoor volgens dezelfde pagina volledig over. Wat Early Bird precies inhoudt, wordt daar niet uitgelegd.", vraag: "Welke van deze marketingmiddelen zijn inbegrepen voor mijn woning, en wat betekent een Early Bird-lancering voor de timing van publicaties en bezoeken?", bron: 1 },
     ],
   },
@@ -360,6 +360,50 @@ export const kantoorInzichten: Record<string, KantoorInzichten> = {
     inzichten: [
       { titel: "Deinze en de ruime Leiestreek", tekst: "Volgens de vestigingspagina begeleidt het team vanuit Gentstraat 14 kopers en verkopers in Deinze en de ruime Leiestreek. De pagina biedt een gratis en vrijblijvende schatting aan, maar noemt geen afzonderlijke deelgemeenten of buurgemeenten als werkgebied.", vraag: "Welke deelgemeenten en buurgemeenten rond Deinze volgt dit kantoor zelf op, en wie voert daar de bezoeken uit?", bron: 0 },
       { titel: "Fysieke en digitale staging", tekst: "Op de verkooppagina vermeldt Immo Beguin fysieke staging en een AI-tool voor staging die het kantoor gratis ter beschikking stelt. Daarnaast noemt de pagina in-house marketing via sociale media, advertenties en e-mail, en eigen juridische ondersteuning bij contracten en documenten.", vraag: "Wordt mijn woning fysiek of digitaal aangekleed, en hoe wordt in de advertentie duidelijk welke beelden digitaal bewerkt zijn?", bron: 1 },
+    ],
+  },
+  "immo-beguin-lessen": {
+    onderwerpen: ["verkoop", "schatting", "nieuwbouw", "bedrijfsvastgoed"],
+    bronnen: [
+      { url: "https://www.immobeguin.be/kantoor-lessen", label: "Immo Beguin Lessen: kantoor op de grens van het Pays des Collines", geraadpleegdOp: "2026-10-19" },
+      { url: "https://www.immobeguin.be/verkopen", label: "Immo Beguin: schatting, analyse en verkoopstrategie", geraadpleegdOp: "2026-10-19" },
+    ],
+    inzichten: [
+      { titel: "Op de grens van het Pays des Collines", tekst: "Volgens de vestigingspagina ligt het kantoor aan de Porte d'Ogy in Lessen, op de grens van het Pays des Collines. Het team begeleidt van daaruit eigenaars, verkopers en kopers bij de verkoop, aankoop of investering in vastgoed en volgt daarvoor de lokale vastgoedmarkt van dichtbij op.", vraag: "Welke gemeenten in en rond het Pays des Collines volgt het team in Lessen zelf op, en kan ik mijn dossier volledig in het Nederlands opvolgen?", bron: 0 },
+      { titel: "Schatting als vertrekpunt voor de vraagprijs", tekst: "Op de verkooppagina beschrijft Immo Beguin een gratis schatting door een makelaar uit de buurt, bedoeld om de woning bij de lancering niet boven en niet onder de prijs aan te bieden. Bij een tweede afspraak volgen de waardebepaling, een analyse en een voorgestelde verkoopstrategie; het mandaat komt pas daarna.", vraag: "Op welke vergelijkbare verkopen in mijn buurt baseert de makelaar de geschatte waarde, en ontvang ik die onderbouwing schriftelijk?", bron: 1 },
+    ],
+  },
+  "immo-beguin-doornik": {
+    onderwerpen: ["verkoop", "schatting", "nieuwbouw", "bedrijfsvastgoed"],
+    bronnen: [
+      { url: "https://www.immobeguin.be/kantoor-doornik", label: "Immo Beguin Doornik: kantoor aan de Place de Lille", geraadpleegdOp: "2026-10-19" },
+      { url: "https://www.immobeguin.be/early-bird", label: "Immo Beguin: Early Bird-groep voor nieuwe panden", geraadpleegdOp: "2026-10-19" },
+    ],
+    inzichten: [
+      { titel: "Centraal aan de Place de Lille", tekst: "Volgens de vestigingspagina ligt het kantoor aan de Place de Lille, centraal in Doornik, en begeleidt het team van daaruit klanten bij hun vastgoedplannen in de ruime regio. Het woningaanbod op die pagina staat onder de noemer Picardisch Wallonië. De pagina vermeldt openingsuren op weekdagen van 9 tot 18 uur en op zaterdag van 9 tot 12 uur.", vraag: "Wie van het team in Doornik wordt mijn vaste aanspreekpunt, en kan ik binnen de openingsuren ook zonder afspraak langskomen?", bron: 0 },
+      { titel: "Nieuwe panden eerst in de Early Bird-groep", tekst: "Immo Beguin beschrijft Early Bird als een gratis Facebookgroep waarin de nieuwste panden als eerste verschijnen, nog voor ze op sociale media of vastgoedplatformen circuleren. Leden krijgen meldingen van nieuw aanbod in hun regio; de pagina noemt onder meer Doornik, Lessines en Ath.", vraag: "Verschijnt mijn woning eerst in de Early Bird-groep, en hoeveel later komt ze op de vastgoedportalen en in de advertenties?", bron: 1 },
+    ],
+  },
+  "immo-beguin-moeskroen": {
+    onderwerpen: ["verkoop", "schatting", "aankoop", "nieuwbouw", "bedrijfsvastgoed"],
+    bronnen: [
+      { url: "https://www.immobeguin.be/kantoor-moeskroen", label: "Immo Beguin Moeskroen: nieuw kantoor in Picardisch Wallonië", geraadpleegdOp: "2026-10-19" },
+      { url: "https://www.immobeguin.be/aankoopbelofte", label: "Immo Beguin: bod uitbrengen met een aankoopbelofte", geraadpleegdOp: "2026-10-19" },
+    ],
+    inzichten: [
+      { titel: "Nieuw kantoor met een lokaal team", tekst: "Volgens de vestigingspagina is Moeskroen een nieuw kantoor met een lokaal team, waarmee Immo Beguin verder groeit in Picardisch Wallonië. Op die pagina staan het algemene telefoonnummer en het algemene e-mailadres van Immo Beguin, geen rechtstreekse gegevens van een makelaar in Moeskroen.", vraag: "Sinds wanneer werkt het team vanuit Moeskroen, en welke verkopen in mijn buurt heeft het zelf begeleid?", bron: 0 },
+      { titel: "Bod uitbrengen met een aankoopbelofte", tekst: "Voor kopers stelt Immo Beguin een document ter beschikking om een bod uit te brengen: de aankoopbelofte. Je vult ze volledig in en bezorgt ze terug via je makelaar of via het algemene e-mailadres van het kantoor.", vraag: "Vanaf wanneer is mijn ondertekende aankoopbelofte bindend, en kan ik er een opschortende voorwaarde voor mijn lening in opnemen?", bron: 1 },
+    ],
+  },
+  "immo-beguin-nieuwpoort": {
+    onderwerpen: ["verkoop", "schatting", "nieuwbouw", "bedrijfsvastgoed"],
+    bronnen: [
+      { url: "https://www.immobeguin.be/insights/nieuw-kantoor-nieuwpoort", label: "Immo Beguin: bericht over het nieuwe kantoor in Nieuwpoort", geraadpleegdOp: "2026-10-19" },
+      { url: "https://www.immobeguin.be/verkopen", label: "Immo Beguin: onderhandelen en ontzorgen bij een verkoop", geraadpleegdOp: "2026-10-19" },
+    ],
+    inzichten: [
+      { titel: "Vaste uitvalsbasis aan de kust", tekst: "In een bericht van 6 augustus 2026 op de kantoorwebsite kondigt Immo Beguin een vestiging aan de Lombardsijdestraat 1 in Nieuwpoort aan, de stad waar zaakvoerder Sophie Beguin opgroeide. Volgens dat bericht kreeg het kantoor de voorbije jaren steeds vaker de vraag om vastgoed aan de kust te verkopen en wilde het daar een vaste uitvalsbasis.", vraag: "Is het kantoor in Nieuwpoort al dagelijks open, en welke makelaar volgt verkopen aan de kust op?", bron: 0 },
+      { titel: "Onderhandelen en ontzorgen", tekst: "Volgens de verkooppagina zijn de makelaars van Immo Beguin getraind in onderhandelen en zoeken ze op een menselijke manier naar de juiste overeenkomst. Dezelfde pagina noemt het ontzorgen van verkoper en koper, van de eerste schatting tot het compromis, als rode draad van de aanpak.", vraag: "Hoe meldt de makelaar mij elk bod, en beslis ik zelf over elk tegenbod voor de compromis wordt opgesteld?", bron: 1 },
     ],
   },
   "boes-en-boes": {
@@ -553,7 +597,7 @@ export function formatBronDatum(datum: string): string {
 
 // Provincienamen zijn geen lokale overlap. Selectie is geen kwaliteitsrangschikking;
 // premium, Google-score, reviewaantal en toevoegdatum hebben hier geen invloed.
-const bredeRegios = new Set(["limburg", "antwerpen", "oost-vlaanderen", "west-vlaanderen", "vlaams-brabant", "vlaanderen", "belgië", "regio antwerpen"]);
+const bredeRegios = new Set(["limburg", "antwerpen", "oost-vlaanderen", "west-vlaanderen", "vlaams-brabant", "henegouwen", "vlaanderen", "belgië", "regio antwerpen"]);
 const normaliseer = (naam: string) => naam.trim().toLocaleLowerCase("nl-BE");
 
 export function vergelijkbareKantoren(kantoor: Kantoor, kandidaten: Kantoor[], limit = 2) {

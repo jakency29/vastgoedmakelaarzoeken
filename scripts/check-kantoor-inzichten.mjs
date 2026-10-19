@@ -11,7 +11,7 @@ const kantoor = slug => {
 };
 
 test("Elk inzicht heeft een bestaand kantoor, een publieke bron en een vaste raadpleegdatum", () => {
-  assert.equal(Object.keys(kantoorInzichten).length, 56);
+  assert.equal(Object.keys(kantoorInzichten).length, 60);
   for (const [slug, gegevens] of Object.entries(kantoorInzichten)) {
     const k = kantoor(slug);
     assert.ok(gegevens.onderwerpen.length > 0);
@@ -275,7 +275,7 @@ test("Immo Beguin heeft vier vestigingen in Oost- en West-Vlaanderen met eigen r
     assert.equal(k.website, `https://www.immobeguin.be/kantoor-${gemeente.toLowerCase()}`);
     assert.ok(k.intro.includes(`${adres}, ${postcode} ${gemeente}`));
     assert.ok(existsSync(new URL(`../public${k.foto}`, import.meta.url)));
-    assert.ok(getKantoorInzichten(slug).bronnen.every(b => b.geraadpleegdOp === "2026-10-15"));
+    assert.ok(getKantoorInzichten(slug).bronnen.every(b => ["2026-10-15", "2026-10-19"].includes(b.geraadpleegdOp)));
     assert.equal(k.makelaar, undefined, "Een kantoorlogo is geen makelaarsportret");
     assert.doesNotMatch(JSON.stringify(k), /[–—]/);
     assert.doesNotMatch(JSON.stringify(getKantoorInzichten(slug)), /20\.000|\+35|100%/, "Geen marketingcijfers van de kantoorwebsite");
@@ -283,14 +283,70 @@ test("Immo Beguin heeft vier vestigingen in Oost- en West-Vlaanderen met eigen r
     assert.ok(k.seoDescription.length <= 155);
   }
   assert.match(kantoor("immo-beguin-ronse").intro, /hoofdkantoor/);
-  assert.match(kantoor("immo-beguin-waregem").intro, /binnenkort naar een groter kantoor/);
-  assert.match(kantoor("immo-beguin-waregem").intro, /postcode 8793/);
+  // De eigenaar bevestigde dat Waregem ook na de verhuis 8790 houdt:
+  // het profiel noemt alleen 8790, geen Google-postcode en geen verhuis.
+  const waregem = JSON.stringify([kantoor("immo-beguin-waregem"), getKantoorInzichten("immo-beguin-waregem")]);
+  assert.doesNotMatch(waregem, /8793/);
+  assert.doesNotMatch(waregem, /verhuis/i);
+  assert.equal(getKantoorInzichten("immo-beguin-waregem").bronnen[0].geraadpleegdOp, "2026-10-19");
   const vergelijkingWaregem = vergelijkbareKantoren(kantoor("immo-beguin-waregem"), kantoren);
-  assert.deepEqual(vergelijkingWaregem.map(v => v.kantoor.slug), ["immo-beguin-kortrijk"], "Leiestreek over de provinciegrens telt niet");
+  assert.deepEqual(vergelijkingWaregem.map(v => v.kantoor.slug), ["immo-beguin-kortrijk", "immo-beguin-nieuwpoort"], "Leiestreek over de provinciegrens telt niet");
   const logo = readFileSync(new URL("../public/afbeeldingen/kantoren/immo-beguin.svg", import.meta.url), "utf8");
   assert.doesNotMatch(logo, /<script|\son\w+=|href=|<image|<foreignObject/i);
   const css = readFileSync(new URL("../src/app/globals.css", import.meta.url), "utf8");
   assert.match(css, /img\[src="\/afbeeldingen\/kantoren\/immo-beguin\.svg"\]\s*\{[^}]*background-color:/);
+});
+
+test("Immo Beguin heeft vier extra vestigingen in Henegouwen en Nieuwpoort met primaire bronnen", () => {
+  const batch = [
+    ["immo-beguin-lessen", "Lessen", "Lessen (Lessines)", "Porte d'Ogy 78", "7860", "Henegouwen", "ChIJO8DVoZGpw0cRpHYx-9L9HHA", "https://www.immobeguin.be/kantoor-lessen"],
+    ["immo-beguin-doornik", "Doornik", "Doornik (Tournai)", "Place de Lille 22", "7500", "Henegouwen", "ChIJz1tnZcLfwkcRtUJgRLMvRVw", "https://www.immobeguin.be/kantoor-doornik"],
+    ["immo-beguin-moeskroen", "Moeskroen", "Moeskroen (Mouscron)", "Rue du Bois de Boulogne 1/3", "7700", "Henegouwen", "ChIJ0ZwOGp0lw0cRcZuWAjW7Xb0", "https://www.immobeguin.be/kantoor-moeskroen"],
+    ["immo-beguin-nieuwpoort", "Nieuwpoort", "Nieuwpoort", "Lombardsijdestraat 1", "8620", "West-Vlaanderen", undefined, "https://www.immobeguin.be/contact"],
+  ];
+  for (const [slug, plaats, gemeente, adres, postcode, provincie, placeId, website] of batch) {
+    const k = kantoor(slug);
+    assert.equal(kantoren.filter(o => o.slug === slug).length, 1);
+    assert.equal(k.naam, `Immo Beguin ${plaats}`);
+    assert.equal(k.gemeente, gemeente);
+    assert.equal(k.adres, adres);
+    assert.equal(k.postcode, postcode);
+    assert.equal(k.provincie, provincie);
+    assert.equal(k.provincieSlug, undefined, "Nog geen provinciegids voor Henegouwen of West-Vlaanderen");
+    assert.ok(k.regios.includes(provincie));
+    assert.ok(k.regios.includes(gemeente));
+    assert.equal(k.googlePlaceId, placeId);
+    if (placeId) assert.equal(kantoren.filter(o => o.googlePlaceId === placeId).length, 1);
+    assert.equal(k.website, website);
+    assert.equal(k.email, "info@immobeguin.be");
+    assert.equal(k.telefoon, "0486 60 66 00");
+    assert.equal(k.bivNummer, "504850");
+    assert.equal(k.bivHouder, "Sophie Beguin");
+    assert.equal(k.bivBron, "https://www.immobeguin.be/contact");
+    assert.equal(k.premium, undefined, "Basisprofiel, geen premium");
+    assert.equal(k.verborgenReviewRatings, undefined);
+    assert.equal(k.toegevoegdOp, "2026-10-19");
+    assert.equal(k.bivGecontroleerdOp, "2026-10-19");
+    assert.equal(k.foto, "/afbeeldingen/kantoren/immo-beguin.svg");
+    assert.equal(k.makelaar, undefined, "Een kantoorlogo is geen makelaarsportret");
+    assert.ok(k.intro.includes(`${adres}, ${postcode} ${gemeente}`));
+    const inzichten = getKantoorInzichten(slug);
+    assert.ok(inzichten.bronnen.every(b => b.geraadpleegdOp === "2026-10-19" && new URL(b.url).hostname === "www.immobeguin.be"));
+    assert.doesNotMatch(JSON.stringify([k, inzichten]), /[–—]/);
+    assert.doesNotMatch(JSON.stringify([k, inzichten]), /20\.000|\+3[05]|100%|zes kantoren|8 kantoren/, "Geen marketingcijfers van de kantoorwebsite");
+    assert.ok(k.seoTitle.length <= 60);
+    assert.ok(k.seoDescription.length <= 155);
+  }
+  // Henegouwen is een provincie, geen lokale overlap; Picardisch Wallonië wel.
+  const lessen = vergelijkbareKantoren(kantoor("immo-beguin-lessen"), kantoren);
+  assert.deepEqual(lessen.map(v => v.lokaal), [0, 0]);
+  assert.ok(lessen.every(v => /controleer het werkgebied/.test(v.reden)));
+  const doornik = vergelijkbareKantoren(kantoor("immo-beguin-doornik"), kantoren);
+  assert.equal(doornik[0].kantoor.slug, "immo-beguin-moeskroen");
+  assert.match(doornik[0].reden, /Picardisch Wallonië/);
+  // De Vlaamse commissievork staat niet op een Waals profiel.
+  const profiel = readFileSync(new URL("../src/app/kantoor/[slug]/page.tsx", import.meta.url), "utf8");
+  assert.match(profiel, /WAALSE_PROVINCIES = new Set\(\[[^\]]*"Henegouwen"/);
 });
 
 test("Een provincielink op een kantoorprofiel wijst altijd naar een bestaande provinciegids", () => {

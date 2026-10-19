@@ -71,6 +71,11 @@ function buildOver(k: Kantoor): string[] {
   return [p1, gebied + erkenning];
 }
 
+// De commissievork in de FAQ is een Vlaamse richtwaarde. Voor een vestiging in een
+// Waalse provincie noemen we die niet, zodat het profiel geen Vlaamse cijfers op een
+// Waals kantoor plakt.
+const WAALSE_PROVINCIES = new Set(["Henegouwen", "Luik", "Luxemburg", "Namen", "Waals-Brabant"]);
+
 function buildFaq(k: Kantoor) {
   const faq = [
     {
@@ -86,7 +91,9 @@ function buildFaq(k: Kantoor) {
     { q: `In welke regio is ${k.naam} actief?`, a: `${k.naam} is actief in ${k.regios.join(", ")}.` },
     {
       q: `Wat kost ${k.naam} bij de verkoop van een woning?`,
-      a: `Er is geen wettelijk tarief voor een vastgoedmakelaar. In Vlaanderen ligt de commissie meestal tussen 2% en 4% van de verkoopprijs, exclusief btw. Vraag via deze pagina een vrijblijvende offerte en vergelijk tarief en aanpak.`,
+      a: WAALSE_PROVINCIES.has(k.provincie)
+        ? `Er is geen wettelijk tarief voor een vastgoedmakelaar. De commissie en wat erin is inbegrepen, leg je vooraf vast in de bemiddelingsopdracht. Vraag via deze pagina een vrijblijvende offerte en vergelijk tarief en aanpak.`
+        : `Er is geen wettelijk tarief voor een vastgoedmakelaar. In Vlaanderen ligt de commissie meestal tussen 2% en 4% van de verkoopprijs, exclusief btw. Vraag via deze pagina een vrijblijvende offerte en vergelijk tarief en aanpak.`,
     },
   ];
   faq.push({

@@ -89,3 +89,8 @@ De Places-sleutel is verlopen; op productie toont geen enkel profiel reviewdata.
 De commit staat op de lokale branch `main`, direct bovenop `origin/main` (f17a678, de GVE-batch, die intussen gepusht is). De gewone projectmap staat op `codex/kennisbank-jakency-methodiek`; die wijzigingen zitten niet in deze commit.
 
 Lokaal gecommit, niet gepusht. Volgens de QA-afspraak gaat er niets live zolang een controle faalt, en de reviewcontrole faalt door de verlopen sleutel. Na akkoord van de operator volgen de push, de livecontrole en een aanvulling van dit document.
+
+## Aanvulling 19 oktober 2026
+
+- Sophie Beguin gaf op 18 oktober op LinkedIn ook toestemming voor de overige kantoren ("De andere mogen er ook bij!"). Lessen, Doornik, Moeskroen en Nieuwpoort zijn toegevoegd; zie `docs/kantoren-batch-2026-10-19.md`.
+- Waregem: de eigenaar bevestigde dat de vestiging ook na de verhuis postcode 8790 houdt. De intro noemt de Google-postcode 8793 en de verhuis niet meer, en het inzicht over de aangekondigde verhuis is vervangen door een neutraal inzicht over de vestiging in de Roterijstraat.
