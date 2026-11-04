@@ -1466,6 +1466,7 @@ export const kantoren: Kantoor[] = [
     bivHouder: "Stefanie Browaeys",
     bivBron: "https://weinvest.be/nl-BE/agencies/vlaamse-ardennen/63",
     bivGecontroleerdOp: "2026-11-04",
+    foto: "/afbeeldingen/kantoren/we-invest-vlaamse-ardennen.svg", // officieel We Invest-logo van weinvest.be
   },
 ];
 
