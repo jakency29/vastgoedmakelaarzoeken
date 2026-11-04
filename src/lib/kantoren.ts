@@ -1445,6 +1445,28 @@ export const kantoren: Kantoor[] = [
     bivGecontroleerdOp: "2026-09-09",
     foto: "/afbeeldingen/kantoren/sensimmo-maasmechelen.png",
   },
+  {
+    slug: "we-invest-vlaamse-ardennen",
+    googlePlaceId: "ChIJz5PjfEYJw0cR10TPtTWkVi4",
+    toegevoegdOp: "2026-11-04",
+    naam: "We Invest Vlaamse Ardennen",
+    makelaar: "Stefanie Browaeys",
+    gemeente: "Horebeke",
+    provincie: "Oost-Vlaanderen",
+    intro:
+      "We Invest Vlaamse Ardennen is het vastgoedkantoor aan de Dorpsstraat in Horebeke, onder leiding van Stefanie Browaeys. Het kantoor ging verder onder deze naam na Vastgoed Browaeys en begeleidt de verkoop, aankoop en verhuur van vastgoed in Zottegem, Zwalm, Brakel, Oudenaarde en Horebeke.",
+    diensten: ["Woning verkopen", "Woning kopen", "Verhuur"],
+    regios: ["Horebeke", "Oudenaarde", "Zottegem", "Brakel", "Zwalm"],
+    adres: "Dorpsstraat 93/1",
+    postcode: "9667",
+    telefoon: "055 59 50 10",
+    email: "vlaamse.ardennen@weinvest.be",
+    website: "https://weinvest.be/nl-BE/agencies/vlaamse-ardennen/63",
+    bivNummer: "504553",
+    bivHouder: "Stefanie Browaeys",
+    bivBron: "https://weinvest.be/nl-BE/agencies/vlaamse-ardennen/63",
+    bivGecontroleerdOp: "2026-11-04",
+  },
 ];
 
 export function getKantoor(slug: string): Kantoor | undefined {
