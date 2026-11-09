@@ -1468,6 +1468,55 @@ export const kantoren: Kantoor[] = [
     bivGecontroleerdOp: "2026-11-04",
     foto: "/afbeeldingen/kantoren/we-invest-vlaamse-ardennen.svg", // officieel We Invest-logo van weinvest.be
   },
+  // domoXim Vastgoed & Beheer: zetel in Boortmeerbeek (KBO 0524.976.371), tweede kantoor
+  // in Veltem (Herent). Het kantoor in Bonheiden staat (nog) niet op de site.
+  {
+    slug: "domoxim-boortmeerbeek",
+    googlePlaceId: "ChIJ8zmsTpfew0cRCiK842HjoP0",
+    toegevoegdOp: "2026-11-09",
+    naam: "domoXim Boortmeerbeek",
+    makelaar: "Ine Vermeeren",
+    gemeente: "Boortmeerbeek",
+    provincie: "Vlaams-Brabant",
+    provincieSlug: "vlaams-brabant",
+    intro:
+      "domoXim Boortmeerbeek is het kantoor van domoXim Vastgoed & Beheer aan de Leuvensesteenweg in Boortmeerbeek, sinds 2015 de thuisbasis van het kantoor, met Ine Vermeeren als zaakvoerder. domoXim begeleidt de verkoop, verhuur en aankoop van vastgoed en neemt als rentmeester het beheer van verhuurde woningen en appartementen over. Het werkgebied ligt in Vlaams-Brabant, tussen Mechelen en Leuven; daarnaast heeft domoXim kantoren in Herent en Bonheiden.",
+    diensten: ["Woning verkopen", "Verhuur", "Rentmeesterschap", "Aankoopbegeleiding", "Gratis schatting", "Nieuwbouw"],
+    regios: ["Boortmeerbeek", "Bonheiden", "Herent", "Mechelen", "Leuven", "Vlaams-Brabant"],
+    adres: "Leuvensesteenweg 215",
+    postcode: "3190",
+    telefoon: "015 20 36 00",
+    email: "boortmeerbeek@domoxim.be",
+    website: "https://www.domoxim.be/nl/",
+    bivNummer: "504956",
+    bivHouder: "Ine Vermeeren",
+    bivBron: "https://www.domoxim.be/nl/ons-verhaal/team/",
+    bivGecontroleerdOp: "2026-11-09",
+    foto: "/afbeeldingen/kantoren/domoxim.png", // officieel logo uit de websiteheader van domoxim.be
+  },
+  {
+    slug: "domoxim-herent",
+    googlePlaceId: "ChIJB6uO0JVhwUcRaoBbFXUDYuE",
+    toegevoegdOp: "2026-11-09",
+    naam: "domoXim Herent",
+    gemeente: "Herent",
+    provincie: "Vlaams-Brabant",
+    provincieSlug: "vlaams-brabant",
+    intro:
+      "domoXim Herent is het kantoor van domoXim Vastgoed & Beheer aan de Hollestraat in Veltem (Herent). Met dit kantoor zette domoXim in 2020 een stap richting de regio Leuven. Het team begeleidt de verkoop, verhuur en aankoop van vastgoed en neemt als rentmeester het beheer van verhuurde woningen en appartementen over. Naast Herent heeft domoXim kantoren in Boortmeerbeek en Bonheiden.",
+    diensten: ["Woning verkopen", "Verhuur", "Rentmeesterschap", "Aankoopbegeleiding", "Gratis schatting", "Nieuwbouw"],
+    regios: ["Herent", "Veltem", "Leuven", "Mechelen", "Vlaams-Brabant"],
+    adres: "Hollestraat 24",
+    postcode: "3020",
+    telefoon: "016 79 32 70",
+    email: "herent@domoxim.be",
+    website: "https://www.domoxim.be/nl/",
+    bivNummer: "504956",
+    bivHouder: "Ine Vermeeren",
+    bivBron: "https://www.domoxim.be/nl/ons-verhaal/team/",
+    bivGecontroleerdOp: "2026-11-09",
+    foto: "/afbeeldingen/kantoren/domoxim.png", // officieel logo uit de websiteheader van domoxim.be
+  },
 ];
 
 export function getKantoor(slug: string): Kantoor | undefined {
