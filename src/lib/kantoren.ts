@@ -1468,8 +1468,8 @@ export const kantoren: Kantoor[] = [
     bivGecontroleerdOp: "2026-11-04",
     foto: "/afbeeldingen/kantoren/we-invest-vlaamse-ardennen.svg", // officieel We Invest-logo van weinvest.be
   },
-  // domoXim Vastgoed & Beheer: zetel in Boortmeerbeek (KBO 0524.976.371), tweede kantoor
-  // in Veltem (Herent). Het kantoor in Bonheiden staat (nog) niet op de site.
+  // domoXim Vastgoed & Beheer: zetel in Boortmeerbeek (KBO 0524.976.371), verder kantoren
+  // in Veltem (Herent) en Bonheiden (provincie Antwerpen).
   {
     slug: "domoxim-boortmeerbeek",
     googlePlaceId: "ChIJ8zmsTpfew0cRCiK842HjoP0",
@@ -1510,6 +1510,29 @@ export const kantoren: Kantoor[] = [
     postcode: "3020",
     telefoon: "016 79 32 70",
     email: "herent@domoxim.be",
+    website: "https://www.domoxim.be/nl/",
+    bivNummer: "504956",
+    bivHouder: "Ine Vermeeren",
+    bivBron: "https://www.domoxim.be/nl/ons-verhaal/team/",
+    bivGecontroleerdOp: "2026-11-09",
+    foto: "/afbeeldingen/kantoren/domoxim.png", // officieel logo uit de websiteheader van domoxim.be
+  },
+  {
+    slug: "domoxim-bonheiden",
+    googlePlaceId: "ChIJ_W3aEczlw0cRwrMrvcELR3c",
+    toegevoegdOp: "2026-11-09",
+    naam: "domoXim Bonheiden",
+    gemeente: "Bonheiden",
+    provincie: "Antwerpen",
+    provincieSlug: "antwerpen",
+    intro:
+      "domoXim Bonheiden is het kantoor van domoXim Vastgoed & Beheer aan de Mechelsesteenweg in Bonheiden. Het kantoor opende in 2023 en is volgens domoXim een moderne operationele basis om de aanwezigheid in de regio Mechelen te versterken. Het team begeleidt de verkoop, verhuur en aankoop van vastgoed en neemt als rentmeester het beheer van verhuurde woningen en appartementen over. Naast Bonheiden heeft domoXim kantoren in Boortmeerbeek en Herent.",
+    diensten: ["Woning verkopen", "Verhuur", "Rentmeesterschap", "Aankoopbegeleiding", "Gratis schatting", "Nieuwbouw"],
+    regios: ["Bonheiden", "Mechelen", "Boortmeerbeek", "Leuven"],
+    adres: "Mechelsesteenweg 132",
+    postcode: "2820",
+    telefoon: "015 20 36 00",
+    email: "bonheiden@domoxim.be",
     website: "https://www.domoxim.be/nl/",
     bivNummer: "504956",
     bivHouder: "Ine Vermeeren",
