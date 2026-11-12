@@ -1540,6 +1540,31 @@ export const kantoren: Kantoor[] = [
     bivGecontroleerdOp: "2026-11-09",
     foto: "/afbeeldingen/kantoren/domoxim.png", // officieel logo uit de websiteheader van domoxim.be
   },
+  // Vanthuyne Vastgoed: één vestiging, de zetel van ESTGER BV (KBO 1027.298.888) in Roeselare,
+  // op afspraak. Geen provincieSlug: er bestaat (nog) geen gids voor West-Vlaanderen.
+  // Geen Google Place ID: geen eigen bedrijfsprofiel gevonden op 12 november 2026.
+  {
+    slug: "vanthuyne-vastgoed",
+    toegevoegdOp: "2026-11-12",
+    naam: "Vanthuyne Vastgoed",
+    makelaar: "Brecht Vanthuyne",
+    gemeente: "Roeselare",
+    provincie: "West-Vlaanderen",
+    intro:
+      "Vanthuyne Vastgoed is het vastgoedkantoor van makelaar Brecht Vanthuyne, met zetel aan de Lucien Bockstaelestraat in Roeselare, waar je op afspraak terechtkunt. Brecht is een Izegemnaar en volgens het kantoor al meer dan tien jaar actief in vastgoed. Hij begeleidt de verkoop en verhuur van woningen, appartementen en handelspanden persoonlijk, van een gratis schatting en de bezichtigingen tot de attesten en contracten, in Izegem, Roeselare en omstreken.",
+    diensten: ["Woning verkopen", "Verhuur", "Gratis schatting"],
+    regios: ["Izegem", "Roeselare", "West-Vlaanderen"],
+    adres: "Lucien Bockstaelestraat 5",
+    postcode: "8800",
+    telefoon: "051 63 60 65",
+    email: "info@vanthuynevastgoed.be",
+    website: "https://www.vanthuynevastgoed.be/nl",
+    bivNummer: "511121",
+    bivHouder: "Brecht Vanthuyne",
+    bivBron: "https://www.vanthuynevastgoed.be/nl/contact",
+    bivGecontroleerdOp: "2026-11-12",
+    foto: "/afbeeldingen/kantoren/vanthuyne-vastgoed.png", // officieel logo uit de websiteheader van vanthuynevastgoed.be
+  },
 ];
 
 export function getKantoor(slug: string): Kantoor | undefined {
