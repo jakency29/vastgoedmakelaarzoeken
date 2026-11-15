@@ -1565,6 +1565,33 @@ export const kantoren: Kantoor[] = [
     bivGecontroleerdOp: "2026-11-12",
     foto: "/afbeeldingen/kantoren/vanthuyne-vastgoed.png", // officieel logo uit de websiteheader van vanthuynevastgoed.be
   },
+  // Coenen Vastgoed & Partners: één vestiging, de zetel van Coenen Vastgoed BV (KBO 0757.900.392)
+  // aan de Turnhoutsebaan in Schilde, steeds op afspraak. Regio's afgeleid uit het huidige aanbod op
+  // coenenvastgoed.be (15 november 2026); de site noemt geen afgebakend werkgebied.
+  // Google Place ID van het eigen bedrijfsprofiel op hetzelfde adres en telefoonnummer.
+  {
+    slug: "coenen-vastgoed-partners",
+    googlePlaceId: "ChIJ9fSEAnP_w0cRfojVlzRMm0Q",
+    toegevoegdOp: "2026-11-15",
+    naam: "Coenen Vastgoed & Partners",
+    makelaar: "Tim Coenen",
+    gemeente: "Schilde",
+    provincie: "Antwerpen",
+    provincieSlug: "antwerpen",
+    intro:
+      "Coenen Vastgoed & Partners is het vastgoedkantoor van zaakvoerder Tim Coenen aan de Turnhoutsebaan in Schilde, waar je steeds op afspraak terechtkunt. Tim deed ervaring op bij kleine en grote vastgoedkantoren en wordt dagelijks bijgestaan door zijn collega's Sophie, Joep en Roxanne. Het kantoor werkt als one-stop-shop en begeleidt verkoop, verhuur en aankoop van woningen, appartementen en bouwgrond, van de waardebepaling en de presentatie tot de onderhandelingen en de akte, met één vast aanspreekpunt.",
+    diensten: ["Woning verkopen", "Verhuur", "Aankoopbegeleiding", "Gratis schatting"],
+    regios: ["Schilde", "Antwerpen", "Boechout", "Lier", "Nijlen", "Mechelen"],
+    adres: "Turnhoutsebaan 328",
+    postcode: "2970",
+    telefoon: "03 375 82 92",
+    email: "info@coenenvastgoed.be",
+    website: "https://www.coenenvastgoed.be/nl/",
+    bivNummer: "510630",
+    bivBron: "https://www.coenenvastgoed.be/nl/",
+    bivGecontroleerdOp: "2026-11-15",
+    foto: "/afbeeldingen/kantoren/coenen-vastgoed-partners.png", // officieel logo uit de websiteheader van coenenvastgoed.be
+  },
 ];
 
 export function getKantoor(slug: string): Kantoor | undefined {
